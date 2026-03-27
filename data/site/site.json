@@ -1,0 +1,20 @@
+{
+  "site_name": "BuildMate Calculators",
+  "site_url": "https://example.com",
+  "site_description": "Project calculators that help people estimate materials, quantities and job costs faster.",
+  "brand_name": "BuildMate Calculators",
+  "locale": "en-GB",
+  "market_positioning": "Global English project calculator site with strong home improvement and material-estimate intent.",
+  "header_navigation": [
+    {"label": "All calculators", "href": "/calculators/"},
+    {"label": "Material calculators", "href": "/calculators/materials/"},
+    {"label": "Cost calculators", "href": "/calculators/cost/"},
+    {"label": "Project guides", "href": "/guides/"}
+  ],
+  "footer_navigation": [
+    {"label": "About", "href": "/about/"},
+    {"label": "Calculator index", "href": "/calculators/"},
+    {"label": "Privacy", "href": "/privacy/"},
+    {"label": "Contact", "href": "/contact/"}
+  ]
+}

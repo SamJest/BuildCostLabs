@@ -1,0 +1,106 @@
+{
+  "slug": "paint-calculator",
+  "title": "Paint Calculator | Estimate Paint Needed for Walls, Ceilings and Single Surfaces",
+  "meta_description": "Use the BuildMate paint calculator to estimate how much paint you need for walls, ceilings or a single surface. Includes metric and imperial units, coats, openings, wastage and a full calculation breakdown.",
+  "heading": "Paint Calculator",
+  "eyebrow": "Material calculator",
+  "intro": "Estimate how much paint you need with a practical calculator that handles room walls, ceilings and single surfaces. Switch between metric and imperial units, add coats, subtract doors and windows, and get a clear litres, gallons and tin breakdown.",
+  "primary_category": "Materials",
+  "result_summary": "Use this calculator for quick room estimates, repaint planning, decorating quotes and material buying lists.",
+  "calculator": {
+    "default_mode": "walls",
+    "modes": [
+      {
+        "id": "walls",
+        "label": "Walls + room",
+        "description": "Best for most decorating jobs where you are painting the walls in a rectangular room and want doors and windows removed from the total."
+      },
+      {
+        "id": "ceiling",
+        "label": "Ceiling only",
+        "description": "Useful for flat ceiling estimates where you only need the room length and width."
+      },
+      {
+        "id": "single",
+        "label": "Single surface",
+        "description": "Use this for one wall, a fence section, a feature wall or any simple rectangular area."
+      }
+    ]
+  },
+  "unique_sections": [
+    {
+      "heading": "What makes this paint calculator different",
+      "paragraphs": [
+        "A lot of paint calculators stop at a single area total. This one is built more like a real estimating tool: it lets people switch between room walls, ceilings and single surfaces, then adjust coats, paint coverage, wastage and common openings.",
+        "That matters for uniqueness as the site grows. Future calculator pages should not repeat the same supporting copy with swapped keywords. Each page needs its own assumptions, mistakes, buying logic, FAQs and related jobs based on the actual search intent behind that tool."
+      ],
+      "bullets": [
+        "Handles metric and imperial inputs on the same page",
+        "Supports room walls, ceiling-only and single-area estimating",
+        "Shows litres, gallons and suggested 1L, 2.5L, 5L and 10L tin mixes",
+        "Keeps the explanation and FAQ specific to paint estimating, not generic materials copy"
+      ]
+    },
+    {
+      "heading": "When to trust the result and when to adjust it",
+      "paragraphs": [
+        "The output is a strong buying estimate, but real paint coverage can vary a lot by surface condition and product type. Fresh plaster, bare masonry, dark-to-light colour changes and heavily textured surfaces usually need more paint than a standard repaint on smooth painted walls.",
+        "If you are quoting a job rather than buying for yourself, it is safer to treat the calculator result as the base quantity and then add a margin for cutting-in, patch repairs, touch-ups, roller loading loss and product-specific coverage differences."
+      ],
+      "bullets": [
+        "Add extra for porous or unsealed surfaces",
+        "Keep coats realistic: many finish coats assume a prepared surface",
+        "Use manufacturer coverage figures when you already know the exact paint",
+        "Round up where matching colour batches matters"
+      ]
+    },
+    {
+      "heading": "Common paint estimating mistakes",
+      "paragraphs": [
+        "The biggest mistake is assuming the floor area equals the paint area. It does not. Wall paint depends mainly on perimeter and height, which is why room-wall mode uses those dimensions rather than floor area alone.",
+        "Another mistake is relying on a single headline coverage number. Two rooms with the same dimensions may need noticeably different amounts if one has multiple doors and windows and the other is mostly solid wall."
+      ],
+      "bullets": [
+        "Using floor area instead of wall area",
+        "Ignoring number of coats",
+        "Not subtracting openings where appropriate",
+        "Forgetting that feature colours and primers can change total litres needed"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How much area does 1 litre of paint cover?",
+      "answer": "A common planning assumption is around 10 square metres per litre per coat, but actual coverage depends on the product and the surface. Always check the tin when you know the exact paint you will use."
+    },
+    {
+      "question": "Should I subtract doors and windows?",
+      "answer": "For wall estimates, yes in most normal rooms. Subtracting openings usually gives a better buying figure, especially where there are multiple windows or large glazed doors."
+    },
+    {
+      "question": "How many coats should I enter?",
+      "answer": "Two coats is a sensible starting point for many decorating jobs, but some repaints may need one maintenance coat while drastic colour changes or poor surfaces can need more."
+    },
+    {
+      "question": "Does this calculator work for fence paint or shed paint?",
+      "answer": "Yes, the single-surface mode is suitable for simple rectangular areas such as fence sections, shed sides and feature walls. Just use the surface dimensions rather than a whole-room estimate."
+    }
+  ],
+  "related_calculators": [
+    {
+      "label": "Tile Calculator",
+      "href": "/calculators/tile-calculator/",
+      "description": "Estimate tile quantity, wastage and coverage for floors and walls."
+    },
+    {
+      "label": "Flooring Calculator",
+      "href": "/calculators/flooring-calculator/",
+      "description": "Work out room area, overage and pack quantities for common flooring jobs."
+    },
+    {
+      "label": "Concrete Calculator",
+      "href": "/calculators/concrete-calculator/",
+      "description": "Estimate concrete volume for slabs, footings and simple pours."
+    }
+  ]
+}

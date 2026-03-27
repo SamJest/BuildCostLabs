@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "paint-calculator",
+    "name": "Paint Calculator",
+    "category": "Materials",
+    "status": "planned",
+    "status_label": "Launch first",
+    "summary": "Estimate paint needed from wall dimensions, coats, openings and coverage assumptions."
+  },
+  {
+    "slug": "tile-calculator",
+    "name": "Tile Calculator",
+    "category": "Materials",
+    "status": "planned",
+    "status_label": "Launch first",
+    "summary": "Calculate tile quantities, wastage and coverage for floors, walls and splashbacks."
+  },
+  {
+    "slug": "flooring-calculator",
+    "name": "Flooring Calculator",
+    "category": "Materials",
+    "status": "planned",
+    "status_label": "Launch first",
+    "summary": "Work out flooring area, pack quantities and overage for common room shapes."
+  },
+  {
+    "slug": "concrete-calculator",
+    "name": "Concrete Calculator",
+    "category": "Materials",
+    "status": "planned",
+    "status_label": "Wave two",
+    "summary": "Estimate concrete volume for slabs, footings, fence posts and simple project shapes."
+  },
+  {
+    "slug": "gravel-calculator",
+    "name": "Gravel Calculator",
+    "category": "Materials",
+    "status": "planned",
+    "status_label": "Wave two",
+    "summary": "Calculate gravel tonnage from area, depth and aggregate assumptions for common jobs."
+  },
+  {
+    "slug": "decking-calculator",
+    "name": "Decking Calculator",
+    "category": "Outdoor projects",
+    "status": "planned",
+    "status_label": "Wave three",
+    "summary": "Estimate boards, joists and fixings for basic deck layouts and standard spacing."
+  },
+  {
+    "slug": "paving-calculator",
+    "name": "Paving Calculator",
+    "category": "Outdoor projects",
+    "status": "planned",
+    "status_label": "Wave three",
+    "summary": "Work out paving slab counts, bedding material and jointing quantities from plan area."
+  },
+  {
+    "slug": "fence-calculator",
+    "name": "Fence Calculator",
+    "category": "Outdoor projects",
+    "status": "planned",
+    "status_label": "Wave three",
+    "summary": "Estimate fence panels, posts and fixings from run length, spacing and layout."
+  }
+]

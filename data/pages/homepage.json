@@ -1,0 +1,82 @@
+{
+  "title": "BuildMate Calculators | Project calculators for materials, quantities and job costs",
+  "meta_description": "Estimate paint, tiles, flooring, concrete, gravel, paving and other project quantities with practical calculators built for real jobs.",
+  "hero_eyebrow": "Practical project calculators",
+  "hero_heading": "Estimate materials, quantities and project costs faster.",
+  "hero_text": "BuildMate Calculators is designed around real search intent: people who want quick answers for paint, tiles, flooring, concrete, gravel, decking, fencing and renovation jobs.",
+  "primary_cta_label": "Browse all calculators",
+  "primary_cta_href": "/calculators/",
+  "secondary_cta_label": "See material estimators",
+  "secondary_cta_href": "/calculators/materials/",
+  "hero_points": [
+    "Clean, search-friendly calculator URLs under /calculators/",
+    "Built for global English traffic with practical project-led keywords",
+    "Designed for ads first, with affiliate and lead paths later"
+  ],
+  "hero_panel_title": "Launch the highest-intent cluster first",
+  "hero_panel_text": "The first build should focus on material calculators with obvious search demand, strong utility and evergreen formulas.",
+  "hero_panel_list": [
+    "Paint calculators",
+    "Tile and flooring calculators",
+    "Concrete and gravel calculators",
+    "Decking, paving and fencing calculators"
+  ],
+  "features_heading": "A search-first calculator site structure that can scale cleanly.",
+  "features_text": "The site is being positioned around useful estimators that solve practical problems fast, rather than broad informational content.",
+  "feature_cards": [
+    {
+      "eyebrow": "Traffic",
+      "title": "Higher-intent long tails",
+      "text": "The strongest early pages are material and quantity estimators where the user wants a quick number, not a long article."
+    },
+    {
+      "eyebrow": "Evergreen",
+      "title": "Minimal maintenance",
+      "text": "Coverage assumptions, waste percentages and measurement formulas can stay useful for long periods with only occasional tuning."
+    },
+    {
+      "eyebrow": "Monetisation",
+      "title": "Ads first, more later",
+      "text": "The template is designed so ad placements can be added later without harming usability, and the same pages can support affiliate or lead CTAs."
+    }
+  ],
+  "categories_heading": "Start with the strongest search clusters, then expand outward.",
+  "categories_text": "Initial categories are ordered around likely traffic potential and usefulness for project-based searches.",
+  "category_cards": [
+    {
+      "kicker": "Cluster 1",
+      "title": "Paint, tiles and flooring",
+      "text": "High search demand, broad use cases and simple practical inputs make this the strongest first wave.",
+      "examples": [
+        "Paint calculator",
+        "Tile calculator",
+        "Laminate flooring calculator",
+        "Carpet area calculator"
+      ]
+    },
+    {
+      "kicker": "Cluster 2",
+      "title": "Concrete, gravel and aggregates",
+      "text": "Strong problem-solving intent and good monetisation potential through materials and project products later.",
+      "examples": [
+        "Concrete calculator",
+        "Gravel calculator",
+        "Topsoil calculator",
+        "Sand calculator"
+      ]
+    },
+    {
+      "kicker": "Cluster 3",
+      "title": "Decking, paving and fencing",
+      "text": "Good intent, strong adjacency to outdoor project searches and easy future expansion into cost estimates.",
+      "examples": [
+        "Decking calculator",
+        "Paving calculator",
+        "Fence panel calculator",
+        "Postcrete calculator"
+      ]
+    }
+  ],
+  "calculators_heading": "Planned launch set",
+  "calculators_text": "These initial calculators are set up as the strongest first batch before we move into deeper variants and long-tail combinations."
+}
