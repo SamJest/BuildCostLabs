@@ -13,6 +13,7 @@ def _config_for(item):
         "width_label": "Width",
         "depth_label": "Depth",
         "coverage_label": "Coverage per unit (m2)",
+        "coverage_mode": "area_per_unit",
         "density_label": "Density / tonnes per m3",
         "unit_size_label": "Unit size (tonnes or m3)",
         "piece_length_label": "Stock length",
@@ -95,6 +96,8 @@ def build_additional_calculator_pages():
             "unitNameSingular": cfg["unit_name_singular"],
             "unitNamePlural": cfg["unit_name_plural"],
             "resultIntro": cfg["result_intro"],
+            "coverageLabel": cfg["coverage_label"],
+            "coverageMode": cfg["coverage_mode"],
         }
         html = render_calculator_page(
             slug=item["slug"],

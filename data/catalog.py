@@ -4,11 +4,12 @@ from data.publisher import CALCULATOR_FAMILIES
 
 FORMULA_SUPPORT = {
     "coverage": {
-        "assumptions": "Coverage-based calculators assume the material is bought by usable area per unit, then rounded to whole buying units after waste is added.",
-        "mistakes": "The usual mistakes are using the wrong product coverage rate, ignoring trimming losses, and comparing pack prices without checking true covered area.",
-        "use_case": "Best for sheets, rolls, packs, boards, and bagged products where the real buying decision is coverage per unit.",
+        "assumptions": "Coverage-based calculators assume the product is bought by a stated coverage rate or yield, then rounded to whole buying units after waste is added.",
+        "mistakes": "The usual mistakes are using the wrong coverage or yield rate, ignoring trimming losses, and comparing pack prices without checking what each unit really covers.",
+        "use_case": "Best for products sold by tin, tub, bag, roll, sheet, pack, or board, where the real question is how many whole units the job needs.",
         "estimate_tip": "Start with clean geometry, add realistic waste, then check the product sheet because quoted coverage can vary by substrate and install method.",
         "buyer_tip": "If the result is close to the next full unit, most buyers round up to avoid delays, especially where colour, batch, or finish matching matters.",
+        "final_check": "Before placing an order, compare product yield, pack size, delivery cost, and whether buying one extra unit is safer than risking a shortfall.",
     },
     "volume": {
         "assumptions": "Volume calculators assume the job can be reduced to length, width, depth, and a practical density or buying-unit conversion.",
@@ -16,6 +17,7 @@ FORMULA_SUPPORT = {
         "use_case": "Best for aggregates, soils, screeds, and fill materials where the order usually starts with volume, then converts into tonnes, bags, or bulk units.",
         "estimate_tip": "Check whether the depth entered is the installed depth or the loose-delivered depth, because the difference can materially change the order.",
         "buyer_tip": "Bag and bulk pricing can diverge quickly once the quantity grows, so use the output to compare the real delivered buying route, not just a headline unit cost.",
+        "final_check": "Before placing an order, compare the assumed depth, density, buying-unit size, delivery access, and whether bulk supply is more realistic than bagged buying.",
     },
     "linear": {
         "assumptions": "Linear calculators assume materials are bought in stock lengths and the job can be reduced to a total run with a reasonable cut allowance.",
@@ -23,6 +25,7 @@ FORMULA_SUPPORT = {
         "use_case": "Best for trim, drainage, roofline, pipework, and edging products where the real order is based on whole stock lengths.",
         "estimate_tip": "Measure the full run, add realistic waste for cuts and joints, then check whether fittings and corners need to be costed separately.",
         "buyer_tip": "A slightly higher stock-length overage is often cheaper than losing time to a short final piece or making an extra delivery run.",
+        "final_check": "Before placing an order, compare stock lengths, join requirements, fittings, delivery charges, and whether one extra length is safer than running short on site.",
     },
 }
 
@@ -32,15 +35,15 @@ GENERIC_INTENT_TEMPLATES = {
             "slug_suffix": "calculator-by-area",
             "title": "{name} Calculator by Area",
             "description": "Estimate {name} from the area to be covered and a realistic waste allowance.",
-            "headline": "Use covered area to estimate {name} more accurately",
-            "intro": "If you already know the area, you can turn it into a practical buying quantity once coverage per unit and waste are clear.",
+            "headline": "Use area and product coverage to estimate {name} more accurately",
+            "intro": "If you already know the area, this page helps turn it into a more practical buying quantity once product yield and waste are clear.",
         },
         {
             "slug_suffix": "how-much-do-i-need",
             "title": "{name} Buying Guide",
             "description": "Plan a practical order for {name} before you buy materials.",
-            "headline": "Turn the coverage figure into a practical order for {name}",
-            "intro": "Use this page to sense-check the calculator result, decide how much spare to allow, and move from neat coverage into a real buying quantity.",
+            "headline": "Plan a practical order for {name} from the covered area",
+            "intro": "Use this page to sense-check the calculator result, decide how much spare to allow, and turn the covered area into a more practical buying quantity.",
         },
     ],
     "volume": [
@@ -238,6 +241,42 @@ ITEM_INTENT_TEMPLATES = {
     ],
 }
 
+ITEM_SUPPORT_OVERRIDES = {
+    "brick-calculator": {
+        "final_check": "Before placing an order, compare the brick size, openings, pack or pallet breaks, delivery damage risk, and whether a small spare is safer than a short final count.",
+    },
+    "block-calculator": {
+        "final_check": "Before placing an order, compare the block size, openings, pack or pallet breaks, delivery handling, and whether a small spare is safer than a short final count.",
+    },
+    "mortar-calculator": {
+        "assumptions": "Mortar estimates depend on joint thickness, unit type, wall detail, and whether the job is being supplied in bags, tubs, or bulk volume.",
+        "mistakes": "The common misses are using the wrong joint-depth assumption, underestimating handling waste, and forgetting that different unit sizes can change mortar demand noticeably.",
+        "use_case": "Best for brick and block laying jobs where the buyer wants a rough mortar quantity before comparing bagged and bulk buying routes.",
+        "estimate_tip": "Sense-check the assumed joint thickness and wall type first, because those two inputs move the mortar quantity more than many buyers expect.",
+        "buyer_tip": "For small jobs, a spare bag is usually safer than landing exactly on the theoretical minimum and risking a part-finished wall.",
+        "market_note": "Bag sizes, mix naming, and site mixing habits vary between markets, but yield, joint thickness, and waste are still the main drivers.",
+        "final_check": "Before placing an order, compare the assumed joint thickness, bag or bulk yield, weather exposure, and whether the job needs a small contingency for handling loss.",
+    },
+    "plaster-bead-calculator": {
+        "assumptions": "Plaster bead estimates depend on the total run length, profile type, corner details, and how standard stock lengths break across the job.",
+        "mistakes": "The common misses are forgetting stop beads, reveals, mitres, and the offcuts created when corners and openings do not divide neatly into stock lengths.",
+        "use_case": "Best for corners, reveals, stop ends, and trim lines where the buyer needs a practical stock-length estimate rather than a neat measured run.",
+        "estimate_tip": "Measure corners, reveals, and stop runs separately first, then combine them into a total length with a sensible allowance for mitres and offcuts.",
+        "buyer_tip": "A spare length is often worth having because damaged ends, awkward cuts, and last-minute reveal changes can quickly use up the final piece.",
+        "market_note": "Profile sizes and stock lengths differ between suppliers, but the estimating logic still starts with total run length, profile choice, and cut waste.",
+        "final_check": "Before placing an order, compare stock lengths, profile type, corner details, and whether an extra bead length is safer than a return trip for one missing piece.",
+    },
+    "roof-batten-calculator": {
+        "assumptions": "Roof batten estimates depend on the total measured run, batten gauge, roof detail, and how the available stock lengths break across the courses.",
+        "mistakes": "The common misses are forgetting extra batten at edges and details, underestimating joins, and assuming the full roof size matters more than the measured batten runs.",
+        "use_case": "Best for roofs where the total batten run is already known and the next decision is how many stock lengths to order with a realistic cut allowance.",
+        "estimate_tip": "Check the measured batten run against the roof detail, because eaves, ridges, openings, and repairs can all create extra lengths or wastage.",
+        "buyer_tip": "Ordering one or two extra battens is often cheaper than stopping a roof job because the final course or detail runs short.",
+        "market_note": "Batten sizes and roofing terminology vary, but stock length, roof detail, and cut waste remain the main estimate drivers.",
+        "final_check": "Before placing an order, compare batten gauge, stock length, joins, detail runs, and whether a small spare is worth carrying for damaged or unusable pieces.",
+    },
+}
+
 CLUSTER_OVERRIDES = {
     "soil-and-landscaping-estimating": {
         "cluster_intro": "Estimate topsoil, mulch, compost, and bark quantities with a focus on installed depth, delivery format, and whether the job is better served by bags or bulk supply.",
@@ -251,8 +290,8 @@ CLUSTER_OVERRIDES = {
         },
         "guides_by_formula": {
             "volume": [
-                {"slug_suffix": "depth-guide", "title": "{name} Depth Guide", "description": "See how installed depth changes the final buying quantity.", "headline": "Depth is the main reason landscaping orders swing", "intro": "A small change in depth can turn a manageable order into a shortfall or an expensive overbuy."},
-                {"slug_suffix": "bags-vs-bulk-guide", "title": "{name} Bags vs Bulk Guide", "description": "Compare bagged and bulk buying routes for this material.", "headline": "Choose the buying format before the order feels locked in", "intro": "The best buying route depends on quantity, access, labour, and how much packaging or loose handling the site can tolerate."},
+                {"slug_suffix": "depth-guide", "title": "{name} Depth Guide", "description": "See how installed depth changes the final buying quantity for {name}.", "headline": "Depth is the main reason landscaping orders swing", "intro": "A small change in depth can turn a manageable order into a shortfall or an expensive overbuy."},
+                {"slug_suffix": "bags-vs-bulk-guide", "title": "{name} Bags vs Bulk Guide", "description": "Compare bagged and bulk buying routes for {name}.", "headline": "Choose the buying format before the order feels locked in", "intro": "The best buying route depends on quantity, access, labour, and how much packaging or loose handling the site can tolerate."},
             ],
         },
     },
@@ -268,8 +307,8 @@ CLUSTER_OVERRIDES = {
         },
         "guides_by_formula": {
             "coverage": [
-                {"slug_suffix": "coverage-guide", "title": "{name} Coverage Guide", "description": "Understand how insulation pack or roll coverage turns into a real order quantity.", "headline": "Coverage numbers only help if the product format is clear", "intro": "Pack coverage is the bridge between room size and the real number of packs or rolls you need to buy."},
-                {"slug_suffix": "waste-and-fit-guide", "title": "{name} Waste and Fit Guide", "description": "See when insulation waste should be low, standard, or higher.", "headline": "Cutting and fitting losses are where insulation orders go wrong", "intro": "Joists, studs, rafters, and awkward edges often push the real buying total above the clean area figure."},
+                {"slug_suffix": "coverage-guide", "title": "{name} Coverage Guide", "description": "Understand how {name} pack or roll coverage turns into a real order quantity.", "headline": "Coverage numbers only help if the product format is clear", "intro": "Pack coverage is the bridge between room size and the real number of packs or rolls you need to buy."},
+                {"slug_suffix": "waste-and-fit-guide", "title": "{name} Waste and Fit Guide", "description": "See when {name} waste should be low, standard, or higher.", "headline": "Cutting and fitting losses are where insulation orders go wrong", "intro": "Joists, studs, rafters, and awkward edges often push the real buying total above the clean area figure."},
             ],
         },
     },
@@ -285,8 +324,8 @@ CLUSTER_OVERRIDES = {
         },
         "guides_by_formula": {
             "coverage": [
-                {"slug_suffix": "coverage-guide", "title": "{name} Coverage Guide", "description": "Learn how yield and thickness change bag quantities for this finish.", "headline": "Yield is only meaningful when thickness is honest", "intro": "Published coverage figures usually assume a specific thickness and a cooperative substrate, so real jobs need a more grounded view."},
-                {"slug_suffix": "substrate-and-waste-guide", "title": "{name} Substrate and Waste Guide", "description": "Understand how suction, uneven backgrounds, and waste alter the final quantity.", "headline": "Background condition can move the order more than the wall size", "intro": "A clean board surface and an uneven masonry wall do not consume finish in the same way, even when the area is identical."},
+                {"slug_suffix": "coverage-guide", "title": "{name} Coverage Guide", "description": "Learn how yield and thickness change {name} bag quantities.", "headline": "Yield is only meaningful when thickness is honest", "intro": "Published coverage figures usually assume a specific thickness and a cooperative substrate, so real jobs need a more grounded view."},
+                {"slug_suffix": "substrate-and-waste-guide", "title": "{name} Substrate and Waste Guide", "description": "Understand how suction, uneven backgrounds, and waste alter the final quantity for {name}.", "headline": "Background condition can move the order more than the wall size", "intro": "A clean board surface and an uneven masonry wall do not consume finish in the same way, even when the area is identical."},
             ],
         },
     },
@@ -302,8 +341,8 @@ CLUSTER_OVERRIDES = {
         },
         "guides_by_formula": {
             "coverage": [
-                {"slug_suffix": "count-per-area-guide", "title": "{name} Count per Area Guide", "description": "Understand how wall area turns into a practical unit count.", "headline": "The count starts with area, but the buying logic does not end there", "intro": "Wall area is only the first step. Openings, unit size, and waste all affect what should actually be ordered."},
-                {"slug_suffix": "waste-and-openings-guide", "title": "{name} Waste and Openings Guide", "description": "See how openings, cuts, and breakage affect the final masonry order.", "headline": "Waste and openings separate clean estimates from real orders", "intro": "Doors, windows, corners, and small returns can change the count enough to matter before the first pallet is ordered."},
+                {"slug_suffix": "count-per-area-guide", "title": "{name} Count per Area Guide", "description": "Understand how wall area turns into a practical {name} count.", "headline": "The count starts with area, but the buying logic does not end there", "intro": "Wall area is only the first step. Openings, unit size, and waste all affect what should actually be ordered."},
+                {"slug_suffix": "waste-and-openings-guide", "title": "{name} Waste and Openings Guide", "description": "See how openings, cuts, and breakage affect the final {name} order.", "headline": "Waste and openings separate clean estimates from real orders", "intro": "Doors, windows, corners, and small returns can change the count enough to matter before the first pallet is ordered."},
             ],
             "volume": [
                 {"slug_suffix": "yield-guide", "title": "{name} Yield Guide", "description": "Understand how joint size and wall type change mortar demand.", "headline": "Mortar yield depends on the wall as much as the mix", "intro": "The same volume of mortar behaves differently depending on joint thickness, unit type, and how much wastage the wall detail creates."},
@@ -323,8 +362,8 @@ CLUSTER_OVERRIDES = {
         },
         "guides_by_formula": {
             "coverage": [
-                {"slug_suffix": "coverage-guide", "title": "{name} Coverage Guide", "description": "Understand how effective roof coverage changes the final order quantity.", "headline": "Nominal coverage and effective coverage are not the same thing", "intro": "The label on the pack is only useful once laps, overlaps, and real roof geometry are accounted for."},
-                {"slug_suffix": "waste-and-overlap-guide", "title": "{name} Waste and Overlap Guide", "description": "See how edges, overlaps, and cuts affect roofing quantities.", "headline": "Overlap is not optional and waste is not random", "intro": "Edges, ridges, verge details, and overlap rules can quietly add more material than a flat-area estimate suggests."},
+                {"slug_suffix": "coverage-guide", "title": "{name} Coverage Guide", "description": "Understand how effective {name} coverage changes the final order quantity.", "headline": "Nominal coverage and effective coverage are not the same thing", "intro": "The label on the pack is only useful once laps, overlaps, and real roof geometry are accounted for."},
+                {"slug_suffix": "waste-and-overlap-guide", "title": "{name} Waste and Overlap Guide", "description": "See how edges, overlaps, and cuts affect {name} quantities.", "headline": "Overlap is not optional and waste is not random", "intro": "Edges, ridges, verge details, and overlap rules can quietly add more material than a flat-area estimate suggests."},
             ],
             "linear": [
                 {"slug_suffix": "length-guide", "title": "{name} Length Guide", "description": "Understand how stock lengths and roof geometry change the final order.", "headline": "Stock length logic matters more than raw roof size", "intro": "Battens and similar roofing lengths are bought in stock sizes, so the cutting pattern affects the total as much as the roof dimensions do."},
@@ -535,33 +574,37 @@ CLUSTER_HUB_CONTENT = {
 
 
 def build_support(item):
-    override = CLUSTER_OVERRIDES.get(item["cluster_slug"])
-    if override:
-        return override["support"]
     formula_support = FORMULA_SUPPORT[item["formula"]]
-    return {
+    support = {
         "assumptions": formula_support["assumptions"],
         "mistakes": formula_support["mistakes"],
         "use_case": f"{formula_support['use_case']} On this page, that usually means turning simple measurements into a more practical material order.",
         "estimate_tip": formula_support["estimate_tip"],
         "buyer_tip": formula_support["buyer_tip"],
         "market_note": "UK and US buyers often use different unit language and pack conventions, but the geometry, waste, and whole-unit rounding logic are still the foundation.",
+        "final_check": formula_support["final_check"],
     }
+    cluster_override = CLUSTER_OVERRIDES.get(item["cluster_slug"])
+    if cluster_override:
+        support |= cluster_override["support"]
+    item_override = ITEM_SUPPORT_OVERRIDES.get(item["slug"])
+    if item_override:
+        support |= item_override
+    return support
 
 
 def build_faqs(item):
-    override = CLUSTER_OVERRIDES.get(item["cluster_slug"])
+    support = build_support(item)
     name = item["name"]
-    if override:
-        return [
-            {"q": f"How do I use the {name}?", "a": "Enter the job dimensions, choose a realistic waste setting, and use this calculator to get a planning quantity before checking product-specific coverage or pack rules."},
-            {"q": f"What most affects the {name} result?", "a": override["support"]["mistakes"]},
-            {"q": "Should I round the result up?", "a": override["support"]["buyer_tip"]},
-        ]
+    how_to_answers = {
+        "coverage": "Enter the covered dimensions, choose a realistic waste setting, and use this calculator to build a planning quantity before checking the product yield or pack coverage.",
+        "volume": "Enter the measured dimensions and depth, choose a realistic waste setting, and use this calculator to compare the likely buying quantity before you choose bags, bulk, or tonnage-based supply.",
+        "linear": "Enter the total run, stock length, and a realistic waste setting, then use this calculator to plan the buying quantity before you check joins, fittings, and extra detail pieces.",
+    }
     return [
-        {"q": f"How do I use the {name}?", "a": "Enter the job dimensions, choose a sensible waste setting, and use this calculator as a practical buying guide rather than an exact order."},
-        {"q": f"What most affects the {name} result?", "a": "Usually the job dimensions, waste allowance, and the product coverage or stock-length assumption used to convert geometry into whole buying units."},
-        {"q": "Should I round the result up?", "a": "Usually yes, because most materials are bought in whole units and small site losses are common."},
+        {"q": f"How do I use the {name}?", "a": how_to_answers[item["formula"]]},
+        {"q": f"What most affects the {name} result?", "a": support["mistakes"]},
+        {"q": "Should I round the result up?", "a": support["buyer_tip"]},
     ]
 
 
@@ -573,7 +616,7 @@ def build_guides(item):
         {
             "slug": item["slug"].replace("-calculator", f"-{guide['slug_suffix']}"),
             "title": guide["title"].format(name=item_name),
-            "description": f"{item_name}: {guide['description'][0].lower()}{guide['description'][1:]}",
+            "description": guide["description"].format(name=item_name),
             "headline": guide["headline"],
             "intro": guide["intro"],
         }

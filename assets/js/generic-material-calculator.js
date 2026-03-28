@@ -66,17 +66,28 @@
 
     if (config.formula === "coverage") {
       const area = toMetricLength(getNumber("length")) * toMetricLength(getNumber("width"));
-      const coveragePerUnit = getNumber("coverage-per-unit");
+      const coverageRate = getNumber("coverage-per-unit");
       const coveredArea = area * wasteFactor;
-      units = coveragePerUnit > 0 ? Math.ceil(coveredArea / coveragePerUnit) : 0;
-      note = "Calculation: area plus waste, then rounded to whole buying units by coverage.";
+      const coverageMode = config.coverageMode || "area_per_unit";
+      units = coverageRate > 0
+        ? (
+            coverageMode === "units_per_area"
+              ? Math.ceil(coveredArea * coverageRate)
+              : Math.ceil(coveredArea / coverageRate)
+          )
+        : 0;
+      note = coverageMode === "units_per_area"
+        ? "Calculation: area plus waste, then multiplied by the unit rate and rounded to whole buying units."
+        : "Calculation: area plus waste, then rounded to whole buying units by coverage.";
 
       if (units > 0) {
         resultMain.textContent = `${units} ${unitLabel(units)}`;
-        resultSub.textContent = `That covers about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
+        resultSub.textContent = coverageMode === "units_per_area"
+          ? `That is based on about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.`
+          : `That covers about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
         resultBreakdown.innerHTML = `
           <div class="break-row"><span>Covered area incl. waste</span><strong>${coveredArea.toFixed(2)} m2</strong></div>
-          <div class="break-row"><span>Coverage per unit</span><strong>${coveragePerUnit.toFixed(2)} m2</strong></div>
+          <div class="break-row"><span>${config.coverageLabel || "Coverage per unit"}</span><strong>${coverageRate.toFixed(2)}${coverageMode === "units_per_area" ? "" : " m2"}</strong></div>
           <div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>
           <div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>
           <div class="calc-note">${note}</div>`;
