@@ -118,10 +118,16 @@ def build_site() -> None:
     write_file(OUTPUT_DIR / "sitemap.xml", build_sitemap())
     write_file(OUTPUT_DIR / "page-inventory.json", build_page_inventory())
     write_file(OUTPUT_DIR / "seo-report.json", build_seo_report())
+    write_file(OUTPUT_DIR / "CNAME", build_cname())
+    write_file(OUTPUT_DIR / ".nojekyll", "")
 
 
 def build_robots() -> str:
     return f"User-agent: *\nAllow: /\nSitemap: {SITE['base_url']}/sitemap.xml\n"
+
+
+def build_cname() -> str:
+    return f"{SITE['domain']}\n"
 
 
 def build_sitemap() -> str:
