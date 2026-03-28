@@ -28,8 +28,8 @@ def build_homepage(cards_html: str = ""):
   <div class="site-shell">
     <section class="hero hero-home">
       <div class="hero-brand-row">
-        <div class="logo-text">BuildCost<span>Labs</span></div>
-        <div class="eyebrow">buildcostlabs.com</div>
+        <img class="hero-logo" src="/assets/logo.svg" alt="{escape(SITE["name"])}">
+        <div class="eyebrow">buildcostlab.com</div>
       </div>
       <h1>Structured cost tools for real building jobs</h1>
       <p class="hero-copy">{escape(SITE["description"])}</p>

@@ -17,7 +17,7 @@ def render_nav() -> str:
     links = "".join(
         f'<a href="{escape(item["href"])}">{escape(item["label"])}</a>' for item in NAV_LINKS
     )
-    return f'<header class="site-header"><div class="site-shell header-shell"><a class="brand" href="/">{escape(SITE["name"])}</a><nav class="site-nav">{links}</nav></div></header>'
+    return f'<header class="site-header"><div class="site-shell header-shell"><a class="brand" href="/" aria-label="{escape(SITE["name"])} home"><img src="/assets/logo.svg" alt="{escape(SITE["name"])}"></a><nav class="site-nav">{links}</nav></div></header>'
 
 
 def render_footer() -> str:
@@ -143,6 +143,8 @@ def render_layout(*, title: str, description: str, path: str, content: str, sche
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#4f8fff">
   <meta name="google-site-verification" content="sqiSiIkXZHkd3G7PHNW6VYudbyt0SPyvvmI2vvdlb_Q">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="shortcut icon" href="/assets/favicon.svg">
   <link rel="canonical" href="{escape(canonical)}">
   <link rel="alternate" hreflang="en-GB" href="{escape(canonical)}">
   <link rel="alternate" hreflang="en-US" href="{escape(canonical)}">

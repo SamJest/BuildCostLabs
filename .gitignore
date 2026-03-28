@@ -4,6 +4,7 @@ __pycache__/
 
 # Build output
 output/
+.build-check-output/
 
 # OS files
 .DS_Store

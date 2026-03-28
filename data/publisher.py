@@ -1,11 +1,11 @@
 SITE = {
-    "name": "BuildCostLabs",
+    "name": "BuildCostLab",
     "tagline": "Calculator-first guides for building materials, quantities, and project costs",
-    "domain": "www.buildcostlabs.com",
-    "base_url": "https://www.buildcostlabs.com",
-    "description": "BuildCostLabs helps users estimate materials, waste, and rough costs with practical calculators and supporting guides.",
-    "default_image": "/assets/images/og-default.png",
-    "contact_email": "hello@buildcostlabs.com",
+    "domain": "buildcostlab.com",
+    "base_url": "https://buildcostlab.com",
+    "description": "BuildCostLab helps users estimate materials, waste, and rough costs with practical calculators and supporting guides.",
+    "default_image": "/assets/images/og-default.svg",
+    "contact_email": "hello@buildcostlab.com",
     "updated_label": "March 27, 2026",
     "methodology_path": "/calculator-methodology/",
     "editorial_policy_path": "/editorial-policy/",
@@ -21,10 +21,10 @@ NAV_LINKS = [
 TRUST_PAGES = [
     {
         "slug": "about",
-        "title": "About BuildCostLabs",
-        "description": "Learn what BuildCostLabs publishes and how the calculators are intended to be used.",
+        "title": "About BuildCostLab",
+        "description": "Learn what BuildCostLab publishes and how the calculators are intended to be used.",
         "headline": "Built for real measuring and buying decisions",
-        "intro": "BuildCostLabs is designed for people who want fast, practical quantity and cost estimates before they buy materials.",
+        "intro": "BuildCostLab is designed for people who want fast, practical quantity and cost estimates before they buy materials.",
         "sections": [
             {"title": "Who the site is for", "body": "Homeowners, installers, estimators, and tradespeople who need a rough planning answer before placing an order or pricing a job."},
             {"title": "What the site publishes", "body": "Interactive calculators, job-specific estimating guides, buying guidance, and practical notes on waste, coverage, and common ordering mistakes."},
@@ -32,19 +32,19 @@ TRUST_PAGES = [
     },
     {
         "slug": "contact",
-        "title": "Contact BuildCostLabs",
-        "description": "Contact BuildCostLabs about calculator feedback, corrections, or partnerships.",
-        "headline": "Contact the BuildCostLabs team",
+        "title": "Contact BuildCostLab",
+        "description": "Contact BuildCostLab about calculator feedback, corrections, or partnerships.",
+        "headline": "Contact the BuildCostLab team",
         "intro": "Use the contact details below for correction requests, calculator feedback, and commercial enquiries.",
         "sections": [
-            {"title": "General enquiries", "body": "Email hello@buildcostlabs.com for site feedback, calculator suggestions, and editorial corrections."},
+            {"title": "General enquiries", "body": "Email hello@buildcostlab.com for site feedback, calculator suggestions, and editorial corrections."},
             {"title": "Commercial enquiries", "body": "Use the same address for partnership, advertising, data licensing, and affiliate programme conversations."},
         ],
     },
     {
         "slug": "editorial-policy",
         "title": "Editorial Policy",
-        "description": "See how BuildCostLabs approaches calculator content, product guidance, updates, and factual corrections.",
+        "description": "See how BuildCostLab approaches calculator content, product guidance, updates, and factual corrections.",
         "headline": "Editorial standards",
         "intro": "The site is written to match practical estimating intent rather than inflate page count with duplicate copy.",
         "sections": [
@@ -55,9 +55,9 @@ TRUST_PAGES = [
     {
         "slug": "calculator-methodology",
         "title": "Calculator Methodology",
-        "description": "Understand how BuildCostLabs calculators estimate materials, waste, volume, packs, and rough project costs.",
+        "description": "Understand how BuildCostLab calculators estimate materials, waste, volume, packs, and rough project costs.",
         "headline": "How the calculators work",
-        "intro": "BuildCostLabs calculators apply common estimating formulas and then present the result in a buyer-friendly format.",
+        "intro": "BuildCostLab calculators apply common estimating formulas and then present the result in a buyer-friendly format.",
         "sections": [
             {"title": "Base formulas", "body": "Core outputs are based on area, volume, count, spacing, and coverage formulas appropriate to the material being estimated."},
             {"title": "Waste and buying logic", "body": "Pages add waste allowances, pack rounding, and rough buying guidance so the result is closer to a real order than a bare mathematical output."},
@@ -66,20 +66,20 @@ TRUST_PAGES = [
     {
         "slug": "privacy-policy",
         "title": "Privacy Policy",
-        "description": "Read the BuildCostLabs privacy policy covering analytics, ads, cookies, and communication.",
+        "description": "Read the BuildCostLab privacy policy covering analytics, ads, cookies, and communication.",
         "headline": "Privacy policy",
         "intro": "This site may use analytics, advertising technology, and contact forms or email conversations to operate and improve the service.",
         "sections": [
-            {"title": "Analytics and measurement", "body": "BuildCostLabs may collect standard analytics data such as pageviews, events, referrers, device classes, and engagement signals."},
+            {"title": "Analytics and measurement", "body": "BuildCostLab may collect standard analytics data such as pageviews, events, referrers, device classes, and engagement signals."},
             {"title": "Advertising and cookies", "body": "Advertising partners may use cookies or similar technologies to deliver, measure, and optimize ads subject to local laws and platform policies."},
         ],
     },
     {
         "slug": "terms",
         "title": "Terms of Use",
-        "description": "Read the BuildCostLabs terms covering informational use, liability limits, and site usage expectations.",
+        "description": "Read the BuildCostLab terms covering informational use, liability limits, and site usage expectations.",
         "headline": "Terms of use",
-        "intro": "BuildCostLabs provides informational calculators and guides for planning purposes only.",
+        "intro": "BuildCostLab provides informational calculators and guides for planning purposes only.",
         "sections": [
             {"title": "Planning use only", "body": "Outputs are intended as rough planning estimates, not contractual, structural, engineering, or professional advice."},
             {"title": "User responsibility", "body": "Users should verify measurements, product specifications, and local requirements before buying or building."},
@@ -88,9 +88,9 @@ TRUST_PAGES = [
     {
         "slug": "advertiser-disclosure",
         "title": "Advertiser Disclosure",
-        "description": "Read how BuildCostLabs handles advertising, affiliate relationships, and commercial placements.",
+        "description": "Read how BuildCostLab handles advertising, affiliate relationships, and commercial placements.",
         "headline": "Advertising and affiliate disclosure",
-        "intro": "BuildCostLabs may earn revenue from advertising and partner links.",
+        "intro": "BuildCostLab may earn revenue from advertising and partner links.",
         "sections": [
             {"title": "Display advertising", "body": "Pages may contain advertising placements that generate revenue based on approved performance metrics."},
             {"title": "Affiliate relationships", "body": "Some buying guides or commercial pages may contain affiliate links that can generate commission."},

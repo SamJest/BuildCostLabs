@@ -122,7 +122,7 @@ def build_guide_pages():
 def render_quality_strip(page_type: str) -> str:
     return (
         '<section class="quality-strip" aria-label="Freshness and methodology">'
-        f'<article class="content-card quality-card"><div class="quality-kicker">Updated</div><h2>{escape(SITE["updated_label"])}</h2><p>Reviewed against the current calculator logic, structured content, and internal linking used on BuildCostLabs.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">Updated</div><h2>{escape(SITE["updated_label"])}</h2><p>Reviewed against the current calculator logic, structured content, and internal linking used on {escape(SITE["name"])}.</p></article>'
         f'<article class="content-card quality-card"><div class="quality-kicker">Methodology</div><h2>Planning-first estimate</h2><p>Use this {escape(page_type)} to build a quick order or budget estimate, then confirm against product coverage data, site conditions, and supplier pack sizes.</p></article>'
         f'<article class="content-card quality-card"><div class="quality-kicker">Trust</div><h2>How we publish</h2><p>See the <a href="{escape(SITE["methodology_path"])}">calculator methodology</a> and <a href="{escape(SITE["editorial_policy_path"])}">editorial policy</a> for the standards behind these pages.</p></article>'
         '</section>'
@@ -194,7 +194,7 @@ def build_guides_index() -> tuple[str, str]:
     )
     return path, render_layout(
         title=f'Guides | {SITE["name"]}',
-        description="Browse BuildCostLabs guides covering material quantities, waste, and rough cost decisions.",
+        description="Browse BuildCostLab guides covering material quantities, waste, and rough cost decisions.",
         path=path,
         content=content,
         schema=[render_breadcrumb_schema(crumbs)],
@@ -224,7 +224,7 @@ def build_clusters_index() -> tuple[str, str]:
     )
     return path, render_layout(
         title=f'Clusters | {SITE["name"]}',
-        description="Browse BuildCostLabs topic clusters for calculators, guides, and next-step buying content.",
+        description="Browse BuildCostLab topic clusters for calculators, guides, and next-step buying content.",
         path=path,
         content=content,
         schema=[render_breadcrumb_schema(crumbs)],

@@ -39,7 +39,8 @@ body{
 a{color:inherit}
 .site-header,.site-footer{position:relative;z-index:2}
 .header-shell{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem .25rem .25rem}
-.brand{text-decoration:none;font-weight:900;letter-spacing:-.03em;font-size:1.2rem}
+.brand{display:inline-flex;align-items:center;text-decoration:none}
+.brand img{display:block;height:34px;width:auto}
 .site-nav{display:flex;flex-wrap:wrap;gap:.85rem}
 .site-nav a,.footer-note a{text-decoration:none;color:#315cae;font-weight:700}
 .site-shell{width:min(1120px, calc(100% - 1rem));margin:0 auto;padding:.9rem .25rem 3rem;position:relative}
@@ -74,6 +75,7 @@ a{color:inherit}
   pointer-events:none;
 }
 .hero-brand-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem}
+.hero-logo{display:block;width:min(300px, 62vw);height:auto}
 .logo-text{
   font-weight:800;
   font-size:1.55rem;
