@@ -26,6 +26,57 @@ FORMULA_SUPPORT = {
     },
 }
 
+GENERIC_INTENT_TEMPLATES = {
+    "coverage": [
+        {
+            "slug_suffix": "calculator-by-area",
+            "title": "{name} Calculator by Area",
+            "description": "Estimate {name_lower} from the area to be covered and a realistic waste allowance.",
+            "headline": "Use covered area to estimate {name_lower} more accurately",
+            "intro": "If you already know the area, you can turn it into a practical buying quantity once coverage per unit and waste are clear.",
+        },
+        {
+            "slug_suffix": "how-much-do-i-need",
+            "title": "How Much {name} Do I Need?",
+            "description": "Work out how much {name_lower} to buy before you order materials.",
+            "headline": "Work out how much {name_lower} to buy before you order",
+            "intro": "This page explains the main checks to make before turning a simple coverage figure into a real order quantity.",
+        },
+    ],
+    "volume": [
+        {
+            "slug_suffix": "calculator-by-volume",
+            "title": "{name} Calculator by Volume",
+            "description": "Estimate {name_lower} from length, width, depth, and a realistic waste allowance.",
+            "headline": "Use volume to estimate {name_lower} more confidently",
+            "intro": "Volume-first estimating is usually the quickest route into a usable buying quantity for loose, bagged, or bulk materials.",
+        },
+        {
+            "slug_suffix": "how-much-do-i-need",
+            "title": "How Much {name} Do I Need?",
+            "description": "Work out how much {name_lower} to order for your job without relying on rough guesswork.",
+            "headline": "Turn the job dimensions into a sensible {name_lower} order",
+            "intro": "A rough length, width, and depth can usually be turned into a much safer material order once waste and buying format are taken into account.",
+        },
+    ],
+    "linear": [
+        {
+            "slug_suffix": "length-calculator",
+            "title": "{name} Length Calculator",
+            "description": "Estimate {name_lower} from total run length, stock size, and a practical cut allowance.",
+            "headline": "Use total run length to estimate {name_lower} with less waste",
+            "intro": "Length-based materials are usually bought in stock sizes, so the clean run length is only the starting point.",
+        },
+        {
+            "slug_suffix": "how-much-do-i-need",
+            "title": "How Much {name} Do I Need?",
+            "description": "Work out how much {name_lower} to buy for your run, perimeter, or edge detail.",
+            "headline": "Work out how much {name_lower} to buy before you order stock lengths",
+            "intro": "A good buying number for length-based materials depends on the run, the stock size, and how much cutting waste the job will create.",
+        },
+    ],
+}
+
 CLUSTER_OVERRIDES = {
     "soil-and-landscaping-estimating": {
         "cluster_intro": "Estimate topsoil, mulch, compost, and bark quantities with a focus on installed depth, delivery format, and whether the job is better served by bags or bulk supply.",
@@ -172,6 +223,22 @@ def build_guides(item):
     ]
 
 
+def build_intent_pages(item):
+    item_name = item["name"].replace(" Calculator", "")
+    item_name_lower = item_name.lower()
+    templates = GENERIC_INTENT_TEMPLATES.get(item["formula"], [])
+    return [
+        {
+            "slug": item["slug"].replace("-calculator", f"-{page['slug_suffix']}"),
+            "title": page["title"].format(name=item_name),
+            "description": page["description"].format(name_lower=item_name_lower),
+            "headline": page["headline"].format(name_lower=item_name_lower),
+            "intro": page["intro"],
+        }
+        for page in templates
+    ]
+
+
 def get_cluster_intro(cluster_slug: str, fallback: str) -> str:
     override = CLUSTER_OVERRIDES.get(cluster_slug)
     if override:
@@ -189,7 +256,7 @@ def get_all_calculators():
                 "key": item["slug"].replace("-calculator", "").replace("-", "_"),
                 "support": build_support(item),
                 "faqs": build_faqs(item),
-                "intent_pages": [],
+                "intent_pages": build_intent_pages(item),
                 "guide_pages": build_guides(item),
             }
         )
