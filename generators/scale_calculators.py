@@ -9,11 +9,11 @@ from generators.publisher_pages import render_calculator_page
 def _config_for(item):
     item_name = item["name"].replace(" Calculator", "")
     if item["formula"] == "volume":
-        default_intro = f"You will see the material volume, buying quantity, rough material cost, and decision outputs for {item_name} here."
+        default_intro = f"You will see the material volume, buying quantity, rough material cost, and wider estimate view for {item_name} here."
     elif item["formula"] == "linear":
-        default_intro = f"You will see the required lengths, buying quantity, rough material cost, and decision outputs for {item_name} here."
+        default_intro = f"You will see the required lengths, buying quantity, rough material cost, and wider estimate view for {item_name} here."
     else:
-        default_intro = f"You will see the buying quantity, rough material cost, and decision outputs for {item_name} here."
+        default_intro = f"You will see the buying quantity, rough material cost, and wider estimate view for {item_name} here."
     return {
         "length_label": "Length",
         "width_label": "Width",

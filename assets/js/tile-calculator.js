@@ -80,7 +80,7 @@
 
   function renderDefaultState() {
     resultMain.textContent = "Enter your measurements";
-    resultSub.textContent = "You will see the tile count, box total, rough material cost, and decision outputs here.";
+    resultSub.textContent = "You will see the tile count, box total, rough material cost, and wider estimate view here.";
     resultBreakdown.innerHTML = "";
     if (intelligence) intelligence.clear();
   }

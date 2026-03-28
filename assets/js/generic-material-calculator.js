@@ -47,7 +47,7 @@
 
   function renderDefaultState() {
     resultMain.textContent = "Enter your measurements";
-    resultSub.textContent = config.resultIntro || "You will see the buying quantity, rough material cost, and decision outputs here.";
+    resultSub.textContent = config.resultIntro || "You will see the buying quantity, rough material cost, and wider estimate view here.";
     resultBreakdown.innerHTML = "";
     if (intelligence) intelligence.clear();
   }

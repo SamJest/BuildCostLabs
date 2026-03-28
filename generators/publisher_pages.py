@@ -198,8 +198,8 @@ def build_guide_pages():
 def render_quality_strip(page_type: str) -> str:
     return (
         '<section class="quality-strip" aria-label="Freshness and methodology">'
-        f'<article class="content-card quality-card"><div class="quality-kicker">Last checked</div><h2>{escape(SITE["updated_label"])}</h2><p>We checked the calculator logic, support notes, and internal links on this page.</p></article>'
-        f'<article class="content-card quality-card"><div class="quality-kicker">How to use it</div><h2>Use it to plan the job</h2><p>Use this {escape(page_type)} for an early buying and budgeting figure, then confirm the final order against product data and site conditions.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">Last checked</div><h2>{escape(SITE["updated_label"])}</h2><p>We checked the calculator logic, page notes, and related links on this page.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">How to use it</div><h2>Use it to plan the job</h2><p>Use this {escape(page_type)} for an early buying and budget check, then confirm the final order against product data and site conditions.</p></article>'
         f'<article class="content-card quality-card"><div class="quality-kicker">Why trust it</div><h2>See how the site is maintained</h2><p>Read the <a href="{escape(SITE["methodology_path"])}">calculator methodology</a> and <a href="{escape(SITE["editorial_policy_path"])}">editorial policy</a> for the standards behind these pages.</p></article>'
         '</section>'
     )
