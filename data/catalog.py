@@ -173,6 +173,79 @@ CLUSTER_OVERRIDES = {
     },
 }
 
+CLUSTER_HUB_CONTENT = {
+    "tile-estimating": {
+        "start_here_title": "Start with the right tiling question",
+        "start_here_intro": "Most tiling jobs begin with one of three questions: how many tiles, how much adhesive, and how much grout. Start with the part of the job you are buying first, then use the guides to check waste and box or bag rounding.",
+        "featured_slugs": ["tile-calculator", "tile-adhesive-calculator", "tile-grout-calculator"],
+        "question_heading": "Popular tiling questions",
+        "question_intro": "Use these pages when you already know the room or wall area and want a quicker route into tile, adhesive, or grout quantities.",
+        "guide_heading": "Tiling guides and buying checks",
+        "guide_intro": "These guides help with waste, box counts, and the practical differences between common tiling products.",
+        "notes": [
+            ("What changes a tile order most", "Tile size, layout pattern, breakage risk, and whether the job needs separate adhesive and grout calculations are usually the biggest drivers of the final order."),
+            ("When to increase waste", "Increase the waste allowance for diagonal layouts, feature borders, awkward cuts, or jobs where future matching tiles may be difficult."),
+            ("Before you order", "Check tile box coverage, adhesive coverage, grout yield, and whether trims, movement joints, and backer boards need to be bought separately."),
+        ],
+    },
+    "aggregate-and-base-estimating": {
+        "start_here_title": "Choose the aggregate or base material first",
+        "start_here_intro": "This cluster works best once you know whether the job needs bedding sand, compacted sub-base, MOT Type 1, ballast, or another bulk material. The calculators here help turn trench, patio, path, and driveway dimensions into a real delivered quantity.",
+        "featured_slugs": ["mot-type-1-calculator", "sub-base-calculator", "sharp-sand-calculator", "ballast-calculator"],
+        "question_heading": "Quick quantity pages",
+        "question_intro": "Start here if you mainly want to know how much bulk material to order from the dimensions of the job.",
+        "guide_heading": "Guides for delivery and depth decisions",
+        "guide_intro": "These pages help with the parts of aggregate ordering that usually cause mistakes: depth, compaction, and whether bags or bulk delivery make more sense.",
+        "notes": [
+            ("What changes these estimates most", "Installed depth, compaction, density, and the difference between finished depth and loose-delivered depth can move the order significantly."),
+            ("Why buying format matters", "A small domestic job may be easier with bags or mini bulk bags, while a larger driveway or patio base can look very different once loose delivery is priced."),
+            ("Before you order", "Check whether the supplier sells by tonne, cubic metre, or bag size, and confirm if the quoted quantity is loose, compacted, or effective coverage."),
+        ],
+    },
+    "drainage-estimating": {
+        "start_here_title": "Plan the trench and the material together",
+        "start_here_intro": "Drainage work usually needs more than one material at once. You may need pipe length, trench gravel, bedding material, and membrane coverage, so this hub is designed to help you move through those linked decisions without missing a part of the order.",
+        "featured_slugs": ["drainage-pipe-calculator", "french-drain-gravel-calculator", "pipe-bedding-calculator", "geotextile-membrane-calculator"],
+        "question_heading": "Common drainage quantity checks",
+        "question_intro": "Use these pages to estimate the main trench materials before you compare fittings, pipe sizes, and supplier pack options.",
+        "guide_heading": "Drainage planning guides",
+        "guide_intro": "These guides support the main calculators by helping with coverage, trench fill, and how much material is usually tied to each part of the run.",
+        "notes": [
+            ("What changes drainage quantities most", "Trench width, bedding depth, gravel surround, and the total run length are usually more important than the pipe diameter alone."),
+            ("Where people under-order", "Pipe runs are often estimated without enough bedding or gravel surround, especially where trench width grows around fittings or inspection points."),
+            ("Before you order", "Check whether fittings, chambers, connectors, and fabric overlaps need to be costed separately from the core trench materials."),
+        ],
+    },
+    "decorating-estimating": {
+        "start_here_title": "Pick the finish you are actually buying",
+        "start_here_intro": "Decorating estimates change depending on whether you are buying paint, wallpaper, or primer. Start with the finish layer that matches the job, then use the related pages to check waste, coverage, and how many tins or rolls you are likely to need.",
+        "featured_slugs": ["paint-calculator", "primer-calculator", "wallpaper-calculator"],
+        "question_heading": "Popular decorating questions",
+        "question_intro": "These pages are useful when you already know the walls, ceilings, or surface area and want a quick buying number.",
+        "guide_heading": "Coverage and waste guides",
+        "guide_intro": "The decorating guides help explain when a simple area figure needs a more cautious coverage or waste assumption.",
+        "notes": [
+            ("What changes these estimates most", "Coat count, surface texture, repeat patterns, and how much cut-in or trimming the job involves are the biggest reasons decorating orders change."),
+            ("When a quick estimate is enough", "A straightforward repaint or simple wallpaper layout can usually be planned quickly, but textured walls and pattern matching need more caution."),
+            ("Before you order", "Check product spread rates, roll yield, surface prep needs, and whether primer or sealer coats need to be bought separately from the finish coat."),
+        ],
+    },
+    "garden-surface-estimating": {
+        "start_here_title": "Match the surface to the way it is sold",
+        "start_here_intro": "Garden-surface materials are sold in very different ways. Turf often comes by roll, seed by pack coverage, artificial grass by roll width, and membrane by roll area, so this cluster helps you start with the right buying format for the job.",
+        "featured_slugs": ["turf-calculator", "grass-seed-calculator", "artificial-grass-calculator", "weed-membrane-calculator"],
+        "question_heading": "Quick lawn and surface calculators",
+        "question_intro": "Use these pages when you already know the lawn or surface area and want the quickest route into rolls, packs, or membrane coverage.",
+        "guide_heading": "Surface prep and buying guides",
+        "guide_intro": "These pages help explain which product format suits the job and where waste or extra prep materials often get missed.",
+        "notes": [
+            ("What changes these estimates most", "Surface area is the starting point, but overlaps, trimming, offcuts, and patching or edging waste can all push the real order higher."),
+            ("When the buying format matters most", "Roll goods and seeded areas behave very differently on awkward shapes, narrow strips, and borders with lots of trimming."),
+            ("Before you order", "Check roll sizes, pack coverage, overlaps, and whether topsoil, sub-base, or fixing accessories need to be ordered alongside the surface product itself."),
+        ],
+    },
+}
+
 
 def build_support(item):
     override = CLUSTER_OVERRIDES.get(item["cluster_slug"])
@@ -244,6 +317,10 @@ def get_cluster_intro(cluster_slug: str, fallback: str) -> str:
     if override:
         return override.get("cluster_intro", fallback)
     return fallback
+
+
+def get_cluster_hub_content(cluster_slug: str) -> dict:
+    return CLUSTER_HUB_CONTENT.get(cluster_slug, {})
 
 
 def get_all_calculators():
