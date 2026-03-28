@@ -94,9 +94,9 @@ def build_tile_page():
     </section>
     """
     return render_template("base.html", {
-        "title": "Tile Calculator | BuildMate Calculators",
+        "title": "Tile Calculator | BuildCostLab",
         "description": "Calculate tile quantities, waste and boxes needed using room area and tile size.",
-        "canonical": "https://example.com/calculators/tile-calculator/",
+        "canonical": "https://buildcostlab.com/calculators/tile-calculator/",
         "content": content,
         "script_path": "/assets/js/tile.js",
     })

@@ -10,9 +10,9 @@
   const resultBreakdown = document.getElementById("result-breakdown");
 
   const currencyMap = {
-    GBP: { symbol: "GBP £", rate: 1 },
+    GBP: { symbol: "GBP", rate: 1 },
     USD: { symbol: "USD $", rate: 1.27 },
-    EUR: { symbol: "EUR €", rate: 1.17 },
+    EUR: { symbol: "EUR", rate: 1.17 },
   };
 
   let mode = "walls";
@@ -85,15 +85,15 @@
     const topUpLitres = Math.max(remainderAfterTen - (fiveLitreTins * 5), 0);
 
     resultMain.textContent = `${litres.toFixed(2)} litres of paint`;
-    resultSub.textContent = `That covers about ${adjustedArea.toFixed(2)} m² across ${coats} coat(s), with a rough material cost of ${formatMoney(estimatedCost)}.`;
+    resultSub.textContent = `That covers about ${adjustedArea.toFixed(2)} m2 across ${coats} coat(s), with a rough material cost of ${formatMoney(estimatedCost)}.`;
     resultBreakdown.innerHTML = `
-      <div class="break-row"><span>Estimated ${modeLabel()}</span><strong>${baseArea.toFixed(2)} m²</strong></div>
-      <div class="break-row"><span>Area incl. coats and waste</span><strong>${adjustedArea.toFixed(2)} m²</strong></div>
-      <div class="break-row"><span>Coverage per litre</span><strong>${coverage.toFixed(2)} m²/L</strong></div>
+      <div class="break-row"><span>Estimated ${modeLabel()}</span><strong>${baseArea.toFixed(2)} m2</strong></div>
+      <div class="break-row"><span>Area incl. coats and waste</span><strong>${adjustedArea.toFixed(2)} m2</strong></div>
+      <div class="break-row"><span>Coverage per litre</span><strong>${coverage.toFixed(2)} m2/L</strong></div>
       <div class="break-row"><span>Paint needed</span><strong>${litres.toFixed(2)} litres</strong></div>
       <div class="break-row"><span>Price per litre</span><strong>${formatMoney(pricePerLitre)}</strong></div>
       <div class="break-row"><span>Estimated material cost</span><strong>${formatMoney(estimatedCost)}</strong></div>
-      <div class="calc-note">Suggested buying mix: ${tenLitreTins ? `${tenLitreTins} × 10L` : "0 × 10L"}${fiveLitreTins ? `, ${fiveLitreTins} × 5L` : ""}${topUpLitres > 0.05 ? `, plus a small top-up tin` : ""}.</div>
+      <div class="calc-note">Suggested buying mix: ${tenLitreTins ? `${tenLitreTins} x 10L` : "0 x 10L"}${fiveLitreTins ? `, ${fiveLitreTins} x 5L` : ""}${topUpLitres > 0.05 ? ", plus a small top-up tin" : ""}.</div>
     `;
   }
 

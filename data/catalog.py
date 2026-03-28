@@ -6,7 +6,7 @@ FORMULA_SUPPORT = {
     "coverage": {
         "assumptions": "Coverage-based calculators assume the product is bought by a stated coverage rate or yield, then rounded to whole buying units after waste is added.",
         "mistakes": "The usual mistakes are using the wrong coverage or yield rate, ignoring trimming losses, and comparing pack prices without checking what each unit really covers.",
-        "use_case": "Best for products sold by tin, tub, bag, roll, sheet, pack, or board, where the real question is how many whole units the job needs.",
+        "use_case": "Works best for materials sold by pack, roll, sheet, board, bag, or tin, where the real task is turning a measured area into a whole-unit order.",
         "estimate_tip": "Start with clean geometry, add realistic waste, then check the product sheet because quoted coverage can vary by substrate and install method.",
         "buyer_tip": "If the result is close to the next full unit, most buyers round up to avoid delays, especially where colour, batch, or finish matching matters.",
         "final_check": "Before placing an order, compare product yield, pack size, delivery cost, and whether buying one extra unit is safer than risking a shortfall.",
@@ -34,48 +34,48 @@ GENERIC_INTENT_TEMPLATES = {
         {
             "slug_suffix": "calculator-by-area",
             "title": "{name} Calculator by Area",
-            "description": "Estimate {name} from the area to be covered and a realistic waste allowance.",
-            "headline": "Use area and product coverage to estimate {name} more accurately",
-            "intro": "If you already know the area, this page helps turn it into a more practical buying quantity once product yield and waste are clear.",
+            "description": "Work out how much {name} you need from the measured area and a realistic waste allowance.",
+            "headline": "Use area and product coverage to work out {name}",
+            "intro": "If you already know the area, this page helps turn it into a buying quantity with product yield and waste in mind.",
         },
         {
             "slug_suffix": "how-much-do-i-need",
             "title": "{name} Buying Guide",
-            "description": "Plan a practical order for {name} before you buy materials.",
-            "headline": "Plan a practical order for {name} from the covered area",
-            "intro": "Use this page to sense-check the calculator result, decide how much spare to allow, and turn the covered area into a more practical buying quantity.",
+            "description": "Work out a sensible buying quantity for {name} before you order.",
+            "headline": "{name}: how much should you buy?",
+            "intro": "Use this guide to sense-check the calculator result, allow for spare material, and turn the covered area into a more practical order.",
         },
     ],
     "volume": [
         {
             "slug_suffix": "calculator-by-volume",
             "title": "{name} Calculator by Volume",
-            "description": "Estimate {name} from length, width, depth, and a realistic waste allowance.",
-            "headline": "Use volume to estimate {name} more confidently",
+            "description": "Work out how much {name} you need from length, width, depth, and a realistic waste allowance.",
+            "headline": "Use volume to work out {name} with more confidence",
             "intro": "Volume-first estimating is usually the quickest route into a usable buying quantity for loose, bagged, or bulk materials.",
         },
         {
             "slug_suffix": "how-much-do-i-need",
             "title": "{name} Quantity Guide",
-            "description": "Turn job dimensions into a practical order quantity for {name}.",
-            "headline": "Turn the job dimensions into a practical order for {name}",
-            "intro": "Use this page to sense-check the calculator result, compare buying formats, and move from raw volume into a more reliable order quantity.",
+            "description": "Use the job dimensions to build a sensible order quantity for {name}.",
+            "headline": "{name}: how much should you order?",
+            "intro": "Use this guide to sense-check the calculator result, compare buying formats, and move from raw volume into a more reliable order.",
         },
     ],
     "linear": [
         {
             "slug_suffix": "length-calculator",
             "title": "{name} Length Calculator",
-            "description": "Estimate {name} from total run length, stock size, and a practical cut allowance.",
-            "headline": "Use total run length to estimate {name} with less waste",
+            "description": "Work out how much {name} you need from total run length, stock size, and a practical cut allowance.",
+            "headline": "Use total run length to work out {name} with less waste",
             "intro": "Length-based materials are usually bought in stock sizes, so the clean run length is only the starting point.",
         },
         {
             "slug_suffix": "how-much-do-i-need",
             "title": "{name} Buying Guide",
-            "description": "Turn the measured run into a practical order for {name} before you buy stock lengths.",
-            "headline": "Turn the measured run into a practical order for {name}",
-            "intro": "Use this page to sense-check the calculator result, compare stock lengths, and allow for the cutting waste that affects real buying totals.",
+            "description": "Turn the measured run into a sensible order for {name} before you buy stock lengths.",
+            "headline": "{name}: how much should you buy?",
+            "intro": "Use this guide to sense-check the calculator result, compare stock lengths, and allow for the cutting waste that affects real buying totals.",
         },
     ],
 }
@@ -390,7 +390,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "aggregate-and-base-estimating": {
         "start_here_title": "Choose the aggregate or base material first",
-        "start_here_intro": "This cluster works best once you know whether the job needs bedding sand, compacted sub-base, MOT Type 1, ballast, or another bulk material. The calculators here help turn trench, patio, path, and driveway dimensions into a real delivered quantity.",
+        "start_here_intro": "This tool set works best once you know whether the job needs bedding sand, compacted sub-base, MOT Type 1, ballast, or another bulk material. The calculators here help turn trench, patio, path, and driveway dimensions into a real delivered quantity.",
         "featured_slugs": ["mot-type-1-calculator", "sub-base-calculator", "sharp-sand-calculator", "ballast-calculator"],
         "question_heading": "Quick quantity pages",
         "question_intro": "Start here if you mainly want to know how much bulk material to order from the dimensions of the job.",
@@ -432,7 +432,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "garden-surface-estimating": {
         "start_here_title": "Match the surface to the way it is sold",
-        "start_here_intro": "Garden-surface materials are sold in very different ways. Turf often comes by roll, seed by pack coverage, artificial grass by roll width, and membrane by roll area, so this cluster helps you start with the right buying format for the job.",
+        "start_here_intro": "Garden-surface materials are sold in very different ways. Turf often comes by roll, seed by pack coverage, artificial grass by roll width, and membrane by roll area, so this tool set helps you start with the right buying format for the job.",
         "featured_slugs": ["turf-calculator", "grass-seed-calculator", "artificial-grass-calculator", "weed-membrane-calculator"],
         "question_heading": "Quick lawn and surface calculators",
         "question_intro": "Use these pages when you already know the lawn or surface area and want the quickest route into rolls, packs, or membrane coverage.",
@@ -446,7 +446,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "roofline-estimating": {
         "start_here_title": "Break the roofline into the parts you are buying",
-        "start_here_intro": "Roofline jobs usually involve several linked products rather than one single quantity. Use this cluster to split the job into fascia, soffit, guttering, and downpipes so each part can be measured and ordered in a more practical way.",
+        "start_here_intro": "Roofline jobs usually involve several linked products rather than one single quantity. Use this tool set to split the job into fascia, soffit, guttering, and downpipes so each part can be measured and ordered in a more practical way.",
         "featured_slugs": ["fascia-calculator", "soffit-calculator", "gutter-calculator", "gutter-guard-calculator", "downpipe-calculator"],
         "question_heading": "Quick roofline quantity pages",
         "question_intro": "Use these pages when you already know the run lengths and want a fast route into boards, gutters, or downpipe quantities.",
@@ -460,7 +460,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "trim-and-joinery-estimating": {
         "start_here_title": "Start with the trim run you can actually measure",
-        "start_here_intro": "Joinery trims are usually bought in stock lengths, so the clean perimeter or opening size is only the starting point. This cluster groups together the main room trims so you can estimate skirting, architrave, and coving without treating them as interchangeable.",
+        "start_here_intro": "Joinery trims are usually bought in stock lengths, so the clean perimeter or opening size is only the starting point. This tool set groups together the main room trims so you can estimate skirting, architrave, and coving without treating them as interchangeable.",
         "featured_slugs": ["skirting-board-calculator", "architrave-calculator", "coving-calculator"],
         "question_heading": "Quick trim quantity pages",
         "question_intro": "These pages are useful when you already know the room perimeter or door and ceiling runs and want a quick stock-length estimate.",
@@ -474,7 +474,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "floor-prep-estimating": {
         "start_here_title": "Choose the floor prep layer before you calculate",
-        "start_here_intro": "Floor preparation often involves several materials that do different jobs: membranes for moisture control, underlay for comfort or noise, and compounds or screeds for levelling. Use this cluster to start with the prep layer that actually matches the job.",
+        "start_here_intro": "Floor preparation often involves several materials that do different jobs: membranes for moisture control, underlay for comfort or noise, and compounds or screeds for levelling. Use this tool set to start with the prep layer that actually matches the job.",
         "featured_slugs": ["screed-calculator", "self-levelling-compound-calculator", "underlay-calculator", "dpm-calculator"],
         "question_heading": "Common floor prep questions",
         "question_intro": "Use these pages when you want a fast estimate for the layer you need before comparing product options or installation methods.",
@@ -488,7 +488,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "drywall-and-finish-estimating": {
         "start_here_title": "Treat boards, screws, and compound as separate buying decisions",
-        "start_here_intro": "Drywall work is easy to under-estimate if you only count the boards. This cluster helps separate the sheet coverage, screw quantity, and finishing material so you can build a more realistic order for boarding and jointing work.",
+        "start_here_intro": "Drywall work is easy to under-estimate if you only count the boards. This tool set helps separate the sheet coverage, screw quantity, and finishing material so you can build a more realistic order for boarding and jointing work.",
         "featured_slugs": ["plasterboard-calculator", "plasterboard-adhesive-calculator", "drywall-screws-calculator", "joint-compound-calculator"],
         "question_heading": "Quick drywall quantity pages",
         "question_intro": "Use these pages when you already know the wall or ceiling area and want a quick route into sheets, screws, or finishing material.",
@@ -502,7 +502,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "exterior-finish-estimating": {
         "start_here_title": "Pick the exterior finish before you estimate the order",
-        "start_here_intro": "Exterior finishes can behave very differently depending on whether the job uses cladding boards, sealers, or another protective layer. This cluster helps keep those buying routes separate so the estimate matches the product system you are actually using.",
+        "start_here_intro": "Exterior finishes can behave very differently depending on whether the job uses cladding boards, sealers, or another protective layer. This tool set helps keep those buying routes separate so the estimate matches the product system you are actually using.",
         "featured_slugs": ["cladding-calculator", "masonry-sealer-calculator", "wood-stain-calculator"],
         "question_heading": "Quick exterior-finish calculators",
         "question_intro": "Use these pages when you already know the wall area and want a faster route into boards, coverage products, or protective coatings.",
@@ -516,7 +516,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "concrete-reinforcement-estimating": {
         "start_here_title": "Estimate the reinforcement in the form it is actually bought",
-        "start_here_intro": "Reinforcement is usually ordered either as mesh sheets or individual rebar lengths, and those two buying routes behave differently. This cluster keeps them separate so you can move from slab or footing size into a more practical reinforcement order.",
+        "start_here_intro": "Reinforcement is usually ordered either as mesh sheets or individual rebar lengths, and those two buying routes behave differently. This tool set keeps them separate so you can move from slab or footing size into a more practical reinforcement order.",
         "featured_slugs": ["mesh-calculator", "rebar-calculator"],
         "question_heading": "Quick reinforcement pages",
         "question_intro": "Use these pages when you already know the slab area or total run length and want a fast starting estimate for mesh or rebar.",
@@ -530,7 +530,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "decking-estimating": {
         "start_here_title": "Break the decking job into boards and fixings",
-        "start_here_intro": "Decking materials are often under-estimated because the board count gets attention before the fixings and layout waste do. This cluster keeps the main timber quantity and the screw order separate so the buying list is more practical.",
+        "start_here_intro": "Decking materials are often under-estimated because the board count gets attention before the fixings and layout waste do. This tool set keeps the main timber quantity and the screw order separate so the buying list is more practical.",
         "featured_slugs": ["decking-calculator", "deck-screws-calculator"],
         "question_heading": "Quick decking quantity pages",
         "question_intro": "Use these pages when you already know the deck area and want a fast route into boards, fixings, or common decking buying checks.",
@@ -544,7 +544,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "paving-and-patio-estimating": {
         "start_here_title": "Treat the patio as a layered build-up, not one single quantity",
-        "start_here_intro": "Paving jobs usually need slabs or pavers, bedding material, and jointing products rather than one single material order. This cluster helps separate those layers so the estimate matches the way patios are actually bought and built.",
+        "start_here_intro": "Paving jobs usually need slabs or pavers, bedding material, and jointing products rather than one single material order. This tool set helps separate those layers so the estimate matches the way patios are actually bought and built.",
         "featured_slugs": ["paving-calculator", "paving-sand-calculator", "paving-jointing-compound-calculator"],
         "question_heading": "Quick paving quantity pages",
         "question_intro": "Use these pages when you already know the paved area and want a quicker route into slabs, bedding sand, or jointing product quantities.",
@@ -558,7 +558,7 @@ CLUSTER_HUB_CONTENT = {
     },
     "roofing-estimating": {
         "start_here_title": "Match the roof covering to the real roof shape",
-        "start_here_intro": "Roofing quantities often change once overlaps, laps, ridge details, and smaller outbuilding layouts are considered. This cluster separates shingles, felt, and battens so you can estimate the roofing layer that actually matches the job.",
+        "start_here_intro": "Roofing quantities often change once overlaps, laps, ridge details, and smaller outbuilding layouts are considered. This tool set separates shingles, felt, and battens so you can estimate the roofing layer that actually matches the job.",
         "featured_slugs": ["roofing-shingle-calculator", "roof-felt-calculator", "shed-felt-calculator", "roof-batten-calculator"],
         "question_heading": "Quick roofing quantity pages",
         "question_intro": "Use these pages when you already know the roof area or total batten run and want a faster route into bundles, rolls, or stock lengths.",
@@ -578,7 +578,7 @@ def build_support(item):
     support = {
         "assumptions": formula_support["assumptions"],
         "mistakes": formula_support["mistakes"],
-        "use_case": f"{formula_support['use_case']} On this page, that usually means turning simple measurements into a more practical material order.",
+        "use_case": formula_support["use_case"],
         "estimate_tip": formula_support["estimate_tip"],
         "buyer_tip": formula_support["buyer_tip"],
         "market_note": "UK and US buyers often use different unit language and pack conventions, but the geometry, waste, and whole-unit rounding logic are still the foundation.",
@@ -597,13 +597,18 @@ def build_faqs(item):
     support = build_support(item)
     name = item["name"]
     how_to_answers = {
-        "coverage": "Enter the covered dimensions, choose a realistic waste setting, and use this calculator to build a planning quantity before checking the product yield or pack coverage.",
+        "coverage": "Enter the covered dimensions, choose a realistic waste setting, and use this calculator to turn the measured area into a practical buying quantity.",
         "volume": "Enter the measured dimensions and depth, choose a realistic waste setting, and use this calculator to compare the likely buying quantity before you choose bags, bulk, or tonnage-based supply.",
         "linear": "Enter the total run, stock length, and a realistic waste setting, then use this calculator to plan the buying quantity before you check joins, fittings, and extra detail pieces.",
     }
+    result_drivers = {
+        "coverage": "The biggest drivers are the measured area, the waste allowance, and the coverage rate or unit count used to turn that area into a buying quantity.",
+        "volume": "The biggest drivers are the measured depth, the density or yield assumption, and whether the material is being bought loose, bulk, or bagged.",
+        "linear": "The biggest drivers are the measured run, the stock length, and the extra waste created by cuts, corners, joints, and awkward end details.",
+    }
     return [
         {"q": f"How do I use the {name}?", "a": how_to_answers[item["formula"]]},
-        {"q": f"What most affects the {name} result?", "a": support["mistakes"]},
+        {"q": f"What changes the {name} estimate most?", "a": result_drivers[item["formula"]]},
         {"q": "Should I round the result up?", "a": support["buyer_tip"]},
     ]
 

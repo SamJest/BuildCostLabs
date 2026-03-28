@@ -98,9 +98,9 @@ def build_paint_page():
     </section>
     """
     return render_template("base.html", {
-        "title": "Paint Calculator | BuildMate Calculators",
+        "title": "Paint Calculator | BuildCostLab",
         "description": "Calculate how much paint you need with coats, coverage and waste included.",
-        "canonical": "https://example.com/calculators/paint-calculator/",
+        "canonical": "https://buildcostlab.com/calculators/paint-calculator/",
         "content": content,
         "script_path": "/assets/js/paint.js",
     })

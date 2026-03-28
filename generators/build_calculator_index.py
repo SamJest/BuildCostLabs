@@ -49,7 +49,7 @@ def build_calculator_index() -> None:
         {breadcrumbs}
         <p class="eyebrow">Calculator index</p>
         <h1>All calculators</h1>
-        <p class="page-intro">Browse the growing BuildMate library of material and project estimators. Each page is designed around a distinct job intent so the site can scale without becoming a wall of duplicated copy.</p>
+        <p class="page-intro">Browse the growing BuildCostLab library of material and project estimators. Each page is designed around a distinct job so the site can scale without becoming a wall of duplicated copy.</p>
       </div>
     </section>
     <section class="section">

@@ -1,8 +1,8 @@
 {
-  "site_name": "BuildMate Calculators",
-  "site_url": "https://example.com",
-  "site_description": "Project calculators that help people estimate materials, quantities and job costs faster.",
-  "brand_name": "BuildMate Calculators",
+  "site_name": "BuildCostLab",
+  "site_url": "https://buildcostlab.com",
+  "site_description": "Project calculators that help people estimate materials, quantities and rough job costs faster.",
+  "brand_name": "BuildCostLab",
   "locale": "en-GB",
   "market_positioning": "Global English project calculator site with strong home improvement and material-estimate intent.",
   "header_navigation": [

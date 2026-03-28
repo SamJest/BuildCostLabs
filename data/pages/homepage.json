@@ -3,7 +3,7 @@
   "meta_description": "Estimate paint, tiles, flooring, concrete, gravel, paving and other project quantities with practical calculators built for real jobs.",
   "hero_eyebrow": "Practical project calculators",
   "hero_heading": "Estimate materials, quantities and project costs faster.",
-  "hero_text": "BuildCostLab is designed around real search intent: people who want quick answers for paint, tiles, flooring, concrete, gravel, decking, fencing and renovation jobs.",
+  "hero_text": "BuildCostLab is built for people who want quick, practical answers for paint, tiles, flooring, concrete, gravel, decking, fencing and renovation jobs.",
   "primary_cta_label": "Browse all calculators",
   "primary_cta_href": "/calculators/",
   "secondary_cta_label": "See material estimators",
@@ -13,16 +13,16 @@
     "Built for global English traffic with practical project-led keywords",
     "Designed for ads first, with affiliate and lead paths later"
   ],
-  "hero_panel_title": "Launch the highest-intent tool set first",
-  "hero_panel_text": "The first build should focus on material calculators with obvious search demand, strong utility and evergreen formulas.",
+  "hero_panel_title": "Start with the strongest tool set",
+  "hero_panel_text": "The first build should focus on material calculators with obvious demand, strong utility and evergreen formulas.",
   "hero_panel_list": [
     "Paint calculators",
     "Tile and flooring calculators",
     "Concrete and gravel calculators",
     "Decking, paving and fencing calculators"
   ],
-  "features_heading": "A search-first calculator site structure that can scale cleanly.",
-  "features_text": "The site is being positioned around useful estimators that solve practical problems fast, rather than broad informational content.",
+  "features_heading": "A calculator site structure that can scale cleanly.",
+  "features_text": "The site is built around useful estimators that solve practical problems quickly, rather than broad informational content.",
   "feature_cards": [
     {
       "eyebrow": "Traffic",
@@ -40,7 +40,7 @@
       "text": "The template is designed so ad placements can be added later without harming usability, and the same pages can support affiliate or lead CTAs."
     }
   ],
-  "categories_heading": "Start with the strongest search tool sets, then expand outward.",
+  "categories_heading": "Start with the strongest tool sets, then expand outward.",
   "categories_text": "Initial categories are ordered around likely traffic potential and usefulness for project-based searches.",
   "category_cards": [
     {

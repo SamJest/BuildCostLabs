@@ -1,5 +1,5 @@
 HOMEPAGE = {
-    'title': 'BuildMate Calculators',
+    'title': 'BuildCostLab',
     'intro': 'Estimate paint, tiles, flooring, concrete, and other project quantities with practical calculators built for real jobs.',
     'featured': [
         {

@@ -105,9 +105,9 @@ def build_concrete_page():
     </section>
     """
     return render_template("base.html", {
-        "title": "Concrete Calculator | BuildMate Calculators",
+        "title": "Concrete Calculator | BuildCostLab",
         "description": "Calculate concrete volume for slabs, strip footings and post holes with metric or imperial inputs.",
-        "canonical": "https://example.com/calculators/concrete-calculator/",
+        "canonical": "https://buildcostlab.com/calculators/concrete-calculator/",
         "content": content,
         "script_path": "/assets/js/concrete.js",
     })

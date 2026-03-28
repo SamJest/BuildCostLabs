@@ -1,7 +1,7 @@
 {
   "slug": "paint-calculator",
   "title": "Paint Calculator | Estimate Paint Needed for Walls, Ceilings and Single Surfaces",
-  "meta_description": "Use the BuildMate paint calculator to estimate how much paint you need for walls, ceilings or a single surface. Includes metric and imperial units, coats, openings, wastage and a full calculation breakdown.",
+  "meta_description": "Use the BuildCostLab paint calculator to estimate how much paint you need for walls, ceilings or a single surface. Includes metric and imperial units, coats, openings, wastage and a full calculation breakdown.",
   "heading": "Paint Calculator",
   "eyebrow": "Material calculator",
   "intro": "Estimate how much paint you need with a practical calculator that handles room walls, ceilings and single surfaces. Switch between metric and imperial units, add coats, subtract doors and windows, and get a clear litres, gallons and tin breakdown.",
@@ -32,7 +32,7 @@
       "heading": "What makes this paint calculator different",
       "paragraphs": [
         "A lot of paint calculators stop at a single area total. This one is built more like a real estimating tool: it lets people switch between room walls, ceilings and single surfaces, then adjust coats, paint coverage, wastage and common openings.",
-        "That matters for uniqueness as the site grows. Future calculator pages should not repeat the same supporting copy with swapped keywords. Each page needs its own assumptions, mistakes, buying logic, FAQs and related jobs based on the actual search intent behind that tool."
+        "That matters as the site grows. Future calculator pages should not repeat the same supporting copy with swapped keywords. Each page needs its own assumptions, mistakes, buying logic, FAQs and related jobs based on the real task behind that tool."
       ],
       "bullets": [
         "Handles metric and imperial inputs on the same page",

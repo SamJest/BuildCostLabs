@@ -103,9 +103,9 @@ def build_flooring_page():
     </section>
     """
     return render_template("base.html", {
-        "title": "Flooring Calculator | BuildMate Calculators",
+        "title": "Flooring Calculator | BuildCostLab",
         "description": "Calculate flooring packs, board counts and waste allowance for laminate, wood and vinyl plank installs.",
-        "canonical": "https://example.com/calculators/flooring-calculator/",
+        "canonical": "https://buildcostlab.com/calculators/flooring-calculator/",
         "content": content,
         "script_path": "/assets/js/flooring.js",
     })
