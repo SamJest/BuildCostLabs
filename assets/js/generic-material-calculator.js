@@ -4,9 +4,9 @@
   if (!form) return;
 
   const currencyMap = {
-    GBP: { symbol: "£", code: "GBP" },
+    GBP: { symbol: "\u00A3", code: "GBP" },
     USD: { symbol: "$", code: "USD" },
-    EUR: { symbol: "€", code: "EUR" }
+    EUR: { symbol: "\u20AC", code: "EUR" }
   };
   let currency = "GBP";
   let unit = "metric";
@@ -52,18 +52,13 @@
     buttons.forEach((button) => button.classList.toggle("is-active", matcher(button)));
   }
 
-  currencyButtons.forEach((button) => button.addEventListener("click", function () {
-    currency = button.dataset.currency;
-    setActive(currencyButtons, (item) => item.dataset.currency === currency);
-  }));
+  function renderDefaultState() {
+    resultMain.textContent = "Enter your measurements";
+    resultSub.textContent = config.resultIntro || `You will see the estimated quantity, whole-unit buying count, and rough material cost for ${materialLabel()} here.`;
+    resultBreakdown.innerHTML = "";
+  }
 
-  unitButtons.forEach((button) => button.addEventListener("click", function () {
-    unit = button.dataset.unit;
-    setActive(unitButtons, (item) => item.dataset.unit === unit);
-  }));
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  function calculate() {
     const wasteFactor = 1 + (getNumber("waste") / 100);
     const pricePerUnit = getNumber("price-per-unit");
     let units = 0;
@@ -75,14 +70,20 @@
       const coveredArea = area * wasteFactor;
       units = coveragePerUnit > 0 ? Math.ceil(coveredArea / coveragePerUnit) : 0;
       note = "Calculation: area plus waste, then rounded to whole buying units by coverage.";
-      resultMain.textContent = units > 0 ? `${units} ${unitLabel(units)} of ${materialLabel()}` : "Enter your measurements";
-      resultSub.textContent = units > 0 ? `That covers about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.` : (config.resultIntro || `You will see the estimated quantity, whole-unit buying count, and rough material cost for ${materialLabel()} here.`);
-      resultBreakdown.innerHTML = units > 0 ? `
-        <div class="break-row"><span>Covered area incl. waste</span><strong>${coveredArea.toFixed(2)} m2</strong></div>
-        <div class="break-row"><span>Coverage per unit</span><strong>${coveragePerUnit.toFixed(2)} m2</strong></div>
-        <div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>
-        <div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>
-        <div class="calc-note">${note}</div>` : "";
+
+      if (units > 0) {
+        resultMain.textContent = `${units} ${unitLabel(units)} of ${materialLabel()}`;
+        resultSub.textContent = `That covers about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
+        resultBreakdown.innerHTML = `
+          <div class="break-row"><span>Covered area incl. waste</span><strong>${coveredArea.toFixed(2)} m2</strong></div>
+          <div class="break-row"><span>Coverage per unit</span><strong>${coveragePerUnit.toFixed(2)} m2</strong></div>
+          <div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>
+          <div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>
+          <div class="calc-note">${note}</div>`;
+        return;
+      }
+
+      renderDefaultState();
       return;
     }
 
@@ -94,14 +95,20 @@
       const tonnes = totalVolume * density;
       units = unitSize > 0 ? Math.ceil(tonnes / unitSize) : 0;
       note = "Calculation: length x width x depth, then waste, then density, then rounded to whole units.";
-      resultMain.textContent = units > 0 ? `${units} ${unitLabel(units)} of ${materialLabel()}` : "Enter your measurements";
-      resultSub.textContent = units > 0 ? `That works out to about ${totalVolume.toFixed(3)} m3, roughly ${tonnes.toFixed(2)} tonnes, and about ${money(units * pricePerUnit)} in material cost.` : (config.resultIntro || `You will see the estimated quantity, whole-unit buying count, and rough material cost for ${materialLabel()} here.`);
-      resultBreakdown.innerHTML = units > 0 ? `
-        <div class="break-row"><span>Volume incl. waste</span><strong>${totalVolume.toFixed(3)} m3</strong></div>
-        <div class="break-row"><span>Tonnage</span><strong>${tonnes.toFixed(2)} t</strong></div>
-        <div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>
-        <div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>
-        <div class="calc-note">${note}</div>` : "";
+
+      if (units > 0) {
+        resultMain.textContent = `${units} ${unitLabel(units)} of ${materialLabel()}`;
+        resultSub.textContent = `That works out to about ${totalVolume.toFixed(3)} m3, roughly ${tonnes.toFixed(2)} tonnes, and about ${money(units * pricePerUnit)} in material cost.`;
+        resultBreakdown.innerHTML = `
+          <div class="break-row"><span>Volume incl. waste</span><strong>${totalVolume.toFixed(3)} m3</strong></div>
+          <div class="break-row"><span>Tonnage</span><strong>${tonnes.toFixed(2)} t</strong></div>
+          <div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>
+          <div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>
+          <div class="calc-note">${note}</div>`;
+        return;
+      }
+
+      renderDefaultState();
       return;
     }
 
@@ -109,13 +116,40 @@
     const pieceLength = toMetricLength(getNumber("piece-length"));
     units = pieceLength > 0 ? Math.ceil(run / pieceLength) : 0;
     note = "Calculation: total run plus waste, then rounded to whole-length buying pieces.";
-    resultMain.textContent = units > 0 ? `${units} ${unitLabel(units)} of ${materialLabel()}` : "Enter your measurements";
-    resultSub.textContent = units > 0 ? `That covers about ${run.toFixed(2)} linear metres after waste and roughly ${money(units * pricePerUnit)} in material cost.` : (config.resultIntro || `You will see the estimated quantity, whole-unit buying count, and rough material cost for ${materialLabel()} here.`);
-    resultBreakdown.innerHTML = units > 0 ? `
-      <div class="break-row"><span>Run incl. waste</span><strong>${run.toFixed(2)} m</strong></div>
-      <div class="break-row"><span>Unit length</span><strong>${pieceLength.toFixed(2)} m</strong></div>
-      <div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>
-      <div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>
-      <div class="calc-note">${note}</div>` : "";
+
+    if (units > 0) {
+      resultMain.textContent = `${units} ${unitLabel(units)} of ${materialLabel()}`;
+      resultSub.textContent = `That covers about ${run.toFixed(2)} linear metres after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
+      resultBreakdown.innerHTML = `
+        <div class="break-row"><span>Run incl. waste</span><strong>${run.toFixed(2)} m</strong></div>
+        <div class="break-row"><span>Unit length</span><strong>${pieceLength.toFixed(2)} m</strong></div>
+        <div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>
+        <div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>
+        <div class="calc-note">${note}</div>`;
+      return;
+    }
+
+    renderDefaultState();
+  }
+
+  currencyButtons.forEach((button) => button.addEventListener("click", function () {
+    currency = button.dataset.currency;
+    setActive(currencyButtons, (item) => item.dataset.currency === currency);
+    if (resultBreakdown.innerHTML.trim()) {
+      calculate();
+    }
+  }));
+
+  unitButtons.forEach((button) => button.addEventListener("click", function () {
+    unit = button.dataset.unit;
+    setActive(unitButtons, (item) => item.dataset.unit === unit);
+    if (resultBreakdown.innerHTML.trim()) {
+      calculate();
+    }
+  }));
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    calculate();
   });
 })();

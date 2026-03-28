@@ -77,6 +77,167 @@ GENERIC_INTENT_TEMPLATES = {
     ],
 }
 
+ITEM_INTENT_TEMPLATES = {
+    "mot-type-1-calculator": [
+        {
+            "slug": "mot-type-1-calculator-for-driveway",
+            "title": "MOT Type 1 Calculator for Driveway",
+            "description": "Estimate MOT Type 1 for driveway sub-base depth, tonnage, and practical delivery quantities.",
+            "headline": "Estimate MOT Type 1 for a driveway before you book aggregate",
+            "intro": "Driveway builds usually rise or fall on the base. This page focuses on converting driveway dimensions into a more realistic Type 1 order.",
+        },
+    ],
+    "sharp-sand-calculator": [
+        {
+            "slug": "sharp-sand-calculator-for-patio",
+            "title": "Sharp Sand Calculator for Patio",
+            "description": "Estimate sharp sand for patio bedding and paving prep with practical depth assumptions.",
+            "headline": "Work out sharp sand for patio bedding before you order",
+            "intro": "Patio bedding depths are easy to misjudge, so this page focuses on turning slab area into a more practical sharp sand order.",
+        },
+    ],
+    "tile-adhesive-calculator": [
+        {
+            "slug": "bathroom-tile-adhesive-calculator",
+            "title": "Bathroom Tile Adhesive Calculator",
+            "description": "Estimate bathroom tile adhesive bags for walls, floors, and common domestic tiling layouts.",
+            "headline": "Estimate bathroom tile adhesive with fewer bag-count surprises",
+            "intro": "Bathroom jobs often mix wall and floor coverage with awkward cuts, so this page focuses on turning the tiled area into a safer adhesive order.",
+        },
+        {
+            "slug": "floor-tile-adhesive-calculator",
+            "title": "Floor Tile Adhesive Calculator",
+            "description": "Estimate floor tile adhesive quantities from tiled area and practical waste assumptions.",
+            "headline": "Use floor area to estimate tile adhesive more realistically",
+            "intro": "Floor tile adhesive demand is strongly shaped by the tiled area, product yield, and how much waste the room layout creates.",
+        },
+    ],
+    "tile-grout-calculator": [
+        {
+            "slug": "bathroom-tile-grout-calculator",
+            "title": "Bathroom Tile Grout Calculator",
+            "description": "Estimate bathroom tile grout quantities before you buy tubs, bags, or cartons.",
+            "headline": "Estimate bathroom tile grout before the final buying list is locked in",
+            "intro": "Bathroom tiling often combines wall areas, floor areas, and awkward cuts, so this page helps turn a rough area figure into a more practical grout order.",
+        },
+    ],
+    "tile-backer-board-calculator": [
+        {
+            "slug": "bathroom-backer-board-calculator",
+            "title": "Bathroom Backer Board Calculator",
+            "description": "Estimate backer board sheets for bathroom walls and floors before tiling starts.",
+            "headline": "Estimate bathroom backer board before the prep stage begins",
+            "intro": "Backer board is often bought alongside tiles and adhesive, but it needs its own coverage check before the job starts.",
+        },
+        {
+            "slug": "tile-backer-board-calculator-for-floor",
+            "title": "Tile Backer Board Calculator for Floor",
+            "description": "Estimate tile backer board sheets or packs from floor area and waste allowance.",
+            "headline": "Use floor area to estimate tile backer board with less waste",
+            "intro": "Floor prep boards are usually bought by sheet or pack coverage, so this page focuses on converting the floor area into a practical buying total.",
+        },
+    ],
+    "primer-calculator": [
+        {
+            "slug": "primer-calculator-for-new-plaster",
+            "title": "Primer Calculator for New Plaster",
+            "description": "Estimate primer or mist-coat quantities for new plaster before painting starts.",
+            "headline": "Estimate primer for new plaster before you open the first tin",
+            "intro": "New plaster surfaces can absorb far more than a smooth repaint, so this page focuses on a more cautious primer estimate.",
+        },
+    ],
+    "wallpaper-calculator": [
+        {
+            "slug": "how-many-wallpaper-rolls-do-i-need",
+            "title": "How Many Wallpaper Rolls Do I Need?",
+            "description": "Estimate wallpaper rolls for a room with repeat, trimming, and spare-roll logic in mind.",
+            "headline": "Estimate wallpaper rolls before pattern matching pushes the order up",
+            "intro": "Wallpaper jobs often look simple on area alone, but repeat matching and trimming can move the roll count quickly.",
+        },
+    ],
+    "weed-membrane-calculator": [
+        {
+            "slug": "weed-membrane-calculator-for-gravel",
+            "title": "Weed Membrane Calculator for Gravel",
+            "description": "Estimate weed membrane coverage for gravel paths, beds, and decorative stone areas.",
+            "headline": "Estimate weed membrane for gravel before the aggregate order is placed",
+            "intro": "Membrane usually gets ordered alongside gravel or stone, so this page helps turn the covered area into a more practical roll count.",
+        },
+    ],
+    "plasterboard-calculator": [
+        {
+            "slug": "plasterboard-calculator-for-ceiling",
+            "title": "Plasterboard Calculator for Ceiling",
+            "description": "Estimate plasterboard sheets for ceiling coverage with a more practical waste allowance.",
+            "headline": "Estimate ceiling plasterboard before you order sheets",
+            "intro": "Ceiling boarding creates different cutting and handling waste from straight wall work, so this page focuses on that buying pattern.",
+        },
+    ],
+    "plasterboard-adhesive-calculator": [
+        {
+            "slug": "dot-and-dab-adhesive-calculator",
+            "title": "Dot and Dab Adhesive Calculator",
+            "description": "Estimate dot-and-dab adhesive bags for plasterboard wall installs and drylining prep.",
+            "headline": "Estimate dot-and-dab adhesive before the drylining order is placed",
+            "intro": "Drylining jobs can look like simple board coverage, but the adhesive needs a separate buying check before work starts.",
+        },
+    ],
+    "cladding-calculator": [
+        {
+            "slug": "shed-cladding-calculator",
+            "title": "Shed Cladding Calculator",
+            "description": "Estimate cladding boards for sheds, garden rooms, and simple outbuildings.",
+            "headline": "Estimate shed cladding before you compare board lengths",
+            "intro": "Small outbuildings often have lots of cuts and openings, so this page focuses on turning the wall area into a more practical cladding order.",
+        },
+    ],
+    "wood-stain-calculator": [
+        {
+            "slug": "decking-stain-calculator",
+            "title": "Decking Stain Calculator",
+            "description": "Estimate decking stain quantities from covered area and coat count assumptions.",
+            "headline": "Estimate decking stain before you choose tin sizes",
+            "intro": "Exterior timber finishes often need more than one coat, so this page focuses on converting covered area into a more practical stain order.",
+        },
+    ],
+    "paving-sand-calculator": [
+        {
+            "slug": "paving-sand-calculator-for-patio",
+            "title": "Paving Sand Calculator for Patio",
+            "description": "Estimate paving sand for patio bedding layers with more practical depth assumptions.",
+            "headline": "Estimate patio bedding sand before you price the base and slabs together",
+            "intro": "Patio builds often combine several layers, so this page helps isolate the bedding sand quantity before the rest of the order is finalised.",
+        },
+    ],
+    "paving-jointing-compound-calculator": [
+        {
+            "slug": "patio-jointing-compound-calculator",
+            "title": "Patio Jointing Compound Calculator",
+            "description": "Estimate patio jointing compound quantities from paved area and a cautious waste margin.",
+            "headline": "Estimate patio jointing compound before you buy tubs or bags",
+            "intro": "Jointing products are easy to leave until last, so this page helps turn the paved area into a more practical finishing-material order.",
+        },
+    ],
+    "pea-gravel-calculator": [
+        {
+            "slug": "pea-gravel-calculator-for-garden",
+            "title": "Pea Gravel Calculator for Garden",
+            "description": "Estimate pea gravel quantities for garden paths, borders, and decorative surface areas.",
+            "headline": "Estimate pea gravel for garden areas before you compare bag and bulk delivery",
+            "intro": "Decorative gravel jobs are usually bought differently from structural aggregate, so this page focuses on the practical buying quantity for smaller surface areas.",
+        },
+    ],
+    "shed-felt-calculator": [
+        {
+            "slug": "shed-roof-felt-calculator",
+            "title": "Shed Roof Felt Calculator",
+            "description": "Estimate shed roof felt rolls for sheds, workshops, and garden buildings.",
+            "headline": "Estimate shed roof felt before overlap and waste catch you out",
+            "intro": "Small outbuilding roofs often look simple, but roll coverage still depends on laps, edges, and a sensible waste margin.",
+        },
+    ],
+}
+
 CLUSTER_OVERRIDES = {
     "soil-and-landscaping-estimating": {
         "cluster_intro": "Estimate topsoil, mulch, compost, and bark quantities with a focus on installed depth, delivery format, and whether the job is better served by bags or bulk supply.",
@@ -177,7 +338,7 @@ CLUSTER_HUB_CONTENT = {
     "tile-estimating": {
         "start_here_title": "Start with the right tiling question",
         "start_here_intro": "Most tiling jobs begin with one of three questions: how many tiles, how much adhesive, and how much grout. Start with the part of the job you are buying first, then use the guides to check waste and box or bag rounding.",
-        "featured_slugs": ["tile-calculator", "tile-adhesive-calculator", "tile-grout-calculator"],
+        "featured_slugs": ["tile-calculator", "tile-adhesive-calculator", "tile-grout-calculator", "tile-backer-board-calculator"],
         "question_heading": "Popular tiling questions",
         "question_intro": "Use these pages when you already know the room or wall area and want a quicker route into tile, adhesive, or grout quantities.",
         "guide_heading": "Tiling guides and buying checks",
@@ -247,7 +408,7 @@ CLUSTER_HUB_CONTENT = {
     "roofline-estimating": {
         "start_here_title": "Break the roofline into the parts you are buying",
         "start_here_intro": "Roofline jobs usually involve several linked products rather than one single quantity. Use this cluster to split the job into fascia, soffit, guttering, and downpipes so each part can be measured and ordered in a more practical way.",
-        "featured_slugs": ["fascia-calculator", "soffit-calculator", "gutter-calculator", "downpipe-calculator"],
+        "featured_slugs": ["fascia-calculator", "soffit-calculator", "gutter-calculator", "gutter-guard-calculator", "downpipe-calculator"],
         "question_heading": "Quick roofline quantity pages",
         "question_intro": "Use these pages when you already know the run lengths and want a fast route into boards, gutters, or downpipe quantities.",
         "guide_heading": "Roof edge and drainage guides",
@@ -289,7 +450,7 @@ CLUSTER_HUB_CONTENT = {
     "drywall-and-finish-estimating": {
         "start_here_title": "Treat boards, screws, and compound as separate buying decisions",
         "start_here_intro": "Drywall work is easy to under-estimate if you only count the boards. This cluster helps separate the sheet coverage, screw quantity, and finishing material so you can build a more realistic order for boarding and jointing work.",
-        "featured_slugs": ["plasterboard-calculator", "drywall-screws-calculator", "joint-compound-calculator"],
+        "featured_slugs": ["plasterboard-calculator", "plasterboard-adhesive-calculator", "drywall-screws-calculator", "joint-compound-calculator"],
         "question_heading": "Quick drywall quantity pages",
         "question_intro": "Use these pages when you already know the wall or ceiling area and want a quick route into sheets, screws, or finishing material.",
         "guide_heading": "Boarding and finishing guides",
@@ -303,7 +464,7 @@ CLUSTER_HUB_CONTENT = {
     "exterior-finish-estimating": {
         "start_here_title": "Pick the exterior finish before you estimate the order",
         "start_here_intro": "Exterior finishes can behave very differently depending on whether the job uses cladding boards, sealers, or another protective layer. This cluster helps keep those buying routes separate so the estimate matches the product system you are actually using.",
-        "featured_slugs": ["cladding-calculator", "masonry-sealer-calculator"],
+        "featured_slugs": ["cladding-calculator", "masonry-sealer-calculator", "wood-stain-calculator"],
         "question_heading": "Quick exterior-finish calculators",
         "question_intro": "Use these pages when you already know the wall area and want a faster route into boards, coverage products, or protective coatings.",
         "guide_heading": "Exterior-finish guides",
@@ -326,6 +487,48 @@ CLUSTER_HUB_CONTENT = {
             ("What changes these estimates most", "Sheet overlap, lap lengths, stock-bar sizes, spacing assumptions, and whether the reinforcement needs extra detailing around openings or edges are the main levers."),
             ("Where people under-order", "A simple area estimate can miss laps, edge conditions, chairs, tying wire, and the extra lengths needed around corners or penetrations."),
             ("Before you order", "Check engineer or supplier requirements for bar size, mesh type, laps, spacers, and whether extra reinforcement is needed in specific parts of the slab or footing."),
+        ],
+    },
+    "decking-estimating": {
+        "start_here_title": "Break the decking job into boards and fixings",
+        "start_here_intro": "Decking materials are often under-estimated because the board count gets attention before the fixings and layout waste do. This cluster keeps the main timber quantity and the screw order separate so the buying list is more practical.",
+        "featured_slugs": ["decking-calculator", "deck-screws-calculator"],
+        "question_heading": "Quick decking quantity pages",
+        "question_intro": "Use these pages when you already know the deck area and want a fast route into boards, fixings, or common decking buying checks.",
+        "guide_heading": "Decking guides and ordering checks",
+        "guide_intro": "These pages help with joist spacing, waste, board layouts, and the supporting quantities that are easy to miss on first pass.",
+        "notes": [
+            ("What changes a decking order most", "Board width, deck shape, cut waste, and whether hidden details like fixings or support timbers are being estimated separately all affect the final order."),
+            ("Where people under-order", "A deck can look simple on area alone, but edge cuts, picture framing, spare boards, and screw quantities often add more than expected."),
+            ("Before you order", "Check board coverage, joist layout, fixing pattern, and whether fascia boards, subframe timber, weed control, or finish products need their own quantities."),
+        ],
+    },
+    "paving-and-patio-estimating": {
+        "start_here_title": "Treat the patio as a layered build-up, not one single quantity",
+        "start_here_intro": "Paving jobs usually need slabs or pavers, bedding material, and jointing products rather than one single material order. This cluster helps separate those layers so the estimate matches the way patios are actually bought and built.",
+        "featured_slugs": ["paving-calculator", "paving-sand-calculator", "paving-jointing-compound-calculator"],
+        "question_heading": "Quick paving quantity pages",
+        "question_intro": "Use these pages when you already know the paved area and want a quicker route into slabs, bedding sand, or jointing product quantities.",
+        "guide_heading": "Patio guides and buying checks",
+        "guide_intro": "These pages help with slab counts, bedding depth, jointing, and the practical differences between paving layouts and product systems.",
+        "notes": [
+            ("What changes these estimates most", "Unit size, bedding depth, joint width, and the number of cuts around edges or features usually move the final order most."),
+            ("Where people under-order", "Patio jobs often budget for the paving units first, then discover the bedding layer and jointing products need a separate quantity check."),
+            ("Before you order", "Check slab or paver coverage, bedding thickness, jointing yield, and whether edge restraints, base layers, or sealers need to be bought alongside the paving materials."),
+        ],
+    },
+    "roofing-estimating": {
+        "start_here_title": "Match the roof covering to the real roof shape",
+        "start_here_intro": "Roofing quantities often change once overlaps, laps, ridge details, and smaller outbuilding layouts are considered. This cluster separates shingles, felt, and battens so you can estimate the roofing layer that actually matches the job.",
+        "featured_slugs": ["roofing-shingle-calculator", "roof-felt-calculator", "shed-felt-calculator", "roof-batten-calculator"],
+        "question_heading": "Quick roofing quantity pages",
+        "question_intro": "Use these pages when you already know the roof area or total batten run and want a faster route into bundles, rolls, or stock lengths.",
+        "guide_heading": "Roofing guides and buying checks",
+        "guide_intro": "These pages help with overlap, effective coverage, stock lengths, and the parts of roofing work that usually create the most waste.",
+        "notes": [
+            ("What changes roofing orders most", "Overlaps, roof pitch, edge waste, verge details, and how the roof breaks into courses or stock lengths usually matter more than the clean plan area alone."),
+            ("Where people under-order", "Small roofs often look simple, but laps, ridge details, edges, and extra rolls or bundles for awkward cuts can move the final order quickly."),
+            ("Before you order", "Check effective product coverage, overlap rules, fixings, edge trims, and whether underlay, battens, or accessories need their own quantity check."),
         ],
     },
 }
@@ -384,7 +587,7 @@ def build_intent_pages(item):
     item_name = item["name"].replace(" Calculator", "")
     item_name_lower = item_name.lower()
     templates = GENERIC_INTENT_TEMPLATES.get(item["formula"], [])
-    return [
+    pages = [
         {
             "slug": item["slug"].replace("-calculator", f"-{page['slug_suffix']}"),
             "title": page["title"].format(name=item_name),
@@ -394,12 +597,24 @@ def build_intent_pages(item):
         }
         for page in templates
     ]
+    pages.extend(ITEM_INTENT_TEMPLATES.get(item["slug"], []))
+    deduped = []
+    seen = set()
+    for page in pages:
+        if page["slug"] in seen:
+            continue
+        seen.add(page["slug"])
+        deduped.append(page)
+    return deduped
 
 
 def get_cluster_intro(cluster_slug: str, fallback: str) -> str:
     override = CLUSTER_OVERRIDES.get(cluster_slug)
     if override:
         return override.get("cluster_intro", fallback)
+    hub_content = CLUSTER_HUB_CONTENT.get(cluster_slug)
+    if hub_content:
+        return hub_content.get("start_here_intro", fallback)
     return fallback
 
 
