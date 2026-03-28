@@ -37,10 +37,10 @@ GENERIC_INTENT_TEMPLATES = {
         },
         {
             "slug_suffix": "how-much-do-i-need",
-            "title": "How Much {name} Do I Need?",
-            "description": "Work out how much {name_lower} to buy before you order materials.",
-            "headline": "Work out how much {name_lower} to buy before you order",
-            "intro": "This page explains the main checks to make before turning a simple coverage figure into a real order quantity.",
+            "title": "{name} Buying Guide",
+            "description": "Work out a practical {name_lower} buying quantity before you order materials.",
+            "headline": "Turn the coverage figure into a practical {name_lower} order",
+            "intro": "Use this page to sense-check the calculator result, decide how much spare to allow, and move from neat coverage into a real buying quantity.",
         },
     ],
     "volume": [
@@ -53,10 +53,10 @@ GENERIC_INTENT_TEMPLATES = {
         },
         {
             "slug_suffix": "how-much-do-i-need",
-            "title": "How Much {name} Do I Need?",
-            "description": "Work out how much {name_lower} to order for your job without relying on rough guesswork.",
-            "headline": "Turn the job dimensions into a sensible {name_lower} order",
-            "intro": "A rough length, width, and depth can usually be turned into a much safer material order once waste and buying format are taken into account.",
+            "title": "{name} Quantity Guide",
+            "description": "Turn job dimensions into a practical {name_lower} quantity before you order.",
+            "headline": "Turn the job dimensions into a practical {name_lower} order",
+            "intro": "Use this page to sense-check the calculator result, compare buying formats, and move from raw volume into a more reliable order quantity.",
         },
     ],
     "linear": [
@@ -69,10 +69,10 @@ GENERIC_INTENT_TEMPLATES = {
         },
         {
             "slug_suffix": "how-much-do-i-need",
-            "title": "How Much {name} Do I Need?",
-            "description": "Work out how much {name_lower} to buy for your run, perimeter, or edge detail.",
-            "headline": "Work out how much {name_lower} to buy before you order stock lengths",
-            "intro": "A good buying number for length-based materials depends on the run, the stock size, and how much cutting waste the job will create.",
+            "title": "{name} Buying Guide",
+            "description": "Turn the measured run into a practical {name_lower} buying quantity before you order stock lengths.",
+            "headline": "Turn the measured run into a practical {name_lower} order",
+            "intro": "Use this page to sense-check the calculator result, compare stock lengths, and allow for the cutting waste that affects real buying totals.",
         },
     ],
 }
@@ -543,7 +543,7 @@ def build_support(item):
     return {
         "assumptions": formula_support["assumptions"],
         "mistakes": formula_support["mistakes"],
-        "use_case": f"{formula_support['use_case']} This one is tuned for {material_label} jobs.",
+        "use_case": f"{formula_support['use_case']} On this page, that usually means turning simple measurements into a more practical {material_label} buying estimate.",
         "estimate_tip": formula_support["estimate_tip"],
         "buyer_tip": formula_support["buyer_tip"],
         "market_note": "UK and US buyers often use different unit language and pack conventions, but the geometry, waste, and whole-unit rounding logic are still the foundation.",
@@ -552,17 +552,16 @@ def build_support(item):
 
 def build_faqs(item):
     override = CLUSTER_OVERRIDES.get(item["cluster_slug"])
+    name = item["name"]
     if override:
-        label = item["name"].lower()
         return [
-            {"q": f"How do I use the {label}?", "a": f"Enter the job dimensions, choose a realistic waste setting, and use the {label} to get a planning quantity before checking product-specific coverage or pack rules."},
-            {"q": f"What most affects the {label} result?", "a": override["support"]["mistakes"]},
+            {"q": f"How do I use the {name}?", "a": "Enter the job dimensions, choose a realistic waste setting, and use this calculator to get a planning quantity before checking product-specific coverage or pack rules."},
+            {"q": f"What most affects the {name} result?", "a": override["support"]["mistakes"]},
             {"q": "Should I round the result up?", "a": override["support"]["buyer_tip"]},
         ]
-    label = item["name"].lower()
     return [
-        {"q": f"How do I use the {label}?", "a": f"Enter the job dimensions, choose a sensible waste setting, and use the {label} as a buying guide rather than an exact order."},
-        {"q": f"What most affects the {label} result?", "a": "Usually the job dimensions, waste allowance, and the product coverage or stock-length assumption used to convert geometry into whole buying units."},
+        {"q": f"How do I use the {name}?", "a": "Enter the job dimensions, choose a sensible waste setting, and use this calculator as a practical buying guide rather than an exact order."},
+        {"q": f"What most affects the {name} result?", "a": "Usually the job dimensions, waste allowance, and the product coverage or stock-length assumption used to convert geometry into whole buying units."},
         {"q": "Should I round the result up?", "a": "Usually yes, because most materials are bought in whole units and small site losses are common."},
     ]
 

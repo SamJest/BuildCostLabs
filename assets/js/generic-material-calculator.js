@@ -72,7 +72,7 @@
       note = "Calculation: area plus waste, then rounded to whole buying units by coverage.";
 
       if (units > 0) {
-        resultMain.textContent = `${units} ${unitLabel(units)} of ${materialLabel()}`;
+        resultMain.textContent = `${units} ${unitLabel(units)}`;
         resultSub.textContent = `That covers about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
         resultBreakdown.innerHTML = `
           <div class="break-row"><span>Covered area incl. waste</span><strong>${coveredArea.toFixed(2)} m2</strong></div>
@@ -97,7 +97,7 @@
       note = "Calculation: length x width x depth, then waste, then density, then rounded to whole units.";
 
       if (units > 0) {
-        resultMain.textContent = `${units} ${unitLabel(units)} of ${materialLabel()}`;
+        resultMain.textContent = `${units} ${unitLabel(units)}`;
         resultSub.textContent = `That works out to about ${totalVolume.toFixed(3)} m3, roughly ${tonnes.toFixed(2)} tonnes, and about ${money(units * pricePerUnit)} in material cost.`;
         resultBreakdown.innerHTML = `
           <div class="break-row"><span>Volume incl. waste</span><strong>${totalVolume.toFixed(3)} m3</strong></div>
@@ -118,7 +118,7 @@
     note = "Calculation: total run plus waste, then rounded to whole-length buying pieces.";
 
     if (units > 0) {
-      resultMain.textContent = `${units} ${unitLabel(units)} of ${materialLabel()}`;
+      resultMain.textContent = `${units} ${unitLabel(units)}`;
       resultSub.textContent = `That covers about ${run.toFixed(2)} linear metres after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
       resultBreakdown.innerHTML = `
         <div class="break-row"><span>Run incl. waste</span><strong>${run.toFixed(2)} m</strong></div>
