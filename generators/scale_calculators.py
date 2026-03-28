@@ -8,6 +8,12 @@ from generators.publisher_pages import render_calculator_page
 
 def _config_for(item):
     item_name = item["name"].replace(" Calculator", "")
+    if item["formula"] == "volume":
+        default_intro = f"You will see the material volume, buying quantity, rough material cost, and decision outputs for {item_name} here."
+    elif item["formula"] == "linear":
+        default_intro = f"You will see the required lengths, buying quantity, rough material cost, and decision outputs for {item_name} here."
+    else:
+        default_intro = f"You will see the buying quantity, rough material cost, and decision outputs for {item_name} here."
     return {
         "length_label": "Length",
         "width_label": "Width",
@@ -20,7 +26,7 @@ def _config_for(item):
         "price_label": "Price per unit",
         "unit_name_singular": "unit",
         "unit_name_plural": "units",
-        "result_intro": f"You will see the estimated quantity, whole-unit buying count, and rough material cost for {item_name} here.",
+        "result_intro": default_intro,
         "defaults": {},
         "calculator_note": "",
     } | CALCULATOR_UI.get(item["slug"], {})
@@ -75,7 +81,7 @@ def _linear_form(cfg) -> str:
 
 
 def _result_panel(cfg) -> str:
-    return f"""<div class="result-kicker">Estimated result</div><h2 class="result-main">Enter your measurements</h2><p class="result-sub">{escape(cfg["result_intro"])}</p><div class="currency-pills" role="tablist" aria-label="Currency"><button class="currency-pill is-active" data-currency="GBP" type="button">GBP &pound;</button><button class="currency-pill" data-currency="USD" type="button">USD $</button><button class="currency-pill" data-currency="EUR" type="button">EUR &euro;</button></div><div class="result-breakdown" id="result-breakdown"></div>"""
+    return f"""<div class="result-kicker">Estimated result</div><h2 class="result-main">Enter your measurements</h2><p class="result-sub">{escape(cfg["result_intro"])}</p><div class="currency-pills" role="tablist" aria-label="Currency"><button class="currency-pill is-active" data-currency="GBP" type="button">GBP</button><button class="currency-pill" data-currency="USD" type="button">USD</button><button class="currency-pill" data-currency="EUR" type="button">EUR</button></div><div class="result-breakdown" id="result-breakdown"></div>"""
 
 
 def build_additional_calculator_pages():
@@ -93,11 +99,19 @@ def build_additional_calculator_pages():
         calculator_config = {
             "formula": formula,
             "name": item["name"],
+            "category": item["category"],
+            "clusterName": item["cluster_name"],
             "unitNameSingular": cfg["unit_name_singular"],
             "unitNamePlural": cfg["unit_name_plural"],
             "resultIntro": cfg["result_intro"],
             "coverageLabel": cfg["coverage_label"],
             "coverageMode": cfg["coverage_mode"],
+            "driverText": cfg.get("driver_text", ""),
+            "confidenceText": cfg.get("confidence_text", ""),
+            "comparisonProfiles": cfg.get("comparison_profiles", []),
+            "realityItems": cfg.get("reality_items", []),
+            "costModel": cfg.get("cost_model", None),
+            "timelineSteps": cfg.get("timeline_steps", []),
         }
         html = render_calculator_page(
             slug=item["slug"],

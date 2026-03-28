@@ -13,6 +13,40 @@ from data.catalog import get_all_calculators, get_cluster_hub_content, get_clust
 from data.publisher import SITE, TRUST_PAGES
 
 
+def render_cost_intelligence_shell() -> str:
+    return (
+        '<div class="result-intelligence">'
+        '<section class="intelligence-panel">'
+        '<div class="result-kicker">Estimate range</div>'
+        '<h3>Low, mid, and high view</h3>'
+        '<div class="scenario-grid" id="estimate-range"><div class="scenario-card"><strong>Waiting for inputs</strong><span>Complete the calculator to see a range.</span></div></div>'
+        '<p class="intelligence-copy" id="estimate-drivers">The biggest cost drivers and uncertainty notes will appear here.</p>'
+        '<p class="intelligence-copy intelligence-confidence" id="confidence-note">Confidence guidance updates once the calculator has a live result.</p>'
+        '</section>'
+        '<section class="intelligence-panel">'
+        '<div class="result-kicker">Cost breakdown</div>'
+        '<h3>What the total usually includes</h3>'
+        '<div class="detail-list" id="cost-intelligence-breakdown"><div class="break-row"><span>Materials</span><strong>Waiting for inputs</strong></div></div>'
+        '</section>'
+        '<section class="intelligence-panel">'
+        '<div class="result-kicker">Compare options</div>'
+        '<h3>Budget, standard, and higher-spec routes</h3>'
+        '<div class="compare-grid" id="comparison-output"><div class="compare-card"><strong>Waiting for inputs</strong><span>Option comparisons appear after a calculation.</span></div></div>'
+        '</section>'
+        '<section class="intelligence-panel">'
+        '<div class="result-kicker">Typical timeline</div>'
+        '<h3>Prep, install, and finish</h3>'
+        '<div class="detail-list" id="timeline-output"><div class="break-row"><span>Timeline</span><strong>Waiting for inputs</strong></div></div>'
+        '</section>'
+        '<section class="intelligence-panel">'
+        '<div class="result-kicker">Reality check</div>'
+        '<h3>Real-world costs people miss</h3>'
+        '<ul class="reality-list" id="reality-output"><li>Complete the calculator to see the extra items that commonly catch budgets out.</li></ul>'
+        '</section>'
+        '</div>'
+    )
+
+
 def build_trust_pages():
     pages = []
     for page in TRUST_PAGES:
@@ -164,8 +198,8 @@ def build_guide_pages():
 def render_quality_strip(page_type: str) -> str:
     return (
         '<section class="quality-strip" aria-label="Freshness and methodology">'
-        f'<article class="content-card quality-card"><div class="quality-kicker">Last checked</div><h2>{escape(SITE["updated_label"])}</h2><p>We checked the calculator logic, page links, and support content used on this page.</p></article>'
-        f'<article class="content-card quality-card"><div class="quality-kicker">How to use it</div><h2>Use it as a planning estimate</h2><p>Use this {escape(page_type)} to build a rough material estimate, then confirm the final order against product data and site conditions.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">Last checked</div><h2>{escape(SITE["updated_label"])}</h2><p>We checked the calculator logic, support notes, and internal links on this page.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">How to use it</div><h2>Use it to plan the job</h2><p>Use this {escape(page_type)} for an early buying and budgeting figure, then confirm the final order against product data and site conditions.</p></article>'
         f'<article class="content-card quality-card"><div class="quality-kicker">Why trust it</div><h2>See how the site is maintained</h2><p>Read the <a href="{escape(SITE["methodology_path"])}">calculator methodology</a> and <a href="{escape(SITE["editorial_policy_path"])}">editorial policy</a> for the standards behind these pages.</p></article>'
         '</section>'
     )
@@ -202,11 +236,12 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
     content = (
         f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
         f'<div class="eyebrow">{escape(family["hero_eyebrow"])}</div><h1>{escape(title)}</h1>'
-        f'<p class="hero-copy">{escape(intro)}</p></section>'
+        f'<p class="hero-copy">{escape(intro)}</p>'
+        '<div class="hero-badges"><span class="hero-badge">Estimate range</span><span class="hero-badge">Cost breakdown</span><span class="hero-badge">Compare options</span></div></section>'
         f'{render_ad_slot(f"{key}-top")}'
         f'{render_quality_strip("calculator")}'
-        f'<section class="calculator-layout"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}</aside></section>'
-        f'{build_calculator_support(slug)}</div><script src="/assets/js/global-calculator.js"></script><script src="/assets/js/{escape(script_name)}"></script>'
+        f'<section class="calculator-layout"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_cost_intelligence_shell()}</aside></section>'
+        f'{build_calculator_support(slug)}</div><script src="/assets/js/global-calculator.js"></script><script src="/assets/js/cost-intelligence.js"></script><script src="/assets/js/{escape(script_name)}"></script>'
     )
     return render_layout(
         title=f"{title} | {SITE['name']}",

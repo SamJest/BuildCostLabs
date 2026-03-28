@@ -1,42 +1,159 @@
+(function () {
+  const form = document.getElementById("fence-form");
+  if (!form) return;
 
-(function(){
-let currency="GBP";
-const map={GBP:"£",USD:"$",EUR:"€"};
+  const unitButtons = Array.from(document.querySelectorAll(".unit-toggle"));
+  const currencyButtons = Array.from(document.querySelectorAll(".currency-pill"));
+  const resultMain = document.querySelector(".result-main");
+  const resultSub = document.querySelector(".result-sub");
+  const resultBreakdown = document.getElementById("result-breakdown");
+  const intelligence = window.BuildCostLabCostIntel;
 
-document.querySelectorAll(".currency-pill").forEach(b=>{
-b.onclick=()=>{currency=b.dataset.currency;document.querySelectorAll(".currency-pill").forEach(x=>x.classList.remove("is-active"));b.classList.add("is-active");};
-});
+  const currencyMap = {
+    GBP: { symbol: "\u00A3", code: "GBP" },
+    USD: { symbol: "$", code: "USD" },
+    EUR: { symbol: "\u20AC", code: "EUR" }
+  };
 
-function m(v){return map[currency]+v.toFixed(2);}
+  let unit = "metric";
+  let currency = "GBP";
 
-document.getElementById("fence-form").addEventListener("submit",e=>{
-e.preventDefault();
+  function money(value) {
+    const info = currencyMap[currency] || currencyMap.GBP;
+    return `${info.symbol}${Number(value).toFixed(2)} ${info.code}`;
+  }
 
-let length=+document.getElementById("length").value||0;
-let panel=+document.getElementById("panel").value||1;
-let waste=+document.getElementById("waste").value/100||0;
-let panels=Math.ceil((length/panel)*(1+waste));
-let posts=panels+1;
+  function setActive(buttons, key, value) {
+    buttons.forEach(function (button) {
+      button.classList.toggle("is-active", button.dataset[key] === value);
+    });
+  }
 
-let panelCost=panels*(+document.getElementById("panel-price").value||0);
-let postCost=posts*(+document.getElementById("post-price").value||0);
+  function getNumber(id) {
+    const field = document.getElementById(id);
+    const value = field ? parseFloat(field.value) : 0;
+    return Number.isFinite(value) ? value : 0;
+  }
 
-let concVol=posts*(+document.getElementById("concrete").value||0);
-let concCost=concVol*(+document.getElementById("concrete-price").value||0);
+  function toMetricLength(value) {
+    return unit === "metric" ? value : value * 0.3048;
+  }
 
-let total=panelCost+postCost+concCost;
+  function fenceTimeline(run) {
+    if (run < 15) {
+      return [
+        { stage: "Set out and mark posts", duration: "Half day" },
+        { stage: "Install posts and panels", duration: "1 day" },
+        { stage: "Concrete and tidy", duration: "Half day" }
+      ];
+    }
+    if (run < 35) {
+      return [
+        { stage: "Set out and mark posts", duration: "Half day to 1 day" },
+        { stage: "Install posts and panels", duration: "1 to 2 days" },
+        { stage: "Concrete and tidy", duration: "Half day to 1 day" }
+      ];
+    }
+    return [
+      { stage: "Set out and mark posts", duration: "1 day" },
+      { stage: "Install posts and panels", duration: "2 to 3 days" },
+      { stage: "Concrete and tidy", duration: "1 day" }
+    ];
+  }
 
-document.querySelector(".result-main").innerText=panels+" panels";
-document.querySelector(".result-sub").innerText="Includes posts + concrete";
+  function renderDefaultState() {
+    resultMain.textContent = "Enter your measurements";
+    resultSub.textContent = "You will see panels, posts, concrete and rough material cost here.";
+    resultBreakdown.innerHTML = "";
+    if (intelligence) intelligence.clear();
+  }
 
-document.getElementById("result-breakdown").innerHTML=`
-<div>Panels: ${panels}</div>
-<div>Posts: ${posts}</div>
-<div>Concrete: ${concVol.toFixed(2)} m³</div>
-<div>Panel cost: ${m(panelCost)}</div>
-<div>Post cost: ${m(postCost)}</div>
-<div>Concrete cost: ${m(concCost)}</div>
-<div><strong>Total: ${m(total)}</strong></div>
-`;
-});
+  function calculate(event) {
+    if (event) event.preventDefault();
+
+    const length = toMetricLength(getNumber("length"));
+    const panelWidth = Math.max(toMetricLength(getNumber("panel-width")), 0.01);
+    const postDepth = toMetricLength(getNumber("post-depth"));
+    const waste = Math.max(getNumber("waste"), 0) / 100;
+    const pricePerPanel = Math.max(getNumber("price-per-panel"), 0);
+    const pricePerPost = Math.max(getNumber("price-per-post"), 0);
+    const concretePerPost = Math.max(getNumber("concrete-per-post"), 0);
+    const pricePerConcrete = Math.max(getNumber("price-per-concrete"), 0);
+
+    const panels = Math.ceil((length / panelWidth) * (1 + waste));
+    const posts = panels + 1;
+    const concreteVolume = posts * concretePerPost;
+    const panelCost = panels * pricePerPanel;
+    const postCost = posts * pricePerPost;
+    const concreteCost = concreteVolume * pricePerConcrete;
+    const estimatedCost = panelCost + postCost + concreteCost;
+
+    if (!(panels > 0)) {
+      renderDefaultState();
+      return;
+    }
+
+    resultMain.textContent = `${panels} fence panels`;
+    resultSub.textContent = `That includes about ${posts} posts, ${concreteVolume.toFixed(2)} m3 of post concrete, and roughly ${money(estimatedCost)} in material cost.`;
+    resultBreakdown.innerHTML =
+      `<div class="break-row"><span>Total fence run</span><strong>${length.toFixed(2)} m</strong></div>` +
+      `<div class="break-row"><span>Panels</span><strong>${panels}</strong></div>` +
+      `<div class="break-row"><span>Posts</span><strong>${posts}</strong></div>` +
+      `<div class="break-row"><span>Concrete volume</span><strong>${concreteVolume.toFixed(2)} m3</strong></div>` +
+      `<div class="break-row"><span>Estimated material cost</span><strong>${money(estimatedCost)}</strong></div>` +
+      `<div class="calc-note">Calculation: fence run divided by panel width, then waste added. Post count and post concrete are then added to the main panel order.</div>`;
+
+    if (intelligence) {
+      intelligence.render({
+        formula: "linear",
+        materialCost: estimatedCost,
+        quantity: panels,
+        quantitySuffix: "panels",
+        quantityDecimals: 0,
+        scopeValue: length,
+        driverText: "Panel width, end details, gate openings, post concrete, and awkward boundary lines usually move fence costs most.",
+        confidenceText: "Fairly strong confidence on a straight run. Use the higher estimate if there are level changes, awkward corners, or uncertain gate and end-post details.",
+        comparisonProfiles: [
+          { label: "Budget boundary", note: "Simple panel-and-post route with leaner extras.", material: 0.88, labour: 0.9, extras: 0.92, fees: 0.9 },
+          { label: "Standard fence build", note: "Typical domestic fence replacement allowance.", material: 1, labour: 1, extras: 1, fees: 1 },
+          { label: "Upgraded fence build", note: "Stronger materials, extra concrete, and cleaner finish.", material: 1.22, labour: 1.12, extras: 1.15, fees: 1.04 }
+        ],
+        costModel: { labour: 0.44, extras: 0.14, fees: 0.03 },
+        realityItems: [
+          "Old fence removal, skip hire, and spoil handling often need a separate budget line.",
+          "Gate openings, corners, and changes in level can materially change both labour and materials.",
+          "Postcrete, gravel boards, fixings, and preservative treatment are easy to undercount.",
+          "Access through the property can affect labour more than the straight run length suggests."
+        ],
+        timelineSteps: fenceTimeline(length),
+        money: money,
+        formatQuantity: function (value) {
+          return `${Math.max(1, Math.round(value))}`;
+        }
+      });
+    }
+  }
+
+  unitButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      unit = button.dataset.unit || "metric";
+      setActive(unitButtons, "unit", unit);
+      calculate();
+    });
+  });
+
+  currencyButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      currency = button.dataset.currency || "GBP";
+      setActive(currencyButtons, "currency", currency);
+      calculate();
+    });
+  });
+
+  form.addEventListener("submit", calculate);
+  form.querySelectorAll("input").forEach(function (input) {
+    input.addEventListener("input", calculate);
+  });
+
+  renderDefaultState();
 })();
