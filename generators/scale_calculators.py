@@ -7,18 +7,19 @@ from generators.publisher_pages import render_calculator_page
 
 
 def _config_for(item):
+    item_name = item["name"].replace(" Calculator", "")
     return {
-        "length_label": "Area length",
-        "width_label": "Area width",
+        "length_label": "Length",
+        "width_label": "Width",
         "depth_label": "Depth",
         "coverage_label": "Coverage per unit (m2)",
         "density_label": "Density / tonnes per m3",
         "unit_size_label": "Unit size (tonnes or m3)",
-        "piece_length_label": "Unit length",
+        "piece_length_label": "Stock length",
         "price_label": "Price per unit",
         "unit_name_singular": "unit",
         "unit_name_plural": "units",
-        "result_intro": f"You will see the estimated quantity, whole-unit buying count, and rough material cost for {item['name'].replace(' Calculator', '').lower()} here.",
+        "result_intro": f"You will see the estimated quantity, whole-unit buying count, and rough material cost for {item_name} here.",
         "defaults": {},
         "calculator_note": "",
     } | CALCULATOR_UI.get(item["slug"], {})

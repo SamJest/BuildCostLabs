@@ -31,15 +31,15 @@ GENERIC_INTENT_TEMPLATES = {
         {
             "slug_suffix": "calculator-by-area",
             "title": "{name} Calculator by Area",
-            "description": "Estimate {name_lower} from the area to be covered and a realistic waste allowance.",
-            "headline": "Use covered area to estimate {name_lower} more accurately",
+            "description": "Estimate {name} from the area to be covered and a realistic waste allowance.",
+            "headline": "Use covered area to estimate {name} more accurately",
             "intro": "If you already know the area, you can turn it into a practical buying quantity once coverage per unit and waste are clear.",
         },
         {
             "slug_suffix": "how-much-do-i-need",
             "title": "{name} Buying Guide",
-            "description": "Work out a practical {name_lower} buying quantity before you order materials.",
-            "headline": "Turn the coverage figure into a practical {name_lower} order",
+            "description": "Plan a practical order for {name} before you buy materials.",
+            "headline": "Turn the coverage figure into a practical order for {name}",
             "intro": "Use this page to sense-check the calculator result, decide how much spare to allow, and move from neat coverage into a real buying quantity.",
         },
     ],
@@ -47,15 +47,15 @@ GENERIC_INTENT_TEMPLATES = {
         {
             "slug_suffix": "calculator-by-volume",
             "title": "{name} Calculator by Volume",
-            "description": "Estimate {name_lower} from length, width, depth, and a realistic waste allowance.",
-            "headline": "Use volume to estimate {name_lower} more confidently",
+            "description": "Estimate {name} from length, width, depth, and a realistic waste allowance.",
+            "headline": "Use volume to estimate {name} more confidently",
             "intro": "Volume-first estimating is usually the quickest route into a usable buying quantity for loose, bagged, or bulk materials.",
         },
         {
             "slug_suffix": "how-much-do-i-need",
             "title": "{name} Quantity Guide",
-            "description": "Turn job dimensions into a practical {name_lower} quantity before you order.",
-            "headline": "Turn the job dimensions into a practical {name_lower} order",
+            "description": "Turn job dimensions into a practical order quantity for {name}.",
+            "headline": "Turn the job dimensions into a practical order for {name}",
             "intro": "Use this page to sense-check the calculator result, compare buying formats, and move from raw volume into a more reliable order quantity.",
         },
     ],
@@ -63,15 +63,15 @@ GENERIC_INTENT_TEMPLATES = {
         {
             "slug_suffix": "length-calculator",
             "title": "{name} Length Calculator",
-            "description": "Estimate {name_lower} from total run length, stock size, and a practical cut allowance.",
-            "headline": "Use total run length to estimate {name_lower} with less waste",
+            "description": "Estimate {name} from total run length, stock size, and a practical cut allowance.",
+            "headline": "Use total run length to estimate {name} with less waste",
             "intro": "Length-based materials are usually bought in stock sizes, so the clean run length is only the starting point.",
         },
         {
             "slug_suffix": "how-much-do-i-need",
             "title": "{name} Buying Guide",
-            "description": "Turn the measured run into a practical {name_lower} buying quantity before you order stock lengths.",
-            "headline": "Turn the measured run into a practical {name_lower} order",
+            "description": "Turn the measured run into a practical order for {name} before you buy stock lengths.",
+            "headline": "Turn the measured run into a practical order for {name}",
             "intro": "Use this page to sense-check the calculator result, compare stock lengths, and allow for the cutting waste that affects real buying totals.",
         },
     ],
@@ -539,11 +539,10 @@ def build_support(item):
     if override:
         return override["support"]
     formula_support = FORMULA_SUPPORT[item["formula"]]
-    material_label = item["name"].replace(" Calculator", "").lower()
     return {
         "assumptions": formula_support["assumptions"],
         "mistakes": formula_support["mistakes"],
-        "use_case": f"{formula_support['use_case']} On this page, that usually means turning simple measurements into a more practical {material_label} buying estimate.",
+        "use_case": f"{formula_support['use_case']} On this page, that usually means turning simple measurements into a more practical material order.",
         "estimate_tip": formula_support["estimate_tip"],
         "buyer_tip": formula_support["buyer_tip"],
         "market_note": "UK and US buyers often use different unit language and pack conventions, but the geometry, waste, and whole-unit rounding logic are still the foundation.",
@@ -584,14 +583,13 @@ def build_guides(item):
 
 def build_intent_pages(item):
     item_name = item["name"].replace(" Calculator", "")
-    item_name_lower = item_name.lower()
     templates = GENERIC_INTENT_TEMPLATES.get(item["formula"], [])
     pages = [
         {
             "slug": item["slug"].replace("-calculator", f"-{page['slug_suffix']}"),
             "title": page["title"].format(name=item_name),
-            "description": page["description"].format(name_lower=item_name_lower),
-            "headline": page["headline"].format(name_lower=item_name_lower),
+            "description": page["description"].format(name=item_name),
+            "headline": page["headline"].format(name=item_name),
             "intro": page["intro"],
         }
         for page in templates
