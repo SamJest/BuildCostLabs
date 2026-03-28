@@ -6,7 +6,7 @@ SITE = {
     "description": "BuildCostLab helps users estimate materials, waste, and rough costs with practical calculators and supporting guides.",
     "default_image": "/assets/images/og-default.svg",
     "contact_email": "hello@buildcostlab.com",
-    "updated_label": "March 27, 2026",
+    "updated_label": "March 28, 2026",
     "methodology_path": "/calculator-methodology/",
     "editorial_policy_path": "/editorial-policy/",
 }
@@ -14,7 +14,7 @@ SITE = {
 NAV_LINKS = [
     {"href": "/", "label": "Home"},
     {"href": "/calculators/", "label": "Calculators"},
-    {"href": "/clusters/", "label": "Clusters"},
+    {"href": "/clusters/", "label": "Tool Sets"},
     {"href": "/guides/", "label": "Guides"},
 ]
 

@@ -104,7 +104,7 @@ def build_homepage() -> None:
           </ul>
         </div>
         <aside class="hero-panel">
-          <p class="hero-panel-label">Best first cluster</p>
+          <p class="hero-panel-label">Best first tool set</p>
           <h2>{escape(homepage_data['hero_panel_title'])}</h2>
           <p>{escape(homepage_data['hero_panel_text'])}</p>
           <ul>

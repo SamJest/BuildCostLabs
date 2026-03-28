@@ -1,9 +1,9 @@
 {
-  "title": "BuildMate Calculators | Project calculators for materials, quantities and job costs",
+  "title": "BuildCostLab | Project calculators for materials, quantities and job costs",
   "meta_description": "Estimate paint, tiles, flooring, concrete, gravel, paving and other project quantities with practical calculators built for real jobs.",
   "hero_eyebrow": "Practical project calculators",
   "hero_heading": "Estimate materials, quantities and project costs faster.",
-  "hero_text": "BuildMate Calculators is designed around real search intent: people who want quick answers for paint, tiles, flooring, concrete, gravel, decking, fencing and renovation jobs.",
+  "hero_text": "BuildCostLab is designed around real search intent: people who want quick answers for paint, tiles, flooring, concrete, gravel, decking, fencing and renovation jobs.",
   "primary_cta_label": "Browse all calculators",
   "primary_cta_href": "/calculators/",
   "secondary_cta_label": "See material estimators",
@@ -13,7 +13,7 @@
     "Built for global English traffic with practical project-led keywords",
     "Designed for ads first, with affiliate and lead paths later"
   ],
-  "hero_panel_title": "Launch the highest-intent cluster first",
+  "hero_panel_title": "Launch the highest-intent tool set first",
   "hero_panel_text": "The first build should focus on material calculators with obvious search demand, strong utility and evergreen formulas.",
   "hero_panel_list": [
     "Paint calculators",
@@ -40,11 +40,11 @@
       "text": "The template is designed so ad placements can be added later without harming usability, and the same pages can support affiliate or lead CTAs."
     }
   ],
-  "categories_heading": "Start with the strongest search clusters, then expand outward.",
+  "categories_heading": "Start with the strongest search tool sets, then expand outward.",
   "categories_text": "Initial categories are ordered around likely traffic potential and usefulness for project-based searches.",
   "category_cards": [
     {
-      "kicker": "Cluster 1",
+      "kicker": "Tool Set 1",
       "title": "Paint, tiles and flooring",
       "text": "High search demand, broad use cases and simple practical inputs make this the strongest first wave.",
       "examples": [
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "kicker": "Cluster 2",
+      "kicker": "Tool Set 2",
       "title": "Concrete, gravel and aggregates",
       "text": "Strong problem-solving intent and good monetisation potential through materials and project products later.",
       "examples": [
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "kicker": "Cluster 3",
+      "kicker": "Tool Set 3",
       "title": "Decking, paving and fencing",
       "text": "Good intent, strong adjacency to outdoor project searches and easy future expansion into cost estimates.",
       "examples": [

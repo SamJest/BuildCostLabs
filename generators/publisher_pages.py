@@ -47,7 +47,7 @@ def build_cluster_pages():
         hub_content = get_cluster_hub_content(cluster_slug)
         key = family["key"]
         path = f'/clusters/{cluster_slug}/'
-        crumbs = [("Home", "/"), ("Clusters", "/clusters/"), (family["cluster_name"], path)]
+        crumbs = [("Home", "/"), ("Tool Sets", "/clusters/"), (family["cluster_name"], path)]
         intent_pages = []
         guide_pages = []
         for calculator in items:
@@ -84,7 +84,7 @@ def build_cluster_pages():
         calculator_section = ""
         if calculator_cards:
             calculator_section = (
-                '<section class="content-card prose-card"><h2>More calculators in this cluster</h2>'
+                '<section class="content-card prose-card"><h2>More tools in this set</h2>'
                 '<p>These related tools help when the job involves extra materials, linked quantities, or a different buying format.</p></section>'
                 f'<section class="calculator-grid-section"><div class="calculator-grid">{calculator_cards}</div></section>'
             )
@@ -104,13 +104,13 @@ def build_cluster_pages():
             )
         content = (
             f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
-            f'<div class="eyebrow">Cluster hub</div><h1>{escape(family["cluster_name"])}</h1>'
+            f'<div class="eyebrow">Tool set</div><h1>{escape(family["cluster_name"])}</h1>'
             f'<p class="hero-copy">{escape(get_cluster_intro(cluster_slug, family["intro"]))}</p>'
             f'<div class="hero-badges"><span class="hero-badge">{escape(family["category"])}</span><span class="hero-badge">{len(items)} calculators</span><span class="hero-badge">Related guides included</span></div></section>'
             f'{render_ad_slot(f"{key}-hub-top")}'
             f'{featured_section}'
             f'{calculator_section}'
-            f'{render_section_cards(hub_content.get("notes", [("How to use this cluster", "Start with the calculator that matches the material or buying format you actually need, then move into the related guides if you need more detail before buying."), ("What affects estimates most", "Dimensions, depth or coverage assumptions, waste allowance, and pack or stock-length rounding are usually the biggest drivers of the final buying number."), ("Why these guides are useful", "The extra guides in each cluster help explain common mistakes, waste allowances, and buying choices that a simple quantity figure cannot cover on its own.")]))}'
+            f'{render_section_cards(hub_content.get("notes", [("How to use this tool set", "Start with the calculator that matches the material or buying format you actually need, then move into the related guides if you need more detail before buying."), ("What affects estimates most", "Dimensions, depth or coverage assumptions, waste allowance, and pack or stock-length rounding are usually the biggest drivers of the final buying number."), ("Why these guides are useful", "The extra guides in each tool set help explain common mistakes, waste allowances, and buying choices that a simple quantity figure cannot cover on its own.")]))}'
             f'{intent_section}'
             f'{guide_section}</div>'
         )
@@ -147,7 +147,7 @@ def build_guide_pages():
                 f'{render_quality_strip("guide")}'
                 f'<section class="content-card prose-card"><h2>Use the calculator first</h2><p>The quickest path is to start with <a href="/calculators/{escape(family["slug"])}/">{escape(family["name"])}</a>, then use this guide to sense-check the result and decide what to buy next.</p></section>'
                 f'{render_section_cards(supporting_cards)}'
-                f'<section class="content-card prose-card"><h2>Next step links</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} cluster</a> or go straight to the <a href="/calculators/{escape(family["slug"])}/">{escape(family["name"])}</a>.</p></section></div>'
+                f'<section class="content-card prose-card"><h2>Next step links</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} tool set</a> or go straight to the <a href="/calculators/{escape(family["slug"])}/">{escape(family["name"])}</a>.</p></section></div>'
             )
             html = render_layout(
                 title=f'{item["title"]} | {SITE["name"]}',
@@ -164,9 +164,9 @@ def build_guide_pages():
 def render_quality_strip(page_type: str) -> str:
     return (
         '<section class="quality-strip" aria-label="Freshness and methodology">'
-        f'<article class="content-card quality-card"><div class="quality-kicker">Updated</div><h2>{escape(SITE["updated_label"])}</h2><p>Reviewed against the current calculator logic, structured content, and internal linking used on {escape(SITE["name"])}.</p></article>'
-        f'<article class="content-card quality-card"><div class="quality-kicker">Methodology</div><h2>Planning-first estimate</h2><p>Use this {escape(page_type)} to build a rough material estimate, then confirm it against product data, site conditions, and supplier buying formats before you order.</p></article>'
-        f'<article class="content-card quality-card"><div class="quality-kicker">Trust</div><h2>How we publish</h2><p>See the <a href="{escape(SITE["methodology_path"])}">calculator methodology</a> and <a href="{escape(SITE["editorial_policy_path"])}">editorial policy</a> for the standards behind these pages.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">Last checked</div><h2>{escape(SITE["updated_label"])}</h2><p>We checked the calculator logic, page links, and support content used on this page.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">How to use it</div><h2>Use it as a planning estimate</h2><p>Use this {escape(page_type)} to build a rough material estimate, then confirm the final order against product data and site conditions.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">Why trust it</div><h2>See how the site is maintained</h2><p>Read the <a href="{escape(SITE["methodology_path"])}">calculator methodology</a> and <a href="{escape(SITE["editorial_policy_path"])}">editorial policy</a> for the standards behind these pages.</p></article>'
         '</section>'
     )
 
@@ -188,7 +188,7 @@ def build_calculator_support(slug: str) -> str:
     return (
         f'{render_ad_slot(f"{key}-mid")}'
         f'{render_section_cards([("Assumptions", family["support"]["assumptions"]), ("Common mistakes", family["support"]["mistakes"]), ("Best use cases", family["support"]["use_case"]), ("How to get a better estimate", family["support"].get("estimate_tip", "Measure carefully, apply realistic waste, and sense-check the result against how the product is actually sold.")), ("Before you buy", family["support"].get("buyer_tip", "Round to whole buying units and compare product coverage before buying solely on sticker price.")), ("UK and US note", family["support"].get("market_note", "Unit wording and supplier pack conventions differ between markets, but the estimating logic still starts with geometry, waste, and whole-unit ordering.")), ("Final buying check", family["support"].get("final_check", "Before placing an order, compare product coverage, pack size, delivery cost, and whether buying one extra unit is safer than risking a shortfall."))])}'
-        f'<section class="content-card prose-card"><h2>Explore this topic cluster</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} hub</a> to move from quick estimate to deeper guidance.</p></section>'
+        f'<section class="content-card prose-card"><h2>Explore this tool set</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} tool set</a> to move from quick estimate to deeper guidance.</p></section>'
         f'{next_step_section}'
         f'<section class="stack-grid">{faq_html}</section>'
     )
@@ -230,7 +230,7 @@ def build_guides_index() -> tuple[str, str]:
     content = (
         f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
         '<div class="eyebrow">Guide library</div><h1>Supporting guides built around calculator intent</h1>'
-        '<p class="hero-copy">These pages are written to support real estimating and buying decisions, then route users back into the right calculator or cluster.</p></section>'
+        '<p class="hero-copy">These pages are written to support real estimating and buying decisions, then route users back into the right calculator or tool set.</p></section>'
         f'{render_ad_slot("guides-index-top")}'
         f'<section class="calculator-grid-section"><div class="calculator-grid">{"".join(cards)}</div></section></div>'
     )
@@ -256,17 +256,17 @@ def build_clusters_index() -> tuple[str, str]:
         )
     cards = "".join(parts)
     path = "/clusters/"
-    crumbs = [("Home", "/"), ("Clusters", path)]
+    crumbs = [("Home", "/"), ("Tool Sets", path)]
     content = (
         f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
-        '<div class="eyebrow">Topic hubs</div><h1>Calculator clusters by project type</h1>'
+        '<div class="eyebrow">Project tool sets</div><h1>Tool sets by project type</h1>'
         '<p class="hero-copy">Browse grouped calculators and guides for painting, concrete, roofing, landscaping, flooring, and other common building jobs.</p></section>'
         f'{render_ad_slot("clusters-index-top")}'
         f'<section class="calculator-grid-section"><div class="calculator-grid">{cards}</div></section></div>'
     )
     return path, render_layout(
-        title=f'Clusters | {SITE["name"]}',
-        description="Browse BuildCostLab topic clusters for calculators, guides, and next-step buying content.",
+        title=f'Tool Sets | {SITE["name"]}',
+        description="Browse BuildCostLab tool sets for calculators, guides, and next-step buying content.",
         path=path,
         content=content,
         schema=[render_breadcrumb_schema(crumbs)],

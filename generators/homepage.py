@@ -20,7 +20,7 @@ def build_homepage(cards_html: str = ""):
         for item in calculators[:4]
     )
     launch_cards = "".join(
-        f'<article class="tool-card"><h3><a href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a></h3><p>{escape(item["intro"])}</p><a class="text-link" href="/clusters/{escape(item["cluster_slug"])}/">View cluster</a></article>'
+        f'<article class="tool-card"><h3><a href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a></h3><p>{escape(item["intro"])}</p><a class="text-link" href="/clusters/{escape(item["cluster_slug"])}/">View tool set</a></article>'
         for item in calculators
         if item["slug"] in launch_ready
     )
