@@ -65,11 +65,11 @@ def build_cluster_pages():
             f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
             f'<div class="eyebrow">Cluster hub</div><h1>{escape(family["cluster_name"])}</h1>'
             f'<p class="hero-copy">{escape(get_cluster_intro(cluster_slug, family["intro"]))}</p>'
-            f'<div class="hero-badges"><span class="hero-badge">{escape(family["category"])}</span><span class="hero-badge">{len(items)} calculators</span><span class="hero-badge">Ad-ready templates</span></div></section>'
+            f'<div class="hero-badges"><span class="hero-badge">{escape(family["category"])}</span><span class="hero-badge">{len(items)} calculators</span><span class="hero-badge">Related guides included</span></div></section>'
             f'{render_ad_slot(f"{key}-hub-top")}'
             f'<section class="content-card prose-card"><h2>Core calculators in this cluster</h2><p>Use this hub to move between closely related calculators in the same topic family. The goal is to keep the estimating journey connected instead of forcing one page to do every job.</p></section>'
             f'<section class="calculator-grid-section"><div class="calculator-grid">{calculator_cards}</div></section>'
-            f'{render_section_cards([("How to use this cluster", "Start with the calculator that matches the material or buying format you actually need, then move sideways into related tools if the job expands."), ("What affects estimates most", "Dimensions, depth or coverage assumptions, waste allowance, and pack or stock-length rounding are usually the biggest drivers of the final buying number."), ("How this helps SEO", "These cluster hubs create clear internal-link pathways between calculators, supporting guides, and next-step commercial intent without duplicating one generic explanation everywhere.")])}'
+            f'{render_section_cards([("How to use this cluster", "Start with the calculator that matches the material or buying format you actually need, then move into the related guides if you need more detail before buying."), ("What affects estimates most", "Dimensions, depth or coverage assumptions, waste allowance, and pack or stock-length rounding are usually the biggest drivers of the final buying number."), ("Why these guides are useful", "The extra guides in each cluster help explain common mistakes, waste allowances, and buying choices that a simple quantity figure cannot cover on its own.")])}'
             f'{intent_section}</div>'
         )
         html = render_layout(
@@ -123,7 +123,7 @@ def render_quality_strip(page_type: str) -> str:
     return (
         '<section class="quality-strip" aria-label="Freshness and methodology">'
         f'<article class="content-card quality-card"><div class="quality-kicker">Updated</div><h2>{escape(SITE["updated_label"])}</h2><p>Reviewed against the current calculator logic, structured content, and internal linking used on {escape(SITE["name"])}.</p></article>'
-        f'<article class="content-card quality-card"><div class="quality-kicker">Methodology</div><h2>Planning-first estimate</h2><p>Use this {escape(page_type)} to build a quick order or budget estimate, then confirm against product coverage data, site conditions, and supplier pack sizes.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">Methodology</div><h2>Planning-first estimate</h2><p>Use this {escape(page_type)} to build a rough material estimate, then confirm it against product coverage data, site conditions, and supplier pack sizes before you order.</p></article>'
         f'<article class="content-card quality-card"><div class="quality-kicker">Trust</div><h2>How we publish</h2><p>See the <a href="{escape(SITE["methodology_path"])}">calculator methodology</a> and <a href="{escape(SITE["editorial_policy_path"])}">editorial policy</a> for the standards behind these pages.</p></article>'
         '</section>'
     )
@@ -142,10 +142,10 @@ def build_calculator_support(slug: str) -> str:
     )
     next_step_section = ""
     if next_links:
-        next_step_section = f'<section class="related-tools"><div class="section-head"><h2>Next-step guides</h2><p>Keep users moving through the cluster instead of bouncing after one result.</p></div><div class="mini-tool-grid">{next_links}</div></section>'
+        next_step_section = f'<section class="related-tools"><div class="section-head"><h2>Next-step guides</h2><p>Use these guides to sense-check the estimate, avoid common mistakes, and choose the right buying format.</p></div><div class="mini-tool-grid">{next_links}</div></section>'
     return (
         f'{render_ad_slot(f"{key}-mid")}'
-        f'{render_section_cards([("Assumptions", family["support"]["assumptions"]), ("Common mistakes", family["support"]["mistakes"]), ("Best use cases", family["support"]["use_case"]), ("How to get a better estimate", family["support"].get("estimate_tip", "Measure carefully, apply realistic waste, and sense-check the result against how the product is actually sold.")), ("Buyer note", family["support"].get("buyer_tip", "Round to whole buying units and compare product coverage before buying solely on sticker price.")), ("UK and US note", family["support"].get("market_note", "Unit wording and supplier pack conventions differ between markets, but the estimating logic still starts with geometry, waste, and whole-unit ordering.")), ("Commercial next step", "After checking quantity, compare product coverage, pack size, delivery cost, and whether buying an extra unit reduces the risk of a stalled job.")])}'
+        f'{render_section_cards([("Assumptions", family["support"]["assumptions"]), ("Common mistakes", family["support"]["mistakes"]), ("Best use cases", family["support"]["use_case"]), ("How to get a better estimate", family["support"].get("estimate_tip", "Measure carefully, apply realistic waste, and sense-check the result against how the product is actually sold.")), ("Before you buy", family["support"].get("buyer_tip", "Round to whole buying units and compare product coverage before buying solely on sticker price.")), ("UK and US note", family["support"].get("market_note", "Unit wording and supplier pack conventions differ between markets, but the estimating logic still starts with geometry, waste, and whole-unit ordering.")), ("Final buying check", "Before placing an order, compare product coverage, pack size, delivery cost, and whether buying one extra unit is safer than risking a shortfall.")])}'
         f'<section class="content-card prose-card"><h2>Explore this topic cluster</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} hub</a> to move from quick estimate to deeper guidance.</p></section>'
         f'{next_step_section}'
         f'<section class="stack-grid">{faq_html}</section>'
@@ -217,8 +217,8 @@ def build_clusters_index() -> tuple[str, str]:
     crumbs = [("Home", "/"), ("Clusters", path)]
     content = (
         f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
-        '<div class="eyebrow">Topic hubs</div><h1>Calculator clusters built for search intent</h1>'
-        '<p class="hero-copy">Each cluster combines a core calculator, next-step guides, and internal links designed to keep users moving through the topic.</p></section>'
+        '<div class="eyebrow">Topic hubs</div><h1>Calculator clusters by project type</h1>'
+        '<p class="hero-copy">Browse grouped calculators and guides for painting, concrete, roofing, landscaping, flooring, and other common building jobs.</p></section>'
         f'{render_ad_slot("clusters-index-top")}'
         f'<section class="calculator-grid-section"><div class="calculator-grid">{cards}</div></section></div>'
     )

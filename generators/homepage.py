@@ -31,12 +31,12 @@ def build_homepage(cards_html: str = ""):
         <img class="hero-logo" src="/assets/logo.svg" alt="{escape(SITE["name"])}">
         <div class="eyebrow">buildcostlab.com</div>
       </div>
-      <h1>Structured cost tools for real building jobs</h1>
+      <h1>Material calculators for real building jobs</h1>
       <p class="hero-copy">{escape(SITE["description"])}</p>
       <div class="hero-badges">
-        <span class="hero-badge">Calculator-led publishing</span>
-        <span class="hero-badge">UK and US intent</span>
-        <span class="hero-badge">Ad-ready page templates</span>
+        <span class="hero-badge">Practical quantity tools</span>
+        <span class="hero-badge">Metric and imperial support</span>
+        <span class="hero-badge">Guides for common buying decisions</span>
       </div>
     </section>
 
@@ -45,7 +45,7 @@ def build_homepage(cards_html: str = ""):
     <section class="content-card intro-card">
       <div class="section-head">
         <h2>Calculator library</h2>
-        <p>Start with a working calculator, then move into supporting guides, cost explainers, and next-step pages built around the same job intent. The site now supports a much larger inventory model so clusters can scale without losing structure.</p>
+        <p>Start with the calculator that fits your job, then use the related guides to check waste, buying units, and rough material costs before you order.</p>
       </div>
     </section>
 
@@ -57,8 +57,8 @@ def build_homepage(cards_html: str = ""):
 
     <section class="content-card intro-card">
       <div class="section-head">
-        <h2>Launch-ready traffic candidates</h2>
-        <p>These are the strongest early pages for combining practical utility, ad-friendly time on page, and obvious next-step cluster expansion.</p>
+        <h2>Popular starting points</h2>
+        <p>These calculators cover some of the most common jobs people price and plan first, from paint and concrete to roofing and topsoil.</p>
       </div>
     </section>
 
@@ -70,8 +70,8 @@ def build_homepage(cards_html: str = ""):
 
     <section class="content-card intro-card">
       <div class="section-head">
-        <h2>Topic clusters built to compound traffic</h2>
-        <p>Each cluster combines a core calculator, sub-intent pages, and support guides so visitors can keep moving through the topic instead of bouncing after one answer.</p>
+        <h2>Browse by project type</h2>
+        <p>Each topic area brings related calculators and guides together so you can move from a quick estimate to a more confident buying decision.</p>
       </div>
     </section>
 
@@ -83,8 +83,8 @@ def build_homepage(cards_html: str = ""):
 
     <section class="content-card intro-card">
       <div class="section-head">
-        <h2>High-intent buying journeys</h2>
-        <p>The strongest revenue paths start with a quantity question, then move into waste, pack size, delivery format, and product comparison. The site architecture is now built to support that journey.</p>
+        <h2>Plan the job before you buy</h2>
+        <p>A simple quantity result is only the start. The guides on this site help you think through waste, pack sizes, delivery format, and the practical differences between common product options.</p>
       </div>
     </section>
   </div>'''
