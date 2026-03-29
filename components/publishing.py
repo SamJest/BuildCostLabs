@@ -79,7 +79,8 @@ def render_nav() -> str:
     links = "".join(
         f'<a href="{escape(item["href"])}">{escape(item["label"])}</a>' for item in NAV_LINKS
     )
-    return f'<header class="site-header"><div class="site-shell header-shell"><a class="brand" href="/" aria-label="{escape(SITE["name"])} home"><img src="/assets/logo.svg" alt="{escape(SITE["name"])}"></a><nav class="site-nav">{links}</nav></div></header>'
+    cta = '<a class="header-cta" href="/quote-checklist/">Quote prep</a>'
+    return f'<header class="site-header"><div class="site-shell header-shell"><a class="brand" href="/" aria-label="{escape(SITE["name"])} home"><img src="/assets/logo.svg" alt="{escape(SITE["name"])}"></a><nav class="site-nav">{links}{cta}</nav></div></header>'
 
 
 def render_footer() -> str:

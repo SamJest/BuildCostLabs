@@ -49,6 +49,18 @@ def render_cost_intelligence_shell() -> str:
     )
 
 
+def render_calculator_jump_nav() -> str:
+    return (
+        '<nav class="section-jump-nav" aria-label="On this page">'
+        '<a class="jump-chip" href="#calculator">Calculator</a>'
+        '<a class="jump-chip" href="#quote-brief">Quote brief</a>'
+        '<a class="jump-chip" href="#buying-checks">Buying checks</a>'
+        '<a class="jump-chip" href="#next-guides">Next-step guides</a>'
+        '<a class="jump-chip" href="#faqs">FAQs</a>'
+        '</nav>'
+    )
+
+
 def build_trust_pages():
     pages = []
     for page in TRUST_PAGES:
@@ -416,7 +428,7 @@ def render_quote_prep_panel(family: dict, context: str) -> str:
 
 def render_quote_brief_shell(family: dict) -> str:
     return (
-        '<section class="quote-brief-shell content-card">'
+        '<section id="quote-brief" class="quote-brief-shell content-card">'
         '<div class="section-head">'
         '<h2>Quote-ready brief</h2>'
         '<p>Use these actions to turn the live calculator result into a cleaner request for builders, suppliers, or merchants.</p>'
@@ -464,12 +476,15 @@ def build_calculator_support(slug: str) -> str:
     )
     next_step_section = ""
     if next_links:
-        next_step_section = f'<section class="related-tools"><div class="section-head"><h2>Next-step guides</h2><p>Use these guides to sense-check the estimate, avoid common mistakes, and choose the right buying format.</p></div><div class="mini-tool-grid">{next_links}</div></section>'
+        next_step_section = f'<section class="related-tools" id="next-guides"><div class="section-head"><h2>Next-step guides</h2><p>Use these guides to sense-check the estimate, avoid common mistakes, and choose the right buying format.</p></div><div class="mini-tool-grid">{next_links}</div></section>'
+    support_cards = render_section_cards([("Assumptions", family["support"]["assumptions"]), ("Common mistakes", family["support"]["mistakes"]), ("Best use cases", family["support"]["use_case"]), ("How to get a better estimate", family["support"].get("estimate_tip", "Measure carefully, apply realistic waste, and sense-check the result against how the product is actually sold.")), ("Before you buy", family["support"].get("buyer_tip", "Round to whole buying units and compare product coverage before buying solely on sticker price.")), ("UK and US note", family["support"].get("market_note", "Unit wording and supplier pack conventions differ between markets, but the estimating logic still starts with geometry, waste, and whole-unit ordering.")), ("Final buying check", family["support"].get("final_check", "Before placing an order, compare product coverage, pack size, delivery cost, and whether buying one extra unit is safer than risking a shortfall."))])
     return (
         f'{render_ad_slot(f"{key}-mid")}'
-        f'{render_section_cards([("Assumptions", family["support"]["assumptions"]), ("Common mistakes", family["support"]["mistakes"]), ("Best use cases", family["support"]["use_case"]), ("How to get a better estimate", family["support"].get("estimate_tip", "Measure carefully, apply realistic waste, and sense-check the result against how the product is actually sold.")), ("Before you buy", family["support"].get("buyer_tip", "Round to whole buying units and compare product coverage before buying solely on sticker price.")), ("UK and US note", family["support"].get("market_note", "Unit wording and supplier pack conventions differ between markets, but the estimating logic still starts with geometry, waste, and whole-unit ordering.")), ("Final buying check", family["support"].get("final_check", "Before placing an order, compare product coverage, pack size, delivery cost, and whether buying one extra unit is safer than risking a shortfall."))])}'
+        '<section id="buying-checks" class="content-card prose-card section-anchor-card"><h2>Practical checks before you buy</h2><p>These notes are where BuildCostLab goes beyond a generic calculator result by surfacing the assumptions, buying traps, and next decisions that usually move the real order.</p></section>'
+        f'{support_cards}'
         f'<section class="content-card prose-card"><h2>Explore this tool set</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} tool set</a> to move from quick estimate to deeper guidance.</p></section>'
         f'{next_step_section}'
+        '<section id="faqs" class="content-card prose-card section-anchor-card"><h2>Quick answers</h2><p>These answers are designed to resolve the last practical buying questions people usually have after running the calculator.</p></section>'
         f'<section class="stack-grid">{faq_html}</section>'
     )
 
@@ -489,7 +504,8 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
         '<div class="hero-badges"><span class="hero-badge">Estimate range</span><span class="hero-badge">Cost breakdown</span><span class="hero-badge">Compare options</span></div></section>'
         f'{render_ad_slot(f"{key}-top")}'
         f'{render_quality_strip("calculator")}'
-        f'<section class="calculator-layout"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_cost_intelligence_shell()}</aside></section>'
+        f'{render_calculator_jump_nav()}'
+        f'<section class="calculator-layout" id="calculator"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_cost_intelligence_shell()}</aside></section>'
         f'{render_quote_brief_shell(family)}'
         f'{build_calculator_support(slug)}'
         f'{render_quote_prep_panel(family, "calculator")}</div><script src="/assets/js/global-calculator.js"></script><script src="/assets/js/cost-intelligence.js"></script><script src="/assets/js/quote-brief.js"></script><script src="/assets/js/{escape(script_name)}"></script>'
