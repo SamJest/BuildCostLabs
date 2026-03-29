@@ -153,7 +153,7 @@ def build_cluster_pages():
         )
         html = render_layout(
             title=f'{family["cluster_name"]} | {SITE["name"]}',
-            description=f'Browse {family["cluster_name"].lower()} calculators and supporting guides on {SITE["name"]}.',
+            description=f'Browse {family["cluster_name"].lower()} calculators, supporting guides, and next-step buying content on {SITE["name"]}.',
             path=path,
             content=content,
             schema=[render_breadcrumb_schema(crumbs)],
@@ -163,41 +163,221 @@ def build_cluster_pages():
     return pages
 
 
+def _guide_mode(item: dict) -> str:
+    text = f"{item['slug']} {item['title']} {item.get('headline', '')}".lower()
+    if any(token in text for token in (' vs ', '-vs-', 'versus', 'compare')):
+        return 'compare'
+    if 'labour-vs-materials' in text:
+        return 'labour-materials'
+    if 'budget' in text:
+        return 'budget'
+    if 'cost-driver' in text or 'cost-drivers' in text:
+        return 'cost-drivers'
+    if 'cost-per' in text or 'per-m2' in text or 'per-m²' in text or 'costs' in text:
+        return 'cost-per'
+    if any(token in text for token in ('waste', 'coverage', 'overlap', 'yield', 'fit', 'depth')):
+        return 'waste'
+    if any(token in text for token in ('length', 'boxes', 'packs', 'rolls', 'how-much', 'calculator-by-area', 'calculator-by-volume')):
+        return 'quantity'
+    return 'general'
+
+
+
+def _guide_description(item: dict, family: dict) -> str:
+    description = item['description'].strip()
+    if len(description) >= 95:
+        return description
+    endings = {
+        'compare': f" Use it with the {family['name']} and the wider {family['cluster_name']} tool set to compare routes on the same scope.",
+        'labour-materials': f" Use it with the {family['name']} to separate labour pressure from materials before you compare quotes.",
+        'budget': f" Use it with the {family['name']} to turn an early estimate into a more realistic planning budget.",
+        'cost-drivers': f" Use it with the {family['name']} to isolate the assumptions most likely to move the final number.",
+        'cost-per': f" Use it with the {family['name']} to turn headline rates into a more practical cost check.",
+        'waste': f" Use it with the {family['name']} to sense-check waste, coverage, and buying-unit rounding before you order.",
+        'quantity': f" Use it with the {family['name']} to turn a neat quantity into a safer buying decision.",
+        'general': f" Use it with the {family['name']} and related guides to pressure-test the estimate before you buy or request quotes.",
+    }
+    return f"{description.rstrip('.')}" + endings[_guide_mode(item)]
+
+
+
+def _guide_focus_cards(item: dict, family: dict) -> list[tuple[str, str]]:
+    mode = _guide_mode(item)
+    if mode == 'compare':
+        return [
+            ('Best use', 'Compare two routes on the same measured job before price, convenience, or supplier preference start to blur the decision.'),
+            ('Watch most', 'Coverage, waste, fixing extras, lifespan, and labour time often matter more than the first sticker price.'),
+            ('Best next move', f"Run the {family['name']} first, then compare both options against the same scope and finish level."),
+        ]
+    if mode == 'labour-materials':
+        return [
+            ('Best use', 'Split labour from materials so quote differences are easier to understand and challenge.'),
+            ('Watch most', 'Prep, access, cutting, disposal, and finish complexity often shift labour faster than the material line.'),
+            ('Best next move', 'Ask every installer to price the same inclusions, exclusions, and contingency assumptions.'),
+        ]
+    if mode == 'budget':
+        return [
+            ('Best use', 'Turn a rough quantity into a more realistic planning budget before you request formal quotes.'),
+            ('Watch most', 'Contingency, prep work, delivery, waste, and secondary materials usually explain why real totals exceed the first estimate.'),
+            ('Best next move', 'Lock down the uncertain scope first, then compare budget, standard, and higher-spec routes.'),
+        ]
+    if mode in {'cost-drivers', 'cost-per'}:
+        return [
+            ('Best use', 'Sense-check headline rates before treating them as a working budget or quote benchmark.'),
+            ('Watch most', 'Scope gaps, access, finish level, labour pressure, and extras can move the total more than the visible headline rate.'),
+            ('Best next move', 'Pressure-test the weak assumptions before comparing contractor or merchant prices.'),
+        ]
+    if mode == 'waste':
+        return [
+            ('Best use', 'Use this when the order depends on waste, overlap, pack rounding, or awkward cuts rather than simple geometry alone.'),
+            ('Watch most', 'Layout complexity, offcuts, breakage, and the real product coverage usually decide whether the order feels safe.'),
+            ('Best next move', 'Confirm the supplier unit size and round against the buying format you can actually order.'),
+        ]
+    if mode == 'quantity':
+        return [
+            ('Best use', 'Turn measured dimensions into a safer order quantity for packs, sheets, rolls, bags, or linear products.'),
+            ('Watch most', 'Coverage assumptions, minimum order units, stock lengths, and handling loss usually move the final order.'),
+            ('Best next move', 'Run the calculator, then round against live pack sizes and the awkward parts of the job.'),
+        ]
+    return [
+        ('Best use', family['support']['use_case']),
+        ('Watch most', family['support']['mistakes']),
+        ('Best next move', family['support'].get('estimate_tip', 'Measure carefully, sense-check the result, and compare buying routes before you commit.')),
+    ]
+
+
+
+def _guide_example_cards(item: dict, family: dict) -> list[tuple[str, str]]:
+    mode = _guide_mode(item)
+    if family.get('formula') == 'project_cost':
+        return [
+            ('Scope driver', 'Area, spec, and whether the existing surface needs preparation often move the budget before finishing touches are considered.'),
+            ('Site driver', 'Access, waste removal, delivery setup, and sequencing with other trades can change the real total quickly.'),
+            ('Buying driver', 'A cleaner quote brief usually comes from checking materials, labour, and extras as separate lines first.'),
+        ]
+    if mode == 'compare':
+        return [
+            ('Material route', 'One route may look cheaper until waste, coverage, or extra accessories are priced on the same basis.'),
+            ('Installation route', 'A faster or cleaner install route can offset a higher material cost when labour is tight.'),
+            ('Replacement route', 'Think about rework, maintenance, and spare stock when the cheaper option may be harder to match later.'),
+        ]
+    if mode == 'waste':
+        return [
+            ('Simple layout', 'Rectangles and straightforward runs usually behave closest to the base waste assumption.'),
+            ('Awkward layout', 'Niches, cuts, borders, curves, or lots of penetrations usually justify a higher allowance.'),
+            ('Buying check', 'Use the live pack or roll size before finalising the order so the rounding matches supplier reality.'),
+        ]
+    if mode == 'quantity':
+        return [
+            ('Single room', 'Straightforward rooms or runs usually make the cleanest first-pass estimate.'),
+            ('Linked extras', 'Adhesives, fixings, trims, and underlayers are often missed when people focus only on the headline unit count.'),
+            ('Delivery check', 'Round with enough spare to avoid paying for a second delivery or stalling the job.'),
+        ]
+    return [
+        ('Measurement check', 'Remeasure the parts of the job that feel least certain before you rely on the first estimate.'),
+        ('Supplier check', 'Compare live pack sizes, product sheets, and merchant wording against the assumptions used here.'),
+        ('Decision check', 'Treat the calculator and guide together as a planning baseline, not a substitute for a real quote.'),
+    ]
+
+
+
+def _guide_faqs(item: dict, family: dict) -> list[dict]:
+    subject = item['title']
+    mode = _guide_mode(item)
+    if mode == 'compare':
+        return [
+            {'q': f'How should I compare options in {subject}?', 'a': f'Start with the same measured scope, waste allowance, and finish level, then compare materials, labour, and extras side by side using the {family["name"]}.'},
+            {'q': f'What usually changes the result in {subject}?', 'a': 'Coverage, waste, accessory items, labour time, and replacement risk usually matter more than the headline sticker price alone.'},
+            {'q': f'When should I stop comparing and ask for quotes?', 'a': 'Once the dimensions, finish route, and scope are stable, ask merchants or installers to price the same assumptions so the quote spread is easier to trust.'},
+        ]
+    if mode in {'budget', 'cost-drivers', 'cost-per', 'labour-materials'} or family.get('formula') == 'project_cost':
+        return [
+            {'q': f'How accurate is {subject}?', 'a': 'Treat it as a planning page, not a fixed quote. Scope, access, labour rate, finish level, and the included extras still need checking locally.'},
+            {'q': f'What should I compare after using {subject}?', 'a': f'Compare materials, labour, prep, waste removal, delivery, and exclusions on the same scope before you decide which route is best value.'},
+            {'q': 'Should I add contingency?', 'a': 'Yes. A realistic contingency is usually the difference between a useful planning budget and a number that falls apart once the site conditions are clearer.'},
+        ]
+    return [
+        {'q': f'How should I use {subject}?', 'a': f'Use it with the {family["name"]} as a buying and planning sense-check, then confirm the final order against live supplier information and the site conditions.'},
+        {'q': f'What usually changes the {subject} answer most?', 'a': 'Coverage or stock assumptions, waste, awkward cuts, and whole-unit rounding usually move the final order more than people expect.'},
+        {'q': 'Should I round up the result?', 'a': 'Usually yes. A small spare allowance is often cheaper than a shortfall, a second delivery, or a delayed job.'},
+    ]
+
+
+
+def _guide_related_cards(family: dict, current_slug: str) -> str:
+    related_items = [
+        entry for entry in (family['intent_pages'] + family['guide_pages']) if entry['slug'] != current_slug
+    ][:3]
+    if not related_items:
+        return ''
+    cards = ''.join(
+        f'<article class="tool-card"><h3><a href="/guides/{escape(entry["slug"] )}/">{escape(entry["title"])}</a></h3><p>{escape(entry["description"])}</p></article>'
+        for entry in related_items
+    )
+    return (
+        '<section class="content-card prose-card"><h2>Related decision pages</h2><p>Use these pages to pressure-test the next buying, waste, or cost question that usually follows the first estimate.</p></section>'
+        f'<section class="calculator-grid-section"><div class="calculator-grid">{cards}</div></section>'
+    )
+
+
+
 def build_guide_pages():
     pages = []
     for family in get_all_calculators():
-        key = family["key"]
-        related = family["intent_pages"] + family["guide_pages"]
+        key = family['key']
+        related = family['intent_pages'] + family['guide_pages']
         for item in related:
-            path = f'/guides/{item["slug"]}/'
-            crumbs = [("Home", "/"), ("Guides", "/guides/"), (item["title"], path)]
-            supporting_cards = [
-                ("Why this page exists", family["support"]["use_case"]),
-                ("Core assumption", family["support"]["assumptions"]),
-                ("Common mistake", family["support"]["mistakes"]),
+            path = f"/guides/{item['slug']}/"
+            crumbs = [('Home', '/'), ('Guides', '/guides/'), (item['title'], path)]
+            focus_cards = _guide_focus_cards(item, family)
+            support_cards = [
+                ('Why this page exists', family['support']['use_case']),
+                ('Core assumption', family['support']['assumptions']),
+                ('Common mistake', family['support']['mistakes']),
             ]
+            example_cards = _guide_example_cards(item, family)
+            faqs = _guide_faqs(item, family)
+            related_cards = _guide_related_cards(family, item['slug'])
+            description = _guide_description(item, family)
+            focus_html = ''.join(
+                f'<article class="content-card prose-card"><h2>{escape(title)}</h2><p>{escape(body)}</p></article>'
+                for title, body in focus_cards
+            )
+            example_html = ''.join(
+                f'<article class="content-card prose-card"><h2>{escape(title)}</h2><p>{escape(body)}</p></article>'
+                for title, body in example_cards
+            )
+            faq_html = ''.join(
+                f'<article class="content-card prose-card"><h2>{escape(entry["q"])}</h2><p>{escape(entry["a"])}</p></article>'
+                for entry in faqs
+            )
             content = (
                 f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
                 f'<div class="eyebrow">{escape(family["cluster_name"])}</div><h1>{escape(item["headline"])}</h1>'
                 f'<p class="hero-copy">{escape(item["intro"])}</p></section>'
                 f'{render_ad_slot(f"{key}-guide-top")}'
                 f'{render_quality_strip("guide")}'
+                f'<section class="content-card prose-card"><h2>Quick answer</h2><p>{escape(description)}</p></section>'
+                f'<section class="stack-grid">{focus_html}</section>'
                 f'<section class="content-card prose-card"><h2>Use the calculator first</h2><p>The quickest path is to start with <a href="/calculators/{escape(family["slug"])}/">{escape(family["name"])}</a>, then use this guide to sense-check the result and decide what to buy next.</p></section>'
-                f'{render_section_cards(supporting_cards)}'
+                f'{render_section_cards(support_cards)}'
+                f'<section class="content-card prose-card"><h2>Practical checks before you buy or brief</h2><p>Use these prompts to move from a neat estimate into a more realistic buying, budgeting, or quote-comparison decision.</p></section>'
+                f'<section class="stack-grid">{example_html}</section>'
+                f'{related_cards}'
                 f'<section class="content-card prose-card"><h2>Next step links</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} tool set</a> or go straight to the <a href="/calculators/{escape(family["slug"])}/">{escape(family["name"])}</a>.</p></section>'
-                f'{render_quote_prep_panel(family, "guide")}</div>'
+                f'{render_quote_prep_panel(family, "guide")}'
+                f'<section class="stack-grid">{faq_html}</section></div>'
             )
             html = render_layout(
-                title=f'{item["title"]} | {SITE["name"]}',
-                description=item["description"],
+                title=f"{item['title']} | {SITE['name']}",
+                description=description,
                 path=path,
                 content=content,
-                schema=[render_breadcrumb_schema(crumbs)],
-                page_type="guide",
+                schema=[render_breadcrumb_schema(crumbs), render_faq_schema(faqs)],
+                page_type='guide',
             )
             pages.append((path, html))
     return pages
-
 
 def render_quote_prep_panel(family: dict, context: str) -> str:
     calculator_path = f'/calculators/{family["slug"]}/'
@@ -342,7 +522,7 @@ def build_guides_index() -> tuple[str, str]:
     )
     return path, render_layout(
         title=f'Guides | {SITE["name"]}',
-        description="Browse BuildCostLab guides covering material quantities, waste, and rough cost decisions.",
+        description="Browse BuildCostLab guides covering material quantities, waste allowances, buying checks, and rough cost decisions.",
         path=path,
         content=content,
         schema=[render_breadcrumb_schema(crumbs)],
@@ -372,7 +552,7 @@ def build_clusters_index() -> tuple[str, str]:
     )
     return path, render_layout(
         title=f'Tool Sets | {SITE["name"]}',
-        description="Browse BuildCostLab tool sets for calculators, guides, and next-step buying content.",
+        description="Browse BuildCostLab tool sets for calculators, guides, quote-prep steps, and next-step buying content.",
         path=path,
         content=content,
         schema=[render_breadcrumb_schema(crumbs)],

@@ -35,7 +35,7 @@ def build_calculators_index(cards_html: str) -> str:
   </div>'''
     return render_layout(
         title=f'Calculators | {SITE["name"]}',
-        description='Browse practical material calculators for building, decorating, and outdoor jobs.',
+        description='Browse practical material calculators for building, decorating, outdoor projects, and early quote-planning decisions.',
         path="/calculators/",
         content=content,
         schema=[render_breadcrumb_schema(crumbs)],

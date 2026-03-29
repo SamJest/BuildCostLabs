@@ -8,11 +8,15 @@ Key fixes included:
 - Added working /compare/ and /buying-guides/ hub pages.
 - Synced sitemap, page inventory, SEO report, and launch-readiness report to the actual generated output.
 - Included all generated calculator pages in the rebuilt site outputs and reporting.
-- Added SoftwareApplication schema to calculator pages.
-- Removed public placeholder ad boxes that said Reserved ad placement.
+- Added SoftwareApplication schema to calculator pages and FAQ schema to guide pages.
+- Removed stale root-level generated HTML files that were carrying old placeholder text and could confuse future deploys.
+- Removed public placeholder ad boxes from the generated build path.
+- Expanded guide templates with stronger quick answers, practical checks, related decision pages, and richer meta descriptions.
+- Expanded location pages with local quote-prep checks, project-fit notes, and stronger planning context.
 - Unified the main navigation to include Buying Guides, Compare, and Locations.
-- Verified 0 broken internal root-relative links in the generated output.
+- Verified 0 short meta descriptions under 90 characters in the generated output.
 
 Deploy workflow:
-- Push this project to your main branch.
-- GitHub Actions will run python scripts/build.py and deploy the /output folder to Pages.
+- Paste these files into your repo root.
+- If you keep GitHub Pages on the gh-pages branch, push main and then publish the built /output folder to gh-pages.
+- If you switch Pages to GitHub Actions, pushing main is enough because the workflow will rebuild /output automatically.

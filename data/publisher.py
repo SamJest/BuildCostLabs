@@ -27,7 +27,7 @@ TRUST_PAGES = [
     {
         "slug": "about",
         "title": "About BuildCostLab",
-        "description": "Learn what BuildCostLab publishes and how the calculators are intended to be used.",
+        "description": "Learn what BuildCostLab publishes, who the calculators are built for, and how the site is intended to be used in real planning.",
         "headline": "Built for real measuring and buying decisions",
         "intro": "BuildCostLab is designed for people who want fast, practical quantity and cost estimates before they buy materials.",
         "sections": [
@@ -51,7 +51,7 @@ TRUST_PAGES = [
     {
         "slug": "contact",
         "title": "Contact BuildCostLab",
-        "description": "Contact BuildCostLab about calculator feedback, corrections, or partnerships.",
+        "description": "Contact BuildCostLab about calculator feedback, editorial corrections, quote-workflow questions, or commercial partnerships.",
         "headline": "Contact the BuildCostLab team",
         "intro": "Use the contact details below for correction requests, calculator feedback, and commercial enquiries.",
         "sections": [
@@ -85,7 +85,7 @@ TRUST_PAGES = [
     {
         "slug": "privacy-policy",
         "title": "Privacy Policy",
-        "description": "Read the BuildCostLab privacy policy covering analytics, ads, cookies, and communication.",
+        "description": "Read the BuildCostLab privacy policy covering analytics, advertising technology, cookies, and communication with the site team.",
         "headline": "Privacy policy",
         "intro": "This site may use analytics, advertising technology, and contact forms or email conversations to operate and improve the service.",
         "sections": [

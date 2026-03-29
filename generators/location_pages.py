@@ -30,6 +30,28 @@ def render_location_quality_strip(kind: str) -> str:
 
 
 
+def _location_local_checks(location: dict) -> list[tuple[str, str]]:
+    base = [
+        ('Access and delivery', 'Confirm where materials can be unloaded, how close the drop point is to the job, and whether staged deliveries are more realistic than one large load.'),
+        ('Quote comparison', 'Send merchants or installers the same measured scope, finish assumption, and exclusions so the local price spread is easier to trust.'),
+        ('Order timing', 'Check lead times, access windows, and whether weather or sequencing with other work could force the order to be split.'),
+    ]
+    if location['kind'] == 'city':
+        base[0] = ('Urban access check', 'Parking, loading space, neighbours, and smaller delivery windows can move cost and practicality faster in city jobs than the raw material quantity does.')
+    else:
+        base[0] = ('Regional spread check', 'Travel time, merchant coverage, and whether the job sits in a dense urban pocket or a more spread-out area can change labour and delivery assumptions.')
+    return base
+
+
+
+def _location_project_fit(location: dict) -> list[tuple[str, str]]:
+    return [
+        ('Best jobs to start here', 'Use the calculators first for the material or task you actually need, then use this location page to pressure-test the estimate against local delivery, access, labour, and weather context.'),
+        ('What to tell suppliers', 'Share the measured dimensions, the preferred material route, any access limits, the timing window, and whether you want materials only or labour included.'),
+        ('What to recheck locally', 'Confirm waste removal, unloading, parking, storage space, and whether the site can realistically take the buying format you first planned.'),
+    ]
+
+
 def build_location_pages():
     pages = []
     for location in get_all_locations():
@@ -59,6 +81,15 @@ def build_location_pages():
             for item in related_locations
         )
 
+        local_checks_html = ''.join(
+            f'<article class="content-card prose-card"><h2>{escape(title)}</h2><p>{escape(body)}</p></article>'
+            for title, body in _location_local_checks(location)
+        )
+        project_fit_html = ''.join(
+            f'<article class="content-card prose-card"><h2>{escape(title)}</h2><p>{escape(body)}</p></article>'
+            for title, body in _location_project_fit(location)
+        )
+
         content = (
             f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
             f'<div class="eyebrow">{escape("Regional planning" if location["kind"] == "region" else "City planning")}</div>'
@@ -68,8 +99,11 @@ def build_location_pages():
             f'{render_ad_slot(f"{location["slug"]}-location-top")}'
             f'{render_location_quality_strip(location["kind"])}'
             '<section class="content-card prose-card"><h2>Start with the quantity, then check the local variables</h2><p>These location pages are not here to replace the calculators. They exist to help you use the right calculator first, then sense-check the estimate against common local variables such as access, delivery, labour context, waste handling, and weather exposure.</p></section>'
+            f'<section class="stack-grid">{project_fit_html}</section>'
             f'<section class="calculator-grid-section"><div class="calculator-grid">{calculator_cards}</div></section>'
             f'{render_section_cards(location["factors"])}'
+            '<section class="content-card prose-card"><h2>Local planning checks before you request quotes</h2><p>Use these prompts to turn a clean quantity estimate into a more realistic local buying or quote-comparison brief.</p></section>'
+            f'<section class="stack-grid">{local_checks_html}</section>'
             '<section class="content-card prose-card"><h2>Browse grouped tool sets</h2><p>Use these tool sets when the job includes linked materials, multiple buying formats, or a mix of calculators and supporting guides.</p></section>'
             f'<section class="calculator-grid-section"><div class="calculator-grid">{cluster_cards}</div></section>'
             '<section class="content-card prose-card"><h2>Helpful next-step guides</h2><p>Once the main quantity is clear, these guide pages help with waste, buying format, pack sizing, and the practical decisions that usually follow the first estimate.</p></section>'
@@ -81,6 +115,7 @@ def build_location_pages():
                 f'<section class="calculator-grid-section"><div class="calculator-grid">{related_cards}</div></section>'
             )
         content += '</div>'
+
 
         html = render_layout(
             title=f'{location["name"]} Building Cost and Material Calculators | {SITE["name"]}',
