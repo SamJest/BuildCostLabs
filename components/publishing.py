@@ -1,15 +1,74 @@
 import json
 from html import escape
 
+from data.calculator_scale import ADDITIONAL_CALCULATORS
 from data.catalog import get_all_calculators
 from data.publisher import NAV_LINKS, SITE
 
 
-UPDATED_ISO = SITE.get("updated_iso", "2026-03-29")
+def _default_support(item: dict) -> dict:
+    if item.get("formula") == "project_cost":
+        return {
+            "assumptions": "This tool is designed for rough early-stage budgeting. Regional pricing, scope changes, finish level, access, and contractor availability can move the live quote significantly.",
+            "mistakes": "Common mistakes include treating a planning figure as a fixed quote, missing prep or disposal items, and comparing contractor prices that do not cover the same scope.",
+            "use_case": "Best used for budget planning, comparing finish routes, and preparing a cleaner quote request before asking suppliers or installers to price the job.",
+            "estimate_tip": "Keep the measured area realistic, state any extras clearly, and compare at least two finish routes before relying on one total.",
+            "buyer_tip": "Ask whether labour, prep, waste removal, delivery, and snagging are included before comparing headline totals.",
+            "market_note": "Regional labour pressure, access, and spec choice can change project-cost pages more than the raw area alone.",
+            "final_check": "Before making a decision, compare the calculator output against live local quotes, product data, and the actual site condition.",
+        }
+    return {
+        "assumptions": "This tool uses common estimating logic, practical waste allowances, and buyer-friendly rounding rather than a bare formula-only result.",
+        "mistakes": "Common mistakes include using unrealistic coverage or depth inputs, rounding down too aggressively, and ignoring the buying format the supplier actually sells.",
+        "use_case": "Best for early planning, quick merchant checks, and turning rough dimensions into a more realistic ordering or budgeting starting point.",
+        "estimate_tip": "Measure carefully, sense-check the result against supplier pack sizes, and add a practical allowance for cuts, breakage, or site variation.",
+        "buyer_tip": "Compare real delivered coverage, stock size, or bag count rather than relying on the headline price alone.",
+        "market_note": "Names, pack sizes, and unit wording can change by supplier or market, but the estimating logic still starts with geometry, waste, and whole-unit buying.",
+        "final_check": "Before placing an order, compare coverage, pack size, delivery cost, and whether carrying one extra unit is safer than risking a shortfall.",
+    }
+
+
+def _default_faqs(item: dict) -> list[dict]:
+    subject = item["name"].replace(" Calculator", "")
+    if item.get("formula") == "project_cost":
+        return [
+            {"q": f"How accurate is the {subject} estimate?", "a": "Treat it as a planning figure. Real quotes still depend on scope detail, local labour, access, finish level, and what is included or excluded."},
+            {"q": f"What should I compare after using the {subject} tool?", "a": "Compare materials, labour, extras, lead time, and exclusions on the same scope before choosing between quotes."},
+        ]
+    return [
+        {"q": f"How should I use the {subject} result?", "a": "Use it as a planning and buying starting point, then compare it against supplier pack sizes, product sheets, and site conditions before ordering."},
+        {"q": f"Should I round up the {subject} estimate?", "a": "Most jobs are safer with a practical allowance for waste, cuts, handling loss, or small coverage differences between products."},
+    ]
+
+
+def get_all_calculator_entries() -> list[dict]:
+    items = list(get_all_calculators())
+    existing_slugs = {item["slug"] for item in items}
+    for item in ADDITIONAL_CALCULATORS:
+        if item["slug"] in existing_slugs:
+            continue
+        synthetic = {
+            "key": item["slug"].removesuffix("-calculator").replace("-", "_"),
+            "slug": item["slug"],
+            "name": item["name"],
+            "cluster_slug": item["cluster_slug"],
+            "cluster_name": item["cluster_name"],
+            "category": item["category"],
+            "intro": item["intro"],
+            "meta_description": item.get("meta_description", item["intro"]),
+            "hero_eyebrow": item.get("hero_eyebrow", "Calculator"),
+            "support": _default_support(item),
+            "faqs": _default_faqs(item),
+            "intent_pages": [],
+            "guide_pages": [],
+            "formula": item.get("formula"),
+        }
+        items.append(synthetic)
+    return items
 
 
 def family_lookup():
-    return {item["slug"]: item for item in get_all_calculators()}
+    return {item["slug"]: item for item in get_all_calculator_entries()}
 
 
 def absolute_url(path: str) -> str:
@@ -27,7 +86,7 @@ def render_footer() -> str:
     return (
         '<footer class="site-footer"><div class="site-shell footer-grid">'
         f'<p><strong>{escape(SITE["name"])}</strong> publishes calculators and guides for estimating materials, quantities, and rough costs.</p>'
-        '<p class="footer-note"><a href="/about/">About</a> <a href="/editorial-policy/">Editorial policy</a> <a href="/calculator-methodology/">Methodology</a> <a href="/advertiser-disclosure/">Advertiser disclosure</a> <a href="/privacy-policy/">Privacy</a> <a href="/terms/">Terms</a> <a href="/contact/">Contact</a></p>'
+        '<p class="footer-note"><a href="/about/">About</a> <a href="/editorial-policy/">Editorial policy</a> <a href="/calculator-methodology/">Methodology</a> <a href="/quote-checklist/">Quote prep</a> <a href="/advertiser-disclosure/">Advertiser disclosure</a> <a href="/privacy-policy/">Privacy</a> <a href="/terms/">Terms</a> <a href="/contact/">Contact</a></p>'
         '</div></footer>'
     )
 
@@ -43,10 +102,7 @@ def render_breadcrumbs(items: list[tuple[str, str]]) -> str:
 
 
 def render_ad_slot(slot_name: str, label: str = "Advertisement") -> str:
-    return (
-        f'<aside class="ad-slot" data-ad-slot="{escape(slot_name)}" aria-label="{escape(label)}">'
-        f'<div class="ad-slot-label">{escape(label)}</div><div class="ad-slot-box">Reserved ad placement</div></aside>'
-    )
+    return ""
 
 
 def render_faq_schema(faqs: list[dict]) -> str:
@@ -98,6 +154,22 @@ def render_org_schema() -> str:
     )
 
 
+
+
+def render_software_application_schema(*, name: str, description: str, path: str, category: str = "Estimator") -> str:
+    return json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": name,
+            "applicationCategory": category,
+            "operatingSystem": "Web",
+            "description": description,
+            "url": absolute_url(path),
+        }
+    )
+
+
 def render_breadcrumb_schema(items: list[tuple[str, str]]) -> str:
     return json.dumps(
         {
@@ -116,103 +188,28 @@ def render_breadcrumb_schema(items: list[tuple[str, str]]) -> str:
     )
 
 
-def render_item_list_schema(name: str, items: list[dict]) -> str:
-    if not items:
-        return ""
-    return json.dumps(
-        {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": name,
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": index + 1,
-                    "name": item["name"],
-                    "url": absolute_url(item["url"]),
-                }
-                for index, item in enumerate(items)
-            ],
-        }
-    )
-
-
-def render_primary_page_schema(*, title: str, description: str, canonical: str, page_type: str) -> str:
-    schema_type = "WebPage"
-    if page_type.endswith("index") or page_type in {"homepage", "cluster", "cluster-index", "guide-index", "compare-index"}:
-        schema_type = "CollectionPage"
-    elif page_type in {"guide", "trust"}:
-        schema_type = "Article"
-    data = {
-        "@context": "https://schema.org",
-        "@type": schema_type,
-        "name": title,
-        "headline": title,
-        "url": canonical,
-        "description": description,
-        "dateModified": UPDATED_ISO,
-        "datePublished": UPDATED_ISO,
-        "inLanguage": "en-GB",
-        "publisher": {
-            "@type": "Organization",
-            "name": SITE["name"],
-            "url": SITE["base_url"],
-        },
-        "author": {
-            "@type": "Organization",
-            "name": SITE["review_team"],
-        },
-    }
-    return json.dumps(data)
-
-
-def render_page_specific_schema(*, title: str, description: str, canonical: str, page_type: str) -> str:
-    if page_type == "calculator":
-        return json.dumps(
-            {
-                "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": title,
-                "applicationCategory": "BusinessApplication",
-                "operatingSystem": "Web",
-                "isAccessibleForFree": True,
-                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
-                "url": canonical,
-                "description": description,
-                "publisher": {"@type": "Organization", "name": SITE["name"]},
-            }
-        )
-    if page_type == "homepage":
-        return json.dumps(
-            {
-                "@context": "https://schema.org",
-                "@type": "CollectionPage",
-                "name": title,
-                "url": canonical,
-                "description": description,
-                "about": ["building materials", "project costs", "estimating calculators"],
-            }
-        )
-    return ""
-
-
 def render_layout(*, title: str, description: str, path: str, content: str, schema: list[str] | None = None, page_type: str = "content") -> str:
     canonical = absolute_url(path)
     schema_blocks = [
         render_site_schema(),
         render_org_schema(),
-        render_primary_page_schema(title=title, description=description, canonical=canonical, page_type=page_type),
+        json.dumps(
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": title,
+                "url": canonical,
+                "description": description,
+            }
+        ),
     ]
-    page_specific = render_page_specific_schema(title=title, description=description, canonical=canonical, page_type=page_type)
-    if page_specific:
-        schema_blocks.append(page_specific)
     if schema:
         schema_blocks.extend(item for item in schema if item)
     scripts = "".join(
         f'<script type="application/ld+json">{block}</script>' for block in schema_blocks
     )
     return f"""<!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -234,7 +231,6 @@ def render_layout(*, title: str, description: str, path: str, content: str, sche
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="{escape(canonical)}">
   <meta property="og:image" content="{escape(absolute_url(SITE['default_image']))}">
-  <meta property="article:modified_time" content="{escape(UPDATED_ISO)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{escape(title)}">
   <meta name="twitter:description" content="{escape(description)}">

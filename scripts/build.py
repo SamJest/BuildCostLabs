@@ -12,6 +12,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from core.config import ASSETS_DIR, OUTPUT_DIR
+from components.publishing import get_all_calculator_entries
 from generators.homepage import build_homepage
 from generators.calculators_index import build_calculator_cards, build_calculators_index
 from generators.publisher_pages import (
@@ -21,10 +22,12 @@ from generators.publisher_pages import (
     build_guides_index,
     build_trust_pages,
     build_compare_index,
+    build_buying_guides_index,
 )
 from generators.scale_calculators import build_additional_calculator_pages
-from data.catalog import get_all_calculators
+from generators.location_pages import build_location_pages, build_locations_index
 from data.publisher import SITE, TRUST_PAGES
+from data.locations import get_all_locations
 
 CALCULATOR_TARGETS = [
     ("paint_calculator", "paint-calculator", "paint"),
@@ -115,8 +118,14 @@ def build_site() -> None:
     write_file(OUTPUT_DIR / guide_index_path.strip("/") / "index.html", guide_index_html)
     compare_index_path, compare_index_html = build_compare_index()
     write_file(OUTPUT_DIR / compare_index_path.strip("/") / "index.html", compare_index_html)
+    buying_index_path, buying_index_html = build_buying_guides_index()
+    write_file(OUTPUT_DIR / buying_index_path.strip("/") / "index.html", buying_index_html)
     cluster_index_path, cluster_index_html = build_clusters_index()
     write_file(OUTPUT_DIR / cluster_index_path.strip("/") / "index.html", cluster_index_html)
+    for path, html in build_location_pages():
+        write_file(OUTPUT_DIR / path.strip("/") / "index.html", html)
+    locations_index_path, locations_index_html = build_locations_index()
+    write_file(OUTPUT_DIR / locations_index_path.strip("/") / "index.html", locations_index_html)
     write_file(OUTPUT_DIR / "robots.txt", build_robots())
     write_file(OUTPUT_DIR / "sitemap.xml", build_sitemap())
     write_file(OUTPUT_DIR / "page-inventory.json", build_page_inventory())
@@ -134,32 +143,54 @@ def build_cname() -> str:
     return f"{SITE['domain']}\n"
 
 
+def _output_paths() -> list[str]:
+    paths = []
+    for html_path in sorted(OUTPUT_DIR.rglob("index.html")):
+        relative = html_path.relative_to(OUTPUT_DIR).as_posix()
+        if relative == "index.html":
+            paths.append("/")
+        else:
+            paths.append("/" + relative.removesuffix("index.html"))
+    seen = set()
+    ordered = []
+    for path in paths:
+        if not path.endswith("/"):
+            path += "/"
+        if path not in seen:
+            ordered.append(path)
+            seen.add(path)
+    return ordered
+
+
 def build_sitemap() -> str:
-    pages = ["/", "/calculators/", "/clusters/", "/guides/", "/compare/"]
-    pages.extend(f"/{page['slug']}/" for page in TRUST_PAGES)
-    calculators = get_all_calculators()
-    pages.extend(f"/calculators/{item['slug']}/" for item in calculators)
-    seen_clusters = set()
-    for item in calculators:
-        if item["cluster_slug"] not in seen_clusters:
-            pages.append(f"/clusters/{item['cluster_slug']}/")
-            seen_clusters.add(item["cluster_slug"])
-        pages.extend(f"/guides/{guide['slug']}/" for guide in item["intent_pages"] + item["guide_pages"])
-    urls = "".join(f"<url><loc>{SITE['base_url']}{path}</loc></url>" for path in pages)
+    lastmod = SITE.get("updated_iso", "2026-03-29")
+    urls = "".join(
+        f"<url><loc>{SITE['base_url']}{path}</loc><lastmod>{lastmod}</lastmod></url>"
+        for path in _output_paths()
+    )
     return f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>'
 
 
 def build_page_inventory() -> str:
-    pages = [{"path": "/compare/", "type": "compare-index"}]
-    pages.extend({"path": f"/{page['slug']}/", "type": "trust"} for page in TRUST_PAGES)
-    calculators = get_all_calculators()
-    pages.extend({"path": f"/calculators/{item['slug']}/", "type": "calculator", "cluster": item["cluster_slug"]} for item in calculators)
-    seen_clusters = set()
-    for item in calculators:
-        if item["cluster_slug"] not in seen_clusters:
-            pages.append({"path": f"/clusters/{item['cluster_slug']}/", "type": "cluster"})
-            seen_clusters.add(item["cluster_slug"])
-        pages.extend({"path": f"/guides/{guide['slug']}/", "type": "guide", "cluster": item["cluster_slug"]} for guide in item["intent_pages"] + item["guide_pages"])
+    type_pattern = re.compile(r'<meta name="page-type" content="(.*?)">', re.IGNORECASE)
+    title_pattern = re.compile(r"<title>(.*?)</title>", re.IGNORECASE | re.DOTALL)
+    pages = []
+    for html_path in sorted(OUTPUT_DIR.rglob("index.html")):
+        content = html_path.read_text(encoding="utf-8")
+        relative = html_path.relative_to(OUTPUT_DIR).as_posix()
+        path = "/" if relative == "index.html" else "/" + relative.removesuffix("index.html")
+        if not path.endswith("/"):
+            path += "/"
+        type_match = type_pattern.search(content)
+        title_match = title_pattern.search(content)
+        page_type = type_match.group(1).strip() if type_match else "unknown"
+        title = title_match.group(1).strip() if title_match else ""
+        record = {"path": path, "type": page_type, "title": title}
+        if path.startswith("/locations/") and path != "/locations/":
+            record["kind"] = "city-or-region"
+        if path.startswith("/calculators/") and path != "/calculators/":
+            record["section"] = "calculators"
+        pages.append(record)
     return json.dumps({"site": SITE["name"], "count": len(pages), "pages": pages}, indent=2)
 
 
@@ -189,7 +220,9 @@ def build_launch_readiness_report() -> str:
         "/calculators/",
         "/guides/",
         "/clusters/",
+        "/locations/",
         "/compare/",
+        "/buying-guides/",
         SITE.get("methodology_path", "/calculator-methodology/"),
         SITE.get("editorial_policy_path", "/editorial-policy/"),
         SITE.get("quote_contact_path", "/contact/"),
@@ -201,7 +234,7 @@ def build_launch_readiness_report() -> str:
     existing_paths.add("/clusters/")
     missing_required = [path for path in required_paths if path not in existing_paths]
 
-    project_cost_count = sum(1 for item in get_all_calculators() if item.get("formula") == "project_cost")
+    project_cost_count = sum(1 for item in get_all_calculator_entries() if item.get("formula") == "project_cost")
 
     readiness_checks = {
         "required_pages_present": not missing_required,

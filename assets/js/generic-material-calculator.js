@@ -73,12 +73,74 @@
     resultContext.textContent = text || "";
   }
 
+  function starterBreakdown() {
+    if (config.formula === "project_cost") {
+      const region = getRegionProfile();
+      const area = toMetricLength(getNumber("length")) * toMetricLength(getNumber("width"));
+      return (
+        `<div class="break-row"><span>Starter area</span><strong>${area.toFixed(2)} m2</strong></div>` +
+        `<div class="break-row"><span>Region baseline</span><strong>${region.label}</strong></div>` +
+        `<div class="break-row"><span>What this is for</span><strong>Fast budget benchmark before quote comparison</strong></div>`
+      );
+    }
+    if (config.formula === "volume") {
+      const volume = toMetricLength(getNumber("length")) * toMetricLength(getNumber("width")) * toMetricLength(getNumber("depth"));
+      return (
+        `<div class="break-row"><span>Starter volume</span><strong>${volume.toFixed(3)} m3</strong></div>` +
+        `<div class="break-row"><span>Buying route</span><strong>${config.unitNamePlural || "units"} with waste already loaded</strong></div>` +
+        `<div class="break-row"><span>What to change first</span><strong>Depth, density, and unit size</strong></div>`
+      );
+    }
+    if (config.formula === "linear") {
+      const run = toMetricLength(getNumber("length"));
+      return (
+        `<div class="break-row"><span>Starter run length</span><strong>${run.toFixed(2)} m</strong></div>` +
+        `<div class="break-row"><span>Buying route</span><strong>Whole stock lengths with waste already loaded</strong></div>` +
+        `<div class="break-row"><span>What to change first</span><strong>Total run, piece length, and cut waste</strong></div>`
+      );
+    }
+    const area = toMetricLength(getNumber("length")) * toMetricLength(getNumber("width"));
+    return (
+      `<div class="break-row"><span>Starter area</span><strong>${area.toFixed(2)} m2</strong></div>` +
+      `<div class="break-row"><span>Buying route</span><strong>${config.unitNamePlural || "units"} using the loaded coverage rate</strong></div>` +
+      `<div class="break-row"><span>What to change first</span><strong>Coverage, waste, and price per unit</strong></div>`
+    );
+  }
+
   function renderDefaultState() {
-    resultMain.textContent = "Enter your measurements";
-    resultSub.textContent = config.resultIntro || "You will see the buying quantity, rough material cost, and wider estimate view here.";
-    resultBreakdown.innerHTML = "";
-    setContext(config.formula === "project_cost" ? "Choose a UK region to apply a location-weighted planning range." : "");
-    if (intelligence) intelligence.clear();
+    resultMain.textContent = "Starter scenario ready";
+    resultSub.textContent = "The form is preloaded with a benchmark example. Adjust the inputs to match the real job or use the starter setup for a quick estimate.";
+    resultBreakdown.innerHTML = starterBreakdown();
+    setContext(config.formula === "project_cost" ? "Choose a UK region to apply a location-weighted planning range before you rely on the benchmark." : "Use the starter inputs as a benchmark, then update the numbers for the real site conditions.");
+    if (intelligence) intelligence.clear({
+      formula: config.formula,
+      name: config.name,
+      money: money,
+      coverageMode: config.coverageMode,
+      unitNameSingular: config.unitNameSingular,
+      unitNamePlural: config.unitNamePlural,
+      currentInputs: {
+        length: getNumber("length"),
+        width: getNumber("width"),
+        depth: getNumber("depth"),
+        density: getNumber("density"),
+        unitSize: getNumber("unit-size"),
+        waste: getNumber("waste"),
+        pricePerUnit: getNumber("price-per-unit"),
+        coveragePerUnit: getNumber("coverage-per-unit"),
+        pieceLength: getNumber("piece-length"),
+        materialRate: getNumber("material-rate"),
+        labourRate: getNumber("labour-rate"),
+        extraRate: getNumber("extra-rate"),
+        contingency: getNumber("contingency"),
+        regionLabel: getRegionProfile().label,
+        regionNote: getRegionProfile().note,
+        regionSummary: getRegionProfile().summary,
+        regionMaterials: getRegionProfile().materials,
+        regionLabour: getRegionProfile().labour,
+        regionExtras: getRegionProfile().extras
+      }
+    });
   }
 
   function renderIntelligence(payload) {
@@ -322,5 +384,5 @@
     });
   });
 
-  renderDefaultState();
+  calculate();
 })();

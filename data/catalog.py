@@ -28,12 +28,12 @@ FORMULA_SUPPORT = {
         "final_check": "Before placing an order, compare stock lengths, join requirements, fittings, delivery charges, and whether one extra length is safer than running short on site.",
     },
     "project_cost": {
-        "assumptions": "Project cost calculators assume a known area or job size, a realistic material allowance, a labour rate per square metre, and a contingency for prep, access, or finish complexity.",
-        "mistakes": "The common misses are underestimating prep work, using a finish level that is too optimistic, and forgetting that awkward access or demolition can add cost before the visible install even starts.",
-        "use_case": "Best for early project budgeting when you want a realistic low-mid-high planning range before you ask for trade quotes or start pricing the supporting materials in detail.",
-        "estimate_tip": "Use a realistic finish level and contingency first, then drill into the supporting material calculators for the parts of the job that still feel uncertain.",
-        "buyer_tip": "Treat the result as a planning range, not a fixed quote. Most buyers keep a contingency because labour, prep, and delivery conditions can move quickly once the job is opened up.",
-        "final_check": "Before committing, compare labour assumptions, waste, access constraints, disposal, and whether the supporting materials have been checked with their own calculators.",
+        "assumptions": "Project-cost calculators combine covered area with material, labour, extras, contingency, and regional weighting to create a planning number rather than a contract quote.",
+        "mistakes": "The common misses are underestimating prep, using labour rates that are too optimistic, forgetting waste or complexity, and treating a planning calculator like a fixed quote.",
+        "use_case": "Best for early budget planning, quote preparation, and comparing finish levels before the exact contractor scope is locked in.",
+        "estimate_tip": "Start with a realistic job area, then pressure-test the assumptions that move fastest: labour, prep, access, finish level, and contingency.",
+        "buyer_tip": "If the total is close to the top of your comfort range, use the higher scenario and write down the scope assumptions before comparing quotes.",
+        "final_check": "Before relying on the total, separate materials, labour, extras, and contingency, then check whether access, removals, and finish detail need their own allowance.",
     },
 }
 
@@ -70,6 +70,22 @@ GENERIC_INTENT_TEMPLATES = {
             "intro": "Use this guide to sense-check the calculator result, compare buying formats, and move from raw volume into a more reliable order.",
         },
     ],
+    "project_cost": [
+        {
+            "slug_suffix": "budget-planning-guide",
+            "title": "{name} Budget Planning Guide",
+            "description": "Build a more usable early budget for {name} before you request quotes.",
+            "headline": "Turn a rough {name} number into a working budget",
+            "intro": "Use this guide when the estimate needs to become something you can compare, question, and take into a quote conversation.",
+        },
+        {
+            "slug_suffix": "quote-brief-guide",
+            "title": "{name} Quote Brief Guide",
+            "description": "Use the {name} estimate to prepare a clearer quote brief and scope summary.",
+            "headline": "Use the estimate as a cleaner quote brief",
+            "intro": "These pages help move from a planning total into a quote-ready brief with fewer hidden assumptions.",
+        },
+    ],
     "linear": [
         {
             "slug_suffix": "length-calculator",
@@ -84,22 +100,6 @@ GENERIC_INTENT_TEMPLATES = {
             "description": "Turn the measured run into a sensible order for {name} before you buy stock lengths.",
             "headline": "{name}: how much should you buy?",
             "intro": "Use this guide to sense-check the calculator result, compare stock lengths, and allow for the cutting waste that affects real buying totals.",
-        },
-    ],
-    "project_cost": [
-        {
-            "slug_suffix": "cost-per-m2-guide",
-            "title": "{name} Cost per m2 Guide",
-            "description": "See how area, finish level, labour, and contingency affect {name} cost per square metre.",
-            "headline": "Use cost per m2 as a planning shortcut, not a blind answer",
-            "intro": "Cost per square metre is useful for early budgeting, but it only works when the prep, finish level, and extras are honest.",
-        },
-        {
-            "slug_suffix": "budget-planning-guide",
-            "title": "{name} Budget Planning Guide",
-            "description": "Plan a more realistic budget for {name} using materials, labour, extras, and contingency.",
-            "headline": "Build the budget around the job, not just the visible finish",
-            "intro": "The visible area matters, but labour, prep, delivery, and snagging are often what separate a neat spreadsheet number from a usable budget.",
         },
     ],
 }
@@ -303,23 +303,25 @@ ITEM_SUPPORT_OVERRIDES = {
 
 CLUSTER_OVERRIDES = {
     "project-cost-estimating": {
-        "cluster_intro": "Estimate patio, driveway, decking, fencing, painting, and plastering budgets with materials, labour, extras, and contingency combined into a more realistic early planning range.",
+        "cluster_intro": "Estimate whole-job planning costs with materials, labour, extras, contingency, and regional weighting kept visible from the start.",
         "support": {
-            "assumptions": "Project cost pages assume a measured job size, realistic material and labour allowances, and an honest contingency for prep, access, or finish complexity.",
-            "mistakes": "The usual mistakes are copying a headline cost-per-m2 number without checking prep work, underestimating extras, and treating a planning budget as if it were a fixed quote.",
-            "use_case": "Best for homeowners and planners who want a fast budget range before asking for quotes or breaking the job into the supporting material take-offs.",
-            "estimate_tip": "Use the finish and contingency settings to match the real job, then use the linked material calculators to pressure-test the parts of the budget that matter most.",
-            "buyer_tip": "A useful budget usually includes contingency. Labour, site prep, delivery, disposal, and snagging can all move after the first quote or opening-up work begins.",
-            "market_note": "UK and US labour markets differ, but the planning logic still comes down to scope, material quality, labour rate, prep, and contingency.",
-            "final_check": "Before committing, compare the planning range against at least one real quote and sense-check the linked material layers separately where the job feels most uncertain.",
+            "assumptions": "Project-cost pages use area-based planning rates rather than a contractor bill of quantities, so they are strongest when the goal is early budgeting and quote preparation.",
+            "mistakes": "People often focus on the finish price and forget prep, disposal, access, trims, removals, edge details, or regional labour pressure.",
+            "use_case": "Best for first-pass project budgeting, comparing finish routes, and turning a rough job idea into a clearer quote brief.",
+            "estimate_tip": "Keep material, labour, extras, and contingency separate so you can see what changed when the estimate moves.",
+            "buyer_tip": "When scope is still loose, most planners compare a budget, standard, and higher-spec route rather than treating one total as fixed.",
+            "market_note": "Regional labour pressure, access, and buying conventions change by area, but the planning logic still starts with measured scope and separated cost layers.",
         },
         "guides_by_formula": {
             "project_cost": [
-                {"slug_suffix": "cost-drivers-guide", "title": "{name} Cost Drivers Guide", "description": "See what moves {name} the most before you lock in a budget.", "headline": "The biggest budget swings usually happen before the visible finish goes in", "intro": "Area matters, but labour, prep, access, waste, and finish level are usually what move a project budget fastest."},
-                {"slug_suffix": "labour-vs-materials-guide", "title": "{name} Labour vs Materials Guide", "description": "Compare labour and material pressure points inside a {name} budget.", "headline": "A cheap material choice does not always create a cheap project", "intro": "Some jobs are material-heavy, some are labour-heavy, and the balance changes with access, finish level, and complexity."},
+                {"slug_suffix": "per-m2-guide", "title": "{name} per m² Guide", "description": "Use a rough per-m² view to sense-check the {name} estimate before comparing quotes.", "headline": "Use the rate to stress-test the total", "intro": "A square-metre rate is only useful when the job scope and finish level are clear enough to compare like with like."},
+                {"slug_suffix": "budget-planning-guide", "title": "{name} Budget Planning Guide", "description": "Turn the {name} estimate into a more usable early budget.", "headline": "Separate the working budget into clearer layers", "intro": "Keep materials, labour, extras, and contingency visible so the number stays useful when you start comparing routes."},
+                {"slug_suffix": "labour-vs-materials-guide", "title": "{name} Labour vs Materials Guide", "description": "See whether labour or materials are more likely to move the {name} total.", "headline": "Find the part of the budget doing the real work", "intro": "A cleaner project budget starts when labour pressure stops hiding inside one vague total."},
+                {"slug_suffix": "cost-drivers-guide", "title": "{name} Cost Drivers Guide", "description": "See what usually moves the {name} estimate most.", "headline": "Focus on the assumptions that move first", "intro": "The fastest route to a better estimate is isolating the unstable assumptions before asking for quotes."},
             ],
         },
     },
+
     "soil-and-landscaping-estimating": {
         "cluster_intro": "Estimate topsoil, mulch, compost, and bark quantities with a focus on installed depth, delivery format, and whether the job is better served by bags or bulk supply.",
         "support": {
@@ -417,19 +419,20 @@ CLUSTER_OVERRIDES = {
 
 CLUSTER_HUB_CONTENT = {
     "project-cost-estimating": {
-        "start_here_title": "Start with the budget question that matches the job",
-        "start_here_intro": "These project-cost calculators combine material, labour, extras, and contingency so you can build a planning budget before you start chasing trade quotes. Use them as parent budget tools, then drop into the supporting material calculators when you need deeper take-offs.",
-        "featured_slugs": ["patio-cost-calculator", "driveway-cost-calculator", "decking-cost-calculator", "fence-cost-calculator", "room-painting-cost-calculator", "plastering-cost-calculator"],
-        "question_heading": "High-intent budget pages",
-        "question_intro": "Use these pages when you mainly want to know what the full job could cost, not just how much material to buy.",
-        "guide_heading": "Budget-planning guides and next steps",
-        "guide_intro": "These guides explain cost per m2, finish levels, contingency, and how to move from a planning budget into a better buying plan.",
+        "start_here_title": "Start with the project budget question that matters",
+        "start_here_intro": "These pages are for jobs that have moved beyond material counts and into materials, labour, extras, contingency, and regional pressure.",
+        "featured_slugs": ["patio-cost-calculator", "driveway-cost-calculator", "roofing-cost-calculator", "tiling-cost-calculator"],
+        "question_heading": "Popular project-cost calculators",
+        "question_intro": "Use these pages when you need a planning total, not just a quantity list.",
+        "guide_heading": "Budget, labour, and quote-prep guides",
+        "guide_intro": "These guides help you separate cost layers, compare finish routes, and prepare clearer quote conversations.",
         "notes": [
-            ("What changes these budgets most", "Labour rate, prep or groundwork, access, finish level, and contingency usually move the total more than small changes in the visible area alone."),
-            ("How to use them best", "Use the project-cost result as a parent budget, then open the linked material calculators for the layers of the job that still feel uncertain."),
-            ("Before you commit", "Compare the planning range against local quotes, delivery constraints, disposal, and whether supporting materials such as sub-base, paint, screws, or sand have been priced separately."),
+            ("What moves project budgets most", "Labour, prep, removals, access, finish level, and contingency usually move faster than the measured scope alone."),
+            ("Where people under-budget", "Extras, disposal, edge details, and regional labour pressure are commonly missed on early plans."),
+            ("Before you compare quotes", "Write down the measured scope, finish assumptions, and what is excluded so contractor totals are being compared on the same basis."),
         ],
     },
+
     "tile-estimating": {
         "start_here_title": "Start with the right tiling question",
         "start_here_intro": "Most tiling jobs begin with one of three questions: how many tiles, how much adhesive, and how much grout. Start with the part of the job you are buying first, then use the guides to check waste and box or bag rounding.",
@@ -656,13 +659,13 @@ def build_faqs(item):
         "coverage": "Enter the covered dimensions, choose a realistic waste setting, and use this calculator to turn the measured area into a practical buying quantity.",
         "volume": "Enter the measured dimensions and depth, choose a realistic waste setting, and use this calculator to compare the likely buying quantity before you choose bags, bulk, or tonnage-based supply.",
         "linear": "Enter the total run, stock length, and a realistic waste setting, then use this calculator to plan the buying quantity before you check joins, fittings, and extra detail pieces.",
-        "project_cost": "Enter the project dimensions, material and labour assumptions, and contingency settings, then use this calculator to build a realistic planning range before you seek trade quotes.",
+        "project_cost": "Enter the measured scope, choose a UK region, and pressure-test the material, labour, extras, and contingency assumptions until the total looks realistic for planning.",
     }
     result_drivers = {
         "coverage": "The biggest drivers are the measured area, the waste allowance, and the coverage rate or unit count used to turn that area into a buying quantity.",
         "volume": "The biggest drivers are the measured depth, the density or yield assumption, and whether the material is being bought loose, bulk, or bagged.",
         "linear": "The biggest drivers are the measured run, the stock length, and the extra waste created by cuts, corners, joints, and awkward end details.",
-        "project_cost": "The biggest drivers are the true job area, labour rate, prep or groundwork allowance, finish level, and the contingency used to cover uncertainty.",
+        "project_cost": "The biggest drivers are labour, finish level, regional pressure, prep scope, extras, and contingency rather than the measured area alone.",
     }
     return [
         {"q": f"How do I use the {name}?", "a": how_to_answers[item["formula"]]},

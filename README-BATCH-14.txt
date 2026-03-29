@@ -1,14 +1,17 @@
-BUILD MATE CALCULATORS - BATCH 14
+BuildCostLab – Batch 14
 
-Applied choices:
-1. Next calculator: Decking calculator
-2. Currency selector style: pill buttons near the result area
-3. Currency options: GBP, USD, EUR, AUD, CAD
+Theme: Quote brief export v2
 
-This batch includes:
-- New Decking Calculator
-- Currency selector pills on all calculators
-- Homepage/index copy updated to include decking
-- Build script updated to build decking
+Included in this batch:
+- upgraded calculator-page quote brief panel
+- new project/room label field and notes field on calculator pages
+- copy quote brief action
+- download quote brief as .txt
+- download comparison worksheet as .csv
+- print / save-as-PDF action
+- local browser save for quote brief fields
+- fixed missing /assets/js/estimate-actions.js asset path by adding the actual bundled file
+- updated calculator-page styling for the new export UI
+- regenerated calculator output pages and output asset files
 
-Currency selector is visual only. It changes displayed symbols/codes and does not convert rates.
+Merge into your project root and overwrite existing files.

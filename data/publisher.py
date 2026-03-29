@@ -8,18 +8,9 @@ SITE = {
     "contact_email": "hello@buildcostlab.com",
     "updated_label": "March 29, 2026",
     "updated_iso": "2026-03-29",
-    "review_team": "BuildCostLab Editorial Team",
-    "research_team": "BuildCostLab Research Team",
-    "coverage_note": "UK-first planning estimates with buyer-friendly assumptions and practical ordering notes.",
     "methodology_path": "/calculator-methodology/",
     "editorial_policy_path": "/editorial-policy/",
-    "project_cost_hub_path": "/clusters/project-cost-estimating/",
-    "compare_hub_path": "/compare/",
-    "quote_email": "hello@buildcostlab.com",
     "quote_contact_path": "/contact/",
-    "quote_cta_title": "Need a tighter number?",
-    "quote_cta_copy": "Use the calculator result as the starting point, then build a cleaner quote brief or send the estimate to the BuildCostLab team for feedback.",
-    "launch_report_path": "/launch-readiness-report.json",
 }
 
 NAV_LINKS = [
@@ -27,7 +18,9 @@ NAV_LINKS = [
     {"href": "/calculators/", "label": "Calculators"},
     {"href": "/clusters/", "label": "Tool Sets"},
     {"href": "/guides/", "label": "Guides"},
+    {"href": "/buying-guides/", "label": "Buying Guides"},
     {"href": "/compare/", "label": "Compare"},
+    {"href": "/locations/", "label": "Locations"},
 ]
 
 TRUST_PAGES = [
@@ -40,8 +33,19 @@ TRUST_PAGES = [
         "sections": [
             {"title": "Who the site is for", "body": "Homeowners, installers, estimators, and tradespeople who need a rough planning answer before placing an order or pricing a job."},
             {"title": "What the site publishes", "body": "Interactive calculators, job-specific estimating guides, buying guidance, and practical notes on waste, coverage, and common ordering mistakes."},
-            {"title": "How to use the estimates", "body": "Use the site for early budgeting, quantity planning, and order sense-checking. Final buying decisions should still be checked against product data sheets, supplier pack sizes, and live quotes."},
-            {"title": "What the site does not do", "body": "The site does not replace structural design, engineering, building control, or contractor quotations. It is built for planning decisions rather than contractual pricing."},
+        ],
+    },
+    {
+        "slug": "quote-checklist",
+        "title": "Builder Quote Checklist",
+        "description": "Use this BuildCostLab checklist to turn a rough estimate into a cleaner builder or supplier quote request.",
+        "headline": "Turn an estimate into a quote-ready brief",
+        "intro": "A calculator result is only useful if the builder, installer, or supplier is pricing the same scope. This checklist helps you send a cleaner quote request.",
+        "sections": [
+            {"title": "Start with a clear scope", "body": "List the job type, the surface or room involved, the approximate dimensions, and whether the quote should include materials, labour, waste removal, prep, and finishing."},
+            {"title": "Attach the estimate", "body": "Use the calculator quote-brief tools to copy or download the estimate summary. That gives each supplier the same baseline quantity and makes comparisons easier."},
+            {"title": "Ask the same questions", "body": "Request labour, materials, extras, lead time, delivery charges, and payment terms in the same format from each quote so the comparison is not distorted by missing items."},
+            {"title": "Flag the unknowns", "body": "Tell suppliers where access, existing condition, finish level, or exact product choice is still uncertain. Quotes are easier to trust when the unknowns are stated up front."},
         ],
     },
     {
@@ -51,9 +55,9 @@ TRUST_PAGES = [
         "headline": "Contact the BuildCostLab team",
         "intro": "Use the contact details below for correction requests, calculator feedback, and commercial enquiries.",
         "sections": [
-            {"title": "General enquiries", "body": "Email hello@buildcostlab.com for site feedback, calculator suggestions, and editorial corrections."},
-            {"title": "Commercial enquiries", "body": "Use the same address for partnership, advertising, data licensing, and affiliate programme conversations."},
-            {"title": "Corrections and calculator feedback", "body": "If you spot a formula issue, broken assumption, unclear wording, or a page that needs updating, include the page URL and the problem you found so it can be reviewed quickly."},
+            {"title": "General enquiries", "body": "Email hello@buildcostlab.com for site feedback, calculator suggestions, editorial corrections, or help using a quote brief from one of the calculators."},
+            {"title": "Commercial enquiries", "body": "Use the same address for partnership, advertising, data licensing, affiliate programme conversations, or quote-workflow integrations."},
+            {"title": "Requesting builder or supplier quotes", "body": "The quote brief tools on calculator pages are designed to help you send clearer quote requests. Attach the exported brief, add your measurements, and ask suppliers or installers to price the same scope so the quotes are easier to compare."},
         ],
     },
     {
@@ -65,8 +69,6 @@ TRUST_PAGES = [
         "sections": [
             {"title": "Originality", "body": "Each calculator family gets its own assumptions, mistakes, FAQs, and support guidance instead of generic copy reused everywhere."},
             {"title": "Practical accuracy", "body": "Guidance is based on standard estimating logic, common pack sizes, and typical site considerations, but product instructions should override general guidance."},
-            {"title": "How updates work", "body": "Key pages are reviewed when formulas change, internal links need improving, or the buying guidance becomes too thin for the intent of the page. Major cost pages should be treated as pages that need regular maintenance, not one-off publishing."},
-            {"title": "Corrections policy", "body": "When a clear factual or formula issue is identified, the page should be corrected and the published review date refreshed so users can see that the estimate guidance has been revisited."},
         ],
     },
     {
@@ -78,10 +80,6 @@ TRUST_PAGES = [
         "sections": [
             {"title": "Base formulas", "body": "Core outputs are based on area, volume, count, spacing, and coverage formulas appropriate to the material being estimated."},
             {"title": "Waste and buying logic", "body": "Pages add waste allowances, pack rounding, and rough buying guidance so the result is closer to a real order than a bare mathematical output."},
-            {"title": "Cost assumptions", "body": "Where pages include rough costs, those numbers are planning assumptions designed to help compare low, mid, and higher-spec routes. They are not live supplier prices or a substitute for quotes."},
-            {"title": "Regional labour differences", "body": "Project-cost calculators can apply UK regional weighting for labour, access, and extra costs so users can move from a national-average number to a location-aware planning range before asking for quotes."},
-            {"title": "When an estimate can break down", "body": "Results become less reliable when the site conditions are unusual, the geometry is irregular, access is poor, or the selected product has coverage or fixing requirements outside the page assumptions."},
-            {"title": "Market and unit differences", "body": "Some pages are written to work across UK and US-style unit habits. Product naming, pack sizes, and supplier conventions can still vary, so the order should always be checked against the exact item being bought."},
         ],
     },
     {
@@ -93,7 +91,6 @@ TRUST_PAGES = [
         "sections": [
             {"title": "Analytics and measurement", "body": "BuildCostLab may collect standard analytics data such as pageviews, events, referrers, device classes, and engagement signals."},
             {"title": "Advertising and cookies", "body": "Advertising partners may use cookies or similar technologies to deliver, measure, and optimize ads subject to local laws and platform policies."},
-            {"title": "Contact data", "body": "If you email the site, the information you send can be used to reply, review a correction request, or handle a commercial conversation."},
         ],
     },
     {
@@ -105,7 +102,6 @@ TRUST_PAGES = [
         "sections": [
             {"title": "Planning use only", "body": "Outputs are intended as rough planning estimates, not contractual, structural, engineering, or professional advice."},
             {"title": "User responsibility", "body": "Users should verify measurements, product specifications, and local requirements before buying or building."},
-            {"title": "No quote or warranty", "body": "A page result is not a fixed quote, warranty, or promise of final project cost. Real supplier pricing, delivery terms, and labour rates can move independently of any planning estimate."},
         ],
     },
     {
@@ -117,7 +113,6 @@ TRUST_PAGES = [
         "sections": [
             {"title": "Display advertising", "body": "Pages may contain advertising placements that generate revenue based on approved performance metrics."},
             {"title": "Affiliate relationships", "body": "Some buying guides or commercial pages may contain affiliate links that can generate commission."},
-            {"title": "Editorial independence", "body": "Commercial relationships should not override the calculator logic, core assumptions, or correction process used to maintain the estimating pages."},
         ],
     },
 ]

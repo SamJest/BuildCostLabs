@@ -179,5 +179,5 @@
   });
 
   applyPreset();
-  renderDefaultState();
+  calculate();
 })();

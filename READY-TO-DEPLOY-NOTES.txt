@@ -1,0 +1,18 @@
+BuildCostLab ready-to-deploy package
+
+This package includes the source and a fresh built /output directory.
+
+Key fixes included:
+- Repaired the broken Python build caused by missing compare and buying-guides hub builders.
+- Rebuilt the site successfully with python scripts/build.py.
+- Added working /compare/ and /buying-guides/ hub pages.
+- Synced sitemap, page inventory, SEO report, and launch-readiness report to the actual generated output.
+- Included all generated calculator pages in the rebuilt site outputs and reporting.
+- Added SoftwareApplication schema to calculator pages.
+- Removed public placeholder ad boxes that said Reserved ad placement.
+- Unified the main navigation to include Buying Guides, Compare, and Locations.
+- Verified 0 broken internal root-relative links in the generated output.
+
+Deploy workflow:
+- Push this project to your main branch.
+- GitHub Actions will run python scripts/build.py and deploy the /output folder to Pages.

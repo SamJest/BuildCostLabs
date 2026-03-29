@@ -29,25 +29,19 @@
     }
 
     if (formula === "project_cost") {
-      if (scope < 15) {
-        return [
-          { stage: "Measure and scope", duration: "Half day" },
-          { stage: "Budget and material check", duration: "Half day to 1 day" },
-          { stage: "Quote comparison", duration: "1 to 3 days" }
-        ];
-      }
-      if (scope < 40) {
-        return [
-          { stage: "Measure and scope", duration: "Half day to 1 day" },
-          { stage: "Budget and material check", duration: "1 day" },
-          { stage: "Quote comparison", duration: "2 to 4 days" }
-        ];
-      }
-      return [
-        { stage: "Measure and scope", duration: "1 day" },
-        { stage: "Budget and material check", duration: "1 to 2 days" },
-        { stage: "Quote comparison", duration: "3 to 5 days" }
-      ];
+      return {
+        lowFactor: 0.9,
+        highFactor: 1.18,
+        drivers: "Labour, prep, finish level, regional pressure, and contingency usually move project-cost estimates the most.",
+        confidence: "Planning confidence only. Use the higher estimate when scope, finish, access, or supporting work are still uncertain.",
+        costModel: { labour: 0.68, extras: 0.22, fees: 0.08 },
+        reality: [
+          "Prep, removals, disposal, and access can sit outside the first headline total.",
+          "Regional labour pressure and finish quality can change the result quickly.",
+          "Write down what is excluded before you compare contractor quotes.",
+          "Contingency is there to absorb uncertainty, not to hide it."
+        ]
+      };
     }
 
     if (formula === "linear") {
@@ -166,25 +160,19 @@
     }
 
     if (formula === "project_cost") {
-      if (scope < 15) {
-        return [
-          { stage: "Measure and scope", duration: "Half day" },
-          { stage: "Budget and material check", duration: "Half day to 1 day" },
-          { stage: "Quote comparison", duration: "1 to 3 days" }
-        ];
-      }
-      if (scope < 40) {
-        return [
-          { stage: "Measure and scope", duration: "Half day to 1 day" },
-          { stage: "Budget and material check", duration: "1 day" },
-          { stage: "Quote comparison", duration: "2 to 4 days" }
-        ];
-      }
-      return [
-        { stage: "Measure and scope", duration: "1 day" },
-        { stage: "Budget and material check", duration: "1 to 2 days" },
-        { stage: "Quote comparison", duration: "3 to 5 days" }
-      ];
+      return {
+        lowFactor: 0.9,
+        highFactor: 1.18,
+        drivers: "Labour, prep, finish level, regional pressure, and contingency usually move project-cost estimates the most.",
+        confidence: "Planning confidence only. Use the higher estimate when scope, finish, access, or supporting work are still uncertain.",
+        costModel: { labour: 0.68, extras: 0.22, fees: 0.08 },
+        reality: [
+          "Prep, removals, disposal, and access can sit outside the first headline total.",
+          "Regional labour pressure and finish quality can change the result quickly.",
+          "Write down what is excluded before you compare contractor quotes.",
+          "Contingency is there to absorb uncertainty, not to hide it."
+        ]
+      };
     }
 
     if (formula === "linear") {

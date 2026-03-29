@@ -155,5 +155,5 @@
     input.addEventListener("input", calculate);
   });
 
-  renderDefaultState();
+  calculate();
 })();

@@ -1,13 +1,12 @@
 from html import escape
 
-from components.publishing import render_ad_slot, render_breadcrumb_schema, render_breadcrumbs, render_layout
-from data.catalog import get_all_calculators
+from components.publishing import get_all_calculator_entries, render_ad_slot, render_breadcrumb_schema, render_breadcrumbs, render_layout
 from data.publisher import SITE
 
 
 def build_calculator_cards() -> str:
     parts = []
-    for item in get_all_calculators():
+    for item in get_all_calculator_entries():
         parts.append(
             f'''
         <article class="tool-card">
