@@ -1,13 +1,13 @@
 {
   "site": "BuildCostLab",
-  "count": 384,
+  "count": 353,
   "pages": [
     {
-      "path": "/compare/",
-      "type": "compare-index"
+      "path": "/about/",
+      "type": "trust"
     },
     {
-      "path": "/about/",
+      "path": "/quote-checklist/",
       "type": "trust"
     },
     {
@@ -458,36 +458,6 @@
       "path": "/calculators/plasterboard-adhesive-calculator/",
       "type": "calculator",
       "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/calculators/patio-cost-calculator/",
-      "type": "calculator",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/calculators/driveway-cost-calculator/",
-      "type": "calculator",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/calculators/decking-cost-calculator/",
-      "type": "calculator",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/calculators/fence-cost-calculator/",
-      "type": "calculator",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/calculators/room-painting-cost-calculator/",
-      "type": "calculator",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/calculators/plastering-cost-calculator/",
-      "type": "calculator",
-      "cluster": "project-cost-estimating"
     },
     {
       "path": "/clusters/paint-estimating/",
@@ -1764,130 +1734,6 @@
       "path": "/guides/dot-and-dab-adhesive-calculator/",
       "type": "guide",
       "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/clusters/project-cost-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/patio-cost-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/patio-cost-budget-planning-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/patio-cost-cost-drivers-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/patio-cost-labour-vs-materials-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/driveway-cost-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/driveway-cost-budget-planning-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/driveway-cost-cost-drivers-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/driveway-cost-labour-vs-materials-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/decking-cost-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/decking-cost-budget-planning-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/decking-cost-cost-drivers-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/decking-cost-labour-vs-materials-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/fence-cost-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/fence-cost-budget-planning-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/fence-cost-cost-drivers-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/fence-cost-labour-vs-materials-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/room-painting-cost-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/room-painting-cost-budget-planning-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/room-painting-cost-cost-drivers-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/room-painting-cost-labour-vs-materials-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/plastering-cost-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/plastering-cost-budget-planning-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/plastering-cost-cost-drivers-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
-    },
-    {
-      "path": "/guides/plastering-cost-labour-vs-materials-guide/",
-      "type": "guide",
-      "cluster": "project-cost-estimating"
     }
   ]
 }

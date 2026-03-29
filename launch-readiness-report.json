@@ -2,18 +2,18 @@
   "site": "BuildCostLab",
   "generated_on": "2026-03-29",
   "counts": {
-    "pages": 384,
-    "calculators": 91,
-    "guides": 260,
+    "pages": 454,
+    "calculators": 97,
+    "guides": 308,
     "clusters": 25,
     "trust_pages": 7,
-    "project_cost_calculators": 6
+    "project_cost_calculators": 12
   },
   "schema_counts": {
-    "faq": 351,
-    "item_list": 28,
-    "software_application": 91,
-    "breadcrumb": 387
+    "faq": 392,
+    "item_list": 29,
+    "software_application": 97,
+    "breadcrumb": 444
   },
   "missing_required_paths": [],
   "readiness_checks": {
