@@ -3,6 +3,7 @@ from html import escape
 
 from data.calculator_scale import ADDITIONAL_CALCULATORS
 from data.calculator_ui import CALCULATOR_UI
+from data.uk_regions import UK_REGION_PROFILES
 from generators.publisher_pages import render_calculator_page
 
 
@@ -24,6 +25,10 @@ def _config_for(item):
         "unit_size_label": "Unit size (tonnes or m3)",
         "piece_length_label": "Stock length",
         "price_label": "Price per unit",
+        "material_rate_label": "Material cost per m2",
+        "labour_rate_label": "Labour cost per m2",
+        "extra_rate_label": "Extra costs per m2",
+        "contingency_label": "Contingency (%)",
         "unit_name_singular": "unit",
         "unit_name_plural": "units",
         "result_intro": default_intro,
@@ -35,6 +40,14 @@ def _config_for(item):
 def _field(cfg, label: str, field_id: str, value: str, step: str) -> str:
     default_value = cfg.get("defaults", {}).get(field_id, value)
     return f'<label><span>{escape(label)}</span><input id="{escape(field_id)}" type="number" min="0" step="{escape(step)}" value="{escape(default_value)}"></label>'
+
+
+def _select_field(label: str, field_id: str, options: list[tuple[str, str]], default_value: str) -> str:
+    options_html = "".join(
+        f'<option value="{escape(value)}"{" selected" if value == default_value else ""}>{escape(title)}</option>'
+        for value, title in options
+    )
+    return f'<label><span>{escape(label)}</span><select id="{escape(field_id)}">{options_html}</select></label>'
 
 
 def _coverage_form(cfg) -> str:
@@ -80,8 +93,27 @@ def _linear_form(cfg) -> str:
     )
 
 
+def _project_cost_form(cfg) -> str:
+    note_html = f'<p class="form-note">{escape(cfg["calculator_note"])}</p>' if cfg.get("calculator_note") else ""
+    region_options = [(profile["slug"], profile["label"]) for profile in UK_REGION_PROFILES]
+    default_region = cfg.get("defaults", {}).get("region", "national-average")
+    return (
+        '<div class="toggle-row units-row" role="tablist" aria-label="Units"><button class="unit-toggle is-active" data-unit="metric" type="button">Metric</button><button class="unit-toggle" data-unit="imperial" type="button">Imperial</button></div>'
+        '<form class="calculator-form generic-calculator-form" data-formula="project_cost"><div class="field-grid">'
+        f'{_field(cfg, cfg["length_label"], "length", "5", "0.01")}'
+        f'{_field(cfg, cfg["width_label"], "width", "4", "0.01")}'
+        f'{_select_field("UK region", "region", region_options, default_region)}'
+        f'{_field(cfg, "Waste or complexity (%)", "waste", "10", "1")}'
+        f'{_field(cfg, cfg["material_rate_label"], "material-rate", "60", "0.01")}'
+        f'{_field(cfg, cfg["labour_rate_label"], "labour-rate", "45", "0.01")}'
+        f'{_field(cfg, cfg["extra_rate_label"], "extra-rate", "12", "0.01")}'
+        f'{_field(cfg, cfg["contingency_label"], "contingency", "10", "1")}'
+        f'</div>{note_html}<button class="btn btn-primary btn-block" type="submit">Calculate project cost</button></form>'
+    )
+
+
 def _result_panel(cfg) -> str:
-    return f"""<div class="result-kicker">Estimated result</div><h2 class="result-main">Enter your measurements</h2><p class="result-sub">{escape(cfg["result_intro"])}</p><div class="currency-pills" role="tablist" aria-label="Currency"><button class="currency-pill is-active" data-currency="GBP" type="button">GBP</button><button class="currency-pill" data-currency="USD" type="button">USD</button><button class="currency-pill" data-currency="EUR" type="button">EUR</button></div><div class="result-breakdown" id="result-breakdown"></div>"""
+    return f"""<div class="result-kicker">Estimated result</div><h2 class="result-main">Enter your measurements</h2><p class="result-sub">{escape(cfg["result_intro"])}</p><div class="currency-pills" role="tablist" aria-label="Currency"><button class="currency-pill is-active" data-currency="GBP" type="button">GBP</button><button class="currency-pill" data-currency="USD" type="button">USD</button><button class="currency-pill" data-currency="EUR" type="button">EUR</button></div><div class="result-breakdown" id="result-breakdown"></div><p class="result-context" id="result-context"></p>"""
 
 
 def build_additional_calculator_pages():
@@ -93,6 +125,8 @@ def build_additional_calculator_pages():
             form_html = _coverage_form(cfg)
         elif formula == "volume":
             form_html = _volume_form(cfg)
+        elif formula == "project_cost":
+            form_html = _project_cost_form(cfg)
         else:
             form_html = _linear_form(cfg)
         result_html = _result_panel(cfg)
@@ -112,6 +146,9 @@ def build_additional_calculator_pages():
             "realityItems": cfg.get("reality_items", []),
             "costModel": cfg.get("cost_model", None),
             "timelineSteps": cfg.get("timeline_steps", []),
+            "costModel": cfg.get("cost_model", None),
+            "regionProfiles": UK_REGION_PROFILES if formula == "project_cost" else [],
+            "defaultRegion": cfg.get("defaults", {}).get("region", "national-average"),
         }
         html = render_calculator_page(
             slug=item["slug"],

@@ -12,10 +12,19 @@
     });
   });
 
-  document.querySelectorAll(".mini-tool-card, .text-link, .tool-card a").forEach(function (link) {
+  document.querySelectorAll(".mini-tool-card, .text-link, .tool-card a, .conversion-card a").forEach(function (link) {
     link.addEventListener("click", function () {
       track("internal_link_click", {
         href: link.getAttribute("href") || "",
+        page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
+      });
+    });
+  });
+
+  document.querySelectorAll(".estimate-action").forEach(function (button) {
+    button.addEventListener("click", function () {
+      track("estimate_action_click", {
+        action: button.getAttribute("data-estimate-action") || "unknown",
         page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
       });
     });

@@ -5,6 +5,9 @@ from data.catalog import get_all_calculators
 from data.publisher import NAV_LINKS, SITE
 
 
+UPDATED_ISO = SITE.get("updated_iso", "2026-03-29")
+
+
 def family_lookup():
     return {item["slug"]: item for item in get_all_calculators()}
 
@@ -113,28 +116,103 @@ def render_breadcrumb_schema(items: list[tuple[str, str]]) -> str:
     )
 
 
+def render_item_list_schema(name: str, items: list[dict]) -> str:
+    if not items:
+        return ""
+    return json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": name,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "name": item["name"],
+                    "url": absolute_url(item["url"]),
+                }
+                for index, item in enumerate(items)
+            ],
+        }
+    )
+
+
+def render_primary_page_schema(*, title: str, description: str, canonical: str, page_type: str) -> str:
+    schema_type = "WebPage"
+    if page_type.endswith("index") or page_type in {"homepage", "cluster", "cluster-index", "guide-index", "compare-index"}:
+        schema_type = "CollectionPage"
+    elif page_type in {"guide", "trust"}:
+        schema_type = "Article"
+    data = {
+        "@context": "https://schema.org",
+        "@type": schema_type,
+        "name": title,
+        "headline": title,
+        "url": canonical,
+        "description": description,
+        "dateModified": UPDATED_ISO,
+        "datePublished": UPDATED_ISO,
+        "inLanguage": "en-GB",
+        "publisher": {
+            "@type": "Organization",
+            "name": SITE["name"],
+            "url": SITE["base_url"],
+        },
+        "author": {
+            "@type": "Organization",
+            "name": SITE["review_team"],
+        },
+    }
+    return json.dumps(data)
+
+
+def render_page_specific_schema(*, title: str, description: str, canonical: str, page_type: str) -> str:
+    if page_type == "calculator":
+        return json.dumps(
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": title,
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "isAccessibleForFree": True,
+                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+                "url": canonical,
+                "description": description,
+                "publisher": {"@type": "Organization", "name": SITE["name"]},
+            }
+        )
+    if page_type == "homepage":
+        return json.dumps(
+            {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": title,
+                "url": canonical,
+                "description": description,
+                "about": ["building materials", "project costs", "estimating calculators"],
+            }
+        )
+    return ""
+
+
 def render_layout(*, title: str, description: str, path: str, content: str, schema: list[str] | None = None, page_type: str = "content") -> str:
     canonical = absolute_url(path)
     schema_blocks = [
         render_site_schema(),
         render_org_schema(),
-        json.dumps(
-            {
-                "@context": "https://schema.org",
-                "@type": "WebPage",
-                "name": title,
-                "url": canonical,
-                "description": description,
-            }
-        ),
+        render_primary_page_schema(title=title, description=description, canonical=canonical, page_type=page_type),
     ]
+    page_specific = render_page_specific_schema(title=title, description=description, canonical=canonical, page_type=page_type)
+    if page_specific:
+        schema_blocks.append(page_specific)
     if schema:
         schema_blocks.extend(item for item in schema if item)
     scripts = "".join(
         f'<script type="application/ld+json">{block}</script>' for block in schema_blocks
     )
     return f"""<!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -156,6 +234,7 @@ def render_layout(*, title: str, description: str, path: str, content: str, sche
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="{escape(canonical)}">
   <meta property="og:image" content="{escape(absolute_url(SITE['default_image']))}">
+  <meta property="article:modified_time" content="{escape(UPDATED_ISO)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{escape(title)}">
   <meta name="twitter:description" content="{escape(description)}">

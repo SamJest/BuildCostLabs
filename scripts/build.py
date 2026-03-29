@@ -20,6 +20,7 @@ from generators.publisher_pages import (
     build_guide_pages,
     build_guides_index,
     build_trust_pages,
+    build_compare_index,
 )
 from generators.scale_calculators import build_additional_calculator_pages
 from data.catalog import get_all_calculators
@@ -112,12 +113,15 @@ def build_site() -> None:
         write_file(OUTPUT_DIR / path.strip("/") / "index.html", html)
     guide_index_path, guide_index_html = build_guides_index()
     write_file(OUTPUT_DIR / guide_index_path.strip("/") / "index.html", guide_index_html)
+    compare_index_path, compare_index_html = build_compare_index()
+    write_file(OUTPUT_DIR / compare_index_path.strip("/") / "index.html", compare_index_html)
     cluster_index_path, cluster_index_html = build_clusters_index()
     write_file(OUTPUT_DIR / cluster_index_path.strip("/") / "index.html", cluster_index_html)
     write_file(OUTPUT_DIR / "robots.txt", build_robots())
     write_file(OUTPUT_DIR / "sitemap.xml", build_sitemap())
     write_file(OUTPUT_DIR / "page-inventory.json", build_page_inventory())
     write_file(OUTPUT_DIR / "seo-report.json", build_seo_report())
+    write_file(OUTPUT_DIR / "launch-readiness-report.json", build_launch_readiness_report())
     write_file(OUTPUT_DIR / "CNAME", build_cname())
     write_file(OUTPUT_DIR / ".nojekyll", "")
 
@@ -131,7 +135,7 @@ def build_cname() -> str:
 
 
 def build_sitemap() -> str:
-    pages = ["/", "/calculators/", "/clusters/", "/guides/"]
+    pages = ["/", "/calculators/", "/clusters/", "/guides/", "/compare/"]
     pages.extend(f"/{page['slug']}/" for page in TRUST_PAGES)
     calculators = get_all_calculators()
     pages.extend(f"/calculators/{item['slug']}/" for item in calculators)
@@ -146,7 +150,7 @@ def build_sitemap() -> str:
 
 
 def build_page_inventory() -> str:
-    pages = []
+    pages = [{"path": "/compare/", "type": "compare-index"}]
     pages.extend({"path": f"/{page['slug']}/", "type": "trust"} for page in TRUST_PAGES)
     calculators = get_all_calculators()
     pages.extend({"path": f"/calculators/{item['slug']}/", "type": "calculator", "cluster": item["cluster_slug"]} for item in calculators)
@@ -157,6 +161,83 @@ def build_page_inventory() -> str:
             seen_clusters.add(item["cluster_slug"])
         pages.extend({"path": f"/guides/{guide['slug']}/", "type": "guide", "cluster": item["cluster_slug"]} for guide in item["intent_pages"] + item["guide_pages"])
     return json.dumps({"site": SITE["name"], "count": len(pages), "pages": pages}, indent=2)
+
+
+def build_launch_readiness_report() -> str:
+    inventory = json.loads(build_page_inventory())
+    seo = json.loads(build_seo_report())
+    calculators = [item for item in inventory["pages"] if item.get("type") == "calculator"]
+    guides = [item for item in inventory["pages"] if item.get("type") == "guide"]
+    clusters = [item for item in inventory["pages"] if item.get("type") == "cluster"]
+    trust_pages = [item for item in inventory["pages"] if item.get("type") == "trust"]
+    compare_pages = [item for item in inventory["pages"] if item.get("type") == "compare-index"]
+    html_pages = list(OUTPUT_DIR.rglob("index.html"))
+    schema_counts = {"faq": 0, "item_list": 0, "software_application": 0, "breadcrumb": 0}
+    for html_path in html_pages:
+        content = html_path.read_text(encoding="utf-8")
+        if '"@type": "FAQPage"' in content:
+            schema_counts["faq"] += 1
+        if '"@type": "ItemList"' in content:
+            schema_counts["item_list"] += 1
+        if '"@type": "SoftwareApplication"' in content:
+            schema_counts["software_application"] += 1
+        if '"@type": "BreadcrumbList"' in content:
+            schema_counts["breadcrumb"] += 1
+
+    required_paths = [
+        "/",
+        "/calculators/",
+        "/guides/",
+        "/clusters/",
+        "/compare/",
+        SITE.get("methodology_path", "/calculator-methodology/"),
+        SITE.get("editorial_policy_path", "/editorial-policy/"),
+        SITE.get("quote_contact_path", "/contact/"),
+    ]
+    existing_paths = {page["path"] for page in inventory["pages"]}
+    existing_paths.add("/")
+    existing_paths.add("/calculators/")
+    existing_paths.add("/guides/")
+    existing_paths.add("/clusters/")
+    missing_required = [path for path in required_paths if path not in existing_paths]
+
+    project_cost_count = sum(1 for item in get_all_calculators() if item.get("formula") == "project_cost")
+
+    readiness_checks = {
+        "required_pages_present": not missing_required,
+        "seo_report_clean": len(seo.get("issues", [])) == 0,
+        "calculators_present": len(calculators) >= 10,
+        "guides_present": len(guides) >= 20,
+        "clusters_present": len(clusters) >= 5,
+        "trust_pages_present": len(trust_pages) >= 5,
+        "compare_hub_present": len(compare_pages) == 1,
+        "project_cost_family_present": project_cost_count >= 4,
+        "calculator_schema_present": schema_counts["software_application"] >= project_cost_count,
+    }
+
+    return json.dumps(
+        {
+            "site": SITE["name"],
+            "generated_on": SITE.get("updated_iso", "2026-03-29"),
+            "counts": {
+                "pages": inventory["count"],
+                "calculators": len(calculators),
+                "guides": len(guides),
+                "clusters": len(clusters),
+                "trust_pages": len(trust_pages),
+                "project_cost_calculators": project_cost_count,
+            },
+            "schema_counts": schema_counts,
+            "missing_required_paths": missing_required,
+            "readiness_checks": readiness_checks,
+            "seo_summary": {
+                "issues": len(seo.get("issues", [])),
+                "duplicate_titles": len(seo.get("duplicate_titles", {})),
+                "duplicate_descriptions": len(seo.get("duplicate_descriptions", {})),
+            },
+        },
+        indent=2,
+    )
 
 
 def build_seo_report() -> str:

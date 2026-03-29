@@ -28,6 +28,28 @@
       };
     }
 
+    if (formula === "project_cost") {
+      if (scope < 15) {
+        return [
+          { stage: "Measure and scope", duration: "Half day" },
+          { stage: "Budget and material check", duration: "Half day to 1 day" },
+          { stage: "Quote comparison", duration: "1 to 3 days" }
+        ];
+      }
+      if (scope < 40) {
+        return [
+          { stage: "Measure and scope", duration: "Half day to 1 day" },
+          { stage: "Budget and material check", duration: "1 day" },
+          { stage: "Quote comparison", duration: "2 to 4 days" }
+        ];
+      }
+      return [
+        { stage: "Measure and scope", duration: "1 day" },
+        { stage: "Budget and material check", duration: "1 to 2 days" },
+        { stage: "Quote comparison", duration: "3 to 5 days" }
+      ];
+    }
+
     if (formula === "linear") {
       return {
         lowFactor: 0.96,
@@ -140,6 +162,28 @@
         { stage: "Set out and prep", duration: "1 to 2 days" },
         { stage: "Delivery and place", duration: "1 to 2 days" },
         { stage: "Finish and cure", duration: "3 to 7 days" }
+      ];
+    }
+
+    if (formula === "project_cost") {
+      if (scope < 15) {
+        return [
+          { stage: "Measure and scope", duration: "Half day" },
+          { stage: "Budget and material check", duration: "Half day to 1 day" },
+          { stage: "Quote comparison", duration: "1 to 3 days" }
+        ];
+      }
+      if (scope < 40) {
+        return [
+          { stage: "Measure and scope", duration: "Half day to 1 day" },
+          { stage: "Budget and material check", duration: "1 day" },
+          { stage: "Quote comparison", duration: "2 to 4 days" }
+        ];
+      }
+      return [
+        { stage: "Measure and scope", duration: "1 day" },
+        { stage: "Budget and material check", duration: "1 to 2 days" },
+        { stage: "Quote comparison", duration: "3 to 5 days" }
       ];
     }
 
