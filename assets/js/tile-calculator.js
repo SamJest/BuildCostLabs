@@ -20,6 +20,11 @@
   let unit = "metric";
   let currency = "GBP";
 
+  const presets = {
+    floor: { waste: 10, tilesPerBox: 8, pricePerBox: 24.99 },
+    wall: { waste: 8, tilesPerBox: 10, pricePerBox: 21.99 }
+  };
+
   function money(value) {
     const info = currencyMap[currency] || currencyMap.GBP;
     return `${info.symbol}${Number(value).toFixed(2)} ${info.code}`;
@@ -180,9 +185,5 @@
   });
 
   applyPreset();
-  renderDefaultState();
+  calculate();
 })();
-  const presets = {
-    floor: { waste: 10, tilesPerBox: 8, pricePerBox: 24.99 },
-    wall: { waste: 8, tilesPerBox: 10, pricePerBox: 21.99 }
-  };

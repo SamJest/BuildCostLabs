@@ -28,6 +28,22 @@
       };
     }
 
+    if (formula === "project_cost") {
+      return {
+        lowFactor: 0.9,
+        highFactor: 1.18,
+        drivers: "Labour, prep, finish level, regional pressure, and contingency usually move project-cost estimates the most.",
+        confidence: "Planning confidence only. Use the higher estimate when scope, finish, access, or supporting work are still uncertain.",
+        costModel: { labour: 0.68, extras: 0.22, fees: 0.08 },
+        reality: [
+          "Prep, removals, disposal, and access can sit outside the first headline total.",
+          "Regional labour pressure and finish quality can change the result quickly.",
+          "Write down what is excluded before you compare contractor quotes.",
+          "Contingency is there to absorb uncertainty, not to hide it."
+        ]
+      };
+    }
+
     if (formula === "linear") {
       return {
         lowFactor: 0.96,
@@ -141,6 +157,22 @@
         { stage: "Delivery and place", duration: "1 to 2 days" },
         { stage: "Finish and cure", duration: "3 to 7 days" }
       ];
+    }
+
+    if (formula === "project_cost") {
+      return {
+        lowFactor: 0.9,
+        highFactor: 1.18,
+        drivers: "Labour, prep, finish level, regional pressure, and contingency usually move project-cost estimates the most.",
+        confidence: "Planning confidence only. Use the higher estimate when scope, finish, access, or supporting work are still uncertain.",
+        costModel: { labour: 0.68, extras: 0.22, fees: 0.08 },
+        reality: [
+          "Prep, removals, disposal, and access can sit outside the first headline total.",
+          "Regional labour pressure and finish quality can change the result quickly.",
+          "Write down what is excluded before you compare contractor quotes.",
+          "Contingency is there to absorb uncertainty, not to hide it."
+        ]
+      };
     }
 
     if (formula === "linear") {

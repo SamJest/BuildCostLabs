@@ -1,1739 +1,2347 @@
 {
   "site": "BuildCostLab",
-  "count": 353,
+  "count": 446,
   "pages": [
     {
       "path": "/about/",
-      "type": "trust"
-    },
-    {
-      "path": "/quote-checklist/",
-      "type": "trust"
-    },
-    {
-      "path": "/contact/",
-      "type": "trust"
-    },
-    {
-      "path": "/editorial-policy/",
-      "type": "trust"
-    },
-    {
-      "path": "/calculator-methodology/",
-      "type": "trust"
-    },
-    {
-      "path": "/privacy-policy/",
-      "type": "trust"
-    },
-    {
-      "path": "/terms/",
-      "type": "trust"
+      "type": "trust",
+      "title": "About BuildCostLab"
     },
     {
       "path": "/advertiser-disclosure/",
-      "type": "trust"
+      "type": "trust",
+      "title": "Advertiser Disclosure"
     },
     {
-      "path": "/calculators/paint-calculator/",
-      "type": "calculator",
-      "cluster": "paint-estimating"
+      "path": "/buying-guides/",
+      "type": "buying-guide-index",
+      "title": "Buying Guides | BuildCostLab"
     },
     {
-      "path": "/calculators/concrete-calculator/",
-      "type": "calculator",
-      "cluster": "concrete-estimating"
-    },
-    {
-      "path": "/calculators/flooring-calculator/",
-      "type": "calculator",
-      "cluster": "flooring-estimating"
-    },
-    {
-      "path": "/calculators/tile-calculator/",
-      "type": "calculator",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/calculators/gravel-calculator/",
-      "type": "calculator",
-      "cluster": "gravel-and-aggregate-estimating"
-    },
-    {
-      "path": "/calculators/paving-calculator/",
-      "type": "calculator",
-      "cluster": "paving-and-patio-estimating"
-    },
-    {
-      "path": "/calculators/decking-calculator/",
-      "type": "calculator",
-      "cluster": "decking-estimating"
-    },
-    {
-      "path": "/calculators/fence-calculator/",
-      "type": "calculator",
-      "cluster": "fence-estimating"
-    },
-    {
-      "path": "/calculators/ceiling-paint-calculator/",
-      "type": "calculator",
-      "cluster": "paint-estimating"
-    },
-    {
-      "path": "/calculators/exterior-paint-calculator/",
-      "type": "calculator",
-      "cluster": "paint-estimating"
-    },
-    {
-      "path": "/calculators/slab-concrete-calculator/",
-      "type": "calculator",
-      "cluster": "concrete-estimating"
-    },
-    {
-      "path": "/calculators/footing-concrete-calculator/",
-      "type": "calculator",
-      "cluster": "concrete-estimating"
-    },
-    {
-      "path": "/calculators/laminate-flooring-calculator/",
-      "type": "calculator",
-      "cluster": "flooring-estimating"
-    },
-    {
-      "path": "/calculators/vinyl-plank-flooring-calculator/",
-      "type": "calculator",
-      "cluster": "flooring-estimating"
-    },
-    {
-      "path": "/calculators/topsoil-calculator/",
-      "type": "calculator",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/calculators/mulch-calculator/",
-      "type": "calculator",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/calculators/compost-calculator/",
-      "type": "calculator",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/calculators/bark-calculator/",
-      "type": "calculator",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/calculators/sand-calculator/",
-      "type": "calculator",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/calculators/sharp-sand-calculator/",
-      "type": "calculator",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/calculators/ballast-calculator/",
-      "type": "calculator",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/calculators/hardcore-calculator/",
-      "type": "calculator",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/calculators/sub-base-calculator/",
-      "type": "calculator",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/calculators/mot-type-1-calculator/",
-      "type": "calculator",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/calculators/screed-calculator/",
-      "type": "calculator",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/calculators/self-levelling-compound-calculator/",
-      "type": "calculator",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/calculators/underlay-calculator/",
-      "type": "calculator",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/calculators/dpm-calculator/",
-      "type": "calculator",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/calculators/insulation-board-calculator/",
-      "type": "calculator",
-      "cluster": "insulation-estimating"
-    },
-    {
-      "path": "/calculators/loft-insulation-calculator/",
-      "type": "calculator",
-      "cluster": "insulation-estimating"
+      "path": "/calculator-methodology/",
+      "type": "trust",
+      "title": "Calculator Methodology"
     },
     {
       "path": "/calculators/acoustic-insulation-calculator/",
       "type": "calculator",
-      "cluster": "insulation-estimating"
-    },
-    {
-      "path": "/calculators/plasterboard-calculator/",
-      "type": "calculator",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/calculators/drywall-screws-calculator/",
-      "type": "calculator",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/calculators/joint-compound-calculator/",
-      "type": "calculator",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/calculators/skim-plaster-calculator/",
-      "type": "calculator",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/calculators/render-calculator/",
-      "type": "calculator",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/calculators/plaster-bead-calculator/",
-      "type": "calculator",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/calculators/mortar-calculator/",
-      "type": "calculator",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/calculators/brick-calculator/",
-      "type": "calculator",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/calculators/block-calculator/",
-      "type": "calculator",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/calculators/rebar-calculator/",
-      "type": "calculator",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/calculators/mesh-calculator/",
-      "type": "calculator",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/calculators/concrete-fibre-calculator/",
-      "type": "calculator",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/calculators/roofing-shingle-calculator/",
-      "type": "calculator",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/calculators/roof-felt-calculator/",
-      "type": "calculator",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/calculators/roof-batten-calculator/",
-      "type": "calculator",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/calculators/fascia-calculator/",
-      "type": "calculator",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/calculators/soffit-calculator/",
-      "type": "calculator",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/calculators/gutter-calculator/",
-      "type": "calculator",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/calculators/downpipe-calculator/",
-      "type": "calculator",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/calculators/wallpaper-calculator/",
-      "type": "calculator",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/calculators/primer-calculator/",
-      "type": "calculator",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/calculators/filler-calculator/",
-      "type": "calculator",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/calculators/skirting-board-calculator/",
-      "type": "calculator",
-      "cluster": "trim-and-joinery-estimating"
+      "title": "Acoustic Insulation Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/calculators/architrave-calculator/",
       "type": "calculator",
-      "cluster": "trim-and-joinery-estimating"
-    },
-    {
-      "path": "/calculators/coving-calculator/",
-      "type": "calculator",
-      "cluster": "trim-and-joinery-estimating"
-    },
-    {
-      "path": "/calculators/cladding-calculator/",
-      "type": "calculator",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/calculators/masonry-sealer-calculator/",
-      "type": "calculator",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/calculators/turf-calculator/",
-      "type": "calculator",
-      "cluster": "garden-surface-estimating"
-    },
-    {
-      "path": "/calculators/grass-seed-calculator/",
-      "type": "calculator",
-      "cluster": "garden-surface-estimating"
+      "title": "Architrave Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/calculators/artificial-grass-calculator/",
       "type": "calculator",
-      "cluster": "garden-surface-estimating"
+      "title": "Artificial Grass Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/weed-membrane-calculator/",
+      "path": "/calculators/ballast-calculator/",
       "type": "calculator",
-      "cluster": "garden-surface-estimating"
+      "title": "Ballast Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/sleepers-calculator/",
+      "path": "/calculators/bark-calculator/",
       "type": "calculator",
-      "cluster": "landscape-joinery-estimating"
+      "title": "Bark Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/edging-calculator/",
+      "path": "/calculators/block-calculator/",
       "type": "calculator",
-      "cluster": "landscape-joinery-estimating"
+      "title": "Block Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/kerb-calculator/",
+      "path": "/calculators/brick-calculator/",
       "type": "calculator",
-      "cluster": "landscape-joinery-estimating"
+      "title": "Brick Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/drainage-pipe-calculator/",
+      "path": "/calculators/ceiling-paint-calculator/",
       "type": "calculator",
-      "cluster": "drainage-estimating"
+      "title": "Ceiling Paint Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/ducting-calculator/",
+      "path": "/calculators/cladding-calculator/",
       "type": "calculator",
-      "cluster": "drainage-estimating"
+      "title": "Cladding Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/geotextile-membrane-calculator/",
+      "path": "/calculators/compost-calculator/",
       "type": "calculator",
-      "cluster": "drainage-estimating"
+      "title": "Compost Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/french-drain-gravel-calculator/",
+      "path": "/calculators/concrete-calculator/",
       "type": "calculator",
-      "cluster": "drainage-estimating"
+      "title": "Concrete Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/pipe-bedding-calculator/",
+      "path": "/calculators/concrete-fibre-calculator/",
       "type": "calculator",
-      "cluster": "drainage-estimating"
+      "title": "Concrete Fibre Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/tile-adhesive-calculator/",
+      "path": "/calculators/coving-calculator/",
       "type": "calculator",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/calculators/tile-grout-calculator/",
-      "type": "calculator",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/calculators/tile-backer-board-calculator/",
-      "type": "calculator",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/calculators/pea-gravel-calculator/",
-      "type": "calculator",
-      "cluster": "gravel-and-aggregate-estimating"
-    },
-    {
-      "path": "/calculators/driveway-gravel-calculator/",
-      "type": "calculator",
-      "cluster": "gravel-and-aggregate-estimating"
-    },
-    {
-      "path": "/calculators/paving-sand-calculator/",
-      "type": "calculator",
-      "cluster": "paving-and-patio-estimating"
-    },
-    {
-      "path": "/calculators/paving-jointing-compound-calculator/",
-      "type": "calculator",
-      "cluster": "paving-and-patio-estimating"
-    },
-    {
-      "path": "/calculators/deck-screws-calculator/",
-      "type": "calculator",
-      "cluster": "decking-estimating"
+      "title": "Coving Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/calculators/deck-joist-calculator/",
       "type": "calculator",
-      "cluster": "decking-estimating"
+      "title": "Deck Joist Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/deck-screws-calculator/",
+      "type": "calculator",
+      "title": "Deck Screws Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/decking-calculator/",
+      "type": "calculator",
+      "title": "Decking Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/decking-cost-calculator/",
+      "type": "calculator",
+      "title": "Decking Cost Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/downpipe-calculator/",
+      "type": "calculator",
+      "title": "Downpipe Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/dpm-calculator/",
+      "type": "calculator",
+      "title": "DPM Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/drainage-pipe-calculator/",
+      "type": "calculator",
+      "title": "Drainage Pipe Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/driveway-cost-calculator/",
+      "type": "calculator",
+      "title": "Driveway Cost Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/driveway-gravel-calculator/",
+      "type": "calculator",
+      "title": "Driveway Gravel Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/drywall-screws-calculator/",
+      "type": "calculator",
+      "title": "Drywall Screws Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/ducting-calculator/",
+      "type": "calculator",
+      "title": "Ducting Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/edging-calculator/",
+      "type": "calculator",
+      "title": "Edging Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/exterior-paint-calculator/",
+      "type": "calculator",
+      "title": "Exterior Paint Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/fascia-calculator/",
+      "type": "calculator",
+      "title": "Fascia Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/fence-calculator/",
+      "type": "calculator",
+      "title": "Fence Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/fence-cost-calculator/",
+      "type": "calculator",
+      "title": "Fence Cost Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/calculators/fence-post-calculator/",
       "type": "calculator",
-      "cluster": "fence-estimating"
+      "title": "Fence Post Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/filler-calculator/",
+      "type": "calculator",
+      "title": "Filler Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/flooring-calculator/",
+      "type": "calculator",
+      "title": "Flooring Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/flooring-cost-calculator/",
+      "type": "calculator",
+      "title": "Flooring Cost Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/footing-concrete-calculator/",
+      "type": "calculator",
+      "title": "Footing Concrete Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/french-drain-gravel-calculator/",
+      "type": "calculator",
+      "title": "French Drain Gravel Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/garden-wall-cost-calculator/",
+      "type": "calculator",
+      "title": "Garden Wall Cost Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/geotextile-membrane-calculator/",
+      "type": "calculator",
+      "title": "Geotextile Membrane Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/grass-seed-calculator/",
+      "type": "calculator",
+      "title": "Grass Seed Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/calculators/gravel-board-calculator/",
       "type": "calculator",
-      "cluster": "fence-estimating"
+      "title": "Gravel Board Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/gravel-calculator/",
+      "type": "calculator",
+      "title": "Gravel Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/gutter-calculator/",
+      "type": "calculator",
+      "title": "Gutter Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/calculators/gutter-guard-calculator/",
       "type": "calculator",
-      "cluster": "roofline-estimating"
+      "title": "Gutter Guard Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/shed-felt-calculator/",
+      "path": "/calculators/hardcore-calculator/",
       "type": "calculator",
-      "cluster": "roofing-estimating"
+      "title": "Hardcore Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/calculators/wood-stain-calculator/",
+      "path": "/calculators/",
+      "type": "calculator-index",
+      "title": "Calculators | BuildCostLab"
+    },
+    {
+      "path": "/calculators/insulation-board-calculator/",
       "type": "calculator",
-      "cluster": "exterior-finish-estimating"
+      "title": "Insulation Board Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/insulation-cost-calculator/",
+      "type": "calculator",
+      "title": "Insulation Cost Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/joint-compound-calculator/",
+      "type": "calculator",
+      "title": "Joint Compound Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/kerb-calculator/",
+      "type": "calculator",
+      "title": "Kerb Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/laminate-flooring-calculator/",
+      "type": "calculator",
+      "title": "Laminate Flooring Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/loft-insulation-calculator/",
+      "type": "calculator",
+      "title": "Loft Insulation Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/masonry-sealer-calculator/",
+      "type": "calculator",
+      "title": "Masonry Sealer Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/mesh-calculator/",
+      "type": "calculator",
+      "title": "Mesh Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/mortar-calculator/",
+      "type": "calculator",
+      "title": "Mortar Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/mot-type-1-calculator/",
+      "type": "calculator",
+      "title": "MOT Type 1 Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/mulch-calculator/",
+      "type": "calculator",
+      "title": "Mulch Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/paint-calculator/",
+      "type": "calculator",
+      "title": "Paint Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/patio-cost-calculator/",
+      "type": "calculator",
+      "title": "Patio Cost Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/paving-calculator/",
+      "type": "calculator",
+      "title": "Paving Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/paving-jointing-compound-calculator/",
+      "type": "calculator",
+      "title": "Paving Jointing Compound Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/paving-sand-calculator/",
+      "type": "calculator",
+      "title": "Paving Sand Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/pea-gravel-calculator/",
+      "type": "calculator",
+      "title": "Pea Gravel Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/pipe-bedding-calculator/",
+      "type": "calculator",
+      "title": "Pipe Bedding Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/plaster-bead-calculator/",
+      "type": "calculator",
+      "title": "Plaster Bead Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/calculators/plasterboard-adhesive-calculator/",
       "type": "calculator",
-      "cluster": "drywall-and-finish-estimating"
+      "title": "Plasterboard Adhesive Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/clusters/paint-estimating/",
-      "type": "cluster"
+      "path": "/calculators/plasterboard-calculator/",
+      "type": "calculator",
+      "title": "Plasterboard Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/how-much-paint-do-i-need-for-a-room/",
-      "type": "guide",
-      "cluster": "paint-estimating"
+      "path": "/calculators/plastering-cost-calculator/",
+      "type": "calculator",
+      "title": "Plastering Cost Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/paint-calculator-by-wall-dimensions/",
-      "type": "guide",
-      "cluster": "paint-estimating"
+      "path": "/calculators/primer-calculator/",
+      "type": "calculator",
+      "title": "Primer Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/paint-coverage-explained/",
-      "type": "guide",
-      "cluster": "paint-estimating"
+      "path": "/calculators/rebar-calculator/",
+      "type": "calculator",
+      "title": "Rebar Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/paint-waste-allowance-guide/",
-      "type": "guide",
-      "cluster": "paint-estimating"
+      "path": "/calculators/render-calculator/",
+      "type": "calculator",
+      "title": "Render Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/clusters/concrete-estimating/",
-      "type": "cluster"
+      "path": "/calculators/render-cost-calculator/",
+      "type": "calculator",
+      "title": "Render Cost Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/concrete-for-slab-calculator/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
+      "path": "/calculators/roof-batten-calculator/",
+      "type": "calculator",
+      "title": "Roof Batten Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/concrete-for-post-holes-calculator/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
+      "path": "/calculators/roof-felt-calculator/",
+      "type": "calculator",
+      "title": "Roof Felt Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/concrete-volume-guide/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
+      "path": "/calculators/roofing-cost-calculator/",
+      "type": "calculator",
+      "title": "Roofing Cost Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/ready-mix-vs-bagged-concrete/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
+      "path": "/calculators/roofing-shingle-calculator/",
+      "type": "calculator",
+      "title": "Roofing Shingle Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/clusters/flooring-estimating/",
-      "type": "cluster"
+      "path": "/calculators/room-painting-cost-calculator/",
+      "type": "calculator",
+      "title": "Room Painting Cost Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/flooring-packs-calculator/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
+      "path": "/calculators/sand-calculator/",
+      "type": "calculator",
+      "title": "Sand Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/laminate-flooring-waste-guide/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
+      "path": "/calculators/screed-calculator/",
+      "type": "calculator",
+      "title": "Screed Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/flooring-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
+      "path": "/calculators/self-levelling-compound-calculator/",
+      "type": "calculator",
+      "title": "Self-Levelling Compound Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/laminate-vs-vinyl-plank-costs/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
+      "path": "/calculators/sharp-sand-calculator/",
+      "type": "calculator",
+      "title": "Sharp Sand Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/clusters/tile-estimating/",
-      "type": "cluster"
+      "path": "/calculators/shed-felt-calculator/",
+      "type": "calculator",
+      "title": "Shed Felt Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/tile-boxes-calculator/",
-      "type": "guide",
-      "cluster": "tile-estimating"
+      "path": "/calculators/skim-plaster-calculator/",
+      "type": "calculator",
+      "title": "Skim Plaster Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/tile-waste-allowance-guide/",
-      "type": "guide",
-      "cluster": "tile-estimating"
+      "path": "/calculators/skirting-board-calculator/",
+      "type": "calculator",
+      "title": "Skirting Board Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/tile-cost-per-m2-guide/",
-      "type": "guide",
-      "cluster": "tile-estimating"
+      "path": "/calculators/slab-concrete-calculator/",
+      "type": "calculator",
+      "title": "Slab Concrete Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/wall-tiles-vs-floor-tiles-guide/",
-      "type": "guide",
-      "cluster": "tile-estimating"
+      "path": "/calculators/sleepers-calculator/",
+      "type": "calculator",
+      "title": "Sleepers Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/clusters/gravel-and-aggregate-estimating/",
-      "type": "cluster"
+      "path": "/calculators/soffit-calculator/",
+      "type": "calculator",
+      "title": "Soffit Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/gravel-calculator-for-driveway/",
-      "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "path": "/calculators/sub-base-calculator/",
+      "type": "calculator",
+      "title": "Sub-Base Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/bulk-bag-gravel-calculator/",
-      "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "path": "/calculators/tile-adhesive-calculator/",
+      "type": "calculator",
+      "title": "Tile Adhesive Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/gravel-density-guide/",
-      "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "path": "/calculators/tile-backer-board-calculator/",
+      "type": "calculator",
+      "title": "Tile Backer Board Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/gravel-vs-sub-base-guide/",
-      "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "path": "/calculators/tile-calculator/",
+      "type": "calculator",
+      "title": "Tile Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/clusters/paving-and-patio-estimating/",
-      "type": "cluster"
+      "path": "/calculators/tile-grout-calculator/",
+      "type": "calculator",
+      "title": "Tile Grout Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/patio-slabs-calculator/",
-      "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "path": "/calculators/tiling-cost-calculator/",
+      "type": "calculator",
+      "title": "Tiling Cost Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/paver-calculator-by-area/",
-      "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "path": "/calculators/topsoil-calculator/",
+      "type": "calculator",
+      "title": "Topsoil Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/patio-waste-allowance-guide/",
-      "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "path": "/calculators/turf-calculator/",
+      "type": "calculator",
+      "title": "Turf Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/pavers-vs-slabs-guide/",
-      "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "path": "/calculators/underlay-calculator/",
+      "type": "calculator",
+      "title": "Underlay Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/clusters/decking-estimating/",
-      "type": "cluster"
+      "path": "/calculators/vinyl-plank-flooring-calculator/",
+      "type": "calculator",
+      "title": "Vinyl Plank Flooring Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/deck-board-calculator/",
-      "type": "guide",
-      "cluster": "decking-estimating"
+      "path": "/calculators/wallpaper-calculator/",
+      "type": "calculator",
+      "title": "Wallpaper Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/deck-joist-spacing-guide/",
-      "type": "guide",
-      "cluster": "decking-estimating"
+      "path": "/calculators/weed-membrane-calculator/",
+      "type": "calculator",
+      "title": "Weed Membrane Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
-      "path": "/guides/decking-waste-guide/",
-      "type": "guide",
-      "cluster": "decking-estimating"
-    },
-    {
-      "path": "/guides/timber-vs-composite-decking-costs/",
-      "type": "guide",
-      "cluster": "decking-estimating"
-    },
-    {
-      "path": "/clusters/fence-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/fence-panels-calculator/",
-      "type": "guide",
-      "cluster": "fence-estimating"
-    },
-    {
-      "path": "/guides/concrete-for-fence-posts-guide/",
-      "type": "guide",
-      "cluster": "fence-estimating"
-    },
-    {
-      "path": "/guides/fence-cost-per-metre-guide/",
-      "type": "guide",
-      "cluster": "fence-estimating"
-    },
-    {
-      "path": "/guides/panel-fence-vs-closeboard-guide/",
-      "type": "guide",
-      "cluster": "fence-estimating"
-    },
-    {
-      "path": "/guides/ceiling-paint-calculator-by-area/",
-      "type": "guide",
-      "cluster": "paint-estimating"
-    },
-    {
-      "path": "/guides/ceiling-paint-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "paint-estimating"
-    },
-    {
-      "path": "/guides/exterior-paint-calculator-by-area/",
-      "type": "guide",
-      "cluster": "paint-estimating"
-    },
-    {
-      "path": "/guides/exterior-paint-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "paint-estimating"
-    },
-    {
-      "path": "/guides/slab-concrete-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
-    },
-    {
-      "path": "/guides/slab-concrete-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
-    },
-    {
-      "path": "/guides/footing-concrete-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
-    },
-    {
-      "path": "/guides/footing-concrete-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "concrete-estimating"
-    },
-    {
-      "path": "/guides/laminate-flooring-calculator-by-area/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
-    },
-    {
-      "path": "/guides/laminate-flooring-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
-    },
-    {
-      "path": "/guides/vinyl-plank-flooring-calculator-by-area/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
-    },
-    {
-      "path": "/guides/vinyl-plank-flooring-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "flooring-estimating"
-    },
-    {
-      "path": "/clusters/soil-and-landscaping-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/topsoil-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/topsoil-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/topsoil-depth-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/topsoil-bags-vs-bulk-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/mulch-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/mulch-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/mulch-depth-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/mulch-bags-vs-bulk-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/compost-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/compost-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/compost-depth-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/compost-bags-vs-bulk-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/bark-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/bark-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/bark-depth-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
-    },
-    {
-      "path": "/guides/bark-bags-vs-bulk-guide/",
-      "type": "guide",
-      "cluster": "soil-and-landscaping-estimating"
+      "path": "/calculators/wood-stain-calculator/",
+      "type": "calculator",
+      "title": "Wood Stain Calculator | BuildCostLab",
+      "section": "calculators"
     },
     {
       "path": "/clusters/aggregate-and-base-estimating/",
-      "type": "cluster"
+      "type": "cluster",
+      "title": "Aggregate and Base Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/sand-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/brick-and-block-estimating/",
+      "type": "cluster",
+      "title": "Brick and Block Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/sand-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/concrete-estimating/",
+      "type": "cluster",
+      "title": "Concrete Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/sharp-sand-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/concrete-reinforcement-estimating/",
+      "type": "cluster",
+      "title": "Concrete Reinforcement Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/sharp-sand-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/decking-estimating/",
+      "type": "cluster",
+      "title": "Decking Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/sharp-sand-calculator-for-patio/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/decorating-estimating/",
+      "type": "cluster",
+      "title": "Decorating Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/ballast-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/drainage-estimating/",
+      "type": "cluster",
+      "title": "Drainage Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/ballast-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/drywall-and-finish-estimating/",
+      "type": "cluster",
+      "title": "Drywall and Finish Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/hardcore-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/exterior-finish-estimating/",
+      "type": "cluster",
+      "title": "Exterior Finish Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/hardcore-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/guides/sub-base-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/guides/sub-base-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/guides/mot-type-1-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/guides/mot-type-1-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
-    },
-    {
-      "path": "/guides/mot-type-1-calculator-for-driveway/",
-      "type": "guide",
-      "cluster": "aggregate-and-base-estimating"
+      "path": "/clusters/fence-estimating/",
+      "type": "cluster",
+      "title": "Fence Estimating | BuildCostLab"
     },
     {
       "path": "/clusters/floor-prep-estimating/",
-      "type": "cluster"
+      "type": "cluster",
+      "title": "Floor Prep Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/screed-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
+      "path": "/clusters/flooring-estimating/",
+      "type": "cluster",
+      "title": "Flooring Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/screed-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
+      "path": "/clusters/garden-surface-estimating/",
+      "type": "cluster",
+      "title": "Garden Surface Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/self-levelling-compound-calculator-by-area/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
+      "path": "/clusters/gravel-and-aggregate-estimating/",
+      "type": "cluster",
+      "title": "Gravel and Aggregate Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/self-levelling-compound-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/guides/underlay-calculator-by-area/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/guides/underlay-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/guides/dpm-calculator-by-area/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
-    },
-    {
-      "path": "/guides/dpm-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "floor-prep-estimating"
+      "path": "/clusters/",
+      "type": "cluster-index",
+      "title": "Tool Sets | BuildCostLab"
     },
     {
       "path": "/clusters/insulation-estimating/",
-      "type": "cluster"
+      "type": "cluster",
+      "title": "Insulation Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/insulation-board-calculator-by-area/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/landscape-joinery-estimating/",
+      "type": "cluster",
+      "title": "Landscape Joinery Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/insulation-board-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/paint-estimating/",
+      "type": "cluster",
+      "title": "Paint Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/insulation-board-coverage-guide/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/paving-and-patio-estimating/",
+      "type": "cluster",
+      "title": "Paving and Patio Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/insulation-board-waste-and-fit-guide/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/plaster-and-render-estimating/",
+      "type": "cluster",
+      "title": "Plaster and Render Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/loft-insulation-calculator-by-area/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/project-cost-estimating/",
+      "type": "cluster",
+      "title": "Project Cost Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/loft-insulation-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/roofing-estimating/",
+      "type": "cluster",
+      "title": "Roofing Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/loft-insulation-coverage-guide/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/roofline-estimating/",
+      "type": "cluster",
+      "title": "Roofline Estimating | BuildCostLab"
     },
     {
-      "path": "/guides/loft-insulation-waste-and-fit-guide/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "path": "/clusters/soil-and-landscaping-estimating/",
+      "type": "cluster",
+      "title": "Soil and Landscaping Estimating | BuildCostLab"
+    },
+    {
+      "path": "/clusters/tile-estimating/",
+      "type": "cluster",
+      "title": "Tile Estimating | BuildCostLab"
+    },
+    {
+      "path": "/clusters/trim-and-joinery-estimating/",
+      "type": "cluster",
+      "title": "Trim and Joinery Estimating | BuildCostLab"
+    },
+    {
+      "path": "/compare/",
+      "type": "compare-index",
+      "title": "Compare Materials and Costs | BuildCostLab"
+    },
+    {
+      "path": "/contact/",
+      "type": "trust",
+      "title": "Contact BuildCostLab"
+    },
+    {
+      "path": "/editorial-policy/",
+      "type": "trust",
+      "title": "Editorial Policy"
     },
     {
       "path": "/guides/acoustic-insulation-calculator-by-area/",
       "type": "guide",
-      "cluster": "insulation-estimating"
-    },
-    {
-      "path": "/guides/acoustic-insulation-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "insulation-estimating"
+      "title": "Acoustic Insulation Calculator by Area | BuildCostLab"
     },
     {
       "path": "/guides/acoustic-insulation-coverage-guide/",
       "type": "guide",
-      "cluster": "insulation-estimating"
+      "title": "Acoustic Insulation Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/acoustic-insulation-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Acoustic Insulation Buying Guide | BuildCostLab"
     },
     {
       "path": "/guides/acoustic-insulation-waste-and-fit-guide/",
       "type": "guide",
-      "cluster": "insulation-estimating"
-    },
-    {
-      "path": "/clusters/drywall-and-finish-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/plasterboard-calculator-by-area/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/guides/plasterboard-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/guides/plasterboard-calculator-for-ceiling/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/guides/drywall-screws-calculator-by-area/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/guides/drywall-screws-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/guides/joint-compound-calculator-by-area/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/guides/joint-compound-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/clusters/plaster-and-render-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/skim-plaster-calculator-by-area/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/skim-plaster-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/skim-plaster-coverage-guide/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/skim-plaster-substrate-and-waste-guide/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/render-calculator-by-area/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/render-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/render-coverage-guide/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/render-substrate-and-waste-guide/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/plaster-bead-length-calculator/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/guides/plaster-bead-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "plaster-and-render-estimating"
-    },
-    {
-      "path": "/clusters/brick-and-block-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/mortar-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/mortar-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/mortar-yield-guide/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/mortar-waste-guide/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/brick-calculator-by-area/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/brick-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/brick-count-per-area-guide/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/brick-waste-and-openings-guide/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/block-calculator-by-area/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/block-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/block-count-per-area-guide/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/guides/block-waste-and-openings-guide/",
-      "type": "guide",
-      "cluster": "brick-and-block-estimating"
-    },
-    {
-      "path": "/clusters/concrete-reinforcement-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/rebar-length-calculator/",
-      "type": "guide",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/guides/rebar-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/guides/mesh-calculator-by-area/",
-      "type": "guide",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/guides/mesh-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/guides/concrete-fibre-calculator-by-area/",
-      "type": "guide",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/guides/concrete-fibre-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "concrete-reinforcement-estimating"
-    },
-    {
-      "path": "/clusters/roofing-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/roofing-shingle-calculator-by-area/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roofing-shingle-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roofing-shingle-coverage-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roofing-shingle-waste-and-overlap-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-felt-calculator-by-area/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-felt-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-felt-coverage-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-felt-waste-and-overlap-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-batten-length-calculator/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-batten-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-batten-length-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/roof-batten-waste-and-joins-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/clusters/roofline-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/fascia-length-calculator/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/guides/fascia-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/guides/soffit-length-calculator/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/guides/soffit-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/guides/gutter-length-calculator/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/guides/gutter-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/guides/downpipe-length-calculator/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/guides/downpipe-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "roofline-estimating"
-    },
-    {
-      "path": "/clusters/decorating-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/wallpaper-calculator-by-area/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/guides/wallpaper-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/guides/how-many-wallpaper-rolls-do-i-need/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/guides/primer-calculator-by-area/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/guides/primer-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/guides/primer-calculator-for-new-plaster/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/guides/filler-calculator-by-area/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/guides/filler-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "decorating-estimating"
-    },
-    {
-      "path": "/clusters/trim-and-joinery-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/skirting-board-length-calculator/",
-      "type": "guide",
-      "cluster": "trim-and-joinery-estimating"
-    },
-    {
-      "path": "/guides/skirting-board-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "trim-and-joinery-estimating"
-    },
-    {
-      "path": "/guides/architrave-length-calculator/",
-      "type": "guide",
-      "cluster": "trim-and-joinery-estimating"
+      "title": "Acoustic Insulation Waste and Fit Guide | BuildCostLab"
     },
     {
       "path": "/guides/architrave-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "trim-and-joinery-estimating"
+      "title": "Architrave Buying Guide | BuildCostLab"
     },
     {
-      "path": "/guides/coving-length-calculator/",
+      "path": "/guides/architrave-length-calculator/",
       "type": "guide",
-      "cluster": "trim-and-joinery-estimating"
-    },
-    {
-      "path": "/guides/coving-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "trim-and-joinery-estimating"
-    },
-    {
-      "path": "/clusters/exterior-finish-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/cladding-calculator-by-area/",
-      "type": "guide",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/guides/cladding-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/guides/shed-cladding-calculator/",
-      "type": "guide",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/guides/masonry-sealer-calculator-by-area/",
-      "type": "guide",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/guides/masonry-sealer-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/clusters/garden-surface-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/turf-calculator-by-area/",
-      "type": "guide",
-      "cluster": "garden-surface-estimating"
-    },
-    {
-      "path": "/guides/turf-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "garden-surface-estimating"
-    },
-    {
-      "path": "/guides/grass-seed-calculator-by-area/",
-      "type": "guide",
-      "cluster": "garden-surface-estimating"
-    },
-    {
-      "path": "/guides/grass-seed-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "garden-surface-estimating"
+      "title": "Architrave Length Calculator | BuildCostLab"
     },
     {
       "path": "/guides/artificial-grass-calculator-by-area/",
       "type": "guide",
-      "cluster": "garden-surface-estimating"
+      "title": "Artificial Grass Calculator by Area | BuildCostLab"
     },
     {
       "path": "/guides/artificial-grass-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "garden-surface-estimating"
+      "title": "Artificial Grass Buying Guide | BuildCostLab"
     },
     {
-      "path": "/guides/weed-membrane-calculator-by-area/",
+      "path": "/guides/ballast-calculator-by-volume/",
       "type": "guide",
-      "cluster": "garden-surface-estimating"
+      "title": "Ballast Calculator by Volume | BuildCostLab"
     },
     {
-      "path": "/guides/weed-membrane-how-much-do-i-need/",
+      "path": "/guides/ballast-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "garden-surface-estimating"
+      "title": "Ballast Quantity Guide | BuildCostLab"
     },
     {
-      "path": "/guides/weed-membrane-calculator-for-gravel/",
+      "path": "/guides/bark-bags-vs-bulk-guide/",
       "type": "guide",
-      "cluster": "garden-surface-estimating"
+      "title": "Bark Bags vs Bulk Guide | BuildCostLab"
     },
     {
-      "path": "/clusters/landscape-joinery-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/sleepers-length-calculator/",
+      "path": "/guides/bark-calculator-by-volume/",
       "type": "guide",
-      "cluster": "landscape-joinery-estimating"
+      "title": "Bark Calculator by Volume | BuildCostLab"
     },
     {
-      "path": "/guides/sleepers-how-much-do-i-need/",
+      "path": "/guides/bark-depth-guide/",
       "type": "guide",
-      "cluster": "landscape-joinery-estimating"
+      "title": "Bark Depth Guide | BuildCostLab"
     },
     {
-      "path": "/guides/edging-length-calculator/",
+      "path": "/guides/bark-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "landscape-joinery-estimating"
-    },
-    {
-      "path": "/guides/edging-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "landscape-joinery-estimating"
-    },
-    {
-      "path": "/guides/kerb-length-calculator/",
-      "type": "guide",
-      "cluster": "landscape-joinery-estimating"
-    },
-    {
-      "path": "/guides/kerb-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "landscape-joinery-estimating"
-    },
-    {
-      "path": "/clusters/drainage-estimating/",
-      "type": "cluster"
-    },
-    {
-      "path": "/guides/drainage-pipe-length-calculator/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/drainage-pipe-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/ducting-length-calculator/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/ducting-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/geotextile-membrane-calculator-by-area/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/geotextile-membrane-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/french-drain-gravel-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/french-drain-gravel-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/pipe-bedding-calculator-by-volume/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/pipe-bedding-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drainage-estimating"
-    },
-    {
-      "path": "/guides/tile-adhesive-calculator-by-area/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/tile-adhesive-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/bathroom-tile-adhesive-calculator/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/floor-tile-adhesive-calculator/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/tile-grout-calculator-by-area/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/tile-grout-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/bathroom-tile-grout-calculator/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/tile-backer-board-calculator-by-area/",
-      "type": "guide",
-      "cluster": "tile-estimating"
-    },
-    {
-      "path": "/guides/tile-backer-board-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "tile-estimating"
+      "title": "Bark Quantity Guide | BuildCostLab"
     },
     {
       "path": "/guides/bathroom-backer-board-calculator/",
       "type": "guide",
-      "cluster": "tile-estimating"
+      "title": "Bathroom Backer Board Calculator | BuildCostLab"
     },
     {
-      "path": "/guides/tile-backer-board-calculator-for-floor/",
+      "path": "/guides/bathroom-tile-adhesive-calculator/",
       "type": "guide",
-      "cluster": "tile-estimating"
+      "title": "Bathroom Tile Adhesive Calculator | BuildCostLab"
     },
     {
-      "path": "/guides/pea-gravel-calculator-by-volume/",
+      "path": "/guides/bathroom-tile-grout-calculator/",
       "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "title": "Bathroom Tile Grout Calculator | BuildCostLab"
     },
     {
-      "path": "/guides/pea-gravel-how-much-do-i-need/",
+      "path": "/guides/block-calculator-by-area/",
       "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "title": "Block Calculator by Area | BuildCostLab"
     },
     {
-      "path": "/guides/pea-gravel-calculator-for-garden/",
+      "path": "/guides/block-count-per-area-guide/",
       "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "title": "Block Count per Area Guide | BuildCostLab"
     },
     {
-      "path": "/guides/driveway-gravel-calculator-by-volume/",
+      "path": "/guides/block-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "title": "Block Buying Guide | BuildCostLab"
     },
     {
-      "path": "/guides/driveway-gravel-how-much-do-i-need/",
+      "path": "/guides/block-waste-and-openings-guide/",
       "type": "guide",
-      "cluster": "gravel-and-aggregate-estimating"
+      "title": "Block Waste and Openings Guide | BuildCostLab"
     },
     {
-      "path": "/guides/paving-sand-calculator-by-volume/",
+      "path": "/guides/brick-calculator-by-area/",
       "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "title": "Brick Calculator by Area | BuildCostLab"
     },
     {
-      "path": "/guides/paving-sand-how-much-do-i-need/",
+      "path": "/guides/brick-count-per-area-guide/",
       "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "title": "Brick Count per Area Guide | BuildCostLab"
     },
     {
-      "path": "/guides/paving-sand-calculator-for-patio/",
+      "path": "/guides/brick-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "title": "Brick Buying Guide | BuildCostLab"
     },
     {
-      "path": "/guides/paving-jointing-compound-calculator-by-area/",
+      "path": "/guides/brick-waste-and-openings-guide/",
       "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "title": "Brick Waste and Openings Guide | BuildCostLab"
     },
     {
-      "path": "/guides/paving-jointing-compound-how-much-do-i-need/",
+      "path": "/guides/bulk-bag-gravel-calculator/",
       "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "title": "Bulk Bag Gravel Calculator | BuildCostLab"
     },
     {
-      "path": "/guides/patio-jointing-compound-calculator/",
+      "path": "/guides/ceiling-paint-calculator-by-area/",
       "type": "guide",
-      "cluster": "paving-and-patio-estimating"
+      "title": "Ceiling Paint Calculator by Area | BuildCostLab"
     },
     {
-      "path": "/guides/deck-screws-calculator-by-area/",
+      "path": "/guides/ceiling-paint-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "decking-estimating"
+      "title": "Ceiling Paint Buying Guide | BuildCostLab"
     },
     {
-      "path": "/guides/deck-screws-how-much-do-i-need/",
+      "path": "/guides/cladding-calculator-by-area/",
       "type": "guide",
-      "cluster": "decking-estimating"
+      "title": "Cladding Calculator by Area | BuildCostLab"
     },
     {
-      "path": "/guides/deck-joist-length-calculator/",
+      "path": "/guides/cladding-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "decking-estimating"
+      "title": "Cladding Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/compost-bags-vs-bulk-guide/",
+      "type": "guide",
+      "title": "Compost Bags vs Bulk Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/compost-calculator-by-volume/",
+      "type": "guide",
+      "title": "Compost Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/compost-depth-guide/",
+      "type": "guide",
+      "title": "Compost Depth Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/compost-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Compost Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/concrete-fibre-calculator-by-area/",
+      "type": "guide",
+      "title": "Concrete Fibre Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/concrete-fibre-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Concrete Fibre Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/concrete-for-fence-posts-guide/",
+      "type": "guide",
+      "title": "Concrete for Fence Posts Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/concrete-for-post-holes-calculator/",
+      "type": "guide",
+      "title": "Concrete for Post Holes Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/concrete-for-slab-calculator/",
+      "type": "guide",
+      "title": "Concrete for Slab Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/concrete-volume-guide/",
+      "type": "guide",
+      "title": "Concrete Volume Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/coving-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Coving Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/coving-length-calculator/",
+      "type": "guide",
+      "title": "Coving Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/deck-board-calculator/",
+      "type": "guide",
+      "title": "Deck Board Calculator | BuildCostLab"
     },
     {
       "path": "/guides/deck-joist-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "decking-estimating"
+      "title": "Deck Joist Buying Guide | BuildCostLab"
     },
     {
-      "path": "/guides/fence-post-length-calculator/",
+      "path": "/guides/deck-joist-length-calculator/",
       "type": "guide",
-      "cluster": "fence-estimating"
+      "title": "Deck Joist Length Calculator | BuildCostLab"
     },
     {
-      "path": "/guides/fence-post-how-much-do-i-need/",
+      "path": "/guides/deck-joist-spacing-guide/",
       "type": "guide",
-      "cluster": "fence-estimating"
+      "title": "Deck Joist Spacing Guide | BuildCostLab"
     },
     {
-      "path": "/guides/gravel-board-length-calculator/",
+      "path": "/guides/deck-screws-calculator-by-area/",
       "type": "guide",
-      "cluster": "fence-estimating"
+      "title": "Deck Screws Calculator by Area | BuildCostLab"
     },
     {
-      "path": "/guides/gravel-board-how-much-do-i-need/",
+      "path": "/guides/deck-screws-how-much-do-i-need/",
       "type": "guide",
-      "cluster": "fence-estimating"
+      "title": "Deck Screws Buying Guide | BuildCostLab"
     },
     {
-      "path": "/guides/gutter-guard-length-calculator/",
+      "path": "/guides/decking-cost-budget-planning-guide/",
       "type": "guide",
-      "cluster": "roofline-estimating"
+      "title": "Decking Cost Budget Planning Guide | BuildCostLab"
     },
     {
-      "path": "/guides/gutter-guard-how-much-do-i-need/",
+      "path": "/guides/decking-cost-cost-drivers-guide/",
       "type": "guide",
-      "cluster": "roofline-estimating"
+      "title": "Decking Cost Cost Drivers Guide | BuildCostLab"
     },
     {
-      "path": "/guides/shed-felt-calculator-by-area/",
+      "path": "/guides/decking-cost-labour-vs-materials-guide/",
       "type": "guide",
-      "cluster": "roofing-estimating"
+      "title": "Decking Cost Labour vs Materials Guide | BuildCostLab"
     },
     {
-      "path": "/guides/shed-felt-how-much-do-i-need/",
+      "path": "/guides/decking-cost-per-m2-guide/",
       "type": "guide",
-      "cluster": "roofing-estimating"
+      "title": "Decking Cost per m\u00b2 Guide | BuildCostLab"
     },
     {
-      "path": "/guides/shed-roof-felt-calculator/",
+      "path": "/guides/decking-cost-quote-brief-guide/",
       "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/shed-felt-coverage-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/shed-felt-waste-and-overlap-guide/",
-      "type": "guide",
-      "cluster": "roofing-estimating"
-    },
-    {
-      "path": "/guides/wood-stain-calculator-by-area/",
-      "type": "guide",
-      "cluster": "exterior-finish-estimating"
-    },
-    {
-      "path": "/guides/wood-stain-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "exterior-finish-estimating"
+      "title": "Decking Cost Quote Brief Guide | BuildCostLab"
     },
     {
       "path": "/guides/decking-stain-calculator/",
       "type": "guide",
-      "cluster": "exterior-finish-estimating"
+      "title": "Decking Stain Calculator | BuildCostLab"
     },
     {
-      "path": "/guides/plasterboard-adhesive-calculator-by-area/",
+      "path": "/guides/decking-waste-guide/",
       "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
-    },
-    {
-      "path": "/guides/plasterboard-adhesive-how-much-do-i-need/",
-      "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
+      "title": "Decking Waste Guide | BuildCostLab"
     },
     {
       "path": "/guides/dot-and-dab-adhesive-calculator/",
       "type": "guide",
-      "cluster": "drywall-and-finish-estimating"
+      "title": "Dot and Dab Adhesive Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/downpipe-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Downpipe Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/downpipe-length-calculator/",
+      "type": "guide",
+      "title": "Downpipe Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/dpm-calculator-by-area/",
+      "type": "guide",
+      "title": "DPM Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/dpm-how-much-do-i-need/",
+      "type": "guide",
+      "title": "DPM Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/drainage-pipe-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Drainage Pipe Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/drainage-pipe-length-calculator/",
+      "type": "guide",
+      "title": "Drainage Pipe Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/driveway-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Driveway Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/driveway-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Driveway Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/driveway-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Driveway Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/driveway-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Driveway Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/driveway-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Driveway Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/driveway-gravel-calculator-by-volume/",
+      "type": "guide",
+      "title": "Driveway Gravel Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/driveway-gravel-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Driveway Gravel Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/drywall-screws-calculator-by-area/",
+      "type": "guide",
+      "title": "Drywall Screws Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/drywall-screws-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Drywall Screws Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/ducting-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Ducting Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/ducting-length-calculator/",
+      "type": "guide",
+      "title": "Ducting Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/edging-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Edging Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/edging-length-calculator/",
+      "type": "guide",
+      "title": "Edging Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/exterior-paint-calculator-by-area/",
+      "type": "guide",
+      "title": "Exterior Paint Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/exterior-paint-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Exterior Paint Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fascia-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Fascia Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fascia-length-calculator/",
+      "type": "guide",
+      "title": "Fascia Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Fence Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Fence Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Fence Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Fence Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-cost-per-metre-guide/",
+      "type": "guide",
+      "title": "Fence Cost per Metre Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Fence Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-panels-calculator/",
+      "type": "guide",
+      "title": "Fence Panels Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-post-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Fence Post Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/fence-post-length-calculator/",
+      "type": "guide",
+      "title": "Fence Post Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/filler-calculator-by-area/",
+      "type": "guide",
+      "title": "Filler Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/filler-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Filler Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/floor-tile-adhesive-calculator/",
+      "type": "guide",
+      "title": "Floor Tile Adhesive Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/flooring-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Flooring Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/flooring-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Flooring Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/flooring-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Flooring Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/flooring-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Flooring Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/flooring-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Flooring Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/flooring-packs-calculator/",
+      "type": "guide",
+      "title": "Flooring Packs Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/footing-concrete-calculator-by-volume/",
+      "type": "guide",
+      "title": "Footing Concrete Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/footing-concrete-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Footing Concrete Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/french-drain-gravel-calculator-by-volume/",
+      "type": "guide",
+      "title": "French Drain Gravel Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/french-drain-gravel-how-much-do-i-need/",
+      "type": "guide",
+      "title": "French Drain Gravel Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/garden-wall-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Garden Wall Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/garden-wall-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Garden Wall Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/garden-wall-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Garden Wall Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/garden-wall-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Garden Wall Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/garden-wall-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Garden Wall Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/geotextile-membrane-calculator-by-area/",
+      "type": "guide",
+      "title": "Geotextile Membrane Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/geotextile-membrane-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Geotextile Membrane Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/grass-seed-calculator-by-area/",
+      "type": "guide",
+      "title": "Grass Seed Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/grass-seed-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Grass Seed Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/gravel-board-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Gravel Board Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/gravel-board-length-calculator/",
+      "type": "guide",
+      "title": "Gravel Board Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/gravel-calculator-for-driveway/",
+      "type": "guide",
+      "title": "Gravel Calculator for Driveway | BuildCostLab"
+    },
+    {
+      "path": "/guides/gravel-density-guide/",
+      "type": "guide",
+      "title": "Gravel Density Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/gravel-vs-sub-base-guide/",
+      "type": "guide",
+      "title": "Gravel vs Sub-Base Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/gutter-guard-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Gutter Guard Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/gutter-guard-length-calculator/",
+      "type": "guide",
+      "title": "Gutter Guard Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/gutter-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Gutter Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/gutter-length-calculator/",
+      "type": "guide",
+      "title": "Gutter Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/hardcore-calculator-by-volume/",
+      "type": "guide",
+      "title": "Hardcore Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/hardcore-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Hardcore Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/how-many-wallpaper-rolls-do-i-need/",
+      "type": "guide",
+      "title": "How Many Wallpaper Rolls Do I Need? | BuildCostLab"
+    },
+    {
+      "path": "/guides/how-much-paint-do-i-need-for-a-room/",
+      "type": "guide",
+      "title": "How Much Paint Do I Need for a Room? | BuildCostLab"
+    },
+    {
+      "path": "/guides/",
+      "type": "guide-index",
+      "title": "Guides | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-board-calculator-by-area/",
+      "type": "guide",
+      "title": "Insulation Board Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-board-coverage-guide/",
+      "type": "guide",
+      "title": "Insulation Board Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-board-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Insulation Board Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-board-waste-and-fit-guide/",
+      "type": "guide",
+      "title": "Insulation Board Waste and Fit Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Insulation Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Insulation Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Insulation Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Insulation Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/insulation-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Insulation Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/joint-compound-calculator-by-area/",
+      "type": "guide",
+      "title": "Joint Compound Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/joint-compound-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Joint Compound Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/kerb-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Kerb Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/kerb-length-calculator/",
+      "type": "guide",
+      "title": "Kerb Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/laminate-flooring-calculator-by-area/",
+      "type": "guide",
+      "title": "Laminate Flooring Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/laminate-flooring-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Laminate Flooring Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/laminate-flooring-waste-guide/",
+      "type": "guide",
+      "title": "Laminate Flooring Waste Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/laminate-vs-vinyl-plank-costs/",
+      "type": "guide",
+      "title": "Laminate vs Vinyl Plank Costs | BuildCostLab"
+    },
+    {
+      "path": "/guides/loft-insulation-calculator-by-area/",
+      "type": "guide",
+      "title": "Loft Insulation Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/loft-insulation-coverage-guide/",
+      "type": "guide",
+      "title": "Loft Insulation Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/loft-insulation-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Loft Insulation Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/loft-insulation-waste-and-fit-guide/",
+      "type": "guide",
+      "title": "Loft Insulation Waste and Fit Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/masonry-sealer-calculator-by-area/",
+      "type": "guide",
+      "title": "Masonry Sealer Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/masonry-sealer-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Masonry Sealer Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mesh-calculator-by-area/",
+      "type": "guide",
+      "title": "Mesh Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/mesh-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Mesh Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mortar-calculator-by-volume/",
+      "type": "guide",
+      "title": "Mortar Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/mortar-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Mortar Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mortar-waste-guide/",
+      "type": "guide",
+      "title": "Mortar Waste Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mortar-yield-guide/",
+      "type": "guide",
+      "title": "Mortar Yield Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mot-type-1-calculator-by-volume/",
+      "type": "guide",
+      "title": "MOT Type 1 Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/mot-type-1-calculator-for-driveway/",
+      "type": "guide",
+      "title": "MOT Type 1 Calculator for Driveway | BuildCostLab"
+    },
+    {
+      "path": "/guides/mot-type-1-how-much-do-i-need/",
+      "type": "guide",
+      "title": "MOT Type 1 Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mulch-bags-vs-bulk-guide/",
+      "type": "guide",
+      "title": "Mulch Bags vs Bulk Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mulch-calculator-by-volume/",
+      "type": "guide",
+      "title": "Mulch Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/mulch-depth-guide/",
+      "type": "guide",
+      "title": "Mulch Depth Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/mulch-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Mulch Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/paint-calculator-by-wall-dimensions/",
+      "type": "guide",
+      "title": "Paint Calculator by Wall Dimensions | BuildCostLab"
+    },
+    {
+      "path": "/guides/paint-coverage-explained/",
+      "type": "guide",
+      "title": "Paint Coverage Explained | BuildCostLab"
+    },
+    {
+      "path": "/guides/paint-waste-allowance-guide/",
+      "type": "guide",
+      "title": "Paint Waste Allowance Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/panel-fence-vs-closeboard-guide/",
+      "type": "guide",
+      "title": "Panel Fence vs Closeboard Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Patio Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Patio Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Patio Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Patio Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Patio Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-jointing-compound-calculator/",
+      "type": "guide",
+      "title": "Patio Jointing Compound Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-slabs-calculator/",
+      "type": "guide",
+      "title": "Patio Slabs Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-waste-allowance-guide/",
+      "type": "guide",
+      "title": "Patio Waste Allowance Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/paver-calculator-by-area/",
+      "type": "guide",
+      "title": "Paver Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/pavers-vs-slabs-guide/",
+      "type": "guide",
+      "title": "Pavers vs Slabs Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/paving-jointing-compound-calculator-by-area/",
+      "type": "guide",
+      "title": "Paving Jointing Compound Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/paving-jointing-compound-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Paving Jointing Compound Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/paving-sand-calculator-by-volume/",
+      "type": "guide",
+      "title": "Paving Sand Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/paving-sand-calculator-for-patio/",
+      "type": "guide",
+      "title": "Paving Sand Calculator for Patio | BuildCostLab"
+    },
+    {
+      "path": "/guides/paving-sand-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Paving Sand Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/pea-gravel-calculator-by-volume/",
+      "type": "guide",
+      "title": "Pea Gravel Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/pea-gravel-calculator-for-garden/",
+      "type": "guide",
+      "title": "Pea Gravel Calculator for Garden | BuildCostLab"
+    },
+    {
+      "path": "/guides/pea-gravel-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Pea Gravel Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/pipe-bedding-calculator-by-volume/",
+      "type": "guide",
+      "title": "Pipe Bedding Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/pipe-bedding-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Pipe Bedding Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plaster-bead-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Plaster Bead Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plaster-bead-length-calculator/",
+      "type": "guide",
+      "title": "Plaster Bead Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/plasterboard-adhesive-calculator-by-area/",
+      "type": "guide",
+      "title": "Plasterboard Adhesive Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/plasterboard-adhesive-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Plasterboard Adhesive Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plasterboard-calculator-by-area/",
+      "type": "guide",
+      "title": "Plasterboard Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/plasterboard-calculator-for-ceiling/",
+      "type": "guide",
+      "title": "Plasterboard Calculator for Ceiling | BuildCostLab"
+    },
+    {
+      "path": "/guides/plasterboard-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Plasterboard Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plastering-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Plastering Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plastering-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Plastering Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plastering-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Plastering Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plastering-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Plastering Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/plastering-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Plastering Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/primer-calculator-by-area/",
+      "type": "guide",
+      "title": "Primer Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/primer-calculator-for-new-plaster/",
+      "type": "guide",
+      "title": "Primer Calculator for New Plaster | BuildCostLab"
+    },
+    {
+      "path": "/guides/primer-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Primer Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/ready-mix-vs-bagged-concrete/",
+      "type": "guide",
+      "title": "Ready-Mix vs Bagged Concrete | BuildCostLab"
+    },
+    {
+      "path": "/guides/rebar-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Rebar Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/rebar-length-calculator/",
+      "type": "guide",
+      "title": "Rebar Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-calculator-by-area/",
+      "type": "guide",
+      "title": "Render Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Render Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Render Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Render Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Render Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Render Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-coverage-guide/",
+      "type": "guide",
+      "title": "Render Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Render Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/render-substrate-and-waste-guide/",
+      "type": "guide",
+      "title": "Render Substrate and Waste Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-batten-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Roof Batten Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-batten-length-calculator/",
+      "type": "guide",
+      "title": "Roof Batten Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-batten-length-guide/",
+      "type": "guide",
+      "title": "Roof Batten Length Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-batten-waste-and-joins-guide/",
+      "type": "guide",
+      "title": "Roof Batten Waste and Joins Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-felt-calculator-by-area/",
+      "type": "guide",
+      "title": "Roof Felt Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-felt-coverage-guide/",
+      "type": "guide",
+      "title": "Roof Felt Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-felt-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Roof Felt Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roof-felt-waste-and-overlap-guide/",
+      "type": "guide",
+      "title": "Roof Felt Waste and Overlap Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Roofing Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Roofing Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Roofing Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Roofing Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Roofing Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-shingle-calculator-by-area/",
+      "type": "guide",
+      "title": "Roofing Shingle Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-shingle-coverage-guide/",
+      "type": "guide",
+      "title": "Roofing Shingle Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-shingle-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Roofing Shingle Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/roofing-shingle-waste-and-overlap-guide/",
+      "type": "guide",
+      "title": "Roofing Shingle Waste and Overlap Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/room-painting-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Room Painting Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/room-painting-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Room Painting Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/room-painting-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Room Painting Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/room-painting-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Room Painting Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/room-painting-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Room Painting Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/sand-calculator-by-volume/",
+      "type": "guide",
+      "title": "Sand Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/sand-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Sand Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/screed-calculator-by-volume/",
+      "type": "guide",
+      "title": "Screed Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/screed-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Screed Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/self-levelling-compound-calculator-by-area/",
+      "type": "guide",
+      "title": "Self-Levelling Compound Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/self-levelling-compound-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Self-Levelling Compound Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/sharp-sand-calculator-by-volume/",
+      "type": "guide",
+      "title": "Sharp Sand Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/sharp-sand-calculator-for-patio/",
+      "type": "guide",
+      "title": "Sharp Sand Calculator for Patio | BuildCostLab"
+    },
+    {
+      "path": "/guides/sharp-sand-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Sharp Sand Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/shed-cladding-calculator/",
+      "type": "guide",
+      "title": "Shed Cladding Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/shed-felt-calculator-by-area/",
+      "type": "guide",
+      "title": "Shed Felt Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/shed-felt-coverage-guide/",
+      "type": "guide",
+      "title": "Shed Felt Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/shed-felt-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Shed Felt Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/shed-felt-waste-and-overlap-guide/",
+      "type": "guide",
+      "title": "Shed Felt Waste and Overlap Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/shed-roof-felt-calculator/",
+      "type": "guide",
+      "title": "Shed Roof Felt Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/skim-plaster-calculator-by-area/",
+      "type": "guide",
+      "title": "Skim Plaster Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/skim-plaster-coverage-guide/",
+      "type": "guide",
+      "title": "Skim Plaster Coverage Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/skim-plaster-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Skim Plaster Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/skim-plaster-substrate-and-waste-guide/",
+      "type": "guide",
+      "title": "Skim Plaster Substrate and Waste Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/skirting-board-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Skirting Board Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/skirting-board-length-calculator/",
+      "type": "guide",
+      "title": "Skirting Board Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/slab-concrete-calculator-by-volume/",
+      "type": "guide",
+      "title": "Slab Concrete Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/slab-concrete-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Slab Concrete Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/sleepers-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Sleepers Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/sleepers-length-calculator/",
+      "type": "guide",
+      "title": "Sleepers Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/soffit-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Soffit Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/soffit-length-calculator/",
+      "type": "guide",
+      "title": "Soffit Length Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/sub-base-calculator-by-volume/",
+      "type": "guide",
+      "title": "Sub-Base Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/sub-base-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Sub-Base Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-adhesive-calculator-by-area/",
+      "type": "guide",
+      "title": "Tile Adhesive Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-adhesive-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Tile Adhesive Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-backer-board-calculator-by-area/",
+      "type": "guide",
+      "title": "Tile Backer Board Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-backer-board-calculator-for-floor/",
+      "type": "guide",
+      "title": "Tile Backer Board Calculator for Floor | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-backer-board-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Tile Backer Board Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-boxes-calculator/",
+      "type": "guide",
+      "title": "Tile Boxes Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Tile Cost per m2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-grout-calculator-by-area/",
+      "type": "guide",
+      "title": "Tile Grout Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-grout-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Tile Grout Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tile-waste-allowance-guide/",
+      "type": "guide",
+      "title": "Tile Waste Allowance Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tiling-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Tiling Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tiling-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Tiling Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tiling-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Tiling Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tiling-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Tiling Cost per m\u00b2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/tiling-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Tiling Cost Quote Brief Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/timber-vs-composite-decking-costs/",
+      "type": "guide",
+      "title": "Timber vs Composite Decking Costs | BuildCostLab"
+    },
+    {
+      "path": "/guides/topsoil-bags-vs-bulk-guide/",
+      "type": "guide",
+      "title": "Topsoil Bags vs Bulk Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/topsoil-calculator-by-volume/",
+      "type": "guide",
+      "title": "Topsoil Calculator by Volume | BuildCostLab"
+    },
+    {
+      "path": "/guides/topsoil-depth-guide/",
+      "type": "guide",
+      "title": "Topsoil Depth Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/topsoil-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Topsoil Quantity Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/turf-calculator-by-area/",
+      "type": "guide",
+      "title": "Turf Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/turf-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Turf Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/underlay-calculator-by-area/",
+      "type": "guide",
+      "title": "Underlay Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/underlay-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Underlay Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/vinyl-plank-flooring-calculator-by-area/",
+      "type": "guide",
+      "title": "Vinyl Plank Flooring Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/vinyl-plank-flooring-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Vinyl Plank Flooring Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/wall-tiles-vs-floor-tiles-guide/",
+      "type": "guide",
+      "title": "Wall Tiles vs Floor Tiles Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/wallpaper-calculator-by-area/",
+      "type": "guide",
+      "title": "Wallpaper Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/wallpaper-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Wallpaper Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/weed-membrane-calculator-by-area/",
+      "type": "guide",
+      "title": "Weed Membrane Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/weed-membrane-calculator-for-gravel/",
+      "type": "guide",
+      "title": "Weed Membrane Calculator for Gravel | BuildCostLab"
+    },
+    {
+      "path": "/guides/weed-membrane-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Weed Membrane Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/wood-stain-calculator-by-area/",
+      "type": "guide",
+      "title": "Wood Stain Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/wood-stain-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Wood Stain Buying Guide | BuildCostLab"
+    },
+    {
+      "path": "/",
+      "type": "homepage",
+      "title": "BuildCostLab | Building Material and Cost Calculators"
+    },
+    {
+      "path": "/locations/birmingham/",
+      "type": "location",
+      "title": "Birmingham Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/bristol/",
+      "type": "location",
+      "title": "Bristol Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/cardiff/",
+      "type": "location",
+      "title": "Cardiff Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/edinburgh/",
+      "type": "location",
+      "title": "Edinburgh Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/glasgow/",
+      "type": "location",
+      "title": "Glasgow Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/",
+      "type": "location-index",
+      "title": "Locations | BuildCostLab"
+    },
+    {
+      "path": "/locations/leeds/",
+      "type": "location",
+      "title": "Leeds Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/london/",
+      "type": "location",
+      "title": "London Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/manchester/",
+      "type": "location",
+      "title": "Manchester Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/midlands/",
+      "type": "location",
+      "title": "The Midlands Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/north-of-england/",
+      "type": "location",
+      "title": "North of England Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/scotland/",
+      "type": "location",
+      "title": "Scotland Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/south-east-england/",
+      "type": "location",
+      "title": "South East England Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/south-west-england/",
+      "type": "location",
+      "title": "South West England Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/locations/wales/",
+      "type": "location",
+      "title": "Wales Building Cost and Material Calculators | BuildCostLab",
+      "kind": "city-or-region"
+    },
+    {
+      "path": "/privacy-policy/",
+      "type": "trust",
+      "title": "Privacy Policy"
+    },
+    {
+      "path": "/quote-checklist/",
+      "type": "trust",
+      "title": "Builder Quote Checklist"
+    },
+    {
+      "path": "/terms/",
+      "type": "trust",
+      "title": "Terms of Use"
     }
   ]
 }
