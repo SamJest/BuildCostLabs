@@ -13,7 +13,7 @@
     "Built for global English traffic with practical project-led keywords",
     "Designed for ads first, with affiliate and lead paths later"
   ],
-  "hero_panel_title": "Start with the strongest tool set",
+  "hero_panel_title": "Start with the strongest project hub",
   "hero_panel_text": "The first build should focus on material calculators with obvious demand, strong utility and evergreen formulas.",
   "hero_panel_list": [
     "Paint calculators",
@@ -40,11 +40,11 @@
       "text": "The template is designed so ad placements can be added later without harming usability, and the same pages can support affiliate or lead CTAs."
     }
   ],
-  "categories_heading": "Start with the strongest tool sets, then expand outward.",
+  "categories_heading": "Start with the strongest project hubs, then expand outward.",
   "categories_text": "Initial categories are ordered around likely traffic potential and usefulness for project-based searches.",
   "category_cards": [
     {
-      "kicker": "Tool Set 1",
+      "kicker": "Project Hub 1",
       "title": "Paint, tiles and flooring",
       "text": "High search demand, broad use cases and simple practical inputs make this the strongest first wave.",
       "examples": [
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "kicker": "Tool Set 2",
+      "kicker": "Project Hub 2",
       "title": "Concrete, gravel and aggregates",
       "text": "Strong problem-solving intent and good monetisation potential through materials and project products later.",
       "examples": [
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "kicker": "Tool Set 3",
+      "kicker": "Project Hub 3",
       "title": "Decking, paving and fencing",
       "text": "Good intent, strong adjacency to outdoor project searches and easy future expansion into cost estimates.",
       "examples": [

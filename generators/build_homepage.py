@@ -54,7 +54,7 @@ def build_calculator_cards(calculators: list[dict]) -> str:
               </div>
               <h3>{escape(calculator['name'])}</h3>
               <p>{escape(calculator['summary'])}</p>
-              <a class="text-link" href="/calculators/{escape(calculator['slug'])}/">View planned URL</a>
+              <a class="text-link" href="/calculators/{escape(calculator['slug'])}/">Open calculator</a>
             </article>'''
         )
     return '<div class="calculator-grid">' + ''.join(items) + '</div>'
@@ -104,7 +104,7 @@ def build_homepage() -> None:
           </ul>
         </div>
         <aside class="hero-panel">
-          <p class="hero-panel-label">Best first tool set</p>
+          <p class="hero-panel-label">Best first project hub</p>
           <h2>{escape(homepage_data['hero_panel_title'])}</h2>
           <p>{escape(homepage_data['hero_panel_text'])}</p>
           <ul>
@@ -117,7 +117,7 @@ def build_homepage() -> None:
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Fastest path to traffic</p>
+          <p class="eyebrow">Start here</p>
           <h2>{escape(homepage_data['features_heading'])}</h2>
           <p>{escape(homepage_data['features_text'])}</p>
         </div>
@@ -128,7 +128,7 @@ def build_homepage() -> None:
     <section class="section section-alt">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Search-led structure</p>
+          <p class="eyebrow">Browse by project type</p>
           <h2>{escape(homepage_data['categories_heading'])}</h2>
           <p>{escape(homepage_data['categories_text'])}</p>
         </div>
@@ -139,7 +139,7 @@ def build_homepage() -> None:
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Planned calculators</p>
+          <p class="eyebrow">Popular calculators</p>
           <h2>{escape(homepage_data['calculators_heading'])}</h2>
           <p>{escape(homepage_data['calculators_text'])}</p>
         </div>

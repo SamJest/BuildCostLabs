@@ -3,7 +3,7 @@ from html import escape
 
 from components.publishing import get_all_calculator_entries, render_ad_slot, render_breadcrumb_schema, render_breadcrumbs, render_layout
 from data.catalog import get_all_calculators
-from data.publisher import SITE
+from data.publisher import PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE
 
 
 DEFAULT_FEATURED_SLUGS = {
@@ -91,7 +91,7 @@ def build_calculator_cards(featured_slugs: set[str] | None = None) -> str:
           </div>
           <div class="tool-card-actions">
             <a class="text-link" href="/calculators/{escape(item["slug"])}/">Open calculator</a>
-            <a class="text-link text-link-secondary" href="/clusters/{escape(item["cluster_slug"])}/">Open tool set</a>
+            <a class="text-link text-link-secondary" href="/clusters/{escape(item["cluster_slug"])}/">Open {escape(PROJECT_HUB_LABEL.lower())}</a>
           </div>
         </article>
         '''
@@ -145,16 +145,21 @@ def build_calculators_index(cards_html: str) -> str:
     <section class="hero hero-compact">
       {render_breadcrumbs(crumbs)}
       <div class="eyebrow">Calculator directory</div>
-      <h1>Choose the tool you need faster</h1>
-      <p class="hero-copy">Search the library by job, material, or buying task, then open the matching calculator and its linked tool set for the next step.</p>
+      <h1>Choose the right calculator faster</h1>
+      <p class="hero-copy">Search the library by job, material, or buying task, then open the matching calculator and its linked {escape(PROJECT_HUB_LABEL.lower())} for the next step.</p>
       <div class="hero-badges">
         <span class="hero-badge">{stats["calculator_count"]} calculators</span>
-        <span class="hero-badge">{stats["cluster_count"]} tool sets</span>
+        <span class="hero-badge">{stats["cluster_count"]} {escape(PROJECT_HUBS_LABEL.lower())}</span>
         <span class="hero-badge">{stats["guide_count"]} support guides</span>
       </div>
     </section>
     {render_ad_slot("calculators-index-top")}
-    {render_directory_section(title="Search the calculator library", intro="The strongest competitors make discovery easy. This directory now lets visitors filter by major job type and search the exact task they are trying to price or buy for.", cards_html=cards_html, categories=categories, count_text=f'Showing all {stats["calculator_count"]} calculators.')}
+    {render_directory_section(title="Search the calculator library", intro="Use the filters to find the right estimate quickly, then jump into the supporting guide and quote-prep path when you need more than a raw number.", cards_html=cards_html, categories=categories, count_text=f'Showing all {stats["calculator_count"]} calculators.')}
+    <section class="quality-strip" aria-label="Trust and workflow guidance">
+      <article class="content-card quality-card"><div class="quality-kicker">Planning workflow</div><h2>Start with the right estimate</h2><p>Choose the calculator that matches the actual material or project decision first. That keeps later checks clearer.</p></article>
+      <article class="content-card quality-card"><div class="quality-kicker">Sense-check</div><h2>Use guides and assumptions</h2><p>Most pages link into worked examples, buying checks, and practical notes so you can test the result before buying.</p></article>
+      <article class="content-card quality-card"><div class="quality-kicker">Quote prep</div><h2>Turn numbers into a cleaner brief</h2><p>Use the quote checklist and calculator export tools to send suppliers or installers the same scope and exclusions.</p></article>
+    </section>
   </div>'''
     return render_layout(
         title=f'Calculators | {SITE["name"]}',

@@ -38,7 +38,7 @@ REGION_PAGES = [
         "name": "South West England",
         "kind": "region",
         "headline": "South West England calculators for renovation, garden, and outdoor project planning",
-        "description": "Estimate materials and common job quantities for South West England using calculators, guides, and grouped tool sets.",
+        "description": "Estimate materials and common job quantities for South West England using calculators, guides, and grouped project hubs.",
         "intro": "South West projects often mix straightforward domestic jobs with longer delivery routes, weather exposure, and outdoor work where waste and timing matter. Start with the quantity estimate, then sense-check the buying format and practical conditions around the site.",
         "featured_calculators": ["paint-calculator", "paving-calculator", "decking-calculator", "gravel-calculator", "fence-calculator", "roofing-shingle-calculator"],
         "featured_clusters": ["paving-and-patio-estimating", "decking-estimating", "gravel-and-aggregate-estimating", "roofing-estimating"],

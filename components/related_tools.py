@@ -27,7 +27,7 @@ def build_related_tools(current_slug: str = "", limit: int = 6) -> str:
         )[:limit]
     cards = []
     for item in candidates:
-        label = "Same tool set" if current and item["cluster_slug"] == current["cluster_slug"] else item["category"]
+        label = "Same project hub" if current and item["cluster_slug"] == current["cluster_slug"] else item["category"]
         cards.append(
             '<a class="mini-tool-card mini-tool-card-rich" href="/calculators/{slug}/">'
             '<span class="mini-tool-label">{label}</span>'

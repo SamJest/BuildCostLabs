@@ -3,7 +3,22 @@ from html import escape
 
 from data.calculator_scale import ADDITIONAL_CALCULATORS
 from data.catalog import get_all_calculators
-from data.publisher import NAV_LINKS, SITE
+from data.publisher import NAV_LINKS, PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE
+
+
+def _infer_formula(item: dict) -> str | None:
+    slug = item.get("slug", "")
+    if item.get("formula"):
+        return item["formula"]
+    if any(token in slug for token in ("cost", "budget", "price")):
+        return "project_cost"
+    if any(token in slug for token in ("concrete", "gravel", "aggregate", "sub-base", "subbase", "soil", "topsoil", "mulch", "compost", "sand", "cement", "mortar")):
+        return "volume"
+    if any(token in slug for token in ("fence", "skirting", "trim", "bead", "batten", "pipe", "gutter", "fascia", "soffit", "slat")):
+        return "linear"
+    if any(token in slug for token in ("paint", "tile", "floor", "deck", "decking", "paving", "patio", "brick", "block", "slab", "carpet", "laminate", "vinyl", "wallpaper")):
+        return "coverage"
+    return None
 
 
 def _default_support(item: dict) -> dict:
@@ -42,11 +57,23 @@ def _default_faqs(item: dict) -> list[dict]:
 
 
 def get_all_calculator_entries() -> list[dict]:
-    items = list(get_all_calculators())
+    items = []
+    for item in get_all_calculators():
+        formula = _infer_formula(item)
+        merged = dict(item)
+        merged["formula"] = formula
+        merged["support"] = {**_default_support({**item, "formula": formula}), **item.get("support", {})}
+        merged["faqs"] = item.get("faqs") or _default_faqs({**item, "formula": formula})
+        merged.setdefault("intent_pages", [])
+        merged.setdefault("guide_pages", [])
+        merged.setdefault("meta_description", item.get("intro", item.get("name", "")))
+        merged.setdefault("hero_eyebrow", "Calculator")
+        items.append(merged)
     existing_slugs = {item["slug"] for item in items}
     for item in ADDITIONAL_CALCULATORS:
         if item["slug"] in existing_slugs:
             continue
+        formula = _infer_formula(item)
         synthetic = {
             "key": item["slug"].removesuffix("-calculator").replace("-", "_"),
             "slug": item["slug"],
@@ -57,11 +84,11 @@ def get_all_calculator_entries() -> list[dict]:
             "intro": item["intro"],
             "meta_description": item.get("meta_description", item["intro"]),
             "hero_eyebrow": item.get("hero_eyebrow", "Calculator"),
-            "support": _default_support(item),
-            "faqs": _default_faqs(item),
+            "support": _default_support({**item, "formula": formula}),
+            "faqs": _default_faqs({**item, "formula": formula}),
             "intent_pages": [],
             "guide_pages": [],
-            "formula": item.get("formula"),
+            "formula": formula,
         }
         items.append(synthetic)
     return items
@@ -80,14 +107,17 @@ def render_nav() -> str:
         f'<a href="{escape(item["href"])}">{escape(item["label"])}</a>' for item in NAV_LINKS
     )
     cta = '<a class="header-cta" href="/quote-checklist/">Quote prep</a>'
-    return f'<header class="site-header"><div class="site-shell header-shell"><a class="brand" href="/" aria-label="{escape(SITE["name"])} home"><img src="/assets/logo.svg" alt="{escape(SITE["name"])}"></a><nav class="site-nav">{links}{cta}</nav></div></header>'
+    return f'<header class="site-header"><div class="site-shell header-shell"><a class="brand" href="/" aria-label="{escape(SITE["name"])} home"><img src="/assets/logo.svg" alt="{escape(SITE["name"])}"></a><nav class="site-nav" aria-label="Primary navigation">{links}{cta}</nav></div></header>'
 
 
 def render_footer() -> str:
     return (
         '<footer class="site-footer"><div class="site-shell footer-grid">'
-        f'<p><strong>{escape(SITE["name"])}</strong> publishes calculators and guides for estimating materials, quantities, and rough costs.</p>'
-        '<p class="footer-note"><a href="/about/">About</a> <a href="/editorial-policy/">Editorial policy</a> <a href="/calculator-methodology/">Methodology</a> <a href="/quote-checklist/">Quote prep</a> <a href="/advertiser-disclosure/">Advertiser disclosure</a> <a href="/privacy-policy/">Privacy</a> <a href="/terms/">Terms</a> <a href="/contact/">Contact</a></p>'
+        f'<p><strong>{escape(SITE["name"])}</strong> helps you estimate, sense-check, compare, and prepare clearer quote requests for common home and building jobs.</p>'
+        '<p>Use every result as a planning aid, not a fixed quote. Always confirm measurements, product data, labour scope, and site conditions before buying or booking work.</p>'
+        '<p class="footer-note">'
+        f'<a href="/about/">About</a> <a href="/editorial-policy/">Editorial policy</a> <a href="/calculator-methodology/">Methodology</a> <a href="/clusters/">{escape(PROJECT_HUBS_LABEL)}</a> <a href="/quote-checklist/">Quote prep</a> <a href="/advertiser-disclosure/">Advertiser disclosure</a> <a href="/privacy-policy/">Privacy</a> <a href="/terms/">Terms</a> <a href="/contact/">Contact</a>'
+        '</p>'
         '</div></footer>'
     )
 
@@ -97,7 +127,10 @@ def render_breadcrumbs(items: list[tuple[str, str]]) -> str:
     for index, (label, href) in enumerate(items):
         if index:
             parts.append('<span>/</span>')
-        parts.append(f'<a href="{escape(href)}">{escape(label)}</a>')
+        if index == len(items) - 1:
+            parts.append(f'<span aria-current="page">{escape(label)}</span>')
+        else:
+            parts.append(f'<a href="{escape(href)}">{escape(label)}</a>')
     parts.append("</nav>")
     return "".join(parts)
 
@@ -155,8 +188,6 @@ def render_org_schema() -> str:
     )
 
 
-
-
 def render_software_application_schema(*, name: str, description: str, path: str, category: str = "Estimator") -> str:
     return json.dumps(
         {
@@ -210,45 +241,45 @@ def render_layout(*, title: str, description: str, path: str, content: str, sche
         f'<script type="application/ld+json">{block}</script>' for block in schema_blocks
     )
     return f"""<!doctype html>
-<html lang="en">
+<html lang=\"en\">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset=\"utf-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
   <title>{escape(title)}</title>
-  <meta name="description" content="{escape(description)}">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <meta name="theme-color" content="#4f8fff">
-  <meta name="google-site-verification" content="sqiSiIkXZHkd3G7PHNW6VYudbyt0SPyvvmI2vvdlb_Q">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="shortcut icon" href="/assets/favicon.svg">
-  <link rel="canonical" href="{escape(canonical)}">
-  <link rel="alternate" hreflang="en-GB" href="{escape(canonical)}">
-  <link rel="alternate" hreflang="en-US" href="{escape(canonical)}">
-  <link rel="alternate" hreflang="x-default" href="{escape(canonical)}">
-  <meta property="og:title" content="{escape(title)}">
-  <meta property="og:description" content="{escape(description)}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="{escape(SITE['name'])}">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:url" content="{escape(canonical)}">
-  <meta property="og:image" content="{escape(absolute_url(SITE['default_image']))}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{escape(title)}">
-  <meta name="twitter:description" content="{escape(description)}">
-  <meta name="twitter:image" content="{escape(absolute_url(SITE['default_image']))}">
-  <meta name="page-type" content="{escape(page_type)}">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZKLRBJ5JK"></script>
+  <meta name=\"description\" content=\"{escape(description)}\">
+  <meta name=\"robots\" content=\"index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1\">
+  <meta name=\"theme-color\" content=\"#4f8fff\">
+  <meta name=\"google-site-verification\" content=\"sqiSiIkXZHkd3G7PHNW6VYudbyt0SPyvvmI2vvdlb_Q\">
+  <link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/favicon.svg\">
+  <link rel=\"shortcut icon\" href=\"/assets/favicon.svg\">
+  <link rel=\"canonical\" href=\"{escape(canonical)}\">
+  <link rel=\"alternate\" hreflang=\"en-GB\" href=\"{escape(canonical)}\">
+  <link rel=\"alternate\" hreflang=\"en-US\" href=\"{escape(canonical)}\">
+  <link rel=\"alternate\" hreflang=\"x-default\" href=\"{escape(canonical)}\">
+  <meta property=\"og:title\" content=\"{escape(title)}\">
+  <meta property=\"og:description\" content=\"{escape(description)}\">
+  <meta property=\"og:type\" content=\"website\">
+  <meta property=\"og:site_name\" content=\"{escape(SITE['name'])}\">
+  <meta property=\"og:locale\" content=\"en_GB\">
+  <meta property=\"og:url\" content=\"{escape(canonical)}\">
+  <meta property=\"og:image\" content=\"{escape(absolute_url(SITE['default_image']))}\">
+  <meta name=\"twitter:card\" content=\"summary_large_image\">
+  <meta name=\"twitter:title\" content=\"{escape(title)}\">
+  <meta name=\"twitter:description\" content=\"{escape(description)}\">
+  <meta name=\"twitter:image\" content=\"{escape(absolute_url(SITE['default_image']))}\">
+  <meta name=\"page-type\" content=\"{escape(page_type)}\">
+  <link rel=\"stylesheet\" href=\"/assets/css/styles.css\">
+  <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-VZKLRBJ5JK\"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
     gtag('config', 'G-VZKLRBJ5JK');
   </script>
-  <script defer src="/assets/js/site.js"></script>
+  <script defer src=\"/assets/js/site.js\"></script>
   {scripts}
 </head>
-<body class="lab-surface">
+<body class=\"lab-surface\">
   {render_nav()}
   <main>{content}</main>
   {render_footer()}
