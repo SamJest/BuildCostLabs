@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from html import escape
@@ -147,12 +147,12 @@ def build_paint_calculator() -> None:
               <label class="field-group" data-visibility="walls single">
                 <span class="field-label">Doors to subtract</span>
                 <input type="number" name="doors" min="0" step="1" value="1">
-                <span class="field-hint">Approx. 1.9 m² / 21 ft² each</span>
+                <span class="field-hint">Approx. 1.9 m2 / 21 ft2 each</span>
               </label>
               <label class="field-group" data-visibility="walls single">
                 <span class="field-label">Windows to subtract</span>
                 <input type="number" name="windows" min="0" step="1" value="1">
-                <span class="field-hint">Approx. 1.5 m² / 16 ft² each</span>
+                <span class="field-hint">Approx. 1.5 m2 / 16 ft2 each</span>
               </label>
               <label class="field-group">
                 <span class="field-label">Coats</span>
@@ -162,7 +162,7 @@ def build_paint_calculator() -> None:
               <label class="field-group">
                 <span class="field-label">Coverage per litre</span>
                 <input type="number" name="coveragePerLitre" min="0.1" step="0.1" value="10">
-                <span class="field-hint">m² per litre per coat</span>
+                <span class="field-hint">m2 per litre per coat</span>
               </label>
               <label class="field-group">
                 <span class="field-label">Extra wastage</span>
@@ -186,7 +186,7 @@ def build_paint_calculator() -> None:
           <div class="result-card">
             <h2>Breakdown</h2>
             <ul class="result-list">
-              <li><span>Paint area</span><strong data-result-area>0.0 m²</strong></li>
+              <li><span>Paint area</span><strong data-result-area>0.0 m2</strong></li>
               <li><span>Coverage needed</span><strong data-result-coverage>0.0 litre-coats</strong></li>
               <li><span>Base litres</span><strong data-result-base>0.0 L</strong></li>
               <li><span>After wastage</span><strong data-result-total>0.0 L</strong></li>
@@ -228,3 +228,5 @@ def build_paint_calculator() -> None:
 
 if __name__ == '__main__':
     build_paint_calculator()
+
+

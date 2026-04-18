@@ -29,6 +29,25 @@
     return `${info.symbol}${Number(value).toFixed(2)} ${info.code}`;
   }
 
+  function formatArea(value) {
+    const squareFeet = value * 10.7639;
+    return `${value.toFixed(2)} m2 (${squareFeet.toFixed(1)} sq ft)`;
+  }
+
+  function formatLength(value) {
+    const feet = value * 3.28084;
+    return `${value.toFixed(2)} m (${feet.toFixed(1)} ft)`;
+  }
+
+  function formatVolume(value) {
+    const cubicFeet = value * 35.3147;
+    return `${value.toFixed(3)} m3 (${cubicFeet.toFixed(1)} cu ft)`;
+  }
+
+  function formatWeightTonnes(value) {
+    return `${value.toFixed(2)} t (${Math.round(value * 1000)} kg)`;
+  }
+
   function getNumber(id) {
     const el = document.getElementById(id);
     if (!el) return 0;
@@ -86,7 +105,7 @@
     if (config.formula === "volume") {
       const volume = toMetricLength(getNumber("length")) * toMetricLength(getNumber("width")) * toMetricLength(getNumber("depth"));
       return (
-        `<div class="break-row"><span>Starter volume</span><strong>${volume.toFixed(3)} m3</strong></div>` +
+        `<div class="break-row"><span>Starter volume</span><strong>${formatVolume(volume)}</strong></div>` +
         `<div class="break-row"><span>Buying route</span><strong>${config.unitNamePlural || "units"} with waste already loaded</strong></div>` +
         `<div class="break-row"><span>What to change first</span><strong>Depth, density, and unit size</strong></div>`
       );
@@ -94,14 +113,14 @@
     if (config.formula === "linear") {
       const run = toMetricLength(getNumber("length"));
       return (
-        `<div class="break-row"><span>Starter run length</span><strong>${run.toFixed(2)} m</strong></div>` +
+        `<div class="break-row"><span>Starter run length</span><strong>${formatLength(run)}</strong></div>` +
         `<div class="break-row"><span>Buying route</span><strong>Whole stock lengths with waste already loaded</strong></div>` +
         `<div class="break-row"><span>What to change first</span><strong>Total run, piece length, and cut waste</strong></div>`
       );
     }
     const area = toMetricLength(getNumber("length")) * toMetricLength(getNumber("width"));
     return (
-      `<div class="break-row"><span>Starter area</span><strong>${area.toFixed(2)} m2</strong></div>` +
+      `<div class="break-row"><span>Starter area</span><strong>${formatArea(area)}</strong></div>` +
       `<div class="break-row"><span>Buying route</span><strong>${config.unitNamePlural || "units"} using the loaded coverage rate</strong></div>` +
       `<div class="break-row"><span>What to change first</span><strong>Coverage, waste, and price per unit</strong></div>`
     );
@@ -173,6 +192,13 @@
       const coveredArea = area * wasteFactor;
       const coverageRate = getNumber("coverage-per-unit");
       const coverageMode = config.coverageMode || "area_per_unit";
+      const exactUnits = coverageRate > 0
+        ? (
+            coverageMode === "units_per_area"
+              ? coveredArea * coverageRate
+              : coveredArea / coverageRate
+          )
+        : 0;
       units = coverageRate > 0
         ? (
             coverageMode === "units_per_area"
@@ -188,15 +214,21 @@
 
       resultMain.textContent = `${units} ${unitLabel(units)}`;
       resultSub.textContent = coverageMode === "units_per_area"
-        ? `That is based on about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.`
-        : `That covers about ${coveredArea.toFixed(2)} m2 after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
+        ? `That is based on about ${formatArea(coveredArea)} after waste and roughly ${money(units * pricePerUnit)} in material cost.`
+        : `That covers about ${formatArea(coveredArea)} after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
+      const bufferText = coverageMode === "units_per_area"
+        ? `${Math.max(0, units - exactUnits).toFixed(2)} ${unitLabel(units)} above the theoretical minimum`
+        : formatArea(Math.max(0, (units * coverageRate) - coveredArea));
       resultBreakdown.innerHTML =
-        `<div class="break-row"><span>Covered area incl. waste</span><strong>${coveredArea.toFixed(2)} m2</strong></div>` +
+        `<div class="break-row"><span>Measured area</span><strong>${formatArea(area)}</strong></div>` +
+        `<div class="break-row"><span>Area incl. waste</span><strong>${formatArea(coveredArea)}</strong></div>` +
         `<div class="break-row"><span>${config.coverageLabel || "Coverage per unit"}</span><strong>${coverageRate.toFixed(2)}${coverageMode === "units_per_area" ? "" : " m2"}</strong></div>` +
+        `<div class="break-row"><span>Exact units before rounding</span><strong>${exactUnits.toFixed(2)} ${unitLabel(exactUnits)}</strong></div>` +
         `<div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>` +
+        `<div class="break-row"><span>Buffer after rounding</span><strong>${bufferText}</strong></div>` +
         `<div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>` +
         `<div class="calc-note">${coverageMode === "units_per_area" ? "Calculation: area plus waste, then multiplied by the unit rate and rounded to whole buying units." : "Calculation: area plus waste, then rounded to whole buying units by coverage."}</div>`;
-      setContext("");
+      setContext("Round to whole packs, rolls, tins, or sheets, then pressure-test the result against real pack coverage, overlaps, and awkward cuts before ordering.");
 
       renderIntelligence({
         materialCost: units * pricePerUnit,
@@ -290,6 +322,7 @@
       const unitSize = getNumber("unit-size");
       const totalVolume = volume * wasteFactor;
       const tonnes = totalVolume * density;
+      const exactUnits = unitSize > 0 ? tonnes / unitSize : 0;
       units = unitSize > 0 ? Math.ceil(tonnes / unitSize) : 0;
 
       if (!(units > 0)) {
@@ -298,14 +331,17 @@
       }
 
       resultMain.textContent = `${units} ${unitLabel(units)}`;
-      resultSub.textContent = `That works out to about ${totalVolume.toFixed(3)} m3, roughly ${tonnes.toFixed(2)} tonnes, and about ${money(units * pricePerUnit)} in material cost.`;
+      resultSub.textContent = `That works out to about ${formatVolume(totalVolume)}, roughly ${formatWeightTonnes(tonnes)}, and about ${money(units * pricePerUnit)} in material cost.`;
       resultBreakdown.innerHTML =
-        `<div class="break-row"><span>Volume incl. waste</span><strong>${totalVolume.toFixed(3)} m3</strong></div>` +
-        `<div class="break-row"><span>Tonnage</span><strong>${tonnes.toFixed(2)} t</strong></div>` +
+        `<div class="break-row"><span>Measured volume</span><strong>${formatVolume(volume)}</strong></div>` +
+        `<div class="break-row"><span>Volume incl. waste</span><strong>${formatVolume(totalVolume)}</strong></div>` +
+        `<div class="break-row"><span>Tonnage</span><strong>${formatWeightTonnes(tonnes)}</strong></div>` +
+        `<div class="break-row"><span>Exact units before rounding</span><strong>${exactUnits.toFixed(2)} ${unitLabel(exactUnits)}</strong></div>` +
         `<div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>` +
+        `<div class="break-row"><span>Buffer after rounding</span><strong>${formatWeightTonnes(Math.max(0, (units * unitSize) - tonnes))}</strong></div>` +
         `<div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>` +
         `<div class="calc-note">Calculation: length x width x depth, then waste, then density, then rounded to whole units.</div>`;
-      setContext("");
+      setContext("Check whether the supplier quotes loose fill, compacted depth, bulk bags, or tonne-based delivery, because that choice can move the real order more than the headline cubic-metre figure.");
 
       renderIntelligence({
         materialCost: units * pricePerUnit,
@@ -323,6 +359,7 @@
 
     const run = toMetricLength(getNumber("length")) * wasteFactor;
     const pieceLength = toMetricLength(getNumber("piece-length"));
+    const exactUnits = pieceLength > 0 ? run / pieceLength : 0;
     units = pieceLength > 0 ? Math.ceil(run / pieceLength) : 0;
 
     if (!(units > 0)) {
@@ -331,14 +368,17 @@
     }
 
     resultMain.textContent = `${units} ${unitLabel(units)}`;
-    resultSub.textContent = `That covers about ${run.toFixed(2)} linear metres after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
+    resultSub.textContent = `That covers about ${formatLength(run)} after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
     resultBreakdown.innerHTML =
-      `<div class="break-row"><span>Run incl. waste</span><strong>${run.toFixed(2)} m</strong></div>` +
-      `<div class="break-row"><span>Unit length</span><strong>${pieceLength.toFixed(2)} m</strong></div>` +
+      `<div class="break-row"><span>Measured run</span><strong>${formatLength(toMetricLength(getNumber("length")))}</strong></div>` +
+      `<div class="break-row"><span>Run incl. waste</span><strong>${formatLength(run)}</strong></div>` +
+      `<div class="break-row"><span>Unit length</span><strong>${formatLength(pieceLength)}</strong></div>` +
+      `<div class="break-row"><span>Exact pieces before rounding</span><strong>${exactUnits.toFixed(2)} ${unitLabel(exactUnits)}</strong></div>` +
       `<div class="break-row"><span>Buying total</span><strong>${units} ${unitLabel(units)}</strong></div>` +
+      `<div class="break-row"><span>Buffer after rounding</span><strong>${formatLength(Math.max(0, (units * pieceLength) - run))}</strong></div>` +
       `<div class="break-row"><span>Estimated cost</span><strong>${money(units * pricePerUnit)}</strong></div>` +
       `<div class="calc-note">Calculation: total run plus waste, then rounded to whole-length buying pieces.</div>`;
-    setContext("");
+    setContext("Use the clean run as the starting point, then sense-check corners, fittings, mitres, and any spare length you would rather buy now than chase later.");
 
     renderIntelligence({
       materialCost: units * pricePerUnit,

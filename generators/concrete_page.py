@@ -1,4 +1,4 @@
-from core.render import render_template
+﻿from core.render import render_template
 
 
 def build_concrete_page():
@@ -33,8 +33,8 @@ def build_concrete_page():
               <div class="field">
                 <label for="unit">Units</label>
                 <select id="unit">
-                  <option value="metric">Metric (m, m³)</option>
-                  <option value="imperial">Imperial (ft, yd³)</option>
+                  <option value="metric">Metric (m, m3)</option>
+                  <option value="imperial">Imperial (ft, yd3)</option>
                 </select>
               </div>
 
@@ -68,7 +68,7 @@ def build_concrete_page():
 
             <aside class="card result-card">
               <p class="small">Estimated result</p>
-              <p id="result-main" class="result-big">0 m³</p>
+              <p id="result-main" class="result-big">0 m3</p>
               <p id="result-breakdown" class="small"></p>
               <h3>How it was calculated</h3>
               <ul id="result-steps" class="clean"></ul>
@@ -111,3 +111,5 @@ def build_concrete_page():
         "content": content,
         "script_path": "/assets/js/concrete.js",
     })
+
+

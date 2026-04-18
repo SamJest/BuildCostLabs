@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   const modeButtons = document.querySelectorAll('[data-flooring-mode]');
   const modeInput = document.getElementById('flooring-mode');
   const unitSelect = document.getElementById('unit');
@@ -54,12 +54,12 @@
 
     resultMain.textContent = packsNeeded + ' pack(s)';
     resultBreakdown.textContent =
-      'Estimated for ' + areaRaw + ' ' + (unit === 'imperial' ? 'sq ft' : 'm²') +
-      ', ' + mode + ' flooring, ' + waste + '% waste and pack coverage of ' + packCoverage + ' m².';
+      'Estimated for ' + areaRaw + ' ' + (unit === 'imperial' ? 'sq ft' : 'm2') +
+      ', ' + mode + ' flooring, ' + waste + '% waste and pack coverage of ' + packCoverage + ' m2.';
     resultSteps.innerHTML =
-      '<li>Base floor area converted to m²: <strong>' + areaSqM.toFixed(2) + ' m²</strong></li>' +
-      '<li>After waste allowance: <strong>' + adjustedSqM.toFixed(2) + ' m²</strong></li>' +
-      '<li>One board / plank covers: <strong>' + boardSqM.toFixed(4) + ' m²</strong></li>' +
+      '<li>Base floor area converted to m2: <strong>' + areaSqM.toFixed(2) + ' m2</strong></li>' +
+      '<li>After waste allowance: <strong>' + adjustedSqM.toFixed(2) + ' m2</strong></li>' +
+      '<li>One board / plank covers: <strong>' + boardSqM.toFixed(4) + ' m2</strong></li>' +
       '<li>Estimated boards needed: <strong>' + boardsNeeded + '</strong></li>' +
       '<li>Packs needed (rounded up): <strong>' + packsNeeded + '</strong></li>';
   }
@@ -68,3 +68,4 @@
   [unitSelect, areaInput, plankWidthInput, plankLengthInput, coverageInput, wasteInput].forEach(el => el.addEventListener('input', calculate));
   setMode('laminate');
 })();
+

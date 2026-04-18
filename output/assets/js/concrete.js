@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   const modeButtons = document.querySelectorAll('[data-concrete-mode]');
   const modeInput = document.getElementById('concrete-mode');
   const unitSelect = document.getElementById('unit');
@@ -78,13 +78,13 @@
     }
     const total = cubicMeters * (1 + waste / 100);
     const displayVolume = unit === 'imperial' ? cubicMetersToCubicYards(total) : total;
-    const displayUnit = unit === 'imperial' ? 'yd³' : 'm³';
+    const displayUnit = unit === 'imperial' ? 'yd3' : 'm3';
 
     resultMain.textContent = displayVolume.toFixed(2) + ' ' + displayUnit;
     resultBreakdown.textContent =
       (mode === 'post'
         ? count + ' post hole(s), '
-        : rawLength + ' × ' + rawWidth + ' × ' + rawDepth + ' ' + (unit === 'imperial' ? 'ft' : 'm') + ', '
+        : rawLength + ' x ' + rawWidth + ' x ' + rawDepth + ' ' + (unit === 'imperial' ? 'ft' : 'm') + ', '
       ) + waste + '% waste included.';
 
     const modeLabel = mode === 'slab' ? 'slab' : (mode === 'footing' ? 'footing' : 'post holes');
@@ -101,3 +101,5 @@
   [unitSelect, lengthInput, widthInput, depthInput, countInput, wasteInput].forEach(el => el.addEventListener('input', calculate));
   applyMode('slab');
 })();
+
+

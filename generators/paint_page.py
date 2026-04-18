@@ -1,4 +1,4 @@
-from core.render import render_template
+﻿from core.render import render_template
 
 def build_paint_page():
     content = """
@@ -26,7 +26,7 @@ def build_paint_page():
               <div class="field">
                 <label for="unit">Units</label>
                 <select id="unit">
-                  <option value="metric">Metric (m²)</option>
+                  <option value="metric">Metric (m2)</option>
                   <option value="imperial">Imperial (sq ft)</option>
                 </select>
               </div>
@@ -43,7 +43,7 @@ def build_paint_page():
               </div>
 
               <div class="field">
-                <label for="coverage">Paint coverage (m² per litre)</label>
+                <label for="coverage">Paint coverage (m2 per litre)</label>
                 <input id="coverage" type="number" value="10" step="0.1">
               </div>
 
@@ -104,3 +104,4 @@ def build_paint_page():
         "content": content,
         "script_path": "/assets/js/paint.js",
     })
+

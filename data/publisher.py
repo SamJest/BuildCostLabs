@@ -1,4 +1,4 @@
-SITE = {
+﻿SITE = {
     "name": "BuildCostLab",
     "tagline": "Calculator-first guides for building materials, quantities, and project costs",
     "domain": "buildcostlab.com",
@@ -56,15 +56,34 @@ TRUST_PAGES = [
     {
         "slug": "quote-checklist",
         "title": "Builder Quote Checklist",
+        "meta_title": "Quote Checklist for Builders, Installers, and Merchants | BuildCostLab",
         "description": "Use this BuildCostLab checklist to turn a rough estimate into a cleaner builder or supplier quote request.",
         "headline": "Turn an estimate into a quote-ready brief",
         "intro": "A calculator result is only useful if the builder, installer, or supplier is pricing the same scope. This checklist helps you send a cleaner quote request.",
-        "sections": [
-            {"title": "Start with a clear scope", "body": "List the job type, the surface or room involved, the approximate dimensions, and whether the quote should include materials, labour, waste removal, prep, and finishing."},
-            {"title": "Attach the estimate", "body": "Use the calculator quote-brief tools to copy or download the estimate summary. That gives each supplier the same baseline quantity and makes comparisons easier."},
-            {"title": "Ask the same questions", "body": "Request labour, materials, extras, lead time, delivery charges, and payment terms in the same format from each quote so the comparison is not distorted by missing items."},
-            {"title": "Flag the unknowns", "body": "Tell suppliers where access, existing condition, finish level, or exact product choice is still uncertain. Quotes are easier to trust when the unknowns are stated up front."},
+        "summary_cards": [
+            ("Send one shared scope", "Use the same measured area, trench run, or room breakdown for every quote so the replies are easier to compare fairly."),
+            ("Separate the cost layers", "Ask for materials, labour, prep, extras, delivery, and exclusions to be shown separately rather than folded into one vague total."),
+            ("Flag what is still uncertain", "Access, finish level, product choice, and site condition should be stated up front so the quote can show where the risk still sits."),
         ],
+        "notice_title": "The safest quote request is specific, not longer",
+        "notice_body": "The goal is not to send a huge document. It is to send one consistent scope, one clear list of assumptions, and the same unknowns to every supplier or installer you want to compare.",
+        "sections": [
+            {"title": "Start with the measured scope, not a rough description", "body": "List the job type, the room or trench involved, the approximate dimensions, and the calculator result you want suppliers to work from. A measured baseline makes the quote much easier to compare than a short sentence about the job."},
+            {"title": "Attach the estimate and the nearest support pages", "body": "Use the calculator quote-brief tools to copy or download the estimate summary, then include the one or two support guides that explain the buying format, waste assumption, or linked layer the quote depends on."},
+            {"title": "Separate materials, labour, prep, and extras", "body": "Ask suppliers to show materials, labour, prep, delivery, removals, and extras separately. That makes it easier to spot whether one quote is cheaper because scope is missing rather than because the rate is better."},
+            {"title": "List exclusions and unknowns clearly", "body": "Tell suppliers where access, existing condition, finish level, product choice, or final measurements are still uncertain. Quotes are easier to trust when the unknowns and exclusions are written down instead of implied."},
+            {"title": "For drainage and groundwork requests", "body": "Separate pipe, bedding, gravel surround, membrane, hardcore, sub-base, and Type 1 if the job includes more than one trench or base layer. These jobs are often mispriced when one aggregate line is expected to cover the whole build-up."},
+            {"title": "For flooring and interior-finish requests", "body": "Separate floor covering, spare-pack allowance, underlay, floor prep, trims, skirting, and any decorating finish that touches the same room. Room-finish quotes become much easier to compare once those linked decisions are surfaced explicitly."},
+            {"title": "Ask the same closing questions every time", "body": "Request lead time, payment terms, what is excluded, and what would most likely change the quote after a site visit. That is often the fastest way to tell whether two prices are really covering the same job."},
+        ],
+        "related_links": [
+            ("Open Drainage Estimating", "/clusters/drainage-estimating/"),
+            ("Open Aggregate and Base Estimating", "/clusters/aggregate-and-base-estimating/"),
+            ("Open Flooring Estimating", "/clusters/flooring-estimating/"),
+            ("Open Trim and Joinery Estimating", "/clusters/trim-and-joinery-estimating/"),
+        ],
+        "related_links_title": "Open the strongest quote-prep hubs",
+        "related_links_intro": "These are the best next pages when the quote depends on one of the winning calculator clusters rather than a single isolated estimate.",
     },
     {
         "slug": "contact",
@@ -132,7 +151,7 @@ TRUST_PAGES = [
             {"title": "Unit conversions", "body": "Pages support metric and imperial input where practical. Conversions are treated as a convenience layer on top of the main estimating logic rather than a separate methodology."},
             {"title": "Labour, material splits, and extras", "body": "Project-cost calculators separate the likely material line from labour, extras, and contingency so users can see what is moving the budget. These are planning allowances, not trade quotes, and should be pressure-tested against real local prices."},
             {"title": "How regional adjustments are handled", "body": "Regional handling is intentionally high level. It is there to help users think about labour pressure, access, and pricing differences by area, not to claim exact local prices for every postcode or contractor. Live quotes and supplier prices should always override the planning layer."},
-            {"title": "Worked example", "body": "A simple material example: a 4m by 3m patio at 50mm depth gives 0.6m³ of material before waste. Add 10 percent waste and the planning quantity becomes 0.66m³. If the chosen buying format is a 0.85m³ bulk bag, the safe order rounds to one bulk bag rather than 0.66 of a bag. A project-cost page then takes the measured scope, applies planning rates for materials, labour, and extras, and keeps the result as a range because site conditions can still move the live quote."},
+            {"title": "Worked example", "body": "A simple material example: a 4m by 3m patio at 50mm depth gives 0.6m3 of material before waste. Add 10 percent waste and the planning quantity becomes 0.66m3. If the chosen buying format is a 0.85m3 bulk bag, the safe order rounds to one bulk bag rather than 0.66 of a bag. A project-cost page then takes the measured scope, applies planning rates for materials, labour, and extras, and keeps the result as a range because site conditions can still move the live quote."},
             {"title": "Freshness and review", "body": "Methodology pages and calculator families are reviewed when formulas, assumptions, internal links, or support content need updating. The aim is to keep the workflow practical and current without claiming that a static page can replace live supplier or contractor information."},
         ],
         "related_links": [
@@ -237,28 +256,34 @@ CALCULATOR_FAMILIES = [
         "key": "flooring",
         "slug": "flooring-calculator",
         "name": "Flooring Calculator",
+        "meta_title": "Flooring Calculator for Packs, Waste, and Room Coverage | BuildCostLab",
         "cluster_slug": "flooring-estimating",
         "cluster_name": "Flooring Estimating",
         "category": "Flooring",
-        "intro": "Estimate packs, boards, waste, and rough material cost for laminate, wood, and vinyl plank installs.",
-        "meta_description": "Estimate floor packs, board counts, waste allowance, and rough costs for common flooring installs.",
-        "hero_eyebrow": "Flooring pack tool",
+        "intro": "Estimate flooring packs, approximate board counts, waste, and room-fit buying totals for laminate, wood, and vinyl plank installs before you order.",
+        "meta_description": "Estimate flooring packs, approximate board counts, waste allowance, and room-coverage buying totals for laminate, wood, and vinyl plank installs.",
+        "hero_eyebrow": "Room flooring pack tool",
+        "related_calculator_slugs": ["laminate-flooring-calculator", "vinyl-plank-flooring-calculator", "underlay-calculator", "skirting-board-calculator"],
+        "related_calculator_title": "Related calculators for the same room flooring job",
+        "related_calculator_intro": "Use these linked tools when the flooring estimate also depends on laminate pack buying, underlay coverage, vinyl-plank comparison, or skirting quantities around the room edge.",
         "support": {
-            "assumptions": "Assumes a straightforward room area, manufacturer pack coverage data, and standard waste settings.",
-            "mistakes": "People often forget spare stock from the same batch or underestimate waste in awkward rooms.",
-            "use_case": "Useful for laminate refreshes, vinyl plank ordering, and comparing how pack coverage changes the final order.",
+            "assumptions": "Works best when the room footprint, board or plank format, pack coverage, and the likely installation pattern are all broadly clear before buying.",
+            "mistakes": "People often under-order by trusting the neat room area, forgetting spare packs from the same batch, or ignoring doorways, angled walls, and visible cut-heavy edges.",
+            "use_case": "Best for bedrooms, living rooms, hallways, and refresh projects where the buyer needs a practical flooring-pack order before comparing laminate, wood, or vinyl plank routes.",
+            "estimate_tip": "Check the room shape and fitting pattern early, because diagonal layouts, hall links, and awkward openings usually move the pack total more than the raw area alone.",
         },
         "faqs": [
-            {"q": "How many packs of flooring do I need?", "a": "Calculate area, add waste, and divide by pack coverage, then round up."},
-            {"q": "Is extra flooring worth buying?", "a": "Usually yes, because matching future repairs can be difficult."},
+            {"q": "How many packs of flooring do I need?", "a": "Measure the room, add a realistic waste allowance, divide by the stated pack coverage, and round up to full packs before you order."},
+            {"q": "Is extra flooring worth buying?", "a": "Usually yes. A spare pack from the same batch is often worth keeping because colour, grain, and locking-profile matches can be hard to replace later."},
+            {"q": "What else should I check besides packs?", "a": "Check underlay, trims, thresholds, floor prep, and whether skirting or door clearances still need attention before you treat the pack count as the full order."},
         ],
         "intent_pages": [
-            {"slug": "flooring-packs-calculator", "title": "Flooring Packs Calculator", "description": "Estimate flooring packs from room size, pack coverage, and waste allowance.", "headline": "Turn room area into a whole-pack buying number", "intro": "Pack coverage converts a simple area figure into a real order."},
-            {"slug": "laminate-flooring-waste-guide", "title": "Laminate Flooring Waste Guide", "description": "See how layout, cuts, and room shape affect laminate waste.", "headline": "Waste is where flooring budgets quietly grow", "intro": "A straight room might need modest waste, but awkward rooms need more."},
+            {"slug": "flooring-packs-calculator", "title": "Flooring Packs Calculator", "description": "Estimate flooring packs from room size, pack coverage, waste allowance, and a safer spare-pack buying margin.", "headline": "Turn room area into a whole-pack flooring order with less guesswork", "intro": "Pack coverage is only the starting point. Use this page to pressure-test waste, spare packs, and the real buying quantity before you order flooring."},
+            {"slug": "laminate-flooring-waste-guide", "title": "Laminate Flooring Waste Guide", "description": "See how room shape, board direction, cuts, and spare-pack planning affect laminate waste.", "headline": "Laminate waste is where neat room maths often breaks down", "intro": "Straight rooms can be simple, but hall links, angled walls, and visible cut-heavy edges can push laminate waste up faster than many buyers expect."},
         ],
         "guide_pages": [
-            {"slug": "flooring-cost-per-m2-guide", "title": "Flooring Cost per m2 Guide", "description": "Understand how pack price and coverage turn into flooring cost per square metre or square foot.", "headline": "Compare flooring costs on a like-for-like basis", "intro": "Pack price is easy to compare badly; covered area is more useful."},
-            {"slug": "laminate-vs-vinyl-plank-costs", "title": "Laminate vs Vinyl Plank Costs", "description": "Compare laminate and vinyl plank buying costs and trade-offs.", "headline": "Cost comparison only matters if the assumptions are clear", "intro": "Material price, underlay, and waste all change which option looks cheaper."},
+            {"slug": "flooring-cost-per-m2-guide", "title": "Flooring Cost per m2 Guide", "description": "Understand how pack price, coverage, waste, and room-fit allowances turn into a more realistic flooring cost per m2.", "headline": "Compare flooring costs on a like-for-like installed basis", "intro": "Pack price is easy to compare badly. A better cost check starts with real coverage, waste, and the extras that often sit outside the first pack total."},
+            {"slug": "laminate-vs-vinyl-plank-costs", "title": "Laminate vs Vinyl Plank Costs", "description": "Compare laminate and vinyl plank buying costs, waste allowances, and room-by-room trade-offs.", "headline": "Laminate vs vinyl plank only makes sense when the buying assumptions match", "intro": "Material price, underlay, moisture risk, spare packs, and waste all change which route looks cheaper once you compare the same room on the same basis."},
         ],
     },
     {
@@ -402,3 +427,4 @@ CALCULATOR_FAMILIES = [
         ],
     },
 ]
+

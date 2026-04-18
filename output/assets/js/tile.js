@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   const unitSelect = document.getElementById('unit');
   const roomAreaInput = document.getElementById('room-area');
   const tileWidthInput = document.getElementById('tile-width');
@@ -36,12 +36,12 @@
 
     resultMain.textContent = tileCountWithWaste + ' tiles / ' + boxes + ' boxes';
     resultBreakdown.textContent =
-      'Estimated from ' + roomAreaRaw + ' ' + (unit === 'metric' ? 'm²' : 'sq ft') +
-      ', tile size ' + tileW + ' × ' + tileH + ' ' + (unit === 'metric' ? 'mm' : 'in') +
+      'Estimated from ' + roomAreaRaw + ' ' + (unit === 'metric' ? 'm2' : 'sq ft') +
+      ', tile size ' + tileW + ' x ' + tileH + ' ' + (unit === 'metric' ? 'mm' : 'in') +
       ', ' + waste + '% waste.';
     resultSteps.innerHTML =
-      '<li>Room area converted to m²: <strong>' + roomSqM.toFixed(2) + ' m²</strong></li>' +
-      '<li>Tile face area: <strong>' + tileSqM.toFixed(4) + ' m²</strong></li>' +
+      '<li>Room area converted to m2: <strong>' + roomSqM.toFixed(2) + ' m2</strong></li>' +
+      '<li>Tile face area: <strong>' + tileSqM.toFixed(4) + ' m2</strong></li>' +
       '<li>Base tile count: <strong>' + Math.ceil(tileCountBase) + '</strong></li>' +
       '<li>Tiles with waste: <strong>' + tileCountWithWaste + '</strong></li>' +
       '<li>Boxes needed: <strong>' + boxes + '</strong></li>';
@@ -50,3 +50,4 @@
   [unitSelect, roomAreaInput, tileWidthInput, tileHeightInput, tilesPerBoxInput, wasteInput].forEach(el => el.addEventListener('input', calculate));
   calculate();
 })();
+

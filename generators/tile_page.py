@@ -1,4 +1,4 @@
-from core.render import render_template
+﻿from core.render import render_template
 
 def build_tile_page():
     content = """
@@ -19,7 +19,7 @@ def build_tile_page():
               <div class="field">
                 <label for="unit">Units</label>
                 <select id="unit">
-                  <option value="metric">Metric (m², mm)</option>
+                  <option value="metric">Metric (m2, mm)</option>
                   <option value="imperial">Imperial (sq ft, inches)</option>
                 </select>
               </div>
@@ -100,3 +100,4 @@ def build_tile_page():
         "content": content,
         "script_path": "/assets/js/tile.js",
     })
+

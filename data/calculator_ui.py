@@ -50,13 +50,31 @@ CALCULATOR_UI = {
     "laminate-flooring-calculator": {
         "length_label": "Room length",
         "width_label": "Room width",
-        "coverage_label": "Pack coverage",
+        "coverage_label": "Pack coverage after cuts (m2)",
         "price_label": "Price per pack",
         "unit_name_singular": "pack",
         "unit_name_plural": "packs",
-        "result_intro": "You will see the laminate pack count, waste-adjusted buying total, and rough material cost here.",
-        "defaults": {"length": "4.2", "width": "3.5", "coverage-per-unit": "2.22", "waste": "10", "price-per-unit": "34"},
-        "calculator_note": "Starter defaults assume a regular room, standard laminate pack coverage, and a practical allowance for cuts and spare boards.",
+        "result_intro": "You will see the laminate pack count, waste-adjusted buying total, spare-pack thinking, and rough material cost here.",
+        "defaults": {"length": "4.4", "width": "3.6", "coverage-per-unit": "2.22", "waste": "10", "price-per-unit": "34"},
+        "calculator_note": "Starter defaults assume a regular bedroom or lounge, standard laminate pack coverage after normal cuts, and a practical allowance for trimming plus a modest spare-board margin.",
+        "driver_text": "Room shape, board direction, cut-heavy edges, and whether you want a same-batch spare pack are the main levers on laminate estimates.",
+        "confidence_text": "Use the higher estimate when the room links into a hall, has angled walls or alcoves, or you want to keep a same-batch spare for later repairs.",
+        "comparison_profiles": [
+            {"label": "Budget laminate", "note": "Lower-cost pack route with simpler fitting assumptions.", "material": 0.86, "labour": 0.94, "extras": 0.92, "fees": 0.96},
+            {"label": "Standard laminate", "note": "Typical domestic click-fit laminate buying route.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Higher-spec laminate", "note": "Better wear layer, extra spare stock, and more cautious prep.", "material": 1.22, "labour": 1.05, "extras": 1.08, "fees": 1.02}
+        ],
+        "reality_items": [
+            "Underlay, trims, door bars, and matching scotia can sit outside the first laminate pack total.",
+            "Visible cut-heavy rooms often need more spare than the neat area suggests, especially near bays, hearths, or hallway links.",
+            "A same-batch spare pack can be easier to justify than trying to match the floor later.",
+            "Subfloor levelling and door clearance adjustments can shift the real job cost more than one extra pack."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure rooms and confirm layout", "duration": "Half day"},
+            {"stage": "Check pack coverage and underlay", "duration": "Half day"},
+            {"stage": "Order materials and plan spare stock", "duration": "Half day"}
+        ],
     },
     "vinyl-plank-flooring-calculator": {
         "length_label": "Room length",
@@ -103,6 +121,274 @@ CALCULATOR_UI = {
         "result_intro": "You will see the driveway gravel quantity, waste-adjusted buying total, and rough material cost here.",
         "defaults": {"length": "8", "width": "3", "depth": "0.05", "density": "1.6", "unit-size": "0.85", "waste": "10", "price-per-unit": "76"},
         "calculator_note": "Starter defaults assume a domestic gravel finish layer and a common bulk-bag buying size for driveway work.",
+    },
+    "mot-type-1-calculator": {
+        "length_label": "Base length",
+        "width_label": "Base width",
+        "depth_label": "Compacted Type 1 depth",
+        "density_label": "Type 1 density / tonnes per m3",
+        "unit_size_label": "Bulk bag size (tonnes)",
+        "price_label": "Price per bulk bag",
+        "unit_name_singular": "bulk bag",
+        "unit_name_plural": "bulk bags",
+        "result_intro": "You will see the MOT Type 1 volume, tonnage, bulk-bag buying total, and the key driveway or patio base checks here.",
+        "defaults": {"length": "6", "width": "3", "depth": "0.12", "density": "1.8", "unit-size": "0.85", "waste": "10", "price-per-unit": "76"},
+        "calculator_note": "Starter defaults assume a domestic driveway or patio base with around 100mm to 120mm of compacted Type 1. If your supplier prices by tonne, change the bulk bag size to 1.",
+        "driver_text": "Compacted depth, density, edge thickening, and whether the job suits bulk bags or loose tonnes are the main levers on Type 1 estimates.",
+        "confidence_text": "Use the higher estimate when the formation needs levelling, the build-up changes across the area, or you still need to separate Type 1 from deeper fill or hardcore below.",
+        "comparison_profiles": [
+            {"label": "Bulk bag route", "note": "Common domestic route when access is moderate and the order is manageable.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Loose tonne route", "note": "Often better value once the area is larger and spreading access is straightforward.", "material": 0.9, "labour": 0.96, "extras": 1.03, "fees": 1.08},
+            {"label": "Small repair route", "note": "Usually only sensible for patching, narrow access, or small staged jobs.", "material": 1.18, "labour": 1.1, "extras": 1.04, "fees": 1.02}
+        ],
+        "reality_items": [
+            "Type 1 is usually only one layer in the build-up, so membrane, bedding, edging, and the finish layer may still need separate checks.",
+            "Compacted design depth is not the same as the loose-delivered depth once the material is spread and compacted.",
+            "Drive edges, turning areas, and level corrections can use more Type 1 than the neat rectangle suggests.",
+            "Larger areas often suit loose delivery, but only if the site can receive and spread it cleanly."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the base footprint", "duration": "Half day"},
+            {"stage": "Check compacted depth and edge detail", "duration": "Half day"},
+            {"stage": "Compare bag, bulk, or loose supply", "duration": "Half day to 1 day"}
+        ]
+    },
+    "drainage-pipe-calculator": {
+        "length_label": "Drain run length",
+        "piece_length_label": "Pipe length per piece",
+        "price_label": "Price per pipe length",
+        "unit_name_singular": "pipe length",
+        "unit_name_plural": "pipe lengths",
+        "result_intro": "You will see the drainage pipe run, rounded-up piece count, rough material cost, and the main trench-buying checks here.",
+        "defaults": {"length": "24", "piece-length": "3", "waste": "8", "price-per-unit": "14"},
+        "calculator_note": "Starter defaults assume a straightforward domestic foul or surface-water run using 3m pipe lengths with a modest allowance for cuts, joints, and a small spare.",
+        "driver_text": "Measured run length, stock length, branches, fitting count, and whether one spare length is worth carrying are the main levers on drainage pipe orders.",
+        "confidence_text": "Use the higher estimate when the run includes several bends, chamber connections, awkward cuts, or staged trench work that makes a spare pipe length sensible.",
+        "comparison_profiles": [
+            {"label": "Basic straight run", "note": "Simple trench run with fewer fittings and cleaner stock-length use.", "material": 0.94, "labour": 0.96, "extras": 0.95, "fees": 1},
+            {"label": "Typical domestic run", "note": "Standard route with normal fitting count and a sensible spare allowance.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Fitting-heavy route", "note": "More bends, chambers, branches, or cut-heavy connections.", "material": 1.12, "labour": 1.08, "extras": 1.14, "fees": 1.02}
+        ],
+        "reality_items": [
+            "Bends, junctions, couplers, chambers, and adaptors often matter as much as the straight pipe length.",
+            "Short offcuts are rarely as reusable as the neat maths suggests once branch directions and fall are fixed.",
+            "Pipe surround, bedding, and backfill usually need their own quantity checks outside the pipe-length total.",
+            "A single spare length can be cheaper than losing time to a damaged piece or a missed final connection."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the full pipe run", "duration": "Half day"},
+            {"stage": "Count fittings, bends, and chambers", "duration": "Half day"},
+            {"stage": "Order pipe lengths and trench materials", "duration": "Half day to 1 day"}
+        ]
+    },
+    "french-drain-gravel-calculator": {
+        "length_label": "French drain length",
+        "width_label": "Trench width",
+        "depth_label": "Gravel depth",
+        "density_label": "Gravel density / tonnes per m3",
+        "unit_size_label": "Bulk bag size (tonnes)",
+        "price_label": "Price per bulk bag",
+        "unit_name_singular": "bulk bag",
+        "unit_name_plural": "bulk bags",
+        "result_intro": "You will see the french drain gravel volume, tonnage, bulk-bag buying total, and the main trench-fill checks here.",
+        "defaults": {"length": "12", "width": "0.35", "depth": "0.45", "density": "1.6", "unit-size": "0.85", "waste": "10", "price-per-unit": "78"},
+        "calculator_note": "Starter defaults assume a domestic french drain trench with washed drainage gravel and a practical allowance for widened sections, overbreak, and a modest spare.",
+        "driver_text": "Trench width, gravel depth, pipe position, widened sections, and whether the supplier sells by bulk bag or loose tonne are the main levers on french drain gravel estimates.",
+        "confidence_text": "Use the higher estimate when the trench widens at corners, outlets, or inspection points, or when the gravel envelope still needs separating from bedding and backfill layers.",
+        "comparison_profiles": [
+            {"label": "Bulk bag route", "note": "Common domestic route when access is moderate and the trench is not too long.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Loose tonne route", "note": "Often better value on longer runs with clear delivery and storage access.", "material": 0.9, "labour": 0.96, "extras": 1.03, "fees": 1.08},
+            {"label": "Mini-bag route", "note": "Useful for awkward gardens, staged work, or very tight access.", "material": 1.18, "labour": 1.1, "extras": 1.04, "fees": 1.02}
+        ],
+        "reality_items": [
+            "Pipe bedding, membrane wrap, topsoil reinstatement, and outlet details can all sit outside the gravel total.",
+            "Corners, turns, outlets, and soakaway connections often widen the trench beyond the neat straight run.",
+            "Washed drainage gravel, pea gravel, and decorative stone are not interchangeable once the drainage job is specified properly.",
+            "Delivery minimums and access can make the cheapest unit price a poor buying route on smaller jobs."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the trench run", "duration": "Half day"},
+            {"stage": "Check trench width, depth, and outlets", "duration": "Half day"},
+            {"stage": "Compare gravel and delivery routes", "duration": "Half day to 1 day"}
+        ]
+    },
+    "pipe-bedding-calculator": {
+        "length_label": "Drain run length",
+        "width_label": "Bedding width",
+        "depth_label": "Bedding depth",
+        "density_label": "Bedding density / tonnes per m3",
+        "unit_size_label": "Bulk bag size (tonnes)",
+        "price_label": "Price per bulk bag",
+        "unit_name_singular": "bulk bag",
+        "unit_name_plural": "bulk bags",
+        "result_intro": "You will see the pipe bedding volume, tonnage, bulk-bag buying total, and rough material cost here.",
+        "defaults": {"length": "15", "width": "0.3", "depth": "0.1", "density": "1.6", "unit-size": "0.85", "waste": "10", "price-per-unit": "74"},
+        "calculator_note": "Starter defaults assume a small domestic drainage trench with a practical bedding zone around the pipe. If your merchant prices by tonne, change the bulk bag size to 1.",
+        "driver_text": "Run length, bedding width, depth below the pipe, surround detail, and the buying format are the main levers on pipe bedding estimates.",
+        "confidence_text": "Use the higher estimate when trench width varies, fittings widen the excavation, or you still need to separate bedding from the wider gravel surround.",
+        "comparison_profiles": [
+            {"label": "Bagged route", "note": "Convenient for short runs, tight access, or staged work.", "material": 1.18, "labour": 1.08, "extras": 1.05, "fees": 1.02},
+            {"label": "Bulk bag route", "note": "Usually the most practical domestic middle ground.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Loose tonne route", "note": "Can work better on longer runs if access and storage are easy.", "material": 0.9, "labour": 0.96, "extras": 1.02, "fees": 1.08}
+        ],
+        "reality_items": [
+            "Inspection chambers, junctions, and fittings often widen the trench and use more bedding than the straight run suggests.",
+            "Pipe surround, backfill, and membrane overlap may need separate quantity checks rather than being bundled into one number.",
+            "Short trenches can be easier with bagged supply even when the theoretical unit price looks higher.",
+            "Delivery access and spoil storage can decide the buying route just as much as the cubic-metre total."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the trench run", "duration": "Half day"},
+            {"stage": "Check bedding and surround detail", "duration": "Half day"},
+            {"stage": "Compare delivery routes", "duration": "Half day to 1 day"}
+        ]
+    },
+    "hardcore-calculator": {
+        "length_label": "Base length",
+        "width_label": "Base width",
+        "depth_label": "Installed hardcore depth",
+        "density_label": "Hardcore density / tonnes per m3",
+        "unit_size_label": "Bulk bag size (tonnes)",
+        "price_label": "Price per bulk bag",
+        "unit_name_singular": "bulk bag",
+        "unit_name_plural": "bulk bags",
+        "result_intro": "You will see the hardcore volume, tonnage, bulk-bag buying total, and the main base-layer checks here.",
+        "defaults": {"length": "5", "width": "3", "depth": "0.1", "density": "1.7", "unit-size": "0.85", "waste": "10", "price-per-unit": "72"},
+        "calculator_note": "Starter defaults assume a small patio, path, or shed-base build with around 100mm of compacted hardcore. If your supplier prices by tonne, change the bulk bag size to 1.",
+        "driver_text": "Installed depth, compaction allowance, density, and whether the site suits bags or loose delivery are the main levers on hardcore estimates.",
+        "confidence_text": "Use the higher estimate when the formation is uneven, the depth varies across the build, or you still need to separate hardcore from the finished sub-base layer.",
+        "comparison_profiles": [
+            {"label": "Bagged route", "note": "Useful for tiny jobs, tight access, or staged groundwork.", "material": 1.16, "labour": 1.08, "extras": 1.04, "fees": 1.02},
+            {"label": "Bulk bag route", "note": "Usually the most practical middle-ground for domestic base work.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Loose tonne route", "note": "Often best value once the area and access justify it.", "material": 0.9, "labour": 0.95, "extras": 1.03, "fees": 1.08}
+        ],
+        "reality_items": [
+            "Compaction means the installed depth and the loose-delivered quantity are not always the same number.",
+            "Edging, excavation, spoil removal, and membrane layers often sit outside the first hardcore total.",
+            "Small areas can still suit bulk bags if loose delivery access is awkward or storage is limited.",
+            "If the base steps up or down across the site, averaging the depth can under-order quickly."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the base area", "duration": "Half day"},
+            {"stage": "Check depth and compaction", "duration": "Half day"},
+            {"stage": "Compare bag, bulk, or loose supply", "duration": "Half day to 1 day"}
+        ]
+    },
+    "sub-base-calculator": {
+        "length_label": "Sub-base length",
+        "width_label": "Sub-base width",
+        "depth_label": "Compacted sub-base depth",
+        "density_label": "Sub-base density / tonnes per m3",
+        "unit_size_label": "Bulk bag size (tonnes)",
+        "price_label": "Price per bulk bag",
+        "unit_name_singular": "bulk bag",
+        "unit_name_plural": "bulk bags",
+        "result_intro": "You will see the sub-base volume, tonnage, bulk-bag buying total, and the key groundwork checks here.",
+        "defaults": {"length": "6", "width": "3", "depth": "0.12", "density": "1.8", "unit-size": "0.85", "waste": "10", "price-per-unit": "74"},
+        "calculator_note": "Starter defaults assume a domestic patio or path build with around 100mm to 120mm of compacted sub-base. If your merchant prices by tonne, change the bulk bag size to 1.",
+        "driver_text": "Compacted depth, density, the size of the paved footprint, and whether the build needs bags, bulk bags, or loose tonnes are the main levers on sub-base estimates.",
+        "confidence_text": "Use the higher estimate when the formation needs levelling, the depth changes across the build, or you are still deciding between hardcore, MOT Type 1, and other base materials.",
+        "comparison_profiles": [
+            {"label": "Bulk bag route", "note": "Common domestic route when access is reasonable and the order is moderate.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Loose tonne route", "note": "Often better value once the area is larger and access is straightforward.", "material": 0.9, "labour": 0.96, "extras": 1.03, "fees": 1.08},
+            {"label": "Small-bag route", "note": "Usually only sensible for repairs, very small jobs, or tight sites.", "material": 1.2, "labour": 1.1, "extras": 1.04, "fees": 1.02}
+        ],
+        "reality_items": [
+            "Sub-base is usually only one layer in the build-up, so bedding sand, edge restraint, and membrane may still need separate checks.",
+            "The compacted design depth is not always the same as the delivered loose-fill depth on site.",
+            "Larger paved areas can make loose delivery cheaper, but only if the site can receive and spread it cleanly.",
+            "Weak spots or level corrections in the formation can push the real tonnage above the neat rectangle."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the paved footprint", "duration": "Half day"},
+            {"stage": "Check base depth and build-up", "duration": "Half day"},
+            {"stage": "Compare merchant supply routes", "duration": "Half day to 1 day"}
+        ]
+    },
+    "geotextile-membrane-calculator": {
+        "length_label": "Covered length",
+        "width_label": "Covered width",
+        "coverage_label": "Roll coverage after overlaps (m2)",
+        "price_label": "Price per roll",
+        "unit_name_singular": "roll",
+        "unit_name_plural": "rolls",
+        "result_intro": "You will see the membrane coverage total, rounded-up roll count, rough material cost, and the key overlap checks here.",
+        "defaults": {"length": "15", "width": "2", "coverage-per-unit": "45", "waste": "12", "price-per-unit": "58"},
+        "calculator_note": "Starter defaults assume a membrane roll used under a driveway, path, or trench build-up with overlap waste already reflected in the effective roll coverage.",
+        "driver_text": "Covered area, overlap allowance, awkward trench or edge geometry, and the true effective roll coverage are the main levers on membrane estimates.",
+        "confidence_text": "Use the higher estimate when the membrane needs generous overlaps, turn-ups, anchor trenches, or extra trimming around drainage details.",
+        "comparison_profiles": [
+            {"label": "Light separator fabric", "note": "Often chosen for lighter-duty separation and low-traffic aggregate layers.", "material": 0.88, "labour": 0.98, "extras": 0.95, "fees": 1},
+            {"label": "Standard non-woven", "note": "Common middle-ground route for drainage and driveway separation.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Heavy-duty route", "note": "Used when puncture resistance, stability, or heavier traffic matter more.", "material": 1.28, "labour": 1.03, "extras": 1.02, "fees": 1.01}
+        ],
+        "reality_items": [
+            "Roll coverage on the label is rarely the same as the effective coverage after overlaps and trimming.",
+            "Curves, stepped levels, and trench details can create more waste than a simple rectangle suggests.",
+            "Pins, tape, joints, and cover layers often sit outside the first membrane roll count.",
+            "If the membrane separates base layers, the hardcore or sub-base quantity may need checking alongside it."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the covered area", "duration": "Half day"},
+            {"stage": "Allow for overlaps and edges", "duration": "Half day"},
+            {"stage": "Compare roll sizes and grades", "duration": "Half day to 1 day"}
+        ]
+    },
+    "coving-calculator": {
+        "length_label": "Ceiling run / room perimeter",
+        "piece_length_label": "Coving length per piece",
+        "price_label": "Price per coving length",
+        "unit_name_singular": "coving length",
+        "unit_name_plural": "coving lengths",
+        "result_intro": "You will see the planned coving run, the rounded-up piece count, rough material cost, and practical next checks here.",
+        "defaults": {"length": "14", "piece-length": "2", "waste": "12", "price-per-unit": "11.50"},
+        "calculator_note": "Starter defaults assume a small square room using 2m coving lengths with extra waste for mitres, brittle cuts, and tidy corner matching.",
+        "driver_text": "Ceiling perimeter, number of corners, chimney breasts or bays, and whether the profile comes in 2m or 3m lengths usually move coving orders fastest.",
+        "confidence_text": "Use the higher estimate when the room has uneven corners, short return pieces, or a profile that can chip or snap during fitting.",
+        "comparison_profiles": [
+            {"label": "Lightweight foam", "note": "Lower material cost and easier cutting, often chosen for fast decorating refreshes.", "material": 0.84, "labour": 0.92, "extras": 0.9, "fees": 1},
+            {"label": "Primed polymer", "note": "Common middle-ground route for clean finish and easier handling.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Plaster profile", "note": "Higher-spec finish with more handling care and slower fitting.", "material": 1.45, "labour": 1.22, "extras": 1.1, "fees": 1.03}
+        ],
+        "reality_items": [
+            "Internal and external corner pieces, adhesive, filler, and caulk can sit outside the first length count.",
+            "Bays, chimney breasts, and uneven ceilings often create short return pieces that increase waste quickly.",
+            "Fragile plaster or ornate profiles can need more spare length than basic lightweight coving.",
+            "If the room is being redecorated, paint prep and touch-up time may matter almost as much as the coving itself."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure each ceiling run", "duration": "Half day"},
+            {"stage": "Check corners and profile choice", "duration": "Half day"},
+            {"stage": "Order lengths and fitting extras", "duration": "Half day to 1 day"}
+        ]
+    },
+    "skirting-board-calculator": {
+        "length_label": "Wall run / skirting perimeter",
+        "piece_length_label": "Board length",
+        "price_label": "Price per board",
+        "unit_name_singular": "board",
+        "unit_name_plural": "boards",
+        "result_intro": "You will see the planned skirting run, rounded-up board count, rough material cost, and the main room-trim checks here.",
+        "defaults": {"length": "15.2", "piece-length": "4.2", "waste": "10", "price-per-unit": "18"},
+        "calculator_note": "Starter defaults assume a typical bedroom or lounge perimeter after subtracting one doorway, with 4.2m MDF boards and a practical allowance for scribes, mitres, and defects.",
+        "driver_text": "Measured wall run, whether door openings are excluded, board length, corners, and profile choice are the main levers on skirting estimates.",
+        "confidence_text": "Use the higher estimate when the room has alcoves, damaged walls, awkward returns, or you want spare board for future repairs and colour matching.",
+        "comparison_profiles": [
+            {"label": "Primed MDF", "note": "Common domestic route with stable lengths and easier finishing.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Softwood pine", "note": "Can suit staining or painting but may need more sorting and prep.", "material": 1.08, "labour": 1.04, "extras": 1.02, "fees": 1},
+            {"label": "Premium finished", "note": "Higher upfront spend but can reduce decorating time on some jobs.", "material": 1.35, "labour": 0.94, "extras": 0.98, "fees": 1.02}
+        ],
+        "reality_items": [
+            "Doorway breaks, returns, external corners, and damaged wall sections often create more waste than the neat perimeter suggests.",
+            "Adhesive, pins, caulk, filler, and mitre blocks are easy to miss when people focus only on board count.",
+            "Long walls may need careful board placement so the most visible runs do not land on awkward joints.",
+            "If flooring is also changing, leave room for the finish level and whether trims or undercutting alter the skirting plan."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure each wall run", "duration": "Half day"},
+            {"stage": "Subtract openings and plan joints", "duration": "Half day"},
+            {"stage": "Order boards and fixing extras", "duration": "Half day to 1 day"}
+        ]
     },
     "deck-joist-calculator": {
         "length_label": "Total joist run",

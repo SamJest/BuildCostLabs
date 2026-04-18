@@ -1,4 +1,4 @@
-from data.calculator_scale import ADDITIONAL_CALCULATORS
+﻿from data.calculator_scale import ADDITIONAL_CALCULATORS
 from data.publisher import CALCULATOR_FAMILIES
 
 
@@ -105,13 +105,176 @@ GENERIC_INTENT_TEMPLATES = {
 }
 
 ITEM_INTENT_TEMPLATES = {
+    "hardcore-calculator": [
+        {
+            "slug": "hardcore-calculator-by-volume",
+            "title": "Hardcore Calculator by Volume",
+            "meta_title": "Hardcore Calculator by Volume for Base Layers | BuildCostLab",
+            "description": "Work out hardcore volume for patios, paths, shed bases, and general fill before you order bags, bulk bags, or loose tonnes.",
+            "headline": "Use base dimensions and depth to estimate hardcore before you order aggregate",
+            "intro": "Hardcore orders rise or fall on the real base depth and the way the supplier sells the material. Use this page to pressure-test volume, compaction, and buying format before you commit.",
+        },
+        {
+            "slug": "hardcore-how-much-do-i-need",
+            "title": "Hardcore Quantity Guide",
+            "meta_title": "How Much Hardcore Do I Need? | BuildCostLab",
+            "description": "Work out how much hardcore you need, then sense-check tonnes, compaction, and bag versus loose delivery.",
+            "headline": "How much hardcore should you order for a base layer?",
+            "intro": "A better hardcore order starts with the real area and compacted depth, then checks how that volume turns into tonnes, bulk bags, or loose delivery on site.",
+        },
+    ],
+    "sub-base-calculator": [
+        {
+            "slug": "sub-base-calculator-by-volume",
+            "title": "Sub-Base Calculator by Volume",
+            "meta_title": "Sub-Base Calculator by Volume for Patios and Drives | BuildCostLab",
+            "description": "Work out sub-base volume for patios, paths, and driveways before you order tonnes, bulk bags, or loose aggregate.",
+            "headline": "Use footprint and depth to estimate sub-base before you order",
+            "intro": "Sub-base buying gets expensive when the compacted depth, footprint, or supply route is wrong. Use this page to turn the planned build-up into a safer delivered quantity.",
+        },
+        {
+            "slug": "sub-base-how-much-do-i-need",
+            "title": "Sub-Base Quantity Guide",
+            "meta_title": "How Much Sub-Base Do I Need? | BuildCostLab",
+            "description": "Work out how much sub-base you need, then sense-check tonnes, compaction, and merchant delivery options.",
+            "headline": "How much sub-base should you order for a patio, path, or drive?",
+            "intro": "A better sub-base order starts with the real paved footprint and compacted depth, then checks whether bulk bags or loose tonnes make more sense for the site.",
+        },
+    ],
+    "geotextile-membrane-calculator": [
+        {
+            "slug": "geotextile-membrane-calculator-by-area",
+            "title": "Geotextile Membrane Calculator by Area",
+            "meta_title": "Geotextile Membrane Calculator by Area | BuildCostLab",
+            "description": "Work out geotextile membrane rolls from covered area, effective roll coverage, and practical overlap waste.",
+            "headline": "Use covered area and overlap allowance to estimate geotextile membrane",
+            "intro": "Membrane orders usually fail on overlap waste, awkward edges, and optimistic roll coverage. Use this page to turn the measured area into a safer roll count before you buy.",
+        },
+        {
+            "slug": "geotextile-membrane-how-much-do-i-need",
+            "title": "Geotextile Membrane Buying Guide",
+            "meta_title": "How Much Geotextile Membrane Do I Need? | BuildCostLab",
+            "description": "Work out how much geotextile membrane you need, then sense-check overlaps, roll coverage, and groundwork use cases.",
+            "headline": "How much geotextile membrane should you order?",
+            "intro": "A better membrane order starts with the real covered area, then checks overlap allowances, roll size, and whether the job is separating base layers, lining a trench, or supporting drainage build-up.",
+        },
+    ],
+    "laminate-flooring-calculator": [
+        {
+            "slug": "laminate-flooring-calculator-by-area",
+            "title": "Laminate Flooring Calculator by Area",
+            "meta_title": "Laminate Flooring Calculator by Area for Packs and Waste | BuildCostLab",
+            "description": "Work out laminate flooring packs from room area, pack coverage, waste allowance, and spare-pack thinking.",
+            "headline": "Use room area and pack coverage to estimate laminate flooring with less guesswork",
+            "intro": "Laminate orders usually fail on cuts, room shape, and spare-pack decisions rather than the neat area alone. Use this page to turn the measured room into a safer buying total.",
+        },
+        {
+            "slug": "laminate-flooring-how-much-do-i-need",
+            "title": "Laminate Flooring Buying Guide",
+            "meta_title": "How Much Laminate Flooring Do I Need? | BuildCostLab",
+            "description": "Work out how much laminate flooring you need, then sense-check waste, spare packs, and room-fit buying decisions.",
+            "headline": "How much laminate flooring should you order for a room?",
+            "intro": "A better laminate order starts with the real room shape, then checks pack coverage, waste, spare stock, and the extra materials that often sit outside the first pack count.",
+        },
+    ],
+    "coving-calculator": [
+        {
+            "slug": "coving-length-calculator",
+            "title": "Coving Length Calculator",
+            "meta_title": "Coving Length Calculator for Ceiling Perimeter | BuildCostLab",
+            "description": "Work out coving lengths from ceiling perimeter, stock size, and realistic corner waste before you order.",
+            "headline": "Use ceiling perimeter to estimate coving lengths with less corner waste",
+            "intro": "Coving orders usually fail on corners and short return pieces, not on the clean perimeter alone. Use this page to turn the measured ceiling run into a safer buying total.",
+        },
+        {
+            "slug": "coving-how-much-do-i-need",
+            "title": "Coving Quantity Guide",
+            "meta_title": "How Much Coving Do I Need? | BuildCostLab",
+            "description": "Work out how much coving you need for a room, then sense-check piece lengths, mitres, and spare allowance.",
+            "headline": "How much coving should you order for a room?",
+            "intro": "A better coving order starts with the real ceiling runs, then checks corners, mitres, profile choice, and whether 2m or 3m lengths reduce waste best.",
+        },
+    ],
+    "skirting-board-calculator": [
+        {
+            "slug": "skirting-board-length-calculator",
+            "title": "Skirting Board Length Calculator",
+            "meta_title": "Skirting Board Length Calculator for Room Perimeter | BuildCostLab",
+            "description": "Work out skirting board lengths from room perimeter, board size, and realistic cut waste before you order.",
+            "headline": "Use room perimeter to estimate skirting board lengths with less waste",
+            "intro": "Skirting is bought in full board lengths, so the clean room perimeter is only the start. Use this page to pressure-test openings, joints, corners, and board size before you buy.",
+        },
+        {
+            "slug": "skirting-board-how-much-do-i-need",
+            "title": "Skirting Board Quantity Guide",
+            "meta_title": "How Much Skirting Board Do I Need? | BuildCostLab",
+            "description": "Work out how much skirting board you need, then sense-check board lengths, doorway deductions, and spare allowance.",
+            "headline": "How much skirting board should you order for a room?",
+            "intro": "A better skirting order starts with the real wall runs, then checks door openings, alcoves, corners, and how the chosen board length breaks across the room.",
+        },
+    ],
+    "pipe-bedding-calculator": [
+        {
+            "slug": "pipe-bedding-calculator-by-volume",
+            "title": "Pipe Bedding Calculator by Volume",
+            "meta_title": "Pipe Bedding Calculator by Volume for Drainage Trenches | BuildCostLab",
+            "description": "Estimate pipe bedding volume for drainage trenches, including practical depth, tonnes, and bulk-bag thinking.",
+            "headline": "Use trench volume to estimate pipe bedding before you order sand or gravel",
+            "intro": "Pipe bedding is usually ordered from the bedding zone around the pipe, not from a vague trench guess. Use this page to sense-check trench length, bedding width, depth, and buying format before you commit.",
+        },
+        {
+            "slug": "pipe-bedding-how-much-do-i-need",
+            "title": "Pipe Bedding Quantity Guide",
+            "meta_title": "How Much Pipe Bedding Do I Need? | BuildCostLab",
+            "description": "Work out how much pipe bedding you need for a drainage trench, then sense-check tonnes, bulk bags, and surround assumptions.",
+            "headline": "Pipe bedding: how much should you order for a drainage trench?",
+            "intro": "A better pipe bedding estimate starts with the real trench geometry around the pipe, then checks whether you are pricing the bedding layer only or the wider gravel surround as well.",
+        },
+    ],
+    "drainage-pipe-calculator": [
+        {
+            "slug": "drainage-pipe-length-calculator",
+            "title": "Drainage Pipe Length Calculator",
+            "meta_title": "Drainage Pipe Length Calculator for Stock Pieces | BuildCostLab",
+            "description": "Work out drainage pipe lengths from trench run, stock size, and a realistic allowance for bends, cuts, and spare pipe.",
+            "headline": "Use trench run length to estimate drainage pipe stock lengths with less waste",
+            "intro": "Drainage pipe orders usually fail on fittings, chambers, and offcuts rather than the neat straight run. Use this page to turn the measured run into a safer stock-length total before you order.",
+        },
+        {
+            "slug": "drainage-pipe-how-much-do-i-need",
+            "title": "Drainage Pipe Buying Guide",
+            "meta_title": "How Much Drainage Pipe Do I Need? | BuildCostLab",
+            "description": "Work out how much drainage pipe you need, then sense-check stock lengths, fittings, chambers, and spare allowance.",
+            "headline": "How much drainage pipe should you order for a trench run?",
+            "intro": "A better drainage pipe order starts with the full run and fall, then checks stock lengths, bends, branches, chambers, and whether one spare pipe length is worth carrying.",
+        },
+    ],
+    "french-drain-gravel-calculator": [
+        {
+            "slug": "french-drain-gravel-calculator-by-volume",
+            "title": "French Drain Gravel Calculator by Volume",
+            "meta_title": "French Drain Gravel Calculator by Volume | BuildCostLab",
+            "description": "Work out french drain gravel volume from trench length, width, depth, and realistic trench overage before you order.",
+            "headline": "Use trench dimensions to estimate french drain gravel before you order",
+            "intro": "French drain gravel orders usually fail on widened trench sections, outlet details, and the real gravel envelope around the pipe. Use this page to pressure-test the trench volume before you commit.",
+        },
+        {
+            "slug": "french-drain-gravel-how-much-do-i-need",
+            "title": "French Drain Gravel Quantity Guide",
+            "meta_title": "How Much French Drain Gravel Do I Need? | BuildCostLab",
+            "description": "Work out how much french drain gravel you need, then sense-check trench width, gravel depth, delivery route, and spare allowance.",
+            "headline": "How much french drain gravel should you order for the trench?",
+            "intro": "A better french drain gravel order starts with the real trench build-up, then checks washed gravel depth, widened sections, outlet details, and whether bags or loose tonnes suit the site best.",
+        },
+    ],
     "mot-type-1-calculator": [
         {
             "slug": "mot-type-1-calculator-for-driveway",
             "title": "MOT Type 1 Calculator for Driveway",
-            "description": "Estimate MOT Type 1 for driveway sub-base depth, tonnage, and practical delivery quantities.",
-            "headline": "Estimate MOT Type 1 for a driveway before you book aggregate",
-            "intro": "Driveway builds usually rise or fall on the base. This page focuses on converting driveway dimensions into a more realistic Type 1 order.",
+            "meta_title": "MOT Type 1 Calculator for Driveway and Sub-Base | BuildCostLab",
+            "description": "Estimate MOT Type 1 for driveway and patio sub-base depth, tonnage, bulk bags, and practical delivery quantities.",
+            "headline": "Estimate MOT Type 1 for a driveway or patio base before you book aggregate",
+            "intro": "Driveway and patio builds usually rise or fall on the base. This page focuses on converting the footprint and compacted build-up into a more realistic Type 1 order.",
         },
     ],
     "sharp-sand-calculator": [
@@ -266,6 +429,93 @@ ITEM_INTENT_TEMPLATES = {
 }
 
 ITEM_SUPPORT_OVERRIDES = {
+    "laminate-flooring-calculator": {
+        "assumptions": "Laminate estimates work best when the room footprint, pack coverage, fitting pattern, and any same-batch spare policy are clear before you buy.",
+        "mistakes": "The common misses are trusting the neat area, underestimating cuts around doorways or awkward walls, and forgetting spare packs or linked underlay quantities.",
+        "use_case": "Best for bedrooms, lounges, hall links, and refresh projects where the buyer needs a practical laminate pack total before ordering.",
+        "estimate_tip": "Check the room shape and board direction early, because visible cut-heavy edges and hall links usually move laminate waste faster than people expect.",
+    },
+    "hardcore-calculator": {
+        "assumptions": "Hardcore estimates work best when the base footprint, compacted depth, and the likely loose-delivered buying route are all clear before ordering.",
+        "mistakes": "The common misses are using an average depth on an uneven formation, forgetting compaction, and assuming a bulk bag or tonne quote matches the installed layer without checking density.",
+        "use_case": "Best for patio bases, shed bases, paths, and general fill where the buyer needs a practical hardcore order before comparing bags, bulk bags, and loose tonnes.",
+        "estimate_tip": "Pressure-test the compacted design depth first, because a small change in depth usually moves the hardcore order more than people expect.",
+        "buyer_tip": "Bagged supply can suit repairs and tight access, but larger bases often work out better once you compare loose delivery, unloading effort, and spoil handling.",
+        "market_note": "Hardcore can cover crushed concrete, recycled aggregate, and other fill routes, but the estimating logic still comes down to footprint, depth, density, compaction, and supply format.",
+        "final_check": "Before placing an order, confirm the base dimensions, compacted depth, density assumption, delivery route, and whether membrane or top layers still need separate quantity checks.",
+    },
+    "sub-base-calculator": {
+        "assumptions": "Sub-base estimates work best when the footprint, compacted layer depth, and the intended base specification are clear before the order is placed.",
+        "mistakes": "The common misses are underestimating the depth needed for the build, ignoring soft spots or level corrections, and confusing loose-delivered tonnage with the compacted finished layer.",
+        "use_case": "Best for patios, paths, and driveways where the buyer needs a practical sub-base quantity before comparing MOT Type 1, hardcore, and merchant delivery routes.",
+        "estimate_tip": "Check the compacted target depth against the actual build-up first, because level corrections and weak formation can use more sub-base than the neat footprint suggests.",
+        "buyer_tip": "Bulk bags work well for many domestic jobs, but once the area is larger, loose tonnes can be better value if the site can receive and spread them efficiently.",
+        "market_note": "Sub-base may be supplied as Type 1, crushed stone, or another graded route, but the estimate still depends mainly on footprint, compacted depth, density, and supply format.",
+        "final_check": "Before placing an order, confirm the footprint, compacted depth, chosen material grade, access for delivery, and whether membrane, edging, and bedding layers are being checked separately.",
+    },
+    "geotextile-membrane-calculator": {
+        "assumptions": "Geotextile membrane estimates work best when the covered area, effective roll coverage after overlaps, and the membrane role in the build-up are all clear before buying.",
+        "mistakes": "The common misses are ignoring overlap waste, using the nominal roll coverage instead of the effective installed coverage, and forgetting turn-ups, trench edges, or awkward cuts.",
+        "use_case": "Best for driveways, french drains, groundwork separation layers, and trench jobs where the buyer needs a safer membrane roll count before ordering.",
+        "estimate_tip": "Start with the real covered area, then reduce the roll coverage to account for overlaps and trimming instead of trusting the label coverage at face value.",
+        "buyer_tip": "A heavier membrane can change both the roll cost and the effective coverage, so compare grade, overlap requirement, and puncture resistance before deciding on the cheapest roll.",
+        "market_note": "Membrane terminology varies between separator, weed-control, non-woven, and geotextile products, but the estimate still turns on effective coverage, overlap waste, and the job type.",
+        "final_check": "Before placing an order, confirm effective roll coverage, overlap allowance, membrane grade, edge details, and whether the aggregate or drainage layers above and below still need their own checks.",
+    },
+    "coving-calculator": {
+        "assumptions": "Coving estimates work best when the ceiling run is measured wall by wall, the profile style is known, and the waste allowance reflects mitres, corners, and fragile cuts.",
+        "mistakes": "The common misses are forgetting chimney breasts, bay returns, uneven corners, and the extra waste created when short coving lengths force more joins.",
+        "use_case": "Best for room refreshes and decorating jobs where you need a practical coving order before comparing profile types, adhesives, and finishing extras.",
+        "estimate_tip": "Measure each ceiling run separately, count the corners, and compare whether longer lengths reduce joins enough to justify the higher piece price.",
+        "buyer_tip": "Lightweight coving can cut faster and waste less on simple rooms, while plaster or ornate profiles usually need more spare and more fitting care.",
+        "market_note": "Merchants describe coving by profile, drop, projection, and material, but the estimate still comes down to ceiling run, length format, corner count, and breakage risk.",
+        "final_check": "Before placing an order, confirm profile size, piece length, number of corners, adhesive and filler needs, and whether a spare length is worth carrying for breakage or future repairs.",
+    },
+    "skirting-board-calculator": {
+        "assumptions": "Skirting estimates work best when the wall run is measured room by room, door openings are handled consistently, and the chosen board length matches the real buying format.",
+        "mistakes": "The common misses are forgetting doorway deductions or returns, underestimating waste at scribes and mitres, and assuming every wall can be joined without affecting the visible finish.",
+        "use_case": "Best for room-by-room trim planning where you need a practical board order before choosing MDF, pine, primed, or prefinished skirting.",
+        "estimate_tip": "Measure each wall separately, subtract only the openings that definitely need no skirting, then place the longest boards on the most visible walls before you finalise the order.",
+        "buyer_tip": "A slightly longer board can reduce visible joins, but it can also be harder to transport and fit in tight stairwells or smaller rooms.",
+        "market_note": "Board height, profile, finish, and stock length change by supplier, but the estimate still depends mainly on the real wall run, opening deductions, joints, and waste.",
+        "final_check": "Before placing an order, confirm board length, doorway deductions, corner count, adhesive or pin-fixing method, and whether you want one spare board for damage, late changes, or future repairs.",
+    },
+    "pipe-bedding-calculator": {
+        "assumptions": "Pipe bedding estimates work best when the drain run, bedding width, bedding depth, pipe size, and whether you are estimating the bed only or the bed plus surround are all clear.",
+        "mistakes": "The common misses are using the full trench width instead of the actual bedding zone, forgetting the gravel surround around fittings or chambers, and mixing installed depth with the loose-delivered quantity.",
+        "use_case": "Best for drainage trenches where you need a practical order for bedding sand or pea gravel before comparing pipe, membrane, gravel surround, and base-material quantities.",
+        "estimate_tip": "Measure the pipe run first, then decide whether the quantity should cover the bedding under the pipe only or the wider trench envelope around the run.",
+        "buyer_tip": "Small trenches may suit bags or mini bulk bags, but longer runs usually make more sense when you compare tonnes, loose delivery, and the handling effort on site.",
+        "market_note": "Pipe bedding is described differently by merchants, but the estimating logic still comes down to run length, bedding width, bedding depth, density, and buying format.",
+        "final_check": "Before placing an order, confirm the pipe size, trench width, bedding depth, surround detail, delivery access, and whether the quote covers bedding only or the full drainage aggregate build-up.",
+    },
+    "drainage-pipe-calculator": {
+        "assumptions": "Drainage pipe estimates work best when the full run, stock length, fitting count, chamber positions, and the likely spare allowance are all broadly clear before buying.",
+        "mistakes": "The common misses are measuring only the straight run, forgetting bends or chambers, and assuming short offcuts will always be reusable later in the trench.",
+        "use_case": "Best for foul and surface-water runs where the buyer needs a practical pipe-length order before pricing bends, connectors, bedding, and trench materials around it.",
+        "estimate_tip": "Measure the full run first, then pressure-test stock lengths against bends, chamber entries, branch connections, and whether one spare pipe length is worth carrying.",
+        "buyer_tip": "A slightly higher pipe-length order can be cheaper than stalling the install because one damaged or badly cut piece leaves the trench unfinished.",
+        "market_note": "Drainage pipe is sold in several diameters, materials, and coupling systems, but the estimate still depends mainly on full run length, stock size, fittings, and spare policy.",
+        "final_check": "Before placing an order, confirm pipe diameter, stock length, fitting and chamber count, trench route, and whether bedding, surround, and membrane are being checked separately.",
+    },
+    "french-drain-gravel-calculator": {
+        "assumptions": "French drain gravel estimates work best when the trench run, gravel depth, trench width, outlet detail, and the chosen washed aggregate route are all clear before ordering.",
+        "mistakes": "The common misses are using the neat trench width only, forgetting outlets or widened sections, and mixing the gravel envelope with separate bedding or topsoil reinstatement allowances.",
+        "use_case": "Best for french drains, interceptor trenches, and perimeter drains where the buyer needs a practical washed-gravel order before comparing membrane, pipe, and outlet details.",
+        "estimate_tip": "Measure the full trench envelope first, then decide whether the quantity should cover the gravel surround only or the wider aggregate build-up around outlets and inspection points.",
+        "buyer_tip": "Short runs may suit bulk bags, but longer trenches can look very different once loose-tonne delivery, unloading effort, and storage space are compared properly.",
+        "market_note": "French drain gravel may be described as washed stone, pea gravel, or drainage aggregate, but the estimate still comes down to trench geometry, gravel depth, density, and buying route.",
+        "final_check": "Before placing an order, confirm trench width, gravel depth, outlet details, delivery access, and whether membrane wrap, bedding, or reinstatement materials still need their own checks.",
+    },
+    "mot-type-1-calculator": {
+        "assumptions": "MOT Type 1 estimates work best when the footprint, compacted depth, edge detail, and the intended sub-base build-up are clear before the order is placed.",
+        "mistakes": "The common misses are underestimating compacted depth, forgetting edge thickening or levelling corrections, and assuming the loose-delivered quantity matches the installed layer without checking compaction.",
+        "use_case": "Best for driveways, patios, and path bases where the buyer needs a practical Type 1 order before comparing bulk bags, loose tonnes, and the layers around the sub-base.",
+        "estimate_tip": "Check the compacted target depth against the actual build-up first, because edge thickening, turning areas, and weak formation can use more Type 1 than the neat footprint suggests.",
+        "buyer_tip": "Bulk bags can suit smaller domestic jobs, but larger drives and wider bases often work out better once loose-tonne delivery and spreading access are priced properly.",
+        "market_note": "Suppliers may sell Type 1 under different stone and recycled routes, but the estimate still depends mainly on footprint, compacted depth, density, and delivery format.",
+        "final_check": "Before placing an order, confirm the footprint, compacted depth, material grade, access for delivery, and whether membrane, edging, bedding, or drainage layers are being priced separately.",
+    },
     "brick-calculator": {
         "final_check": "Before placing an order, compare the brick size, openings, pack or pallet breaks, delivery damage risk, and whether a small spare is safer than a short final count.",
     },
@@ -301,6 +551,149 @@ ITEM_SUPPORT_OVERRIDES = {
     },
 }
 
+ITEM_FAQ_OVERRIDES = {
+    "laminate-flooring-calculator": [
+        {
+            "q": "How do I use the Laminate Flooring Calculator?",
+            "a": "Measure the room, enter the pack coverage, add a realistic waste allowance, and compare the rounded pack total before you order laminate.",
+        },
+        {
+            "q": "What changes the Laminate Flooring Calculator estimate most?",
+            "a": "Room shape, board direction, cut-heavy edges, spare-pack policy, and the true pack coverage after trimming usually move the final laminate order most.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Most laminate jobs benefit from a safer whole-pack total, especially where you want same-batch spare boards for later repairs.",
+        },
+    ],
+    "hardcore-calculator": [
+        {
+            "q": "How do I use the Hardcore Calculator?",
+            "a": "Enter the base dimensions, the installed hardcore depth, and a realistic waste allowance, then compare the result as cubic metres, tonnes, and buying units before you order.",
+        },
+        {
+            "q": "What changes the Hardcore Calculator estimate most?",
+            "a": "The biggest drivers are compacted depth, density, and whether the supplier is pricing by bag, bulk bag, or loose tonne rather than by a neat installed layer.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Uneven formation, compaction, and delivery minimums often justify a modest overage rather than landing exactly on the theoretical volume.",
+        },
+    ],
+    "sub-base-calculator": [
+        {
+            "q": "How do I use the Sub-Base Calculator?",
+            "a": "Enter the footprint, compacted sub-base depth, and a realistic waste allowance, then compare the result as cubic metres, tonnes, and buying units before you order.",
+        },
+        {
+            "q": "What changes the Sub-Base Calculator estimate most?",
+            "a": "The biggest drivers are compacted depth, density, weak spots or level corrections in the formation, and whether the supplier is pricing by bulk bag or loose tonne.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Small level corrections, compaction, and merchant minimums often justify a modest overage rather than landing exactly on the paper total.",
+        },
+    ],
+    "geotextile-membrane-calculator": [
+        {
+            "q": "How do I use the Geotextile Membrane Calculator?",
+            "a": "Enter the covered area dimensions, use an effective roll coverage that already reflects overlaps, and compare the rounded roll count before you order.",
+        },
+        {
+            "q": "What changes the Geotextile Membrane Calculator estimate most?",
+            "a": "The biggest drivers are overlap allowance, the true effective roll coverage, awkward edges or trench details, and the membrane grade chosen for the job.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Overlaps, turn-ups, and trimming can use more membrane than the neat rectangle suggests, so a spare roll is often safer than a shortfall on site.",
+        },
+    ],
+    "coving-calculator": [
+        {
+            "q": "How do I use the Coving Calculator?",
+            "a": "Enter the ceiling run or room perimeter, the coving length you plan to buy, and a realistic waste allowance, then compare the rounded piece count before you order.",
+        },
+        {
+            "q": "What changes the Coving Calculator estimate most?",
+            "a": "The biggest drivers are the number of corners, whether the room has bays or chimney breasts, the piece length you can buy, and how much spare you want for brittle cuts or breakage.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Coving cuts, mitres, and damaged ends can use more material than the clean ceiling perimeter suggests, so a modest spare is often safer than landing exactly on the paper total.",
+        },
+    ],
+    "skirting-board-calculator": [
+        {
+            "q": "How do I use the Skirting Board Calculator?",
+            "a": "Enter the wall run that actually needs skirting, the board length you plan to buy, and a realistic waste allowance, then compare the rounded board count before you order.",
+        },
+        {
+            "q": "What changes the Skirting Board Calculator estimate most?",
+            "a": "The biggest drivers are doorway deductions, alcoves or chimney breasts, board length, and the extra waste created by corners, scribes, mitres, and visible-joint planning.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. A spare board is often cheaper than running short on a visible wall, making a second trip, or trying to match the profile and finish later.",
+        },
+    ],
+    "pipe-bedding-calculator": [
+        {
+            "q": "How do I use the Pipe Bedding Calculator?",
+            "a": "Enter the drain run, the bedding width, the bedding depth, and a realistic waste allowance, then compare the result as cubic metres, tonnes, and buying units before you order.",
+        },
+        {
+            "q": "What changes the Pipe Bedding Calculator estimate most?",
+            "a": "The biggest drivers are the bedding width around the pipe, the assumed depth below and around the run, and whether the supplier prices the material by bag, bulk bag, tonne, or loose load.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Chambers, fittings, overbreak, and awkward trench sections can use more material than the clean trench rectangle suggests, so a modest overage is safer than running short.",
+        },
+    ],
+    "drainage-pipe-calculator": [
+        {
+            "q": "How do I use the Drainage Pipe Calculator?",
+            "a": "Enter the full drain run, the stock length you plan to buy, and a realistic waste allowance, then compare the rounded piece count before you order pipe.",
+        },
+        {
+            "q": "What changes the Drainage Pipe Calculator estimate most?",
+            "a": "The biggest drivers are the full trench run, stock length, bends, chambers, and the extra waste created when cuts and offcuts do not divide neatly into the route.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. One spare pipe length is often cheaper than a damaged piece, a missed final connection, or a second merchant run part way through the install.",
+        },
+    ],
+    "french-drain-gravel-calculator": [
+        {
+            "q": "How do I use the French Drain Gravel Calculator?",
+            "a": "Enter the trench length, width, gravel depth, and a realistic waste allowance, then compare the result as cubic metres, tonnes, and buying units before you order.",
+        },
+        {
+            "q": "What changes the French Drain Gravel Calculator estimate most?",
+            "a": "The biggest drivers are trench width, gravel depth, widened sections around outlets or corners, and whether the supplier prices by bag, bulk bag, or loose tonne.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Overbreak, widened trench sections, and delivery minimums often justify a modest overage rather than landing exactly on the theoretical trench volume.",
+        },
+    ],
+    "mot-type-1-calculator": [
+        {
+            "q": "How do I use the MOT Type 1 Calculator?",
+            "a": "Enter the footprint, compacted Type 1 depth, and a realistic waste allowance, then compare the result as cubic metres, tonnes, and buying units before you order.",
+        },
+        {
+            "q": "What changes the MOT Type 1 Calculator estimate most?",
+            "a": "The biggest drivers are compacted depth, density, edge thickening, level corrections, and whether the supplier prices by bulk bag or loose tonne.",
+        },
+        {
+            "q": "Should I round the result up?",
+            "a": "Usually yes. Compaction, weak spots, and merchant minimums often justify a modest overage rather than landing exactly on the paper total.",
+        },
+    ],
+}
+
 CLUSTER_OVERRIDES = {
     "project-cost-estimating": {
         "cluster_intro": "Estimate whole-job planning costs with materials, labour, extras, contingency, and regional weighting kept visible from the start.",
@@ -314,7 +707,7 @@ CLUSTER_OVERRIDES = {
         },
         "guides_by_formula": {
             "project_cost": [
-                {"slug_suffix": "per-m2-guide", "title": "{name} per m² Guide", "description": "Use a rough per-m² view to sense-check the {name} estimate before comparing quotes.", "headline": "Use the rate to stress-test the total", "intro": "A square-metre rate is only useful when the job scope and finish level are clear enough to compare like with like."},
+                {"slug_suffix": "per-m2-guide", "title": "{name} per m2 Guide", "description": "Use a rough per-m2 view to sense-check the {name} estimate before comparing quotes.", "headline": "Use the rate to stress-test the total", "intro": "A square-metre rate is only useful when the job scope and finish level are clear enough to compare like with like."},
                 {"slug_suffix": "budget-planning-guide", "title": "{name} Budget Planning Guide", "description": "Turn the {name} estimate into a more usable early budget.", "headline": "Separate the working budget into clearer layers", "intro": "Keep materials, labour, extras, and contingency visible so the number stays useful when you start comparing routes."},
                 {"slug_suffix": "labour-vs-materials-guide", "title": "{name} Labour vs Materials Guide", "description": "See whether labour or materials are more likely to move the {name} total.", "headline": "Find the part of the budget doing the real work", "intro": "A cleaner project budget starts when labour pressure stops hiding inside one vague total."},
                 {"slug_suffix": "cost-drivers-guide", "title": "{name} Cost Drivers Guide", "description": "See what usually moves the {name} estimate most.", "headline": "Focus on the assumptions that move first", "intro": "The fastest route to a better estimate is isolating the unstable assumptions before asking for quotes."},
@@ -448,31 +841,79 @@ CLUSTER_HUB_CONTENT = {
         ],
     },
     "aggregate-and-base-estimating": {
+        "meta_title": "Aggregate and Base Estimating Hub for Hardcore, Sub-Base, MOT Type 1, and Pipe Bedding | BuildCostLab",
+        "meta_description": "Plan hardcore, sub-base, MOT Type 1, and pipe bedding quantities with linked drainage checks and quote-prep guidance.",
         "start_here_title": "Choose the aggregate or base material first",
-        "start_here_intro": "This project hub works best once you know whether the job needs bedding sand, compacted sub-base, MOT Type 1, ballast, or another bulk material. The calculators here help turn trench, patio, path, and driveway dimensions into a real delivered quantity.",
-        "featured_slugs": ["mot-type-1-calculator", "sub-base-calculator", "sharp-sand-calculator", "ballast-calculator"],
+        "start_here_intro": "This project hub works best once you know whether the job needs pipe bedding, compacted sub-base, MOT Type 1, hardcore, or another bulk material. The calculators here help turn trench, patio, path, and driveway dimensions into a real delivered quantity, then link into the nearest drainage pages when the base build-up overlaps a trench run.",
+        "featured_slugs": ["hardcore-calculator", "sub-base-calculator", "mot-type-1-calculator", "pipe-bedding-calculator"],
+        "workflow_title": "Best route through an aggregate or base-material brief",
+        "workflow_intro": "Use the hub like a build-up check so the final request covers the right base depth, buying route, and any linked drainage materials.",
+        "workflow_cards": [
+            ("1. Pick the layer you are actually buying", "Start with hardcore, sub-base, MOT Type 1, or pipe bedding based on the real layer in the build-up rather than using one aggregate page as a rough proxy for all of them."),
+            ("2. Check how the material will be supplied", "Sense-check compacted depth, density, tonne conversion, and whether the merchant quote should price bags, bulk bags, or loose delivery."),
+            ("3. Send one joined-up base brief", "When the base overlaps a trench or drainage run, package the linked quantities together so the supplier is pricing the whole build-up instead of one isolated tonnage line."),
+        ],
+        "cross_cluster_title": "Related trench and drainage calculators",
+        "cross_cluster_intro": "Use these linked tools when the aggregate order also depends on drainage pipe lengths, pipe bedding, trench gravel, or membrane coverage around the run.",
+        "cross_cluster_slugs": ["pipe-bedding-calculator", "drainage-pipe-calculator", "french-drain-gravel-calculator", "geotextile-membrane-calculator"],
         "question_heading": "Quick quantity pages",
-        "question_intro": "Start here if you mainly want to know how much bulk material to order from the dimensions of the job.",
+        "question_intro": "Start here if you mainly want to know how much bulk material to order from the dimensions of the job and the compacted build-up you are trying to achieve.",
         "guide_heading": "Guides for delivery and depth decisions",
-        "guide_intro": "These pages help with the parts of aggregate ordering that usually cause mistakes: depth, compaction, and whether bags or bulk delivery make more sense.",
+        "guide_intro": "These pages help with the parts of aggregate ordering that usually cause mistakes: compacted depth, delivery format, and whether the base layer is really separate from nearby drainage materials.",
+        "quote_support_title": "Best pages to attach before you request aggregate prices",
+        "quote_support_intro": "Use these pages together when the merchant or groundworker needs the base layer, supporting trench material, and the nearest delivery-format checks in one place.",
+        "quote_support_calculator_slugs": ["hardcore-calculator", "sub-base-calculator", "mot-type-1-calculator", "pipe-bedding-calculator"],
+        "quote_support_guide_slugs": ["hardcore-how-much-do-i-need", "sub-base-how-much-do-i-need", "mot-type-1-calculator-for-driveway"],
+        "quote_primary_slug": "hardcore-calculator",
+        "quote_panel_title": "Turn the base estimate into a cleaner merchant or groundworker brief",
+        "quote_panel_intro": "Send one request that covers the real base layer, the target depth, and the delivery route you want priced, especially if the job also touches trench or drainage materials.",
+        "quote_panel_items": [
+            "State the footprint, target compacted depth, and whether the quoted quantity should reflect loose delivery or finished build-up depth.",
+            "Separate hardcore, Type 1, sub-base, bedding, membrane, and any drainage crossover so nothing is missed or priced twice.",
+            "Flag access limits, storage space, and whether you want bags, bulk bags, mini loads, or loose tonnes compared in the same reply.",
+        ],
         "notes": [
-            ("What changes these estimates most", "Installed depth, compaction, density, and the difference between finished depth and loose-delivered depth can move the order significantly."),
-            ("Why buying format matters", "A small domestic job may be easier with bags or mini bulk bags, while a larger driveway or patio base can look very different once loose delivery is priced."),
-            ("Before you order", "Check whether the supplier sells by tonne, cubic metre, or bag size, and confirm if the quoted quantity is loose, compacted, or effective coverage."),
+            ("What changes these estimates most", "Installed depth, compaction, density, edge thickening, and the difference between finished depth and loose-delivered depth can move the order significantly."),
+            ("Why buying format matters", "A small domestic job may be easier with bags or mini bulk bags, while a larger driveway, patio base, or trench crossover can look very different once loose delivery is priced."),
+            ("Before you order", "Check whether the supplier sells by tonne, cubic metre, or bag size, confirm if the quoted quantity is loose or compacted, and make sure linked trench materials are not being priced twice or missed completely."),
         ],
     },
     "drainage-estimating": {
-        "start_here_title": "Plan the trench and the material together",
-        "start_here_intro": "Drainage work usually needs more than one material at once. You may need pipe length, trench gravel, bedding material, and membrane coverage, so this hub is designed to help you move through those linked decisions without missing a part of the order.",
-        "featured_slugs": ["drainage-pipe-calculator", "french-drain-gravel-calculator", "pipe-bedding-calculator", "geotextile-membrane-calculator"],
+        "meta_title": "Drainage Estimating Hub for Pipe Bedding, Drainage Pipe, Gravel, and Membrane | BuildCostLab",
+        "meta_description": "Plan drainage trench materials in one place, including pipe bedding, drainage pipe, gravel surround, membrane, and linked base layers.",
+        "start_here_title": "Plan the trench build-up in the order you buy it",
+        "start_here_intro": "Drainage work usually needs more than one material at once. You may need pipe length, bedding material, gravel surround, and membrane coverage, so this hub is designed to help you move through those linked trench decisions without missing a part of the order.",
+        "featured_slugs": ["pipe-bedding-calculator", "drainage-pipe-calculator", "french-drain-gravel-calculator", "geotextile-membrane-calculator"],
+        "workflow_title": "Best route through a drainage trench brief",
+        "workflow_intro": "Use the hub like a trench checklist so pipe, bedding, surround, and membrane all make it into the same supplier or installer request.",
+        "workflow_cards": [
+            ("1. Measure the trench route first", "Start with the full run, likely chamber points, widened sections, and the pipe length so the rest of the trench materials have the right baseline."),
+            ("2. Split the trench into buying layers", "Estimate pipe bedding, gravel surround, and membrane separately rather than letting one bulk-material total hide what each layer actually needs."),
+            ("3. Send one joined-up drainage request", "Package the trench layers, fittings, and access notes together so the supplier or installer is pricing one drainage build-up rather than several disconnected numbers."),
+        ],
+        "cross_cluster_title": "Related base-layer calculators",
+        "cross_cluster_intro": "Use these linked tools when the drainage estimate also depends on hardcore, sub-base, or Type 1 below and around the trench build-up.",
+        "cross_cluster_slugs": ["hardcore-calculator", "sub-base-calculator", "mot-type-1-calculator"],
         "question_heading": "Common drainage quantity checks",
-        "question_intro": "Use these pages to estimate the main trench materials before you compare fittings, pipe sizes, and supplier pack options.",
+        "question_intro": "Use these pages to estimate the main trench materials before you compare pipe sizes, fittings, outlets, and supplier pack options.",
         "guide_heading": "Drainage planning guides",
-        "guide_intro": "These guides support the main calculators by helping with coverage, trench fill, and how much material is usually tied to each part of the run.",
+        "guide_intro": "These guides support the main calculators by helping with stock lengths, trench fill, washed aggregate quantities, and the parts of the run that usually get missed on first pass.",
+        "quote_support_title": "Best pages to include in a drainage quote request",
+        "quote_support_intro": "These are the pages most worth attaching when you want one cleaner trench brief instead of separate notes for pipe, bedding, and surround.",
+        "quote_support_calculator_slugs": ["pipe-bedding-calculator", "drainage-pipe-calculator", "french-drain-gravel-calculator", "geotextile-membrane-calculator"],
+        "quote_support_guide_slugs": ["pipe-bedding-how-much-do-i-need", "drainage-pipe-how-much-do-i-need", "french-drain-gravel-how-much-do-i-need"],
+        "quote_primary_slug": "pipe-bedding-calculator",
+        "quote_panel_title": "Turn the trench estimate into one cleaner drainage brief",
+        "quote_panel_intro": "Send one request that covers the trench route, the pipe run, and the supporting bedding, surround, and membrane layers so the reply is easier to compare and harder to misread.",
+        "quote_panel_items": [
+            "State the trench run, pipe diameter, stock length, and whether fittings, chambers, or branch connections should be included.",
+            "Separate bedding, gravel surround, membrane coverage, and any linked base layer so the quote does not bury missing trench materials inside one vague aggregate line.",
+            "Flag access, delivery limits, outlet details, and whether you want loose tonnes, bulk bags, or merchant stock lengths priced side by side.",
+        ],
         "notes": [
-            ("What changes drainage quantities most", "Trench width, bedding depth, gravel surround, and the total run length are usually more important than the pipe diameter alone."),
-            ("Where people under-order", "Pipe runs are often estimated without enough bedding or gravel surround, especially where trench width grows around fittings or inspection points."),
-            ("Before you order", "Check whether fittings, chambers, connectors, and fabric overlaps need to be costed separately from the core trench materials."),
+            ("What changes drainage quantities most", "Trench width, bedding depth, gravel surround, fittings, and the total run length usually matter more than the pipe diameter alone."),
+            ("Where people under-order", "Pipe runs are often estimated without enough bedding, gravel surround, or spare pipe, especially where trench width grows around chambers, corners, and outlet points."),
+            ("Before you order", "Check whether fittings, chambers, connectors, membrane overlaps, and the base layers around the trench need to be costed separately from the core trench materials."),
         ],
     },
     "decorating-estimating": {
@@ -518,17 +959,79 @@ CLUSTER_HUB_CONTENT = {
         ],
     },
     "trim-and-joinery-estimating": {
+        "meta_title": "Trim and Joinery Estimating Hub for Skirting, Coving, and Room Trims | BuildCostLab",
+        "meta_description": "Plan skirting, coving, and room-trim quantities with linked flooring and decorating checks plus clearer quote-prep guidance.",
         "start_here_title": "Start with the trim run you can actually measure",
         "start_here_intro": "Joinery trims are usually bought in stock lengths, so the clean perimeter or opening size is only the starting point. This project hub groups together the main room trims so you can estimate skirting, architrave, and coving without treating them as interchangeable.",
         "featured_slugs": ["skirting-board-calculator", "architrave-calculator", "coving-calculator"],
+        "workflow_title": "Best route through a room-trim brief",
+        "workflow_intro": "Use the hub to split the room into the trim lines you can really measure, then turn those lengths into one clearer joinery or decorating request.",
+        "workflow_cards": [
+            ("1. Measure the visible trim runs properly", "Start with doorway deductions, alcoves, returns, and ceiling corners so the trim length reflects the room you are actually fitting."),
+            ("2. Match the stock length to the finish standard", "Sense-check board or coving lengths, mitre waste, and whether one spare length is worth carrying for cleaner visible walls or future repairs."),
+            ("3. Send one room-finish brief", "If the trim order also depends on flooring, decorating, or adhesives, package those linked room-finish decisions together instead of requesting trim in isolation."),
+        ],
+        "cross_cluster_title": "Related room finish calculators",
+        "cross_cluster_intro": "Use these linked tools when the trim order also depends on flooring packs, ceiling paint, or wider room decorating costs.",
+        "cross_cluster_slugs": ["flooring-calculator", "laminate-flooring-calculator", "ceiling-paint-calculator", "room-painting-cost-calculator"],
         "question_heading": "Quick trim quantity pages",
         "question_intro": "These pages are useful when you already know the room perimeter or door and ceiling runs and want a quick stock-length estimate.",
         "guide_heading": "Trim buying and waste guides",
         "guide_intro": "These pages help with mitres, offcuts, and why the final buying number often ends up above the clean measured run.",
+        "quote_support_title": "Best pages to include in a trim or room-finish brief",
+        "quote_support_intro": "Use these pages together when you want a fitter, joiner, or supplier to price the room trims and the nearest linked finish decisions on the same scope.",
+        "quote_support_calculator_slugs": ["skirting-board-calculator", "coving-calculator", "flooring-calculator"],
+        "quote_support_guide_slugs": ["skirting-board-how-much-do-i-need", "coving-how-much-do-i-need"],
+        "quote_primary_slug": "skirting-board-calculator",
+        "quote_panel_title": "Turn the trim estimate into a cleaner room-finish brief",
+        "quote_panel_intro": "Send one request that covers the measured trim runs, stock-length assumptions, and the linked flooring or decorating checks that affect the final finish standard.",
+        "quote_panel_items": [
+            "State the room perimeter or ceiling run, any doorway deductions, and whether the price should include mitres, returns, adhesives, pins, caulk, or filler.",
+            "Separate skirting, coving, architrave, and any linked flooring or decorating work so visible-room finishes are being priced on the same basis.",
+            "Flag profile choice, board length preference, finish standard, and whether you want one spare length allowed for breakage or later repairs.",
+        ],
         "notes": [
             ("What changes these estimates most", "Stock length choices, mitres, waste at corners, and whether the room or opening sizes divide neatly into the available lengths all affect the final order."),
             ("When to add more waste", "Increase the allowance where there are lots of corners, detailed profiles, damaged walls, or a need for cleaner grain or finish matching."),
             ("Before you order", "Check profile size, stock lengths, corner waste, and whether adhesive, pins, sealant, or caulk should be planned alongside the trim itself."),
+        ],
+    },
+    "flooring-estimating": {
+        "meta_title": "Flooring Estimating Hub for Flooring Packs, Laminate, Underlay, and Room Prep | BuildCostLab",
+        "meta_description": "Plan flooring packs, laminate buying totals, underlay, and room-edge checks with clearer quote-prep guidance for interior finish jobs.",
+        "start_here_title": "Start with the flooring buying route, not just the room area",
+        "start_here_intro": "Flooring jobs are rarely just a neat square-metre question. Use this project hub to move from room size into pack buying, laminate versus vinyl decisions, and the linked underlay or trim checks that often get missed on first pass.",
+        "featured_slugs": ["flooring-calculator", "laminate-flooring-calculator", "vinyl-plank-flooring-calculator"],
+        "workflow_title": "Best route through a flooring brief",
+        "workflow_intro": "Use the hub to move from room size into packs, underlay, and room-edge details so the final flooring request reflects the real install rather than one neat area figure.",
+        "workflow_cards": [
+            ("1. Start with the floor covering you are actually buying", "Choose flooring, laminate, or vinyl plank first so the pack logic matches the real product route rather than forcing one pack total across different systems."),
+            ("2. Check the room-edge extras before you stop", "Sense-check underlay, thresholds, skirting, and spare-pack thinking because those are often the details that move the real room order."),
+            ("3. Send one room-by-room flooring brief", "Package the room size, pack assumptions, linked prep layers, and trim notes together so installers and suppliers are pricing the same finish route."),
+        ],
+        "cross_cluster_title": "Related floor prep and room-edge calculators",
+        "cross_cluster_intro": "Use these linked tools when the flooring estimate also depends on underlay, moisture control, screed prep, or skirting quantities around the room perimeter.",
+        "cross_cluster_slugs": ["underlay-calculator", "dpm-calculator", "self-levelling-compound-calculator", "skirting-board-calculator"],
+        "question_heading": "Popular flooring quantity pages",
+        "question_intro": "Use these pages when you already know the room size and want a faster route into packs, waste, or product-choice checks.",
+        "guide_heading": "Flooring buying and waste guides",
+        "guide_intro": "These pages help with spare packs, product comparisons, and the parts of room flooring that often create the biggest surprises after the first estimate.",
+        "quote_support_title": "Best pages to include in a flooring quote request",
+        "quote_support_intro": "Use these pages together when the supplier or installer needs the room pack total, the product route, and the prep or edge details priced on the same basis.",
+        "quote_support_calculator_slugs": ["flooring-calculator", "laminate-flooring-calculator", "underlay-calculator", "skirting-board-calculator"],
+        "quote_support_guide_slugs": ["flooring-packs-calculator", "laminate-flooring-how-much-do-i-need", "laminate-flooring-waste-guide"],
+        "quote_primary_slug": "flooring-calculator",
+        "quote_panel_title": "Turn the room estimate into a cleaner flooring brief",
+        "quote_panel_intro": "Send one request that covers room size, pack assumptions, prep layers, and visible edge details so the install quote is easier to compare and less likely to hide missing extras.",
+        "quote_panel_items": [
+            "State the room sizes, flooring route, pack coverage, waste allowance, and whether you want a same-batch spare pack included.",
+            "Separate underlay, DPM, floor prep, trims, thresholds, and skirting so the room-finish quote does not hide those items in one vague install total.",
+            "Flag subfloor condition, door clearances, furniture moves, and whether labour, materials, or both should be priced.",
+        ],
+        "notes": [
+            ("What changes flooring orders most", "Room shape, pack coverage, board direction, visible cut-heavy edges, and the choice to keep a same-batch spare pack usually move the final order most."),
+            ("Where people under-order", "Straight room maths often ignores hall links, bay details, thresholds, underlay, and the extra spare many buyers wish they had kept."),
+            ("Before you order", "Check pack coverage, waste assumptions, underlay, trims, door bars, and whether subfloor prep or door clearances still need their own allowance."),
         ],
     },
     "floor-prep-estimating": {
@@ -653,6 +1156,9 @@ def build_support(item):
 
 
 def build_faqs(item):
+    item_override = ITEM_FAQ_OVERRIDES.get(item["slug"])
+    if item_override:
+        return item_override
     support = build_support(item)
     name = item["name"]
     how_to_answers = {
@@ -700,18 +1206,15 @@ def build_intent_pages(item):
             "description": page["description"].format(name=item_name),
             "headline": page["headline"].format(name=item_name),
             "intro": page["intro"],
+            **({"meta_title": page["meta_title"].format(name=item_name)} if page.get("meta_title") else {}),
         }
         for page in templates
     ]
     pages.extend(ITEM_INTENT_TEMPLATES.get(item["slug"], []))
-    deduped = []
-    seen = set()
+    deduped_by_slug = {}
     for page in pages:
-        if page["slug"] in seen:
-            continue
-        seen.add(page["slug"])
-        deduped.append(page)
-    return deduped
+        deduped_by_slug[page["slug"]] = page
+    return list(deduped_by_slug.values())
 
 
 def get_cluster_intro(cluster_slug: str, fallback: str) -> str:
@@ -743,3 +1246,4 @@ def get_all_calculators():
             }
         )
     return calculators
+

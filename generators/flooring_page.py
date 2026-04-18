@@ -1,4 +1,4 @@
-from core.render import render_template
+﻿from core.render import render_template
 
 def build_flooring_page():
     content = """
@@ -26,7 +26,7 @@ def build_flooring_page():
               <div class="field">
                 <label for="unit">Units</label>
                 <select id="unit">
-                  <option value="metric">Metric (m², mm)</option>
+                  <option value="metric">Metric (m2, mm)</option>
                   <option value="imperial">Imperial (sq ft, inches)</option>
                 </select>
               </div>
@@ -48,7 +48,7 @@ def build_flooring_page():
               </div>
 
               <div class="field">
-                <label for="pack-coverage">Pack coverage (m² per pack)</label>
+                <label for="pack-coverage">Pack coverage (m2 per pack)</label>
                 <input id="pack-coverage" type="number" value="1.84" step="0.01">
               </div>
 
@@ -109,3 +109,4 @@ def build_flooring_page():
         "content": content,
         "script_path": "/assets/js/flooring.js",
     })
+

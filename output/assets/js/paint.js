@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   const modeButtons = document.querySelectorAll('[data-mode]');
   const modeInput = document.getElementById('mode');
   const unitSelect = document.getElementById('unit');
@@ -86,26 +86,26 @@
     sizes.forEach(size => {
       const count = Math.floor(remaining / size);
       if(count > 0){
-        tins.push(count + ' × ' + size + 'L');
+        tins.push(count + ' x ' + size + 'L');
         remaining -= count * size;
       }
     });
     if(remaining > 0.01){
-      tins.push('1 × 1L (top-up)');
+      tins.push('1 x 1L (top-up)');
     }
 
     const modeLabel = mode === 'walls' ? 'wall area' : (mode === 'ceiling' ? 'ceiling area' : 'single-surface area');
 
     resultMain.textContent = litres.toFixed(2) + ' litres';
     resultBreakdown.textContent =
-      'Estimated for ' + areaRaw + ' ' + (unit === 'imperial' ? 'sq ft' : 'm²') +
-      ' of ' + modeLabel + ', ' + coats + ' coat(s), ' + coverage + ' m²/L coverage, and ' + waste + '% waste.';
+      'Estimated for ' + areaRaw + ' ' + (unit === 'imperial' ? 'sq ft' : 'm2') +
+      ' of ' + modeLabel + ', ' + coats + ' coat(s), ' + coverage + ' m2/L coverage, and ' + waste + '% waste.';
     resultSteps.innerHTML =
       '<li>Mode selected: <strong>' + mode.charAt(0).toUpperCase() + mode.slice(1).replace('-', ' ') + '</strong></li>' +
-      '<li>Base area converted to m²: <strong>' + sqm.toFixed(2) + ' m²</strong></li>' +
-      '<li>After coats and waste: <strong>' + adjusted.toFixed(2) + ' m² paintable area</strong></li>' +
+      '<li>Base area converted to m2: <strong>' + sqm.toFixed(2) + ' m2</strong></li>' +
+      '<li>After coats and waste: <strong>' + adjusted.toFixed(2) + ' m2 paintable area</strong></li>' +
       '<li>Paint needed: <strong>' + litres.toFixed(2) + ' litres</strong></li>' +
-      '<li>Suggested tins: <strong>' + (tins.length ? tins.join(', ') : '1 × 1L') + '</strong></li>';
+      '<li>Suggested tins: <strong>' + (tins.length ? tins.join(', ') : '1 x 1L') + '</strong></li>';
   }
 
   modeButtons.forEach(btn => btn.addEventListener('click', () => setMode(btn.dataset.mode)));
@@ -116,3 +116,4 @@
   [areaInput, coatsInput, coverageInput, wasteInput].forEach(el => el.addEventListener('input', calculate));
   setMode('walls');
 })();
+

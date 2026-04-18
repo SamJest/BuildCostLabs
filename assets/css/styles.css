@@ -160,6 +160,7 @@ a{color:inherit}
 .result-kicker{font-size:.8rem;font-weight:800;color:#4b78bc;text-transform:uppercase;letter-spacing:.04em}
 .result-main{margin:.35rem 0 .5rem;font-size:clamp(1.45rem,6vw,2.05rem);line-height:1.08}
 .result-sub{margin:0;color:var(--muted);line-height:1.55}
+.result-context{margin:.85rem 0 0;color:var(--muted);line-height:1.55}
 .currency-pills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem;margin-top:.9rem}
 .result-breakdown{margin-top:1rem}
 .break-row{display:flex;justify-content:space-between;gap:1rem;padding:.68rem 0;border-top:1px solid var(--line)}
@@ -331,7 +332,16 @@ a{color:inherit}
 .text-link-secondary{color:#5f728f}
 .workflow-grid{margin-top:1rem}
 .conversion-panel-prominent{margin-top:1rem}
-.section-jump-nav{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+.section-jump-nav{
+  display:flex;
+  gap:.55rem;
+  margin-top:1rem;
+  overflow-x:auto;
+  flex-wrap:nowrap;
+  padding-bottom:.15rem;
+  -webkit-overflow-scrolling:touch
+}
+.section-jump-nav::-webkit-scrollbar{display:none}
 .jump-chip{
   display:inline-flex;
   align-items:center;
@@ -342,7 +352,14 @@ a{color:inherit}
   text-decoration:none;
   font-weight:700;
   color:#214777;
+  white-space:nowrap;
+  flex:0 0 auto
 }
+.calculator-layout,
+#quote-brief,
+#buying-checks,
+#next-guides,
+#faqs{scroll-margin-top:1rem}
 .section-anchor-card{margin-top:1rem}
 .sr-only{
   position:absolute;

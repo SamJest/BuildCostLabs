@@ -97,7 +97,7 @@
     {
       "path": "/calculators/coving-calculator/",
       "type": "calculator",
-      "title": "Coving Calculator | BuildCostLab",
+      "title": "Coving Calculator for Ceiling Perimeter and Coving Lengths | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -139,7 +139,7 @@
     {
       "path": "/calculators/drainage-pipe-calculator/",
       "type": "calculator",
-      "title": "Drainage Pipe Calculator | BuildCostLab",
+      "title": "Drainage Pipe Calculator for Trench Runs and Pipe Lengths | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -211,7 +211,7 @@
     {
       "path": "/calculators/flooring-calculator/",
       "type": "calculator",
-      "title": "Flooring Calculator | BuildCostLab",
+      "title": "Flooring Calculator for Packs, Waste, and Room Coverage | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -229,7 +229,7 @@
     {
       "path": "/calculators/french-drain-gravel-calculator/",
       "type": "calculator",
-      "title": "French Drain Gravel Calculator | BuildCostLab",
+      "title": "French Drain Gravel Calculator for Trench Fill and Surround | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -241,7 +241,7 @@
     {
       "path": "/calculators/geotextile-membrane-calculator/",
       "type": "calculator",
-      "title": "Geotextile Membrane Calculator | BuildCostLab",
+      "title": "Geotextile Membrane Calculator for Trenches, Drives, and Groundworks | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -277,7 +277,7 @@
     {
       "path": "/calculators/hardcore-calculator/",
       "type": "calculator",
-      "title": "Hardcore Calculator | BuildCostLab",
+      "title": "Hardcore Calculator for Driveways, Paths, and Base Layers | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -312,7 +312,7 @@
     {
       "path": "/calculators/laminate-flooring-calculator/",
       "type": "calculator",
-      "title": "Laminate Flooring Calculator | BuildCostLab",
+      "title": "Laminate Flooring Calculator for Packs, Waste, and Room Size | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -342,7 +342,7 @@
     {
       "path": "/calculators/mot-type-1-calculator/",
       "type": "calculator",
-      "title": "MOT Type 1 Calculator | BuildCostLab",
+      "title": "MOT Type 1 Calculator for Driveways, Paths, and Sub-Base | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -390,7 +390,7 @@
     {
       "path": "/calculators/pipe-bedding-calculator/",
       "type": "calculator",
-      "title": "Pipe Bedding Calculator | BuildCostLab",
+      "title": "Pipe Bedding Calculator for Drainage Trenches | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -510,7 +510,7 @@
     {
       "path": "/calculators/skirting-board-calculator/",
       "type": "calculator",
-      "title": "Skirting Board Calculator | BuildCostLab",
+      "title": "Skirting Board Calculator for Room Perimeter and Board Lengths | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -534,7 +534,7 @@
     {
       "path": "/calculators/sub-base-calculator/",
       "type": "calculator",
-      "title": "Sub-Base Calculator | BuildCostLab",
+      "title": "Sub-Base Calculator for Driveways, Patios, and Paths | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -612,7 +612,7 @@
     {
       "path": "/clusters/aggregate-and-base-estimating/",
       "type": "cluster",
-      "title": "Aggregate and Base Estimating | BuildCostLab"
+      "title": "Aggregate and Base Estimating Hub for Hardcore, Sub-Base, MOT Type 1, and Pipe Bedding | BuildCostLab"
     },
     {
       "path": "/clusters/brick-and-block-estimating/",
@@ -642,7 +642,7 @@
     {
       "path": "/clusters/drainage-estimating/",
       "type": "cluster",
-      "title": "Drainage Estimating | BuildCostLab"
+      "title": "Drainage Estimating Hub for Pipe Bedding, Drainage Pipe, Gravel, and Membrane | BuildCostLab"
     },
     {
       "path": "/clusters/drywall-and-finish-estimating/",
@@ -667,7 +667,7 @@
     {
       "path": "/clusters/flooring-estimating/",
       "type": "cluster",
-      "title": "Flooring Estimating | BuildCostLab"
+      "title": "Flooring Estimating Hub for Flooring Packs, Laminate, Underlay, and Room Prep | BuildCostLab"
     },
     {
       "path": "/clusters/garden-surface-estimating/",
@@ -682,7 +682,7 @@
     {
       "path": "/clusters/",
       "type": "cluster-index",
-      "title": "Tool Sets | BuildCostLab"
+      "title": "Project Hubs | BuildCostLab"
     },
     {
       "path": "/clusters/insulation-estimating/",
@@ -737,7 +737,7 @@
     {
       "path": "/clusters/trim-and-joinery-estimating/",
       "type": "cluster",
-      "title": "Trim and Joinery Estimating | BuildCostLab"
+      "title": "Trim and Joinery Estimating Hub for Skirting, Coving, and Room Trims | BuildCostLab"
     },
     {
       "path": "/compare/",
@@ -957,12 +957,12 @@
     {
       "path": "/guides/coving-how-much-do-i-need/",
       "type": "guide",
-      "title": "Coving Buying Guide | BuildCostLab"
+      "title": "How Much Coving Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/coving-length-calculator/",
       "type": "guide",
-      "title": "Coving Length Calculator | BuildCostLab"
+      "title": "Coving Length Calculator for Ceiling Perimeter | BuildCostLab"
     },
     {
       "path": "/guides/deck-board-calculator/",
@@ -1012,7 +1012,7 @@
     {
       "path": "/guides/decking-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Decking Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Decking Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/decking-cost-quote-brief-guide/",
@@ -1057,12 +1057,12 @@
     {
       "path": "/guides/drainage-pipe-how-much-do-i-need/",
       "type": "guide",
-      "title": "Drainage Pipe Buying Guide | BuildCostLab"
+      "title": "How Much Drainage Pipe Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/drainage-pipe-length-calculator/",
       "type": "guide",
-      "title": "Drainage Pipe Length Calculator | BuildCostLab"
+      "title": "Drainage Pipe Length Calculator for Stock Pieces | BuildCostLab"
     },
     {
       "path": "/guides/driveway-cost-budget-planning-guide/",
@@ -1082,7 +1082,7 @@
     {
       "path": "/guides/driveway-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Driveway Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Driveway Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/driveway-cost-quote-brief-guide/",
@@ -1167,7 +1167,7 @@
     {
       "path": "/guides/fence-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Fence Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Fence Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/fence-cost-per-metre-guide/",
@@ -1227,7 +1227,7 @@
     {
       "path": "/guides/flooring-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Flooring Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Flooring Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/flooring-cost-quote-brief-guide/",
@@ -1257,7 +1257,7 @@
     {
       "path": "/guides/french-drain-gravel-how-much-do-i-need/",
       "type": "guide",
-      "title": "French Drain Gravel Quantity Guide | BuildCostLab"
+      "title": "How Much French Drain Gravel Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/garden-wall-cost-budget-planning-guide/",
@@ -1277,7 +1277,7 @@
     {
       "path": "/guides/garden-wall-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Garden Wall Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Garden Wall Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/garden-wall-cost-quote-brief-guide/",
@@ -1292,7 +1292,7 @@
     {
       "path": "/guides/geotextile-membrane-how-much-do-i-need/",
       "type": "guide",
-      "title": "Geotextile Membrane Buying Guide | BuildCostLab"
+      "title": "How Much Geotextile Membrane Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/grass-seed-calculator-by-area/",
@@ -1352,12 +1352,12 @@
     {
       "path": "/guides/hardcore-calculator-by-volume/",
       "type": "guide",
-      "title": "Hardcore Calculator by Volume | BuildCostLab"
+      "title": "Hardcore Calculator by Volume for Base Layers | BuildCostLab"
     },
     {
       "path": "/guides/hardcore-how-much-do-i-need/",
       "type": "guide",
-      "title": "Hardcore Quantity Guide | BuildCostLab"
+      "title": "How Much Hardcore Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/how-many-wallpaper-rolls-do-i-need/",
@@ -1412,7 +1412,7 @@
     {
       "path": "/guides/insulation-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Insulation Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Insulation Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/insulation-cost-quote-brief-guide/",
@@ -1442,12 +1442,12 @@
     {
       "path": "/guides/laminate-flooring-calculator-by-area/",
       "type": "guide",
-      "title": "Laminate Flooring Calculator by Area | BuildCostLab"
+      "title": "Laminate Flooring Calculator by Area for Packs and Waste | BuildCostLab"
     },
     {
       "path": "/guides/laminate-flooring-how-much-do-i-need/",
       "type": "guide",
-      "title": "Laminate Flooring Buying Guide | BuildCostLab"
+      "title": "How Much Laminate Flooring Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/laminate-flooring-waste-guide/",
@@ -1527,7 +1527,7 @@
     {
       "path": "/guides/mot-type-1-calculator-for-driveway/",
       "type": "guide",
-      "title": "MOT Type 1 Calculator for Driveway | BuildCostLab"
+      "title": "MOT Type 1 Calculator for Driveway and Sub-Base | BuildCostLab"
     },
     {
       "path": "/guides/mot-type-1-how-much-do-i-need/",
@@ -1592,7 +1592,7 @@
     {
       "path": "/guides/patio-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Patio Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Patio Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/patio-cost-quote-brief-guide/",
@@ -1667,12 +1667,12 @@
     {
       "path": "/guides/pipe-bedding-calculator-by-volume/",
       "type": "guide",
-      "title": "Pipe Bedding Calculator by Volume | BuildCostLab"
+      "title": "Pipe Bedding Calculator by Volume for Drainage Trenches | BuildCostLab"
     },
     {
       "path": "/guides/pipe-bedding-how-much-do-i-need/",
       "type": "guide",
-      "title": "Pipe Bedding Quantity Guide | BuildCostLab"
+      "title": "How Much Pipe Bedding Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/plaster-bead-how-much-do-i-need/",
@@ -1727,7 +1727,7 @@
     {
       "path": "/guides/plastering-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Plastering Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Plastering Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/plastering-cost-quote-brief-guide/",
@@ -1787,7 +1787,7 @@
     {
       "path": "/guides/render-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Render Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Render Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/render-cost-quote-brief-guide/",
@@ -1867,7 +1867,7 @@
     {
       "path": "/guides/roofing-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Roofing Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Roofing Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/roofing-cost-quote-brief-guide/",
@@ -1912,7 +1912,7 @@
     {
       "path": "/guides/room-painting-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Room Painting Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Room Painting Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/room-painting-cost-quote-brief-guide/",
@@ -2017,12 +2017,12 @@
     {
       "path": "/guides/skirting-board-how-much-do-i-need/",
       "type": "guide",
-      "title": "Skirting Board Buying Guide | BuildCostLab"
+      "title": "How Much Skirting Board Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/skirting-board-length-calculator/",
       "type": "guide",
-      "title": "Skirting Board Length Calculator | BuildCostLab"
+      "title": "Skirting Board Length Calculator for Room Perimeter | BuildCostLab"
     },
     {
       "path": "/guides/slab-concrete-calculator-by-volume/",
@@ -2057,12 +2057,12 @@
     {
       "path": "/guides/sub-base-calculator-by-volume/",
       "type": "guide",
-      "title": "Sub-Base Calculator by Volume | BuildCostLab"
+      "title": "Sub-Base Calculator by Volume for Patios and Drives | BuildCostLab"
     },
     {
       "path": "/guides/sub-base-how-much-do-i-need/",
       "type": "guide",
-      "title": "Sub-Base Quantity Guide | BuildCostLab"
+      "title": "How Much Sub-Base Do I Need? | BuildCostLab"
     },
     {
       "path": "/guides/tile-adhesive-calculator-by-area/",
@@ -2132,7 +2132,7 @@
     {
       "path": "/guides/tiling-cost-per-m2-guide/",
       "type": "guide",
-      "title": "Tiling Cost per m\u00b2 Guide | BuildCostLab"
+      "title": "Tiling Cost per m2 Guide | BuildCostLab"
     },
     {
       "path": "/guides/tiling-cost-quote-brief-guide/",
@@ -2237,7 +2237,7 @@
     {
       "path": "/",
       "type": "homepage",
-      "title": "BuildCostLab | Building Material and Cost Calculators"
+      "title": "BuildCostLab | Practical Building Material and Cost Calculators"
     },
     {
       "path": "/locations/birmingham/",
@@ -2336,7 +2336,7 @@
     {
       "path": "/quote-checklist/",
       "type": "trust",
-      "title": "Builder Quote Checklist"
+      "title": "Quote Checklist for Builders, Installers, and Merchants | BuildCostLab"
     },
     {
       "path": "/terms/",
