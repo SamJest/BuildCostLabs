@@ -5,7 +5,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # Main paths
 ASSETS_DIR = PROJECT_ROOT / "assets"
-OUTPUT_DIR = Path(os.environ.get("BUILD_OUTPUT_DIR", str(PROJECT_ROOT / "output")))
+OUTPUT_DIR = Path(os.environ.get("BUILD_OUTPUT_DIR", str(PROJECT_ROOT / "docs")))
 TEMPLATES_DIR = PROJECT_ROOT / "templates"
 DATA_DIR = PROJECT_ROOT / "data"
 GENERATORS_DIR = PROJECT_ROOT / "generators"
