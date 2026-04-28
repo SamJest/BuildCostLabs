@@ -265,7 +265,7 @@
     {
       "path": "/calculators/gutter-calculator/",
       "type": "calculator",
-      "title": "Gutter Calculator | BuildCostLab",
+      "title": "Gutter Calculator for Roof Runs, Lengths, and Joints | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -318,7 +318,7 @@
     {
       "path": "/calculators/loft-insulation-calculator/",
       "type": "calculator",
-      "title": "Loft Insulation Calculator | BuildCostLab",
+      "title": "Loft Insulation Calculator for Rolls, Area, and Coverage | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -366,7 +366,7 @@
     {
       "path": "/calculators/paving-calculator/",
       "type": "calculator",
-      "title": "Paving Calculator | BuildCostLab",
+      "title": "Paving Calculator for Patio Slabs, Pavers, and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -384,7 +384,7 @@
     {
       "path": "/calculators/pea-gravel-calculator/",
       "type": "calculator",
-      "title": "Pea Gravel Calculator | BuildCostLab",
+      "title": "Pea Gravel Calculator for Paths, Borders, and Drainage | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -408,7 +408,7 @@
     {
       "path": "/calculators/plasterboard-calculator/",
       "type": "calculator",
-      "title": "Plasterboard Calculator | BuildCostLab",
+      "title": "Plasterboard Calculator for Sheets, Walls, and Ceilings | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -576,7 +576,7 @@
     {
       "path": "/calculators/turf-calculator/",
       "type": "calculator",
-      "title": "Turf Calculator | BuildCostLab",
+      "title": "Turf Calculator for Lawn Rolls, Area, and Waste | BuildCostLab",
       "section": "calculators"
     },
     {

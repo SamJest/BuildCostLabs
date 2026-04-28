@@ -4,7 +4,7 @@ from components.publishing import get_all_calculator_entries, render_ad_slot, re
 from data.catalog import get_all_calculators
 from data.locations import get_all_locations
 from data.publisher import PROJECT_HUBS_LABEL, SITE
-from generators.calculators_index import calculator_directory_categories, calculator_directory_stats, render_directory_section
+from generators.calculators_index import calculator_directory_categories, calculator_directory_stats, render_directory_section, render_search_opportunity_section
 
 
 def build_homepage(cards_html: str = ""):
@@ -18,6 +18,8 @@ def build_homepage(cards_html: str = ""):
         "decking-calculator",
         "flooring-calculator",
         "driveway-cost-calculator",
+        "mot-type-1-calculator",
+        "hardcore-calculator",
     }
     featured = "".join(
         f'<article class="tool-card"><h3><a href="/clusters/{escape(item["cluster_slug"])}/">{escape(item["cluster_name"])}</a></h3><p>{escape(item["intro"])}</p><a class="text-link" href="/clusters/{escape(item["cluster_slug"])}/">Open {escape(PROJECT_HUBS_LABEL[:-1])}</a></article>'
@@ -27,12 +29,12 @@ def build_homepage(cards_html: str = ""):
     popular_cards = "".join(
         f'<article class="tool-card"><h3><a href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a></h3><p>{escape(item["intro"])}</p><a class="text-link" href="/guides/{escape((item["intent_pages"] + item["guide_pages"])[0]["slug"] if (item["intent_pages"] + item["guide_pages"]) else item["slug"] )}/">Sense-check the estimate</a></article>'
         for item in calculators
-        if item["slug"] in {"paint-calculator", "concrete-calculator", "flooring-calculator", "gravel-calculator", "paving-calculator", "fence-calculator"}
+        if item["slug"] in {"paving-calculator", "flooring-calculator", "mot-type-1-calculator", "skirting-board-calculator", "pea-gravel-calculator", "laminate-flooring-calculator"}
     )
     quick_links = "".join(
         f'<a class="hero-quick-link" href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a>'
         for item in calculators
-        if item["slug"] in {"paint-calculator", "concrete-calculator", "driveway-cost-calculator", "paving-calculator"}
+        if item["slug"] in {"paving-calculator", "flooring-calculator", "mot-type-1-calculator", "skirting-board-calculator", "hardcore-calculator", "pea-gravel-calculator"}
     )
     guide_count = sum(len(item["intent_pages"]) + len(item["guide_pages"]) for item in get_all_calculators())
     content = f'''
@@ -67,6 +69,8 @@ def build_homepage(cards_html: str = ""):
     </section>
 
     {render_ad_slot("home-top")}
+
+    {render_search_opportunity_section(calculators, title="Start with pages people are already searching for", intro="Recent search-demand signals point to paving, flooring, MOT Type 1, skirting, pea gravel, laminate, hardcore, plasterboard, turf, loft insulation, and gutter estimates. These quick links give those searches a cleaner path from the homepage.")}
 
     {render_directory_section(title="Find the right calculator faster", intro="Search by job, material, or buying task, then filter the library so you can start with the right estimate instead of scrolling through an endless list.", cards_html=cards_html, categories=calculator_directory_categories(), count_text=f'Showing all {stats["calculator_count"]} calculators.')}
 

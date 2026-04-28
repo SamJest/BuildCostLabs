@@ -17,7 +17,30 @@ DEFAULT_FEATURED_SLUGS = {
     "fence-calculator",
     "driveway-cost-calculator",
     "patio-cost-calculator",
+    "mot-type-1-calculator",
+    "skirting-board-calculator",
+    "pea-gravel-calculator",
+    "laminate-flooring-calculator",
+    "hardcore-calculator",
+    "plasterboard-calculator",
+    "turf-calculator",
+    "loft-insulation-calculator",
+    "gutter-calculator",
 }
+
+SEARCH_OPPORTUNITY_SLUGS = [
+    "paving-calculator",
+    "flooring-calculator",
+    "mot-type-1-calculator",
+    "skirting-board-calculator",
+    "pea-gravel-calculator",
+    "laminate-flooring-calculator",
+    "hardcore-calculator",
+    "plasterboard-calculator",
+    "turf-calculator",
+    "loft-insulation-calculator",
+    "gutter-calculator",
+]
 
 
 def calculator_directory_categories(limit: int = 8) -> list[str]:
@@ -99,6 +122,47 @@ def build_calculator_cards(featured_slugs: set[str] | None = None) -> str:
     return "".join(parts)
 
 
+def render_search_opportunity_section(calculators: list[dict], *, title: str, intro: str) -> str:
+    by_slug = {item["slug"]: item for item in calculators}
+    cards = []
+    for slug in SEARCH_OPPORTUNITY_SLUGS:
+        item = by_slug.get(slug)
+        if not item:
+            continue
+        guides = item["intent_pages"] + item["guide_pages"]
+        guide = guides[0] if guides else None
+        guide_link = (
+            f'<a class="text-link text-link-secondary" href="/guides/{escape(guide["slug"])}/">Open buying guide</a>'
+            if guide
+            else f'<a class="text-link text-link-secondary" href="/clusters/{escape(item["cluster_slug"])}/">Open {escape(PROJECT_HUB_LABEL.lower())}</a>'
+        )
+        cards.append(
+            f'''
+        <article class="tool-card">
+          <div class="card-chip-row"><span class="card-chip card-chip-featured">Search demand</span><span class="card-chip">{escape(item["category"])}</span></div>
+          <h3><a href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a></h3>
+          <p>{escape(item["intro"])}</p>
+          <div class="tool-card-actions">
+            <a class="text-link" href="/calculators/{escape(item["slug"])}/">Open calculator</a>
+            {guide_link}
+          </div>
+        </article>
+        '''
+        )
+    return f'''
+    <section class="content-card intro-card">
+      <div class="section-head">
+        <h2>{escape(title)}</h2>
+        <p>{escape(intro)}</p>
+      </div>
+    </section>
+    <section class="calculator-grid-section">
+      <div class="calculator-grid">
+        {''.join(cards)}
+      </div>
+    </section>'''
+
+
 def render_directory_section(*, title: str, intro: str, cards_html: str, categories: list[str], count_text: str) -> str:
     filter_buttons = [
         '<button class="filter-chip is-active" type="button" data-filter-value="all">All calculators</button>'
@@ -140,6 +204,7 @@ def build_calculators_index(cards_html: str) -> str:
     crumbs = [("Home", "/"), ("Calculators", "/calculators/")]
     stats = calculator_directory_stats()
     categories = calculator_directory_categories()
+    calculators = get_all_calculator_entries()
     content = f'''
   <div class="site-shell">
     <section class="hero hero-compact">
@@ -154,6 +219,7 @@ def build_calculators_index(cards_html: str) -> str:
       </div>
     </section>
     {render_ad_slot("calculators-index-top")}
+    {render_search_opportunity_section(calculators, title="High-demand calculators to check first", intro="These pages match the material and project searches already getting visibility, so they are useful starting points when you want the fastest route into a relevant estimate.")}
     {render_directory_section(title="Search the calculator library", intro="Use the filters to find the right estimate quickly, then jump into the supporting guide and quote-prep path when you need more than a raw number.", cards_html=cards_html, categories=categories, count_text=f'Showing all {stats["calculator_count"]} calculators.')}
     <section class="quality-strip" aria-label="Trust and workflow guidance">
       <article class="content-card quality-card"><div class="quality-kicker">Planning workflow</div><h2>Start with the right estimate</h2><p>Choose the calculator that matches the actual material or project decision first. That keeps later checks clearer.</p></article>

@@ -40,6 +40,15 @@ CALCULATOR_TARGETS = [
     ("fence_calculator", "fence-calculator", "fence"),
 ]
 
+LEGACY_ALIASES = [
+    {
+        "source": "/guides/fence-cost-cost-per-m2-guide/",
+        "target": "/guides/fence-cost-per-m2-guide/",
+        "title": "Fence Cost per m2 Guide",
+        "description": "This legacy guide URL now points to the cleaner Fence Cost per m2 Guide path.",
+    },
+]
+
 def write_file(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
@@ -126,6 +135,7 @@ def build_site() -> None:
         write_file(OUTPUT_DIR / path.strip("/") / "index.html", html)
     locations_index_path, locations_index_html = build_locations_index()
     write_file(OUTPUT_DIR / locations_index_path.strip("/") / "index.html", locations_index_html)
+    build_legacy_alias_pages()
     write_file(OUTPUT_DIR / "robots.txt", build_robots())
     write_file(OUTPUT_DIR / "sitemap.xml", build_sitemap())
     write_file(OUTPUT_DIR / "page-inventory.json", build_page_inventory())
@@ -133,6 +143,34 @@ def build_site() -> None:
     write_file(OUTPUT_DIR / "launch-readiness-report.json", build_launch_readiness_report())
     write_file(OUTPUT_DIR / "CNAME", build_cname())
     write_file(OUTPUT_DIR / ".nojekyll", "")
+
+
+def build_legacy_alias_pages() -> None:
+    for alias in LEGACY_ALIASES:
+        source = alias["source"].strip("/")
+        target_url = f"{SITE['base_url']}{alias['target']}"
+        html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{alias["title"]} | {SITE["name"]}</title>
+  <meta name="description" content="{alias["description"]}">
+  <link rel="canonical" href="{target_url}">
+  <meta http-equiv="refresh" content="0; url={alias["target"]}">
+</head>
+<body>
+  <main>
+    <h1>{alias["title"]}</h1>
+    <p>This page has moved to <a href="{alias["target"]}">{target_url}</a>.</p>
+  </main>
+</body>
+</html>"""
+        write_file(OUTPUT_DIR / source / "index.html", html)
+
+
+def _is_legacy_alias_path(path: str) -> bool:
+    return path in {alias["source"] for alias in LEGACY_ALIASES}
 
 
 def build_robots() -> str:
@@ -148,14 +186,19 @@ def _output_paths() -> list[str]:
     for html_path in sorted(OUTPUT_DIR.rglob("index.html")):
         relative = html_path.relative_to(OUTPUT_DIR).as_posix()
         if relative == "index.html":
-            paths.append("/")
+            path = "/"
         else:
-            paths.append("/" + relative.removesuffix("index.html"))
+            path = "/" + relative.removesuffix("index.html")
+        if _is_legacy_alias_path(path):
+            continue
+        paths.append(path)
     seen = set()
     ordered = []
     for path in paths:
         if not path.endswith("/"):
             path += "/"
+        if _is_legacy_alias_path(path):
+            continue
         if path not in seen:
             ordered.append(path)
             seen.add(path)
@@ -181,6 +224,8 @@ def build_page_inventory() -> str:
         path = "/" if relative == "index.html" else "/" + relative.removesuffix("index.html")
         if not path.endswith("/"):
             path += "/"
+        if _is_legacy_alias_path(path):
+            continue
         type_match = type_pattern.search(content)
         title_match = title_pattern.search(content)
         page_type = type_match.group(1).strip() if type_match else "unknown"
@@ -202,7 +247,10 @@ def build_launch_readiness_report() -> str:
     clusters = [item for item in inventory["pages"] if item.get("type") == "cluster"]
     trust_pages = [item for item in inventory["pages"] if item.get("type") == "trust"]
     compare_pages = [item for item in inventory["pages"] if item.get("type") == "compare-index"]
-    html_pages = list(OUTPUT_DIR.rglob("index.html"))
+    html_pages = [
+        html_path for html_path in OUTPUT_DIR.rglob("index.html")
+        if not _is_legacy_alias_path("/" + html_path.relative_to(OUTPUT_DIR).as_posix().removesuffix("index.html"))
+    ]
     schema_counts = {"faq": 0, "item_list": 0, "software_application": 0, "breadcrumb": 0}
     for html_path in html_pages:
         content = html_path.read_text(encoding="utf-8")
@@ -286,6 +334,8 @@ def build_seo_report() -> str:
     for html_path in OUTPUT_DIR.rglob("index.html"):
         content = html_path.read_text(encoding="utf-8")
         rel_path = "/" + html_path.relative_to(OUTPUT_DIR).as_posix().removesuffix("index.html")
+        if _is_legacy_alias_path(rel_path):
+            continue
         title_match = title_pattern.search(content)
         description_match = description_pattern.search(content)
         canonical_match = canonical_pattern.search(content)
