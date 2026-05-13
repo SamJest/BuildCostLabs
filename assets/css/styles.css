@@ -361,6 +361,23 @@ a{color:inherit}
 #next-guides,
 #faqs{scroll-margin-top:1rem}
 .section-anchor-card{margin-top:1rem}
+.global-terms-card,.recent-tools-panel{margin-top:1rem}
+.global-term-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.85rem;
+  margin-top:1rem
+}
+.global-term-grid article{
+  padding:.95rem;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.72)
+}
+.global-term-grid h3{margin:.1rem 0 .45rem;font-size:1rem}
+.global-term-grid p{margin:.45rem 0 0;color:var(--muted);line-height:1.6}
+.global-term-grid-notes{margin-top:.85rem}
+.recent-tools-panel[hidden]{display:none}
 .sr-only{
   position:absolute;
   width:1px;
@@ -376,4 +393,6 @@ a{color:inherit}
   .hero-actions{margin-top:1.1rem}
   .stats-strip{grid-template-columns:repeat(4,minmax(0,1fr))}
   .directory-toolbar{grid-template-columns:minmax(0,1fr) auto}
+  .global-term-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .global-term-grid-notes{grid-template-columns:repeat(2,minmax(0,1fr))}
 }

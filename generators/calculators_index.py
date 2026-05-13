@@ -4,6 +4,7 @@ from html import escape
 from components.publishing import get_all_calculator_entries, render_ad_slot, render_breadcrumb_schema, render_breadcrumbs, render_layout
 from data.catalog import get_all_calculators
 from data.publisher import PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE
+from data.search_opportunities import PRIORITY_SLUGS
 
 
 DEFAULT_FEATURED_SLUGS = {
@@ -28,19 +29,7 @@ DEFAULT_FEATURED_SLUGS = {
     "gutter-calculator",
 }
 
-SEARCH_OPPORTUNITY_SLUGS = [
-    "paving-calculator",
-    "flooring-calculator",
-    "mot-type-1-calculator",
-    "skirting-board-calculator",
-    "pea-gravel-calculator",
-    "laminate-flooring-calculator",
-    "hardcore-calculator",
-    "plasterboard-calculator",
-    "turf-calculator",
-    "loft-insulation-calculator",
-    "gutter-calculator",
-]
+SEARCH_OPPORTUNITY_SLUGS = [*PRIORITY_SLUGS]
 
 
 def calculator_directory_categories(limit: int = 8) -> list[str]:
@@ -82,6 +71,8 @@ def _card_search_text(item: dict) -> str:
             item["category"],
             item["cluster_name"],
             item.get("meta_description", ""),
+            " ".join(item.get("target_queries", [])),
+            " ".join(item.get("regional_terms", {}).get("also_known_as", [])),
             guide_titles,
         ]
         if part
@@ -110,7 +101,7 @@ def build_calculator_cards(featured_slugs: set[str] | None = None) -> str:
           <p>{escape(item["intro"])}</p>
           <div class="card-meta-list">
             <span>{escape(item["cluster_name"])}</span>
-            <span>Estimate • compare • brief</span>
+            <span>Estimate - compare - brief</span>
           </div>
           <div class="tool-card-actions">
             <a class="text-link" href="/calculators/{escape(item["slug"])}/">Open calculator</a>

@@ -1,14 +1,16 @@
 from html import escape
 
-from components.publishing import get_all_calculator_entries, render_ad_slot, render_layout
+from components.publishing import get_all_calculator_entries, render_ad_slot, render_layout, render_recent_tools_panel
 from data.catalog import get_all_calculators
 from data.locations import get_all_locations
 from data.publisher import PROJECT_HUBS_LABEL, SITE
+from data.search_opportunities import PRIORITY_SLUGS
 from generators.calculators_index import calculator_directory_categories, calculator_directory_stats, render_directory_section, render_search_opportunity_section
 
 
 def build_homepage(cards_html: str = ""):
     calculators = get_all_calculator_entries()
+    priority_set = set(PRIORITY_SLUGS)
     stats = calculator_directory_stats()
     location_count = len(get_all_locations())
     featured_slugs = {
@@ -29,12 +31,12 @@ def build_homepage(cards_html: str = ""):
     popular_cards = "".join(
         f'<article class="tool-card"><h3><a href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a></h3><p>{escape(item["intro"])}</p><a class="text-link" href="/guides/{escape((item["intent_pages"] + item["guide_pages"])[0]["slug"] if (item["intent_pages"] + item["guide_pages"]) else item["slug"] )}/">Sense-check the estimate</a></article>'
         for item in calculators
-        if item["slug"] in {"paving-calculator", "flooring-calculator", "mot-type-1-calculator", "skirting-board-calculator", "pea-gravel-calculator", "laminate-flooring-calculator"}
+        if item["slug"] in priority_set
     )
     quick_links = "".join(
         f'<a class="hero-quick-link" href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a>'
         for item in calculators
-        if item["slug"] in {"paving-calculator", "flooring-calculator", "mot-type-1-calculator", "skirting-board-calculator", "hardcore-calculator", "pea-gravel-calculator"}
+        if item["slug"] in {"skirting-board-calculator", "hardcore-calculator", "tile-backer-board-calculator", "roof-felt-calculator", "paving-jointing-compound-calculator", "paving-calculator"}
     )
     guide_count = sum(len(item["intent_pages"]) + len(item["guide_pages"]) for item in get_all_calculators())
     content = f'''
@@ -51,15 +53,17 @@ def build_homepage(cards_html: str = ""):
         <a class="btn btn-secondary" href="/quote-checklist/">Open quote prep</a>
       </div>
       <div class="hero-badges">
-        <span class="hero-badge">Estimate → sense-check → compare → brief</span>
+        <span class="hero-badge">Estimate - sense-check - compare - brief</span>
         <span class="hero-badge">Metric and imperial support</span>
-        <span class="hero-badge">Planning aids with practical next steps</span>
+        <span class="hero-badge">Global English terminology</span>
       </div>
       <div class="hero-quick-links">
         <span class="hero-quick-label">Quick starts</span>
         {quick_links}
       </div>
     </section>
+
+    {render_recent_tools_panel("Resume recent calculators")}
 
     <section class="stats-strip" aria-label="Library scale">
       <article class="content-card metric-card"><strong>{stats["calculator_count"]}</strong><span>calculators</span></article>
@@ -70,7 +74,7 @@ def build_homepage(cards_html: str = ""):
 
     {render_ad_slot("home-top")}
 
-    {render_search_opportunity_section(calculators, title="Start with pages people are already searching for", intro="Recent search-demand signals point to paving, flooring, MOT Type 1, skirting, pea gravel, laminate, hardcore, plasterboard, turf, loft insulation, and gutter estimates. These quick links give those searches a cleaner path from the homepage.")}
+    {render_search_opportunity_section(calculators, title="Start with pages people are already searching for", intro="Recent search-demand signals point to skirting or baseboard trim, hardcore or crushed stone, tile backer board, roof felt, paving jointing, paving or pavers, flooring, laminate, pea gravel, loft or attic insulation, and plasterboard or drywall. These quick links give those searches a cleaner path from the homepage.")}
 
     {render_directory_section(title="Find the right calculator faster", intro="Search by job, material, or buying task, then filter the library so you can start with the right estimate instead of scrolling through an endless list.", cards_html=cards_html, categories=calculator_directory_categories(), count_text=f'Showing all {stats["calculator_count"]} calculators.')}
 

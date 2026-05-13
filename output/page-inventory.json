@@ -211,7 +211,7 @@
     {
       "path": "/calculators/flooring-calculator/",
       "type": "calculator",
-      "title": "Flooring Calculator for Packs, Waste, and Room Coverage | BuildCostLab",
+      "title": "Flooring Calculator for Packs, Room Area, and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -277,7 +277,7 @@
     {
       "path": "/calculators/hardcore-calculator/",
       "type": "calculator",
-      "title": "Hardcore Calculator for Driveways, Paths, and Base Layers | BuildCostLab",
+      "title": "Hardcore and Crushed Stone Calculator for Base Layers | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -312,13 +312,13 @@
     {
       "path": "/calculators/laminate-flooring-calculator/",
       "type": "calculator",
-      "title": "Laminate Flooring Calculator for Packs, Waste, and Room Size | BuildCostLab",
+      "title": "Laminate Flooring Calculator for Packs, Boxes, and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/loft-insulation-calculator/",
       "type": "calculator",
-      "title": "Loft Insulation Calculator for Rolls, Area, and Coverage | BuildCostLab",
+      "title": "Loft and Attic Insulation Calculator for Rolls and Area | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -342,7 +342,7 @@
     {
       "path": "/calculators/mot-type-1-calculator/",
       "type": "calculator",
-      "title": "MOT Type 1 Calculator for Driveways, Paths, and Sub-Base | BuildCostLab",
+      "title": "MOT Type 1 and Sub-Base Calculator for Roads and Patios | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -366,13 +366,13 @@
     {
       "path": "/calculators/paving-calculator/",
       "type": "calculator",
-      "title": "Paving Calculator for Patio Slabs, Pavers, and Waste | BuildCostLab",
+      "title": "Paving and Paver Calculator for Slabs, Area, and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/paving-jointing-compound-calculator/",
       "type": "calculator",
-      "title": "Paving Jointing Compound Calculator | BuildCostLab",
+      "title": "Paving Jointing Compound and Paver Sand Calculator | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -384,7 +384,7 @@
     {
       "path": "/calculators/pea-gravel-calculator/",
       "type": "calculator",
-      "title": "Pea Gravel Calculator for Paths, Borders, and Drainage | BuildCostLab",
+      "title": "Pea Gravel Calculator for Bags, Tons, and Cubic Yards | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -408,7 +408,7 @@
     {
       "path": "/calculators/plasterboard-calculator/",
       "type": "calculator",
-      "title": "Plasterboard Calculator for Sheets, Walls, and Ceilings | BuildCostLab",
+      "title": "Plasterboard and Drywall Calculator for Sheets and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -450,7 +450,7 @@
     {
       "path": "/calculators/roof-felt-calculator/",
       "type": "calculator",
-      "title": "Roof Felt Calculator | BuildCostLab",
+      "title": "Roof Felt Calculator for Rolls, Overlap, and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -498,7 +498,7 @@
     {
       "path": "/calculators/shed-felt-calculator/",
       "type": "calculator",
-      "title": "Shed Felt Calculator | BuildCostLab",
+      "title": "Shed Felt Calculator for Small Roof Rolls and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -510,7 +510,7 @@
     {
       "path": "/calculators/skirting-board-calculator/",
       "type": "calculator",
-      "title": "Skirting Board Calculator for Room Perimeter and Board Lengths | BuildCostLab",
+      "title": "Skirting Board and Baseboard Calculator for Wall Runs | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -546,7 +546,7 @@
     {
       "path": "/calculators/tile-backer-board-calculator/",
       "type": "calculator",
-      "title": "Tile Backer Board Calculator | BuildCostLab",
+      "title": "Tile Backer Board Calculator for Sheets and Coverage | BuildCostLab",
       "section": "calculators"
     },
     {

@@ -8,6 +8,7 @@ from components.publishing import (
     render_breadcrumbs,
     render_faq_schema,
     render_layout,
+    render_recent_tools_panel,
     render_section_cards,
     render_software_application_schema,
 )
@@ -57,6 +58,7 @@ def render_calculator_jump_nav() -> str:
         '<a class="jump-chip" href="#calculator">Calculator</a>'
         '<a class="jump-chip" href="#quote-brief">Quote brief</a>'
         '<a class="jump-chip" href="#buying-checks">Buying checks</a>'
+        '<a class="jump-chip" href="#global-terms">Global terms</a>'
         '<a class="jump-chip" href="#next-guides">Next-step guides</a>'
         '<a class="jump-chip" href="#faqs">FAQs</a>'
         '</nav>'
@@ -141,10 +143,60 @@ def _calculator_summary_cards(family: dict) -> list[tuple[str, str]]:
         "project_cost": "Best for early planning, option comparison, and quote preparation before the live contractor scope is fully locked down.",
     }
     return [
-        ("Quick answer", quick.get(formula, family["support"]["use_case"])),
+        ("Quick answer", family.get("quick_answer", quick.get(formula, family["support"]["use_case"]))),
         ("Watch most", family["support"]["mistakes"]),
         ("Best next move", family["support"].get("estimate_tip", family["support"]["final_check"])),
     ]
+
+
+def _global_terms_panel(family: dict) -> str:
+    terms = family.get("regional_terms") or {}
+    if not terms:
+        return ""
+    aliases = terms.get("also_known_as", [])
+    alias_html = "".join(f'<span class="card-chip">{escape(alias)}</span>' for alias in aliases)
+    query_html = "".join(
+        f'<span class="card-chip card-chip-soft">{escape(query)}</span>'
+        for query in family.get("target_queries", [])[:4]
+    )
+    quick_answer = family.get("quick_answer", family["support"].get("use_case", ""))
+    return (
+        '<section id="global-terms" class="content-card global-terms-card">'
+        '<div class="section-head"><h2>Global terminology and buying units</h2>'
+        '<p>Use this page across English-speaking markets by matching the local material name, unit, and buying format.</p></div>'
+        '<div class="global-term-grid">'
+        f'<article><div class="quality-kicker">Also known as</div><div class="card-chip-row">{alias_html}</div></article>'
+        f'<article><div class="quality-kicker">Search intent</div><div class="card-chip-row">{query_html}</div></article>'
+        f'<article><div class="quality-kicker">Quick answer</div><p>{escape(quick_answer)}</p></article>'
+        '</div>'
+        '<div class="global-term-grid global-term-grid-notes">'
+        f'<article><h3>Regional buying note</h3><p>{escape(terms.get("buying_notes", ""))}</p></article>'
+        f'<article><h3>Unit examples</h3><p>{escape(terms.get("unit_examples", ""))}</p></article>'
+        '</div>'
+        '</section>'
+    )
+
+
+def _retention_next_steps_panel(family: dict) -> str:
+    slugs = family.get("retention_next_steps") or []
+    if not slugs:
+        return ""
+    lookup = family_lookup()
+    cards = []
+    for slug in slugs:
+        entry = lookup.get(slug)
+        if not entry or entry["slug"] == family["slug"]:
+            continue
+        cards.append(
+            f'<article class="tool-card"><div class="card-chip-row"><span class="card-chip">Next step</span><span class="card-chip card-chip-soft">{escape(entry["category"])}</span></div><h3><a href="/calculators/{escape(entry["slug"])}/">{escape(entry["name"])}</a></h3><p>{escape(entry["intro"])}</p></article>'
+        )
+    if not cards:
+        return ""
+    return (
+        '<section class="content-card prose-card"><h2>Keep planning the same job</h2>'
+        '<p>These are the strongest next calculators when this estimate is only one part of the buying or quote-prep workflow.</p></section>'
+        f'<section class="calculator-grid-section"><div class="calculator-grid">{"".join(cards)}</div></section>'
+    )
 
 
 def _calculator_scope_cards(family: dict) -> list[tuple[str, str]]:
@@ -1434,7 +1486,7 @@ def render_quote_brief_shell(family: dict) -> str:
         '</div>'
         '<div class="quote-field-grid">'
         '<label><span>Project label</span><input id="quote-project-label" type="text" placeholder="Patio at rear garden, guest bedroom repaint, driveway refresh"></label>'
-        '<label><span>Location or postcode area</span><input id="quote-location" type="text" placeholder="Leeds, LS12 or similar"></label>'
+        '<label><span>Location, postcode, or ZIP area</span><input id="quote-location" type="text" placeholder="City, postcode, ZIP, or general delivery area"></label>'
         '<label><span>Target timing</span><input id="quote-timing" type="text" placeholder="Next month, before summer, flexible"></label>'
         '<label><span>Email recipient (optional)</span><input id="quote-email" type="email" placeholder="builder@example.com"></label>'
         '<label class="quote-notes-field"><span>Notes or exclusions</span><textarea id="quote-notes" rows="4" placeholder="Access notes, product preference, labour/material split, exclusions, desired finish, or anything still uncertain."></textarea></label>'
@@ -1476,6 +1528,7 @@ def build_calculator_support(slug: str) -> str:
     return (
         f'{render_ad_slot(f"{key}-mid")}'
         '<section id="buying-checks" class="content-card prose-card section-anchor-card"><h2>Practical checks before you buy</h2><p>These notes are where BuildCostLab goes beyond a generic calculator result by surfacing the assumptions, buying traps, and next decisions that usually move the real order.</p></section>'
+        f'{_global_terms_panel(family)}'
         f'{scope_cards}'
         f'{worked_example}'
         f'{methodology_cards}'
@@ -1483,6 +1536,7 @@ def build_calculator_support(slug: str) -> str:
         f'{_calculator_checklist_panel(family)}'
         f'<section class="content-card prose-card"><h2>Explore this {escape(PROJECT_HUB_LABEL.lower())}</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} {escape(PROJECT_HUB_LABEL.lower())}</a> to move from quick estimate to deeper guidance.</p></section>'
         f'{_calculator_related_calculators(family)}'
+        f'{_retention_next_steps_panel(family)}'
         f'{next_step_section}'
         '<section id="faqs" class="content-card prose-card section-anchor-card"><h2>Quick answers</h2><p>These answers are designed to resolve the last practical buying questions people usually have after running the calculator.</p></section>'
         f'<section class="stack-grid">{faq_html}</section>'
@@ -1491,7 +1545,7 @@ def build_calculator_support(slug: str) -> str:
 
 def render_calculator_page(*, slug: str, title: str, description: str, intro: str, form_html: str, result_html: str, script_name: str) -> str:
     family = family_lookup()[slug]
-    normalized_description = description.strip()
+    normalized_description = family.get("meta_description", description).strip()
     if len(normalized_description) < 90:
         normalized_description = f"{normalized_description.rstrip('.')} with practical quantity, waste, and rough cost outputs for planning."
     meta_title = family.get("meta_title", f"{title} | {SITE['name']}")
@@ -1512,6 +1566,7 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
         f'<section class="quality-strip" aria-label="Calculator summary">{summary_cards_html}</section>'
         f'{render_calculator_jump_nav()}'
         f'<section class="calculator-layout" id="calculator"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_cost_intelligence_shell()}</aside></section>'
+        f'{render_recent_tools_panel("Recently used calculators")}'
         f'{render_quote_brief_shell(family)}'
         f'{build_calculator_support(slug)}'
         f'{render_quote_prep_panel(family, "calculator")}'

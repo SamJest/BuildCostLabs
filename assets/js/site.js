@@ -1,5 +1,9 @@
 (function () {
   function track(eventName, payload) {
+    if (window.BuildCostLabAnalytics) {
+      window.BuildCostLabAnalytics.track(eventName, payload || {});
+      return;
+    }
     if (typeof window.gtag === "function") {
       window.gtag("event", eventName, payload || {});
     }
@@ -9,6 +13,16 @@
     return String(value || "").trim().toLowerCase();
   }
 
+  if (window.BuildCostLabAnalytics) {
+    window.BuildCostLabAnalytics.markCalculatorVisit();
+    window.BuildCostLabAnalytics.renderRecentTools();
+    if (window.BuildCostLabAnalytics.readRecent().length > 1) {
+      track("returning_calculator_user", {
+        recent_count: window.BuildCostLabAnalytics.readRecent().length
+      });
+    }
+  }
+
   document.querySelectorAll("[data-ad-slot]").forEach(function (slot) {
     track("ad_slot_visible", {
       slot_name: slot.getAttribute("data-ad-slot"),
@@ -16,10 +30,11 @@
     });
   });
 
-  document.querySelectorAll(".mini-tool-card, .text-link, .tool-card a, .jump-chip, .hero-quick-link").forEach(function (link) {
+  document.querySelectorAll(".mini-tool-card, .text-link, .tool-card a, .jump-chip, .hero-quick-link, [data-recent-tool-link]").forEach(function (link) {
     link.addEventListener("click", function () {
       track("internal_link_click", {
         href: link.getAttribute("href") || "",
+        link_text: link.textContent.trim().slice(0, 80),
         page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
       });
     });
@@ -30,6 +45,14 @@
       track("calculator_submit", {
         form_id: form.getAttribute("id") || "calculator-form"
       });
+      window.setTimeout(function () {
+        const result = document.querySelector(".result-main");
+        track("calculator_result_generated", {
+          form_id: form.getAttribute("id") || "calculator-form",
+          formula: form.getAttribute("data-formula") || "custom",
+          result_label: result ? result.textContent.trim().slice(0, 80) : ""
+        });
+      }, 0);
     });
   });
 
@@ -38,6 +61,22 @@
       track("estimate_action_click", {
         action: button.getAttribute("data-estimate-action") || "unknown",
         page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
+      });
+    });
+  });
+
+  document.querySelectorAll(".unit-toggle").forEach(function (button) {
+    button.addEventListener("click", function () {
+      track("calculator_unit_switch", {
+        unit: button.getAttribute("data-unit") || button.textContent.trim()
+      });
+    });
+  });
+
+  document.querySelectorAll(".currency-pill").forEach(function (button) {
+    button.addEventListener("click", function () {
+      track("calculator_currency_switch", {
+        currency: button.getAttribute("data-currency") || button.textContent.trim()
       });
     });
   });
@@ -102,7 +141,20 @@
     });
 
     if (searchInput) {
-      searchInput.addEventListener("input", applyDirectoryFilter);
+      let searchTimer;
+      searchInput.addEventListener("input", function () {
+        applyDirectoryFilter();
+        window.clearTimeout(searchTimer);
+        searchTimer = window.setTimeout(function () {
+          const query = normalize(searchInput.value);
+          if (query) {
+            track("directory_search_use", {
+              search_term: query,
+              page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
+            });
+          }
+        }, 700);
+      });
     }
 
     if (resetButton) {

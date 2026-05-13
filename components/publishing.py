@@ -4,6 +4,7 @@ from html import escape
 from data.calculator_scale import ADDITIONAL_CALCULATORS
 from data.catalog import get_all_calculators
 from data.publisher import NAV_LINKS, PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE
+from data.search_opportunities import SEARCH_OPPORTUNITIES
 
 
 def _infer_formula(item: dict) -> str | None:
@@ -68,6 +69,15 @@ def get_all_calculator_entries() -> list[dict]:
         merged.setdefault("guide_pages", [])
         merged.setdefault("meta_description", item.get("intro", item.get("name", "")))
         merged.setdefault("hero_eyebrow", "Calculator")
+        opportunity = SEARCH_OPPORTUNITIES.get(merged["slug"])
+        if opportunity:
+            merged |= {
+                key: value
+                for key, value in opportunity.items()
+                if key not in {"regional_terms"}
+            }
+            if opportunity.get("regional_terms"):
+                merged["regional_terms"] = opportunity["regional_terms"]
         items.append(merged)
     existing_slugs = {item["slug"] for item in items}
     for item in ADDITIONAL_CALCULATORS:
@@ -90,6 +100,15 @@ def get_all_calculator_entries() -> list[dict]:
             "guide_pages": [],
             "formula": formula,
         }
+        opportunity = SEARCH_OPPORTUNITIES.get(synthetic["slug"])
+        if opportunity:
+            synthetic |= {
+                key: value
+                for key, value in opportunity.items()
+                if key not in {"regional_terms"}
+            }
+            if opportunity.get("regional_terms"):
+                synthetic["regional_terms"] = opportunity["regional_terms"]
         items.append(synthetic)
     return items
 
@@ -140,21 +159,7 @@ def render_ad_slot(slot_name: str, label: str = "Advertisement") -> str:
 
 
 def render_faq_schema(faqs: list[dict]) -> str:
-    if not faqs:
-        return ""
-    data = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": item["q"],
-                "acceptedAnswer": {"@type": "Answer", "text": item["a"]},
-            }
-            for item in faqs
-        ],
-    }
-    return json.dumps(data)
+    return ""
 
 
 def render_site_schema() -> str:
@@ -253,8 +258,6 @@ def render_layout(*, title: str, description: str, path: str, content: str, sche
   <link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/favicon.svg\">
   <link rel=\"shortcut icon\" href=\"/assets/favicon.svg\">
   <link rel=\"canonical\" href=\"{escape(canonical)}\">
-  <link rel=\"alternate\" hreflang=\"en-GB\" href=\"{escape(canonical)}\">
-  <link rel=\"alternate\" hreflang=\"en-US\" href=\"{escape(canonical)}\">
   <link rel=\"alternate\" hreflang=\"x-default\" href=\"{escape(canonical)}\">
   <meta property=\"og:title\" content=\"{escape(title)}\">
   <meta property=\"og:description\" content=\"{escape(description)}\">
@@ -276,6 +279,7 @@ def render_layout(*, title: str, description: str, path: str, content: str, sche
     gtag('js', new Date());
     gtag('config', 'G-VZKLRBJ5JK');
   </script>
+  <script defer src=\"/assets/js/analytics.js\"></script>
   <script defer src=\"/assets/js/site.js\"></script>
   {scripts}
 </head>
@@ -293,3 +297,12 @@ def render_section_cards(items: list[tuple[str, str]]) -> str:
         for title, body in items
     )
     return f'<section class="stack-grid">{cards}</section>'
+
+
+def render_recent_tools_panel(heading: str = "Recently used calculators") -> str:
+    return (
+        '<section class="content-card recent-tools-panel" data-recent-tools hidden>'
+        f'<div class="section-head"><h2>{escape(heading)}</h2><p>Pick up from the calculators you used recently on this device.</p></div>'
+        '<div class="mini-tool-grid" data-recent-tools-list></div>'
+        '</section>'
+    )

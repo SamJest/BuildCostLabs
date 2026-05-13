@@ -1,6 +1,6 @@
 {
   "site": "BuildCostLab",
-  "generated_on": "2026-03-29",
+  "generated_on": "2026-05-12",
   "counts": {
     "pages": 446,
     "calculators": 97,
@@ -10,7 +10,7 @@
     "project_cost_calculators": 12
   },
   "schema_counts": {
-    "faq": 392,
+    "faq": 0,
     "item_list": 0,
     "software_application": 97,
     "breadcrumb": 445

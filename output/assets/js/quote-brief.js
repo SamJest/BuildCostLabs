@@ -3,6 +3,14 @@
     return document.getElementById(id);
   }
 
+  function track(eventName, payload) {
+    if (window.BuildCostLabAnalytics) {
+      window.BuildCostLabAnalytics.track(eventName, payload || {});
+    } else if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, payload || {});
+    }
+  }
+
   const actions = Array.from(document.querySelectorAll('[data-estimate-action]'));
   if (!actions.length) return;
 
@@ -33,7 +41,7 @@
   function getEstimateRangeLines() {
     return Array.from(document.querySelectorAll('#estimate-range .scenario-card')).map(function (card) {
       const parts = Array.from(card.querySelectorAll('strong, span')).map(function (node) { return node.textContent.trim(); }).filter(Boolean);
-      return parts.join(' — ');
+      return parts.join(' - ');
     }).filter(Boolean);
   }
 
@@ -172,6 +180,7 @@
       const brief = buildBrief();
       const action = button.getAttribute('data-estimate-action');
       if (action === 'copy') {
+        track('quote_brief_action', { action: 'copy' });
         navigator.clipboard.writeText(brief.text).then(function () {
           setStatus('Quote brief copied. Paste it into your email or message to a builder or supplier.');
         }).catch(function () {
@@ -180,6 +189,7 @@
         return;
       }
       if (action === 'email') {
+        track('quote_brief_action', { action: 'email' });
         const recipient = brief.email || '';
         const subject = encodeURIComponent(brief.title + ' quote brief');
         const body = encodeURIComponent(brief.text);
@@ -188,16 +198,19 @@
         return;
       }
       if (action === 'txt') {
+        track('quote_brief_action', { action: 'txt' });
         download(makeSafeFilename(brief.title, 'buildcostlab-quote-brief', '.txt'), brief.text, 'text/plain;charset=utf-8');
         setStatus('Quote brief downloaded as a text file.');
         return;
       }
       if (action === 'csv') {
+        track('quote_brief_action', { action: 'csv' });
         download(makeSafeFilename(brief.title, 'buildcostlab-quote-comparison', '.csv'), csvContent(brief), 'text/csv;charset=utf-8');
         setStatus('Comparison sheet downloaded as CSV.');
         return;
       }
       if (action === 'print') {
+        track('quote_brief_action', { action: 'print' });
         window.print();
         setStatus('Use your browser print dialog to save the brief as PDF if needed.');
       }

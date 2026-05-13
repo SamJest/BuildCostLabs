@@ -1,10 +1,10 @@
 {
   "site_name": "BuildCostLab",
   "site_url": "https://buildcostlab.com",
-  "site_description": "Project calculators that help people estimate materials, quantities and rough job costs faster.",
+  "site_description": "Project calculators that help people estimate materials, quantities and rough job costs in metric or imperial units.",
   "brand_name": "BuildCostLab",
   "locale": "en-GB",
-  "market_positioning": "Global English project calculator site with strong home improvement and material-estimate intent.",
+  "market_positioning": "Global English project calculator site with strong home improvement, material-estimate and quote-prep intent.",
   "header_navigation": [
     {"label": "All calculators", "href": "/calculators/"},
     {"label": "Material calculators", "href": "/calculators/materials/"},

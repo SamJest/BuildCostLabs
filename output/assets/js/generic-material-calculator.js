@@ -41,11 +41,13 @@
 
   function formatVolume(value) {
     const cubicFeet = value * 35.3147;
-    return `${value.toFixed(3)} m3 (${cubicFeet.toFixed(1)} cu ft)`;
+    const cubicYards = value * 1.30795;
+    return `${value.toFixed(3)} m3 (${cubicFeet.toFixed(1)} cu ft / ${cubicYards.toFixed(2)} cu yd)`;
   }
 
   function formatWeightTonnes(value) {
-    return `${value.toFixed(2)} t (${Math.round(value * 1000)} kg)`;
+    const shortTons = value * 1.10231;
+    return `${value.toFixed(2)} t (${shortTons.toFixed(2)} US tons / ${Math.round(value * 1000)} kg)`;
   }
 
   function getNumber(id) {
