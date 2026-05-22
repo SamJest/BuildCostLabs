@@ -90,6 +90,35 @@
     });
   });
 
+  document.querySelectorAll("[data-workflow-card-link]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      track("workflow_card_click", {
+        href: link.getAttribute("href") || "",
+        link_text: link.textContent.trim().slice(0, 80),
+        page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-workflow-step-calculator]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      track("workflow_step_calculator_click", {
+        href: link.getAttribute("href") || "",
+        link_text: link.textContent.trim().slice(0, 80),
+        page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-workflow-quote-cta]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      track("workflow_quote_cta_click", {
+        href: link.getAttribute("href") || "",
+        page_type: document.querySelector('meta[name="page-type"]')?.content || "unknown"
+      });
+    });
+  });
+
   document.querySelectorAll("[data-directory-root]").forEach(function (root) {
     var searchInput = root.querySelector("[data-directory-search]");
     var resetButton = root.querySelector("[data-directory-reset]");

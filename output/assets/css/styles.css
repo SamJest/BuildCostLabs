@@ -331,6 +331,13 @@ a{color:inherit}
 .tool-card-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:auto}
 .text-link-secondary{color:#5f728f}
 .workflow-grid{margin-top:1rem}
+.workflow-card{display:flex;flex-direction:column;gap:.65rem}
+.workflow-query-row{margin-top:1rem}
+.workflow-step-grid{align-items:stretch}
+.workflow-step{display:flex;flex-direction:column}
+.workflow-step .text-link{margin-top:auto}
+.workflow-step-card{display:flex;flex-direction:column;gap:.65rem}
+.workflow-list-panel{margin-top:1rem}
 .conversion-panel-prominent{margin-top:1rem}
 .section-jump-nav{
   display:flex;

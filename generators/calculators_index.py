@@ -5,6 +5,7 @@ from components.publishing import get_all_calculator_entries, render_ad_slot, re
 from data.catalog import get_all_calculators
 from data.publisher import PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE
 from data.search_opportunities import PRIORITY_SLUGS
+from data.workflows import get_all_workflows, workflows_for_calculator
 
 
 DEFAULT_FEATURED_SLUGS = {
@@ -85,6 +86,11 @@ def build_calculator_cards(featured_slugs: set[str] | None = None) -> str:
     for item in get_all_calculator_entries():
         guide_count = len(item["intent_pages"]) + len(item["guide_pages"])
         workflow_label = "Cost planning" if item.get("formula") == "project_cost" else "Materials"
+        linked_workflows = workflows_for_calculator(item["slug"])
+        workflow_link = ""
+        if linked_workflows:
+            workflow = linked_workflows[0]
+            workflow_link = f'<a class="text-link text-link-secondary" href="/workflows/{escape(workflow["slug"])}/" data-workflow-card-link>Plan the full job</a>'
         featured_badge = '<span class="card-chip card-chip-featured">Popular</span>' if item["slug"] in featured_slugs else ""
         parts.append(
             f'''
@@ -106,6 +112,7 @@ def build_calculator_cards(featured_slugs: set[str] | None = None) -> str:
           <div class="tool-card-actions">
             <a class="text-link" href="/calculators/{escape(item["slug"])}/">Open calculator</a>
             <a class="text-link text-link-secondary" href="/clusters/{escape(item["cluster_slug"])}/">Open {escape(PROJECT_HUB_LABEL.lower())}</a>
+            {workflow_link}
           </div>
         </article>
         '''
@@ -196,6 +203,10 @@ def build_calculators_index(cards_html: str) -> str:
     stats = calculator_directory_stats()
     categories = calculator_directory_categories()
     calculators = get_all_calculator_entries()
+    workflow_cards = "".join(
+        f'<article class="tool-card workflow-card"><div class="card-chip-row"><span class="card-chip card-chip-featured">Planner</span><span class="card-chip card-chip-soft">{len(workflow.get("calculator_slugs", []))} calculators</span></div><h3><a href="/workflows/{escape(workflow["slug"])}/" data-workflow-card-link>{escape(workflow["title"])}</a></h3><p>{escape(workflow["intro"])}</p><a class="text-link" href="/workflows/{escape(workflow["slug"])}/" data-workflow-card-link>Plan this job</a></article>'
+        for workflow in get_all_workflows()
+    )
     content = f'''
   <div class="site-shell">
     <section class="hero hero-compact">
@@ -210,6 +221,17 @@ def build_calculators_index(cards_html: str) -> str:
       </div>
     </section>
     {render_ad_slot("calculators-index-top")}
+    <section class="content-card intro-card">
+      <div class="section-head">
+        <h2>Start with a project plan</h2>
+        <p>When the job has several material decisions, open a planner first. The full calculator directory stays below for one-off estimates and wider browsing.</p>
+      </div>
+    </section>
+    <section class="calculator-grid-section">
+      <div class="calculator-grid">
+        {workflow_cards}
+      </div>
+    </section>
     {render_search_opportunity_section(calculators, title="High-demand calculators to check first", intro="These pages match the material and project searches already getting visibility, so they are useful starting points when you want the fastest route into a relevant estimate.")}
     {render_directory_section(title="Search the calculator library", intro="Use the filters to find the right estimate quickly, then jump into the supporting guide and quote-prep path when you need more than a raw number.", cards_html=cards_html, categories=categories, count_text=f'Showing all {stats["calculator_count"]} calculators.')}
     <section class="quality-strip" aria-label="Trust and workflow guidance">

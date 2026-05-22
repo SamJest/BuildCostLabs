@@ -1,19 +1,21 @@
 {
   "site": "BuildCostLab",
-  "generated_on": "2026-05-12",
+  "generated_on": "2026-05-22",
   "counts": {
-    "pages": 446,
-    "calculators": 97,
-    "guides": 295,
+    "pages": 478,
+    "calculators": 103,
+    "guides": 310,
     "clusters": 25,
+    "workflows": 10,
     "trust_pages": 8,
-    "project_cost_calculators": 12
+    "project_cost_calculators": 13
   },
   "schema_counts": {
-    "faq": 0,
-    "item_list": 0,
-    "software_application": 97,
-    "breadcrumb": 445
+    "faq": 423,
+    "item_list": 10,
+    "software_application": 103,
+    "breadcrumb": 477,
+    "howto": 10
   },
   "missing_required_paths": [],
   "readiness_checks": {
@@ -22,10 +24,12 @@
     "calculators_present": true,
     "guides_present": true,
     "clusters_present": true,
+    "workflows_present": true,
     "trust_pages_present": true,
     "compare_hub_present": true,
     "project_cost_family_present": true,
-    "calculator_schema_present": true
+    "calculator_schema_present": true,
+    "workflow_schema_present": true
   },
   "seo_summary": {
     "issues": 0,

@@ -5,6 +5,7 @@ from data.catalog import get_all_calculators
 from data.locations import get_all_locations
 from data.publisher import PROJECT_HUBS_LABEL, SITE
 from data.search_opportunities import PRIORITY_SLUGS
+from data.workflows import get_all_workflows
 from generators.calculators_index import calculator_directory_categories, calculator_directory_stats, render_directory_section, render_search_opportunity_section
 
 
@@ -37,6 +38,10 @@ def build_homepage(cards_html: str = ""):
         f'<a class="hero-quick-link" href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a>'
         for item in calculators
         if item["slug"] in {"skirting-board-calculator", "hardcore-calculator", "tile-backer-board-calculator", "roof-felt-calculator", "paving-jointing-compound-calculator", "paving-calculator"}
+    )
+    workflow_cards = "".join(
+        f'<article class="tool-card workflow-card"><div class="card-chip-row"><span class="card-chip card-chip-featured">Planner</span><span class="card-chip card-chip-soft">{len(workflow.get("calculator_slugs", []))} calculators</span></div><h3><a href="/workflows/{escape(workflow["slug"])}/" data-workflow-card-link>{escape(workflow["title"])}</a></h3><p>{escape(workflow["intro"])}</p><a class="text-link" href="/workflows/{escape(workflow["slug"])}/" data-workflow-card-link>Plan this job</a></article>'
+        for workflow in get_all_workflows()[:6]
     )
     guide_count = sum(len(item["intent_pages"]) + len(item["guide_pages"]) for item in get_all_calculators())
     content = f'''
@@ -74,6 +79,19 @@ def build_homepage(cards_html: str = ""):
 
     {render_ad_slot("home-top")}
 
+    <section class="content-card intro-card">
+      <div class="section-head">
+        <h2>Start with a project plan</h2>
+        <p>For layered jobs, begin with the planner instead of a single calculator. It keeps the surface, base, fixings, trims, waste, and quote notes together.</p>
+      </div>
+    </section>
+
+    <section class="calculator-grid-section">
+      <div class="calculator-grid">
+        {workflow_cards}
+      </div>
+    </section>
+
     {render_search_opportunity_section(calculators, title="Start with pages people are already searching for", intro="Recent search-demand signals point to skirting or baseboard trim, hardcore or crushed stone, tile backer board, roof felt, paving jointing, paving or pavers, flooring, laminate, pea gravel, loft or attic insulation, and plasterboard or drywall. These quick links give those searches a cleaner path from the homepage.")}
 
     {render_directory_section(title="Find the right calculator faster", intro="Search by job, material, or buying task, then filter the library so you can start with the right estimate instead of scrolling through an endless list.", cards_html=cards_html, categories=calculator_directory_categories(), count_text=f'Showing all {stats["calculator_count"]} calculators.')}
@@ -88,7 +106,7 @@ def build_homepage(cards_html: str = ""):
     <section class="stack-grid workflow-grid">
       <article class="content-card prose-card"><h2>1. Start with a usable estimate</h2><p>Pick the calculator that matches the real material or project question so the starting number is already in the right format for buying or budgeting.</p></article>
       <article class="content-card prose-card"><h2>2. Check what could change it</h2><p>Use the guide links, support notes, and range logic to see where waste, labour, access, pack size, or finish level could move the real total.</p></article>
-      <article class="content-card prose-card"><h2>3. Brief suppliers more clearly</h2><p>Use the quote-ready tools and checklist so every builder or merchant is pricing the same scope, assumptions, and exclusions.</p></article>
+      <article class="content-card prose-card"><h2>3. Brief suppliers more clearly</h2><p>Turn the calculator result into a short scope note so every builder or merchant is pricing the same measurements, assumptions, and exclusions.</p></article>
     </section>
 
     <section class="content-card intro-card">
@@ -125,7 +143,7 @@ def build_homepage(cards_html: str = ""):
 
     <section class="conversion-panel conversion-panel-prominent">
       <div class="section-head">
-        <h2>Move from estimate to quote-ready brief</h2>
+        <h2>Turn the estimate into a clearer brief</h2>
         <p>Use the calculator result as your starting number, then turn it into a cleaner builder or supplier request with the quote checklist and contact page.</p>
       </div>
       <div class="conversion-actions">

@@ -168,6 +168,84 @@ SEARCH_OPPORTUNITIES = {
         "quick_answer": "Measure wall or ceiling area, subtract openings if useful, add waste, then round up to full plasterboard or drywall sheets.",
         "retention_next_steps": ["plasterboard-adhesive-calculator", "drywall-screws-calculator", "joint-compound-calculator", "skim-plaster-calculator"],
     },
+    "ceiling-plasterboard-calculator": {
+        "priority": 14,
+        "target_queries": ["ceiling plasterboard calculator", "plasterboard ceiling calculator", "plasterboard calculator for ceiling"],
+        "regional_terms": {
+            "also_known_as": ["ceiling drywall calculator", "gypsum board ceiling calculator", "ceiling sheetrock calculator"],
+            "buying_notes": "Ceiling board searches vary by market, but the estimate still turns ceiling area into full boards after orientation, offcuts, and handling waste.",
+            "unit_examples": "Use m2 or sq ft, then divide by real board coverage such as 2400 x 1200mm, 8 x 4 ft, or the sheet size your supplier sells.",
+        },
+        "meta_title": "Ceiling Plasterboard and Drywall Calculator for Sheets | BuildCostLab",
+        "meta_description": "Estimate ceiling plasterboard or drywall sheets from ceiling area, board coverage, waste, and rough material cost.",
+        "quick_answer": "Measure the ceiling area, divide by real board coverage, add waste for cuts and handling, then round up to full boards.",
+        "retention_next_steps": ["plasterboard-calculator", "drywall-screws-calculator", "joint-compound-calculator", "skim-plaster-calculator"],
+    },
+    "deck-cost-calculator": {
+        "priority": 15,
+        "target_queries": ["deck cost calculator", "deck cost estimator", "decking cost calculator"],
+        "regional_terms": {
+            "also_known_as": ["decking cost calculator", "deck price estimator", "decking quote calculator"],
+            "buying_notes": "Deck and decking are used differently by market. Compare board choice, framing, labour, rails, steps, access, and disposal on the same measured scope.",
+            "unit_examples": "Use m2 or sq ft for deck area, then test materials, labour, extras, contingency, and regional weighting before asking for quotes.",
+        },
+        "meta_title": "Deck Cost Calculator and Decking Price Estimator | BuildCostLab",
+        "meta_description": "Estimate deck cost from area, boards, framing, labour, extras, contingency, and regional planning assumptions.",
+        "quick_answer": "Measure the deck area, choose realistic material and labour rates, add extras and contingency, then compare quotes against the same scope.",
+        "retention_next_steps": ["decking-cost-calculator", "decking-calculator", "deck-joist-calculator", "deck-screws-calculator"],
+    },
+    "patio-slabs-calculator": {
+        "priority": 16,
+        "target_queries": ["patio slabs calculator", "how many patio slabs do i need", "how many slabs do i need"],
+        "regional_terms": {
+            "also_known_as": ["paving slab calculator", "paver slab calculator", "patio paver calculator"],
+            "buying_notes": "Patio slab, paving slab, and paver wording changes by market. The useful estimate is area, unit coverage, laying pattern, cut waste, and whole-pack rounding.",
+            "unit_examples": "Use m2 or sq ft, then compare 450mm, 600mm, mixed-size packs, or paver coverage using the supplier's installed coverage.",
+        },
+        "meta_title": "Patio Slabs Calculator: How Many Slabs Do I Need? | BuildCostLab",
+        "meta_description": "Estimate how many patio slabs or pavers you need from patio area, slab size, pack coverage, waste, and rough cost.",
+        "quick_answer": "Measure the patio area, divide by slab or pack coverage, add cutting waste, then round up to a full slab or pack count.",
+        "retention_next_steps": ["paving-calculator", "paving-sand-calculator", "paving-jointing-compound-calculator", "patio-cost-calculator"],
+    },
+    "shiplap-cladding-calculator": {
+        "priority": 17,
+        "target_queries": ["shiplap cladding calculator", "cladding calculator", "timber cladding calculator"],
+        "regional_terms": {
+            "also_known_as": ["timber cladding calculator", "siding calculator", "weatherboard calculator"],
+            "buying_notes": "Shiplap, timber cladding, siding, and weatherboard can refer to similar exterior-board jobs. Installed face coverage after overlap matters more than nominal board width.",
+            "unit_examples": "Use wall area in m2 or sq ft, then divide by installed board or pack coverage after overlap, waste, and openings.",
+        },
+        "meta_title": "Shiplap Cladding Calculator for Boards and Wall Area | BuildCostLab",
+        "meta_description": "Estimate shiplap cladding boards from wall area, installed coverage, overlap waste, openings, and rough material cost.",
+        "quick_answer": "Measure the cladded wall area, use installed board coverage after overlap, add waste, then round up to full boards or packs.",
+        "retention_next_steps": ["cladding-calculator", "wood-stain-calculator", "exterior-paint-calculator", "masonry-sealer-calculator"],
+    },
+    "garden-turf-calculator": {
+        "priority": 18,
+        "target_queries": ["garden turf calculator", "turf calculator", "lawn turf calculator"],
+        "regional_terms": {
+            "also_known_as": ["lawn turf calculator", "sod calculator", "grass roll calculator"],
+            "buying_notes": "Turf is common UK wording; sod is common in North America. The order depends on lawn area, roll coverage, edge trimming, timing, and ground prep.",
+            "unit_examples": "Use m2 or sq ft, then round up to full rolls, slabs, pallets, or sod pieces depending on supplier format.",
+        },
+        "meta_title": "Garden Turf and Lawn Roll Calculator for Area and Waste | BuildCostLab",
+        "meta_description": "Estimate garden turf or lawn rolls from area, roll coverage, edge waste, delivery timing, and rough material cost.",
+        "quick_answer": "Measure the lawn area, divide by turf roll coverage, add edge-trimming waste, then round up to full rolls.",
+        "retention_next_steps": ["turf-calculator", "topsoil-calculator", "grass-seed-calculator", "weed-membrane-calculator"],
+    },
+    "flooring-boxes-calculator": {
+        "priority": 19,
+        "target_queries": ["how many boxes of flooring do i need calculator", "flooring boxes calculator", "flooring pack calculator"],
+        "regional_terms": {
+            "also_known_as": ["flooring pack calculator", "flooring box calculator", "flooring carton calculator"],
+            "buying_notes": "Flooring may be sold as boxes, packs, cartons, or bundles. Pack coverage, spare stock, room shape, and batch matching decide the final buying count.",
+            "unit_examples": "Use room area in m2 or sq ft, divide by pack coverage, then round up to full boxes or packs.",
+        },
+        "meta_title": "Flooring Boxes Calculator: How Many Packs Do I Need? | BuildCostLab",
+        "meta_description": "Estimate flooring boxes or packs from room area, pack coverage, waste, spare allowance, and rough material cost.",
+        "quick_answer": "Measure the room area, add layout waste, divide by box coverage, then round up to full boxes or packs.",
+        "retention_next_steps": ["flooring-calculator", "laminate-flooring-calculator", "vinyl-plank-flooring-calculator", "underlay-calculator"],
+    },
 }
 
 
@@ -175,4 +253,3 @@ PRIORITY_SLUGS = [
     slug
     for slug, item in sorted(SEARCH_OPPORTUNITIES.items(), key=lambda pair: pair[1]["priority"])
 ]
-

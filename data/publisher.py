@@ -6,8 +6,8 @@
     "description": "BuildCostLab helps you estimate materials in metric or imperial units, compare buying formats, and prepare a cleaner quote brief.",
     "default_image": "/assets/images/og-default.svg",
     "contact_email": "hello@buildcostlab.com",
-    "updated_label": "May 12, 2026",
-    "updated_iso": "2026-05-12",
+    "updated_label": "May 22, 2026",
+    "updated_iso": "2026-05-22",
     "methodology_path": "/calculator-methodology/",
     "editorial_policy_path": "/editorial-policy/",
     "quote_contact_path": "/contact/",
@@ -19,6 +19,7 @@ PROJECT_HUB_LABEL = "Project Hub"
 NAV_LINKS = [
     {"href": "/", "label": "Home"},
     {"href": "/calculators/", "label": "Calculators"},
+    {"href": "/workflows/", "label": "Workflows"},
     {"href": "/clusters/", "label": PROJECT_HUBS_LABEL},
     {"href": "/guides/", "label": "Guides"},
     {"href": "/buying-guides/", "label": "Buying Guides"},

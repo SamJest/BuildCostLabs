@@ -15,6 +15,7 @@ from core.config import ASSETS_DIR, OUTPUT_DIR
 from components.publishing import get_all_calculator_entries
 from generators.homepage import build_homepage
 from generators.calculators_index import build_calculator_cards, build_calculators_index
+from generators.workflow_pages import build_workflow_pages, build_workflows_index
 from generators.publisher_pages import (
     build_cluster_pages,
     build_clusters_index,
@@ -28,6 +29,7 @@ from generators.scale_calculators import build_additional_calculator_pages
 from generators.location_pages import build_location_pages, build_locations_index
 from data.publisher import SITE, TRUST_PAGES
 from data.locations import get_all_locations
+from data.workflows import get_all_workflows
 
 CALCULATOR_TARGETS = [
     ("paint_calculator", "paint-calculator", "paint"),
@@ -123,6 +125,10 @@ def build_site() -> None:
         write_file(OUTPUT_DIR / path.strip("/") / "index.html", html)
     for path, html in build_guide_pages():
         write_file(OUTPUT_DIR / path.strip("/") / "index.html", html)
+    for path, html in build_workflow_pages():
+        write_file(OUTPUT_DIR / path.strip("/") / "index.html", html)
+    workflow_index_path, workflow_index_html = build_workflows_index()
+    write_file(OUTPUT_DIR / workflow_index_path.strip("/") / "index.html", workflow_index_html)
     guide_index_path, guide_index_html = build_guides_index()
     write_file(OUTPUT_DIR / guide_index_path.strip("/") / "index.html", guide_index_html)
     compare_index_path, compare_index_html = build_compare_index()
@@ -245,13 +251,14 @@ def build_launch_readiness_report() -> str:
     calculators = [item for item in inventory["pages"] if item.get("type") == "calculator"]
     guides = [item for item in inventory["pages"] if item.get("type") == "guide"]
     clusters = [item for item in inventory["pages"] if item.get("type") == "cluster"]
+    workflows = [item for item in inventory["pages"] if item.get("type") == "workflow"]
     trust_pages = [item for item in inventory["pages"] if item.get("type") == "trust"]
     compare_pages = [item for item in inventory["pages"] if item.get("type") == "compare-index"]
     html_pages = [
         html_path for html_path in OUTPUT_DIR.rglob("index.html")
         if not _is_legacy_alias_path("/" + html_path.relative_to(OUTPUT_DIR).as_posix().removesuffix("index.html"))
     ]
-    schema_counts = {"faq": 0, "item_list": 0, "software_application": 0, "breadcrumb": 0}
+    schema_counts = {"faq": 0, "item_list": 0, "software_application": 0, "breadcrumb": 0, "howto": 0}
     for html_path in html_pages:
         content = html_path.read_text(encoding="utf-8")
         if '"@type": "FAQPage"' in content:
@@ -262,10 +269,13 @@ def build_launch_readiness_report() -> str:
             schema_counts["software_application"] += 1
         if '"@type": "BreadcrumbList"' in content:
             schema_counts["breadcrumb"] += 1
+        if '"@type": "HowTo"' in content:
+            schema_counts["howto"] += 1
 
     required_paths = [
         "/",
         "/calculators/",
+        "/workflows/",
         "/guides/",
         "/clusters/",
         "/locations/",
@@ -283,6 +293,7 @@ def build_launch_readiness_report() -> str:
     missing_required = [path for path in required_paths if path not in existing_paths]
 
     project_cost_count = sum(1 for item in get_all_calculator_entries() if item.get("formula") == "project_cost")
+    workflow_count = len(get_all_workflows())
 
     readiness_checks = {
         "required_pages_present": not missing_required,
@@ -290,10 +301,12 @@ def build_launch_readiness_report() -> str:
         "calculators_present": len(calculators) >= 10,
         "guides_present": len(guides) >= 20,
         "clusters_present": len(clusters) >= 5,
+        "workflows_present": len(workflows) >= workflow_count,
         "trust_pages_present": len(trust_pages) >= 5,
         "compare_hub_present": len(compare_pages) == 1,
         "project_cost_family_present": project_cost_count >= 4,
         "calculator_schema_present": schema_counts["software_application"] >= project_cost_count,
+        "workflow_schema_present": schema_counts["howto"] >= workflow_count and schema_counts["item_list"] >= workflow_count,
     }
 
     return json.dumps(
@@ -305,6 +318,7 @@ def build_launch_readiness_report() -> str:
                 "calculators": len(calculators),
                 "guides": len(guides),
                 "clusters": len(clusters),
+                "workflows": len(workflows),
                 "trust_pages": len(trust_pages),
                 "project_cost_calculators": project_cost_count,
             },

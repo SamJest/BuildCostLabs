@@ -135,7 +135,7 @@ def render_footer() -> str:
         f'<p><strong>{escape(SITE["name"])}</strong> helps you estimate, sense-check, compare, and prepare clearer quote requests for common home and building jobs.</p>'
         '<p>Use every result as a planning aid, not a fixed quote. Always confirm measurements, product data, labour scope, and site conditions before buying or booking work.</p>'
         '<p class="footer-note">'
-        f'<a href="/about/">About</a> <a href="/editorial-policy/">Editorial policy</a> <a href="/calculator-methodology/">Methodology</a> <a href="/clusters/">{escape(PROJECT_HUBS_LABEL)}</a> <a href="/quote-checklist/">Quote prep</a> <a href="/advertiser-disclosure/">Advertiser disclosure</a> <a href="/privacy-policy/">Privacy</a> <a href="/terms/">Terms</a> <a href="/contact/">Contact</a>'
+        f'<a href="/about/">About</a> <a href="/editorial-policy/">Editorial policy</a> <a href="/calculator-methodology/">Methodology</a> <a href="/workflows/">Workflows</a> <a href="/clusters/">{escape(PROJECT_HUBS_LABEL)}</a> <a href="/quote-checklist/">Quote prep</a> <a href="/advertiser-disclosure/">Advertiser disclosure</a> <a href="/privacy-policy/">Privacy</a> <a href="/terms/">Terms</a> <a href="/contact/">Contact</a>'
         '</p>'
         '</div></footer>'
     )
@@ -159,7 +159,33 @@ def render_ad_slot(slot_name: str, label: str = "Advertisement") -> str:
 
 
 def render_faq_schema(faqs: list[dict]) -> str:
-    return ""
+    if not faqs:
+        return ""
+    questions = []
+    for item in faqs:
+        question = item.get("q", "").strip()
+        answer = item.get("a", "").strip()
+        if not question or not answer:
+            continue
+        questions.append(
+            {
+                "@type": "Question",
+                "name": question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": answer,
+                },
+            }
+        )
+    if not questions:
+        return ""
+    return json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": questions,
+        }
+    )
 
 
 def render_site_schema() -> str:

@@ -14,6 +14,7 @@ from components.publishing import (
 )
 from data.catalog import get_all_calculators, get_cluster_hub_content, get_cluster_intro
 from data.publisher import PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE, TRUST_PAGES
+from data.workflows import workflows_for_calculator, workflows_for_cluster
 
 
 # ---------- Shared shells ----------
@@ -52,10 +53,12 @@ def render_cost_intelligence_shell() -> str:
     )
 
 
-def render_calculator_jump_nav() -> str:
+def render_calculator_jump_nav(*, has_workflows: bool = False) -> str:
+    workflow_link = '<a class="jump-chip" href="#project-workflows">Workflows</a>' if has_workflows else ""
     return (
         '<nav class="section-jump-nav" aria-label="On this page">'
         '<a class="jump-chip" href="#calculator">Calculator</a>'
+        f'{workflow_link}'
         '<a class="jump-chip" href="#quote-brief">Quote brief</a>'
         '<a class="jump-chip" href="#buying-checks">Buying checks</a>'
         '<a class="jump-chip" href="#global-terms">Global terms</a>'
@@ -79,10 +82,17 @@ def render_calculator_hero_badges(formula: str) -> str:
 
 def render_quality_strip(page_type: str) -> str:
     page_name = page_type if page_type not in {"project hub", "guide", "calculator"} else page_type
+    use_copy = (
+        f"Use this {escape(page_name)} for a planning check, then confirm the final order or quote against live product data and site conditions."
+    )
+    if page_type == "workflow":
+        use_copy = "Use this planner to keep the measurements, material list, and quote scope aligned before anyone prices the work."
+    if page_type == "workflow index":
+        use_copy = "Choose the planner closest to the job, then adjust the measurements, product choices, and quote notes to match the site."
     return (
         '<section class="quality-strip" aria-label="Freshness and methodology">'
         f'<article class="content-card quality-card"><div class="quality-kicker">Last checked</div><h2>{escape(SITE["updated_label"])}</h2><p>We checked the page logic, support notes, and related links on this page.</p></article>'
-        f'<article class="content-card quality-card"><div class="quality-kicker">How to use it</div><h2>Planning before buying</h2><p>Use this {escape(page_name)} for a planning check, then confirm the final order or quote against live product data and site conditions.</p></article>'
+        f'<article class="content-card quality-card"><div class="quality-kicker">How to use it</div><h2>Planning before buying</h2><p>{use_copy}</p></article>'
         f'<article class="content-card quality-card"><div class="quality-kicker">Why trust it</div><h2>See how the site is maintained</h2><p>Read the <a href="{escape(SITE["methodology_path"])}">calculator methodology</a> and <a href="{escape(SITE["editorial_policy_path"])}">editorial policy</a> for the standards behind these pages.</p></article>'
         '</section>'
     )
@@ -421,7 +431,7 @@ def _calculator_checklist_panel(family: dict) -> str:
     items_html = "".join(f'<li>{escape(item)}</li>' for item in items_map.get(formula, []))
     return (
         '<section class="conversion-panel">'
-        '<div class="section-head"><h2>Quote-ready checklist</h2><p>Use these prompts when you want to turn the estimate into a clearer builder, installer, or merchant request.</p></div>'
+        '<div class="section-head"><h2>Scope checklist</h2><p>Use these prompts when you want to turn the estimate into a clearer builder, installer, or merchant request.</p></div>'
         f'<ul class="conversion-list">{items_html}</ul>'
         '</section>'
     )
@@ -471,16 +481,50 @@ def _calculator_related_calculators(family: dict) -> str:
         return ""
     if family["slug"] == "pipe-bedding-calculator":
         title = "Related calculators for the same drainage or base build-up"
-        intro = "Use these linked tools when the trench estimate needs pipe length, membrane coverage, gravel surround, or supporting base-material quantities rather than one isolated number."
+        intro = "Use these tools together when the trench estimate needs pipe length, membrane coverage, gravel surround, and base-material quantities on the same measured run."
     elif not explicit_links:
         title = "Related calculators in the same project hub"
-        intro = f'Use these linked tools when the estimate crosses into another calculator in the {family["cluster_name"]} cluster rather than stopping at one isolated material number.'
+        intro = f'Use these linked tools when the estimate crosses into another calculator in the {family["cluster_name"]} cluster and the buying list needs more than one material.'
     else:
         title = family.get("related_calculator_title", "Related calculators for the same job")
         intro = family.get("related_calculator_intro", "Use these linked tools when the estimate depends on more than one material, layer, room finish, or buying format.")
     return (
         f'<section class="content-card prose-card"><h2>{escape(title)}</h2><p>{escape(intro)}</p></section>'
         f'<section class="calculator-grid-section"><div class="calculator-grid">{"".join(cards)}</div></section>'
+    )
+
+
+def _workflow_cards(workflows: list[dict], *, label: str = "Workflow") -> str:
+    cards = []
+    for workflow in workflows:
+        cards.append(
+            f'<article class="tool-card workflow-card">'
+            f'<div class="card-chip-row"><span class="card-chip card-chip-featured">{escape(label)}</span>'
+            f'<span class="card-chip card-chip-soft">{len(workflow.get("calculator_slugs", []))} calculators</span></div>'
+            f'<h3><a href="/workflows/{escape(workflow["slug"])}/" data-workflow-card-link>{escape(workflow["title"])}</a></h3>'
+            f'<p>{escape(workflow["intro"])}</p>'
+            f'<a class="text-link" href="/workflows/{escape(workflow["slug"])}/" data-workflow-card-link>Plan this job</a>'
+            '</article>'
+        )
+    return "".join(cards)
+
+
+def _calculator_workflow_section(family: dict, *, compact: bool = False) -> str:
+    workflows = workflows_for_calculator(family["slug"])
+    if not workflows:
+        return ""
+    cards = _workflow_cards(workflows[:3], label="Project workflow")
+    title = "Plan the full job around this calculator" if compact else "Plan the whole job, not just this number"
+    intro = (
+        "This calculator is one part of a larger buying list. Open the planner to check the related materials, accessories, guides, and quote notes."
+        if compact
+        else "Start with the planner when this estimate is only one layer of the job and the order needs several connected checks."
+    )
+    section_id = "" if compact else ' id="project-workflows"'
+    return (
+        f'<section{section_id} class="content-card prose-card section-anchor-card">'
+        f'<h2>{escape(title)}</h2><p>{escape(intro)}</p></section>'
+        f'<section class="calculator-grid-section"><div class="calculator-grid">{cards}</div></section>'
     )
 
 
@@ -497,6 +541,18 @@ def _cluster_workflow_section(hub_content: dict) -> str:
     return (
         f'<section class="content-card prose-card"><div class="section-head"><h2>{escape(title)}</h2><p>{escape(intro)}</p></div></section>'
         f'<section class="stack-grid workflow-grid">{cards_html}</section>'
+    )
+
+
+def _cluster_project_workflows_section(items: list[dict]) -> str:
+    workflows = workflows_for_cluster([item["slug"] for item in items])
+    if not workflows:
+        return ""
+    cards = _workflow_cards(workflows[:4], label="Use this in a workflow")
+    return (
+        '<section class="content-card prose-card"><h2>Project plans that use this hub</h2>'
+        '<p>These planners combine this hub with the other quantities, accessories, and quote checks that usually sit around the job.</p></section>'
+        f'<section class="calculator-grid-section"><div class="calculator-grid">{cards}</div></section>'
     )
 
 
@@ -630,6 +686,7 @@ def build_cluster_pages():
                 f'<section class="calculator-grid-section"><div class="calculator-grid">{featured_cards}</div></section>'
             )
         workflow_section = _cluster_workflow_section(hub_content)
+        project_workflow_section = _cluster_project_workflows_section(items)
         calculator_section = ""
         if calculator_cards:
             calculator_section = (
@@ -674,6 +731,7 @@ def build_cluster_pages():
             f'{render_quality_strip("project hub")}'
             f'{featured_section}'
             f'{workflow_section}'
+            f'{project_workflow_section}'
             f'{calculator_section}'
             f'{cross_cluster_section}'
             f'{render_section_cards(hub_content.get("notes", default_notes))}'
@@ -1241,6 +1299,18 @@ def _guide_related_cards(family: dict, current_slug: str) -> str:
         (entry for entry in related_pool if entry['slug'] == current_slug),
         None,
     )
+
+
+def _guide_workflow_section(family: dict) -> str:
+    workflows = workflows_for_calculator(family["slug"])
+    if not workflows:
+        return ""
+    cards = _workflow_cards(workflows[:3], label="Workflow")
+    return (
+        '<section class="content-card prose-card"><h2>Project plans that use this guide</h2>'
+        '<p>Open one of these planners when the guide is part of a larger job with connected quantities, accessories, and pricing questions.</p></section>'
+        f'<section class="calculator-grid-section"><div class="calculator-grid">{cards}</div></section>'
+    )
     role = _guide_role(current) if current else 'general'
     related_items = [
         entry for entry in related_pool if entry['slug'] != current_slug
@@ -1379,6 +1449,7 @@ def build_guide_pages():
             example_cards = _guide_example_cards(item, family)
             faqs = _guide_faqs(item, family)
             related_cards = _guide_related_cards(family, item['slug'])
+            workflow_section = _guide_workflow_section(family)
             description = _guide_description(item, family)
             section_copy = _guide_section_copy(item)
 
@@ -1413,6 +1484,7 @@ def build_guide_pages():
                 f'<section class="content-card prose-card"><h2>{escape(section_copy["example_title"])}</h2><p>{escape(section_copy["example_intro"])}</p></section>'
                 f'<section class="stack-grid">{example_html}</section>'
                 f'{_guide_checklist_panel(item, family)}'
+                f'{workflow_section}'
                 f'{related_cards}'
                 f'<section class="content-card prose-card"><h2>Next step links</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} {escape(PROJECT_HUB_LABEL.lower())}</a> or go straight to the <a href="/calculators/{escape(family["slug"])}/">{escape(family["name"])}</a>.</p></section>'
                 f'{render_quote_prep_panel(family, "guide")}'
@@ -1443,7 +1515,7 @@ def render_quote_prep_panel(family: dict, context: str, panel_data: dict | None 
         "calculator": "Use this estimate in a quote request",
         "guide": "Ready to turn this guide into a quote request?",
         "cluster": f"Use this {PROJECT_HUB_LABEL.lower()} to brief suppliers or installers",
-    }.get(context, "Move from estimate to quote-ready scope")
+    }.get(context, "Turn the estimate into a clear scope")
     intro = {
         "calculator": "Copy the estimate, add your own notes, and send the same scope to each builder or supplier so the quotes are easier to compare.",
         "guide": "Once you understand the assumptions and buying choices, send builders or merchants the same measured scope so the prices are easier to compare fairly.",
@@ -1521,6 +1593,7 @@ def build_calculator_support(slug: str) -> str:
     next_step_section = ""
     if next_links:
         next_step_section = f'<section class="related-tools" id="next-guides"><div class="section-head"><h2>Next-step guides</h2><p>Use these guides to sense-check the estimate, avoid common mistakes, and choose the right buying format.</p></div><div class="mini-tool-grid">{next_links}</div></section>'
+    workflow_section = _calculator_workflow_section(family, compact=True)
     scope_cards = render_section_cards(_calculator_scope_cards(family))
     methodology_cards = render_section_cards(_calculator_methodology_cards(family))
     driver_cards = render_section_cards(_calculator_driver_cards(family))
@@ -1534,11 +1607,12 @@ def build_calculator_support(slug: str) -> str:
         f'{methodology_cards}'
         f'{driver_cards}'
         f'{_calculator_checklist_panel(family)}'
+        f'{workflow_section}'
         f'<section class="content-card prose-card"><h2>Explore this {escape(PROJECT_HUB_LABEL.lower())}</h2><p><a href="/clusters/{escape(family["cluster_slug"])}/">Open the full {escape(family["cluster_name"])} {escape(PROJECT_HUB_LABEL.lower())}</a> to move from quick estimate to deeper guidance.</p></section>'
         f'{_calculator_related_calculators(family)}'
         f'{_retention_next_steps_panel(family)}'
         f'{next_step_section}'
-        '<section id="faqs" class="content-card prose-card section-anchor-card"><h2>Quick answers</h2><p>These answers are designed to resolve the last practical buying questions people usually have after running the calculator.</p></section>'
+        '<section id="faqs" class="content-card prose-card section-anchor-card"><h2>Practical answers</h2><p>Short answers for the buying questions that usually come up after the first calculation.</p></section>'
         f'<section class="stack-grid">{faq_html}</section>'
     )
 
@@ -1556,6 +1630,7 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
         f'<article class="content-card quality-card"><div class="quality-kicker">Planning summary</div><h2>{escape(label)}</h2><p>{escape(body)}</p></article>'
         for label, body in _calculator_summary_cards(family)
     )
+    has_workflows = bool(workflows_for_calculator(slug))
     content = (
         f'<div class="site-shell"><section class="hero hero-compact">{render_breadcrumbs(crumbs)}'
         f'<div class="eyebrow">{escape(family["hero_eyebrow"])}</div><h1>{escape(title)}</h1>'
@@ -1564,7 +1639,8 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
         f'{render_ad_slot(f"{key}-top")}'
         f'{render_quality_strip("calculator")}'
         f'<section class="quality-strip" aria-label="Calculator summary">{summary_cards_html}</section>'
-        f'{render_calculator_jump_nav()}'
+        f'{_calculator_workflow_section(family)}'
+        f'{render_calculator_jump_nav(has_workflows=has_workflows)}'
         f'<section class="calculator-layout" id="calculator"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_cost_intelligence_shell()}</aside></section>'
         f'{render_recent_tools_panel("Recently used calculators")}'
         f'{render_quote_brief_shell(family)}'

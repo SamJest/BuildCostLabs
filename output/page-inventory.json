@@ -1,6 +1,6 @@
 {
   "site": "BuildCostLab",
-  "count": 446,
+  "count": 478,
   "pages": [
     {
       "path": "/about/",
@@ -71,6 +71,12 @@
       "section": "calculators"
     },
     {
+      "path": "/calculators/ceiling-plasterboard-calculator/",
+      "type": "calculator",
+      "title": "Ceiling Plasterboard and Drywall Calculator for Sheets | BuildCostLab",
+      "section": "calculators"
+    },
+    {
       "path": "/calculators/cladding-calculator/",
       "type": "calculator",
       "title": "Cladding Calculator | BuildCostLab",
@@ -98,6 +104,12 @@
       "path": "/calculators/coving-calculator/",
       "type": "calculator",
       "title": "Coving Calculator for Ceiling Perimeter and Coving Lengths | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/deck-cost-calculator/",
+      "type": "calculator",
+      "title": "Deck Cost Calculator and Decking Price Estimator | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -209,6 +221,12 @@
       "section": "calculators"
     },
     {
+      "path": "/calculators/flooring-boxes-calculator/",
+      "type": "calculator",
+      "title": "Flooring Boxes Calculator: How Many Packs Do I Need? | BuildCostLab",
+      "section": "calculators"
+    },
+    {
       "path": "/calculators/flooring-calculator/",
       "type": "calculator",
       "title": "Flooring Calculator for Packs, Room Area, and Waste | BuildCostLab",
@@ -230,6 +248,12 @@
       "path": "/calculators/french-drain-gravel-calculator/",
       "type": "calculator",
       "title": "French Drain Gravel Calculator for Trench Fill and Surround | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/garden-turf-calculator/",
+      "type": "calculator",
+      "title": "Garden Turf and Lawn Roll Calculator for Area and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -361,6 +385,12 @@
       "path": "/calculators/patio-cost-calculator/",
       "type": "calculator",
       "title": "Patio Cost Calculator | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/patio-slabs-calculator/",
+      "type": "calculator",
+      "title": "Patio Slabs Calculator: How Many Slabs Do I Need? | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -499,6 +529,12 @@
       "path": "/calculators/shed-felt-calculator/",
       "type": "calculator",
       "title": "Shed Felt Calculator for Small Roof Rolls and Waste | BuildCostLab",
+      "section": "calculators"
+    },
+    {
+      "path": "/calculators/shiplap-cladding-calculator/",
+      "type": "calculator",
+      "title": "Shiplap Cladding Calculator for Boards and Wall Area | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -895,6 +931,16 @@
       "title": "Ceiling Paint Buying Guide | BuildCostLab"
     },
     {
+      "path": "/guides/ceiling-plasterboard-calculator-by-area/",
+      "type": "guide",
+      "title": "Ceiling Plasterboard Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/ceiling-plasterboard-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Ceiling Plasterboard Buying Guide | BuildCostLab"
+    },
+    {
       "path": "/guides/cladding-calculator-by-area/",
       "type": "guide",
       "title": "Cladding Calculator by Area | BuildCostLab"
@@ -968,6 +1014,31 @@
       "path": "/guides/deck-board-calculator/",
       "type": "guide",
       "title": "Deck Board Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/deck-cost-budget-planning-guide/",
+      "type": "guide",
+      "title": "Deck Cost Budget Planning Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/deck-cost-cost-drivers-guide/",
+      "type": "guide",
+      "title": "Deck Cost Cost Drivers Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/deck-cost-labour-vs-materials-guide/",
+      "type": "guide",
+      "title": "Deck Cost Labour vs Materials Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/deck-cost-per-m2-guide/",
+      "type": "guide",
+      "title": "Deck Cost per m2 Guide | BuildCostLab"
+    },
+    {
+      "path": "/guides/deck-cost-quote-brief-guide/",
+      "type": "guide",
+      "title": "Deck Cost Quote Brief Guide | BuildCostLab"
     },
     {
       "path": "/guides/deck-joist-how-much-do-i-need/",
@@ -1210,6 +1281,16 @@
       "title": "Floor Tile Adhesive Calculator | BuildCostLab"
     },
     {
+      "path": "/guides/flooring-boxes-calculator-by-area/",
+      "type": "guide",
+      "title": "Flooring Boxes Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/flooring-boxes-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Flooring Boxes Buying Guide | BuildCostLab"
+    },
+    {
       "path": "/guides/flooring-cost-budget-planning-guide/",
       "type": "guide",
       "title": "Flooring Cost Budget Planning Guide | BuildCostLab"
@@ -1258,6 +1339,16 @@
       "path": "/guides/french-drain-gravel-how-much-do-i-need/",
       "type": "guide",
       "title": "How Much French Drain Gravel Do I Need? | BuildCostLab"
+    },
+    {
+      "path": "/guides/garden-turf-calculator-by-area/",
+      "type": "guide",
+      "title": "Garden Turf Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/garden-turf-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Garden Turf Buying Guide | BuildCostLab"
     },
     {
       "path": "/guides/garden-wall-cost-budget-planning-guide/",
@@ -1608,6 +1699,16 @@
       "path": "/guides/patio-slabs-calculator/",
       "type": "guide",
       "title": "Patio Slabs Calculator | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-slabs-calculator-by-area/",
+      "type": "guide",
+      "title": "Patio Slabs Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/patio-slabs-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Patio Slabs Buying Guide | BuildCostLab"
     },
     {
       "path": "/guides/patio-waste-allowance-guide/",
@@ -1995,6 +2096,16 @@
       "title": "Shed Roof Felt Calculator | BuildCostLab"
     },
     {
+      "path": "/guides/shiplap-cladding-calculator-by-area/",
+      "type": "guide",
+      "title": "Shiplap Cladding Calculator by Area | BuildCostLab"
+    },
+    {
+      "path": "/guides/shiplap-cladding-how-much-do-i-need/",
+      "type": "guide",
+      "title": "Shiplap Cladding Buying Guide | BuildCostLab"
+    },
+    {
       "path": "/guides/skim-plaster-calculator-by-area/",
       "type": "guide",
       "title": "Skim Plaster Calculator by Area | BuildCostLab"
@@ -2342,6 +2453,61 @@
       "path": "/terms/",
       "type": "trust",
       "title": "Terms of Use"
+    },
+    {
+      "path": "/workflows/ceiling-plasterboard-planner/",
+      "type": "workflow",
+      "title": "Ceiling Plasterboard Planner for Boards, Screws, Jointing, Plaster, and Paint | BuildCostLab"
+    },
+    {
+      "path": "/workflows/decking-planner/",
+      "type": "workflow",
+      "title": "Decking Planner for Boards, Joists, Screws, and Cost | BuildCostLab"
+    },
+    {
+      "path": "/workflows/drainage-trench-planner/",
+      "type": "workflow",
+      "title": "Drainage Trench Planner for Pipe, Bedding, Gravel, and Membrane | BuildCostLab"
+    },
+    {
+      "path": "/workflows/driveway-base-planner/",
+      "type": "workflow",
+      "title": "Driveway Base Planner for Hardcore, Type 1, Membrane, and Gravel | BuildCostLab"
+    },
+    {
+      "path": "/workflows/garden-surface-planner/",
+      "type": "workflow",
+      "title": "Garden Surface Planner for Turf, Topsoil, Seed, Bark, and Membrane | BuildCostLab"
+    },
+    {
+      "path": "/workflows/",
+      "type": "workflow-index",
+      "title": "Project Workflows | BuildCostLab"
+    },
+    {
+      "path": "/workflows/patio-planner/",
+      "type": "workflow",
+      "title": "Patio Planner for Slabs, Sub-Base, Sand, and Cost | BuildCostLab"
+    },
+    {
+      "path": "/workflows/roofline-planner/",
+      "type": "workflow",
+      "title": "Roofline Planner for Gutters, Fascia, Soffit, Downpipes, and Guards | BuildCostLab"
+    },
+    {
+      "path": "/workflows/room-flooring-planner/",
+      "type": "workflow",
+      "title": "Room Flooring Planner for Packs, Boxes, Underlay, Skirting, and Cost | BuildCostLab"
+    },
+    {
+      "path": "/workflows/shed-roof-planner/",
+      "type": "workflow",
+      "title": "Shed Roof Planner for Felt, Battens, Shingles, and Timber Finish | BuildCostLab"
+    },
+    {
+      "path": "/workflows/tile-prep-planner/",
+      "type": "workflow",
+      "title": "Tile Prep Planner for Tiles, Backer Board, Adhesive, Grout, and Cost | BuildCostLab"
     }
   ]
 }

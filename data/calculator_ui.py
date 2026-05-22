@@ -874,5 +874,94 @@ CALCULATOR_UI = {
         "calculator_note": "Starter defaults assume a simple domestic boundary wall with straightforward access and a practical footing allowance.",
         "driver_text": "Footings, pier details, coping choice, access, and labour usually move garden wall budgets fastest.",
         "confidence_text": "Use the higher estimate when the foundation depth, returns, or finish details are still unclear."
+    },
+    "deck-cost-calculator": {
+        "length_label": "Deck length",
+        "width_label": "Deck width",
+        "material_rate_label": "Boards and framing per m2",
+        "labour_rate_label": "Labour per m2",
+        "extra_rate_label": "Rails, fixings, and extras per m2",
+        "contingency_label": "Contingency (%)",
+        "result_intro": "You will see the deck planning total, split between boards, labour, framing extras, and contingency here.",
+        "defaults": {"length": "5", "width": "3.6", "region": "midlands", "waste": "10", "material-rate": "68", "labour-rate": "45", "extra-rate": "18", "contingency": "10"},
+        "calculator_note": "Starter defaults assume a domestic deck with timber or entry composite boards, normal framing, and a modest allowance for fixings and edge details.",
+        "driver_text": "Board type, frame complexity, balustrades, access, and waste usually move deck budgets fastest.",
+        "confidence_text": "Use the higher estimate when ground prep, rails, steps, or composite board choice are still uncertain.",
+        "comparison_profiles": [
+            {"label": "Budget timber deck", "note": "Lower material allowance and simple framing.", "material": 0.84, "labour": 0.92, "extras": 0.88, "fees": 0.96},
+            {"label": "Standard deck", "note": "Typical domestic board and frame route.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Composite or detailed deck", "note": "Higher-spec boards, more finish detail, and a stronger spare allowance.", "material": 1.35, "labour": 1.12, "extras": 1.22, "fees": 1.05}
+        ],
+        "reality_items": [
+            "Rails, steps, fascia boards, weed membrane, and disposal often sit outside a simple per-metre deck rate.",
+            "Soft ground, uneven levels, and poor access can move labour faster than board quantity.",
+            "Composite boards can change fixings, trims, subframe assumptions, and delivery costs."
+        ],
+        "timeline_steps": [{"stage": "Measure and choose board route", "duration": "Half day"}, {"stage": "Check frame, rails, and access", "duration": "Half day to 1 day"}, {"stage": "Compare quotes on the same scope", "duration": "2 to 4 days"}]
+    },
+    "ceiling-plasterboard-calculator": {
+        "length_label": "Ceiling length",
+        "width_label": "Ceiling width",
+        "coverage_label": "Board coverage",
+        "price_label": "Price per board",
+        "unit_name_singular": "board",
+        "unit_name_plural": "boards",
+        "result_intro": "You will see the ceiling plasterboard sheet count, waste-adjusted buying total, and rough material cost here.",
+        "defaults": {"length": "4.2", "width": "3.6", "coverage-per-unit": "2.88", "waste": "12", "price-per-unit": "13.50"},
+        "calculator_note": "Starter defaults assume 2400mm by 1200mm boards, a straightforward room ceiling, and a practical allowance for board orientation and offcuts.",
+        "driver_text": "Room shape, board size, joist direction, openings, and lift access are the main levers on ceiling board estimates.",
+        "confidence_text": "Use the higher estimate when the ceiling has alcoves, awkward corners, multiple cuts, or limited board-handling space."
+    },
+    "patio-slabs-calculator": {
+        "length_label": "Patio length",
+        "width_label": "Patio width",
+        "coverage_label": "Coverage per slab or pack",
+        "price_label": "Price per slab or pack",
+        "unit_name_singular": "slab unit",
+        "unit_name_plural": "slab units",
+        "result_intro": "You will see the patio slab count, waste-adjusted buying total, and rough material cost here.",
+        "defaults": {"length": "4.8", "width": "3.2", "coverage-per-unit": "0.36", "waste": "10", "price-per-unit": "7.50"},
+        "calculator_note": "Starter defaults assume 600mm by 600mm slabs or equivalent pack coverage with a modest cutting allowance for patio edges.",
+        "driver_text": "Slab size, laying pattern, edge cuts, broken slabs, and pack coverage usually move patio slab orders fastest.",
+        "confidence_text": "Use the higher estimate when the patio has curves, diagonal cuts, mixed slab sizes, or a visible pattern that needs cleaner spare stock."
+    },
+    "shiplap-cladding-calculator": {
+        "length_label": "Wall length",
+        "width_label": "Wall height",
+        "coverage_label": "Installed coverage per board or pack",
+        "price_label": "Price per board or pack",
+        "unit_name_singular": "cladding unit",
+        "unit_name_plural": "cladding units",
+        "result_intro": "You will see the shiplap cladding unit count, waste-adjusted buying total, and rough material cost here.",
+        "defaults": {"length": "5", "width": "2.4", "coverage-per-unit": "0.42", "waste": "12", "price-per-unit": "8.50"},
+        "calculator_note": "Starter defaults assume installed face coverage after shiplap overlap rather than nominal board size.",
+        "driver_text": "Installed board cover, overlap, openings, corner trims, and finish coating usually move shiplap estimates fastest.",
+        "confidence_text": "Use the higher estimate when wall openings, corners, gables, or exposed weather faces add more cuts and finish detail."
+    },
+    "garden-turf-calculator": {
+        "length_label": "Lawn length",
+        "width_label": "Lawn width",
+        "coverage_label": "Coverage per turf roll",
+        "price_label": "Price per turf roll",
+        "unit_name_singular": "roll",
+        "unit_name_plural": "rolls",
+        "result_intro": "You will see the garden turf roll count, waste-adjusted buying total, and rough material cost here.",
+        "defaults": {"length": "8", "width": "5", "coverage-per-unit": "1", "waste": "8", "price-per-unit": "5.50"},
+        "calculator_note": "Starter defaults assume standard 1m2 turf rolls with a practical allowance for edge trimming and damaged pieces.",
+        "driver_text": "Lawn shape, edge trimming, delivery timing, ground prep, and spare roll policy usually move turf orders fastest.",
+        "confidence_text": "Use the higher estimate when the garden has curved edges, paths, borders, or uneven ground."
+    },
+    "flooring-boxes-calculator": {
+        "length_label": "Room length",
+        "width_label": "Room width",
+        "coverage_label": "Coverage per box or pack",
+        "price_label": "Price per box or pack",
+        "unit_name_singular": "box",
+        "unit_name_plural": "boxes",
+        "result_intro": "You will see the flooring box count, waste-adjusted buying total, spare-pack thinking, and rough material cost here.",
+        "defaults": {"length": "4.4", "width": "3.6", "coverage-per-unit": "2.2", "waste": "10", "price-per-unit": "36"},
+        "calculator_note": "Starter defaults assume boxed flooring such as laminate, engineered wood, vinyl plank, or click-fit products with normal trimming waste.",
+        "driver_text": "Pack coverage, room shape, thresholds, board direction, and spare-pack policy usually move flooring box counts fastest.",
+        "confidence_text": "Use the higher estimate when the room connects to a hall, has angled walls, or needs same-batch spare stock."
     }
 }
