@@ -113,7 +113,9 @@
       );
     }
     if (config.formula === "linear") {
-      const run = toMetricLength(getNumber("length"));
+      const openingDeduction = Math.max(0, toMetricLength(getNumber("opening-count") * getNumber("opening-width")));
+      const featureAllowance = Math.max(0, toMetricLength(getNumber("feature-count") * (config.featureLengthAllowance || 0)));
+      const run = Math.max(0, toMetricLength(getNumber("length")) - openingDeduction + featureAllowance);
       return (
         `<div class="break-row"><span>Starter run length</span><strong>${formatLength(run)}</strong></div>` +
         `<div class="break-row"><span>Buying route</span><strong>Whole stock lengths with waste already loaded</strong></div>` +
@@ -359,7 +361,11 @@
       return;
     }
 
-    const run = toMetricLength(getNumber("length")) * wasteFactor;
+    const grossRun = toMetricLength(getNumber("length"));
+    const openingDeduction = Math.max(0, toMetricLength(getNumber("opening-count") * getNumber("opening-width")));
+    const featureAllowance = Math.max(0, toMetricLength(getNumber("feature-count") * (config.featureLengthAllowance || 0)));
+    const measuredRun = Math.max(0, grossRun - openingDeduction + featureAllowance);
+    const run = measuredRun * wasteFactor;
     const pieceLength = toMetricLength(getNumber("piece-length"));
     const exactUnits = pieceLength > 0 ? run / pieceLength : 0;
     units = pieceLength > 0 ? Math.ceil(run / pieceLength) : 0;
@@ -372,7 +378,10 @@
     resultMain.textContent = `${units} ${unitLabel(units)}`;
     resultSub.textContent = `That covers about ${formatLength(run)} after waste and roughly ${money(units * pricePerUnit)} in material cost.`;
     resultBreakdown.innerHTML =
-      `<div class="break-row"><span>Measured run</span><strong>${formatLength(toMetricLength(getNumber("length")))}</strong></div>` +
+      `<div class="break-row"><span>Gross run</span><strong>${formatLength(grossRun)}</strong></div>` +
+      (openingDeduction > 0 ? `<div class="break-row"><span>${config.deductionLabel || "Opening deductions"}</span><strong>-${formatLength(openingDeduction)}</strong></div>` : "") +
+      (featureAllowance > 0 ? `<div class="break-row"><span>${config.featureLabel || "Corner allowance"}</span><strong>+${formatLength(featureAllowance)}</strong></div>` : "") +
+      `<div class="break-row"><span>Measured run</span><strong>${formatLength(measuredRun)}</strong></div>` +
       `<div class="break-row"><span>Run incl. waste</span><strong>${formatLength(run)}</strong></div>` +
       `<div class="break-row"><span>Unit length</span><strong>${formatLength(pieceLength)}</strong></div>` +
       `<div class="break-row"><span>Exact pieces before rounding</span><strong>${exactUnits.toFixed(2)} ${unitLabel(exactUnits)}</strong></div>` +

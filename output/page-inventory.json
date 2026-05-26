@@ -43,7 +43,7 @@
     {
       "path": "/calculators/ballast-calculator/",
       "type": "calculator",
-      "title": "Ballast Calculator | BuildCostLab",
+      "title": "Ballast Calculator: Tonnes, Bulk Bags, Volume | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -103,7 +103,7 @@
     {
       "path": "/calculators/coving-calculator/",
       "type": "calculator",
-      "title": "Coving Calculator for Ceiling Perimeter and Coving Lengths | BuildCostLab",
+      "title": "Coving &amp; Cornice Calculator: Lengths, Corners, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -145,7 +145,7 @@
     {
       "path": "/calculators/dpm-calculator/",
       "type": "calculator",
-      "title": "DPM Calculator | BuildCostLab",
+      "title": "DPM Calculator: Damp Proof Membrane Rolls, Laps, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -181,7 +181,7 @@
     {
       "path": "/calculators/edging-calculator/",
       "type": "calculator",
-      "title": "Edging Calculator | BuildCostLab",
+      "title": "Garden Edging Calculator: Lengths, Stakes, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -265,7 +265,7 @@
     {
       "path": "/calculators/geotextile-membrane-calculator/",
       "type": "calculator",
-      "title": "Geotextile Membrane Calculator for Trenches, Drives, and Groundworks | BuildCostLab",
+      "title": "Geotextile Membrane Calculator: Rolls, Overlap, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -301,7 +301,7 @@
     {
       "path": "/calculators/hardcore-calculator/",
       "type": "calculator",
-      "title": "Hardcore and Crushed Stone Calculator for Base Layers | BuildCostLab",
+      "title": "Hardcore &amp; Crushed Stone Calculator: Tonnes, Bulk Bags, Depth | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -336,7 +336,7 @@
     {
       "path": "/calculators/laminate-flooring-calculator/",
       "type": "calculator",
-      "title": "Laminate Flooring Calculator for Packs, Boxes, and Waste | BuildCostLab",
+      "title": "Laminate Flooring Calculator: Packs, Boxes, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -366,7 +366,7 @@
     {
       "path": "/calculators/mot-type-1-calculator/",
       "type": "calculator",
-      "title": "MOT Type 1 and Sub-Base Calculator for Roads and Patios | BuildCostLab",
+      "title": "MOT Type 1 Calculator: Sub-Base Tonnes, Bulk Bags, Depth | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -396,13 +396,13 @@
     {
       "path": "/calculators/paving-calculator/",
       "type": "calculator",
-      "title": "Paving and Paver Calculator for Slabs, Area, and Waste | BuildCostLab",
+      "title": "Paving &amp; Paver Calculator: Slabs, Area, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/paving-jointing-compound-calculator/",
       "type": "calculator",
-      "title": "Paving Jointing Compound and Paver Sand Calculator | BuildCostLab",
+      "title": "Paving Jointing Compound Calculator: Patio Joints &amp; Paver Sand | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -480,7 +480,7 @@
     {
       "path": "/calculators/roof-felt-calculator/",
       "type": "calculator",
-      "title": "Roof Felt Calculator for Rolls, Overlap, and Waste | BuildCostLab",
+      "title": "Roof Felt Calculator: Rolls, Overlap, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -528,7 +528,7 @@
     {
       "path": "/calculators/shed-felt-calculator/",
       "type": "calculator",
-      "title": "Shed Felt Calculator for Small Roof Rolls and Waste | BuildCostLab",
+      "title": "Shed Felt Calculator: Roof Rolls, Overlap, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -546,7 +546,7 @@
     {
       "path": "/calculators/skirting-board-calculator/",
       "type": "calculator",
-      "title": "Skirting Board and Baseboard Calculator for Wall Runs | BuildCostLab",
+      "title": "Skirting Board &amp; Baseboard Calculator: Boards, Corners, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -576,13 +576,13 @@
     {
       "path": "/calculators/tile-adhesive-calculator/",
       "type": "calculator",
-      "title": "Tile Adhesive Calculator | BuildCostLab",
+      "title": "Tile Adhesive Calculator: Bags, Area, Trowel Coverage | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/tile-backer-board-calculator/",
       "type": "calculator",
-      "title": "Tile Backer Board Calculator for Sheets and Coverage | BuildCostLab",
+      "title": "Tile Backer Board Calculator: Sheets, Area, Waste | BuildCostLab",
       "section": "calculators"
     },
     {

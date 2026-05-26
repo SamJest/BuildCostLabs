@@ -274,6 +274,37 @@ CALCULATOR_UI = {
             {"stage": "Compare bag, bulk, or loose supply", "duration": "Half day to 1 day"}
         ]
     },
+    "ballast-calculator": {
+        "length_label": "Area length",
+        "width_label": "Area width",
+        "depth_label": "Installed ballast depth",
+        "density_label": "Ballast density / tonnes per m3",
+        "unit_size_label": "Bulk bag size (tonnes)",
+        "price_label": "Price per bulk bag",
+        "unit_name_singular": "bulk bag",
+        "unit_name_plural": "bulk bags",
+        "result_intro": "You will see the ballast volume, tonnage, bulk-bag buying total, and rough material cost here.",
+        "defaults": {"length": "4", "width": "3", "depth": "0.1", "density": "1.75", "unit-size": "0.85", "waste": "10", "price-per-unit": "70"},
+        "calculator_note": "Starter defaults assume a domestic ballast order using compacted depth and a common bulk-bag buying size. If the supplier quotes by loose tonne, set the unit size to 1.",
+        "driver_text": "Depth, density, delivery route, and whether ballast is being used for concrete mixing or base fill are the main levers on this estimate.",
+        "confidence_text": "Use the higher estimate when the base is uneven, when the concrete mix is still being specified, or when delivery access could change the buying route.",
+        "comparison_profiles": [
+            {"label": "Bagged route", "note": "Convenient for small mixes, patching, or tight access.", "material": 1.18, "labour": 1.08, "extras": 1.04, "fees": 1.02},
+            {"label": "Bulk bag route", "note": "Common domestic route for modest concrete or base-layer work.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Loose tonne route", "note": "Often better value when access and storage are straightforward.", "material": 0.9, "labour": 0.96, "extras": 1.03, "fees": 1.08}
+        ],
+        "reality_items": [
+            "Ballast may be one part of a concrete mix, so cement, water, reinforcement, formwork, and delivery still need separate checks.",
+            "Loose and compacted depths can diverge once material is spread and levelled.",
+            "Small jobs can be cheaper to manage with bags even when the headline tonne price looks lower.",
+            "Access and storage often decide whether bulk bags or loose delivery is realistic."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the area and depth", "duration": "Half day"},
+            {"stage": "Choose bag, bulk, or loose route", "duration": "Half day"},
+            {"stage": "Check cement or base-layer extras", "duration": "Half day"}
+        ]
+    },
     "sub-base-calculator": {
         "length_label": "Sub-base length",
         "width_label": "Sub-base width",
@@ -341,7 +372,10 @@ CALCULATOR_UI = {
         "unit_name_singular": "coving length",
         "unit_name_plural": "coving lengths",
         "result_intro": "You will see the planned coving run, the rounded-up piece count, rough material cost, and practical next checks here.",
-        "defaults": {"length": "14", "piece-length": "2", "waste": "12", "price-per-unit": "11.50"},
+        "defaults": {"length": "14", "piece-length": "2", "feature-count": "4", "waste": "12", "price-per-unit": "11.50"},
+        "feature_count_label": "Corners / returns",
+        "feature_label": "Mitre and return allowance",
+        "feature_length_allowance": 0.08,
         "calculator_note": "Starter defaults assume a small square room using 2m coving lengths with extra waste for mitres, brittle cuts, and tidy corner matching.",
         "driver_text": "Ceiling perimeter, number of corners, chimney breasts or bays, and whether the profile comes in 2m or 3m lengths usually move coving orders fastest.",
         "confidence_text": "Use the higher estimate when the room has uneven corners, short return pieces, or a profile that can chip or snap during fitting.",
@@ -369,7 +403,13 @@ CALCULATOR_UI = {
         "unit_name_singular": "board",
         "unit_name_plural": "boards",
         "result_intro": "You will see the planned skirting run, rounded-up board count, rough material cost, and the main room-trim checks here.",
-        "defaults": {"length": "15.2", "piece-length": "4.2", "waste": "10", "price-per-unit": "18"},
+        "defaults": {"length": "16", "opening-count": "1", "opening-width": "0.8", "piece-length": "4.2", "feature-count": "4", "waste": "10", "price-per-unit": "18"},
+        "deduction_count_label": "Doorways / openings",
+        "deduction_width_label": "Average opening width",
+        "deduction_label": "Doorway deductions",
+        "feature_count_label": "Corners / returns",
+        "feature_label": "Scribe and return allowance",
+        "feature_length_allowance": 0.06,
         "calculator_note": "Starter defaults assume a typical bedroom or lounge perimeter after subtracting one doorway, with 4.2m MDF boards and a practical allowance for scribes, mitres, and defects.",
         "driver_text": "Measured wall run, whether door openings are excluded, board length, corners, and profile choice are the main levers on skirting estimates.",
         "confidence_text": "Use the higher estimate when the room has alcoves, damaged walls, awkward returns, or you want spare board for future repairs and colour matching.",
@@ -523,6 +563,35 @@ CALCULATOR_UI = {
         "defaults": {"length": "5", "width": "4", "coverage-per-unit": "3", "waste": "12", "price-per-unit": "42"},
         "calculator_note": "Starter defaults assume effective coverage per bundle after overlap and a modest roofing waste margin.",
     },
+    "dpm-calculator": {
+        "length_label": "Floor length",
+        "width_label": "Floor width",
+        "coverage_label": "Roll coverage after laps",
+        "price_label": "Price per roll",
+        "unit_name_singular": "roll",
+        "unit_name_plural": "rolls",
+        "result_intro": "You will see the DPM roll count, waste-adjusted buying total, rough material cost, and lap checks here.",
+        "defaults": {"length": "5", "width": "4", "coverage-per-unit": "25", "waste": "12", "price-per-unit": "42"},
+        "calculator_note": "Starter defaults assume effective damp-proof membrane roll coverage after side laps, upstands, and trimming around the room.",
+        "driver_text": "Roll coverage, lap allowance, upstands, room shape, and whether the membrane is tied into adjacent damp-proofing details move DPM orders fastest.",
+        "confidence_text": "Use the higher estimate when the floor has alcoves, pipe penetrations, generous laps, or upstands around several edges.",
+        "comparison_profiles": [
+            {"label": "Standard DPM roll", "note": "Typical domestic floor membrane route.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Heavy-duty membrane", "note": "More cautious route where puncture risk or specification is higher.", "material": 1.22, "labour": 1.03, "extras": 1.04, "fees": 1.01},
+            {"label": "Small repair roll", "note": "Useful for patching or staged work but often less efficient per m2.", "material": 1.18, "labour": 1.06, "extras": 1.02, "fees": 1}
+        ],
+        "reality_items": [
+            "Roll coverage on the label is rarely the same as installed coverage after laps and upstands.",
+            "Tape, joins, pipe penetrations, and edge detailing may need separate materials.",
+            "Floor prep, underlay, screed, or levelling compound can be a bigger cost than the membrane itself.",
+            "If the membrane connects to walls or other damp-proofing, confirm the detail before ordering."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure floor area", "duration": "Half day"},
+            {"stage": "Allow for laps and upstands", "duration": "Half day"},
+            {"stage": "Check tape and floor-prep extras", "duration": "Half day"}
+        ]
+    },
     "roof-felt-calculator": {
         "length_label": "Roof length",
         "width_label": "Roof width",
@@ -664,6 +733,37 @@ CALCULATOR_UI = {
         "result_intro": "You will see the gutter-guard piece count, waste-adjusted buying total, and rough material cost here.",
         "defaults": {"length": "18", "piece-length": "1", "waste": "8", "price-per-unit": "7.50"},
         "calculator_note": "Starter defaults assume simple gutter runs with a modest allowance for overlaps, corners, and offcuts.",
+    },
+    "edging-calculator": {
+        "length_label": "Total edging run",
+        "piece_length_label": "Edging length per piece or roll",
+        "price_label": "Price per edging unit",
+        "unit_name_singular": "edging unit",
+        "unit_name_plural": "edging units",
+        "result_intro": "You will see the garden edging length, rounded-up buying units, rough cost, and corner checks here.",
+        "defaults": {"length": "18", "piece-length": "2.4", "feature-count": "4", "waste": "8", "price-per-unit": "12"},
+        "feature_count_label": "Corners / changes of direction",
+        "feature_label": "Corner and cut allowance",
+        "feature_length_allowance": 0.05,
+        "calculator_note": "Starter defaults assume a border or lawn edging run with stock lengths, corner cuts, and a small allowance for damaged ends or overlaps.",
+        "driver_text": "Run length, curve complexity, corner count, stock length, and whether stakes or pins are included move garden edging orders fastest.",
+        "confidence_text": "Use the higher estimate when the edging follows curves, steps around planting beds, or needs separate stakes and connectors.",
+        "comparison_profiles": [
+            {"label": "Flexible roll edging", "note": "Often practical for curves and lighter borders.", "material": 0.92, "labour": 0.96, "extras": 0.96, "fees": 1},
+            {"label": "Board or sleeper edging", "note": "Common middle-ground route for stronger straight edges.", "material": 1, "labour": 1, "extras": 1, "fees": 1},
+            {"label": "Metal edging", "note": "Cleaner finish with higher material cost and more careful setting out.", "material": 1.32, "labour": 1.08, "extras": 1.06, "fees": 1.02}
+        ],
+        "reality_items": [
+            "Stakes, pins, connectors, screws, and corner pieces may sit outside the first length count.",
+            "Curves and short returns often create more offcut waste than a straight border.",
+            "Ground prep and level changes can affect the final buying route.",
+            "One spare length can be cheaper than delaying a garden job for a short final piece."
+        ],
+        "timeline_steps": [
+            {"stage": "Measure the full border run", "duration": "Half day"},
+            {"stage": "Check curves and corners", "duration": "Half day"},
+            {"stage": "Order edging and fixings", "duration": "Half day"}
+        ]
     },
     "shed-felt-calculator": {
         "length_label": "Shed roof length",

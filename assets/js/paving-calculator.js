@@ -21,8 +21,8 @@
   let currency = "GBP";
 
   const presets = {
-    slabs: { length: 600, width: 600, price: 8.5, waste: 10 },
-    pavers: { length: 200, width: 100, price: 1.2, waste: 8 }
+    slabs: { length: 600, width: 600, price: 8.5, waste: 10, joint: 5, packCoverage: 0 },
+    pavers: { length: 200, width: 100, price: 1.2, waste: 8, joint: 3, packCoverage: 0 }
   };
 
   function money(value) {
@@ -78,6 +78,8 @@
     document.getElementById("slab-width").value = preset.width;
     document.getElementById("price-per-unit").value = preset.price;
     document.getElementById("waste").value = preset.waste;
+    document.getElementById("joint-width").value = preset.joint;
+    document.getElementById("pack-coverage").value = preset.packCoverage;
   }
 
   function unitLabel(count) {
@@ -98,12 +100,15 @@
     const width = toMetricLength(getNumber("width"));
     const unitLength = unitDimensionToMetres(getNumber("slab-length"));
     const unitWidth = unitDimensionToMetres(getNumber("slab-width"));
+    const jointWidth = unitDimensionToMetres(getNumber("joint-width"));
+    const packCoverage = Math.max(getNumber("pack-coverage"), 0);
     const waste = Math.max(getNumber("waste"), 0) / 100;
     const pricePerUnit = Math.max(getNumber("price-per-unit"), 0);
 
     const area = length * width;
-    const singleUnitArea = unitLength * unitWidth;
+    const singleUnitArea = Math.max(0, (unitLength + jointWidth) * (unitWidth + jointWidth));
     const unitCount = singleUnitArea > 0 ? Math.ceil((area / singleUnitArea) * (1 + waste)) : 0;
+    const packCount = packCoverage > 0 ? Math.ceil((area * (1 + waste)) / packCoverage) : 0;
     const estimatedCost = unitCount * pricePerUnit;
 
     if (!(unitCount > 0)) {
@@ -115,8 +120,9 @@
     resultSub.textContent = `That covers about ${area.toFixed(2)} m2 and roughly ${money(estimatedCost)} in ${mode === "pavers" ? "paver" : "paving slab"} cost before bedding and jointing are added.`;
     resultBreakdown.innerHTML =
       `<div class="break-row"><span>Paved area</span><strong>${area.toFixed(2)} m2</strong></div>` +
-      `<div class="break-row"><span>Single unit area</span><strong>${singleUnitArea.toFixed(3)} m2</strong></div>` +
+      `<div class="break-row"><span>Single unit area incl. joint allowance</span><strong>${singleUnitArea.toFixed(3)} m2</strong></div>` +
       `<div class="break-row"><span>Units needed</span><strong>${unitCount}</strong></div>` +
+      (packCoverage > 0 ? `<div class="break-row"><span>Pack coverage route</span><strong>${packCount} packs at ${packCoverage.toFixed(2)} m2 each</strong></div>` : "") +
       `<div class="break-row"><span>Price per unit</span><strong>${money(pricePerUnit)}</strong></div>` +
       `<div class="break-row"><span>Estimated material cost</span><strong>${money(estimatedCost)}</strong></div>` +
       `<div class="calc-note">Calculation: paved area divided by single-unit coverage, then waste added and rounded to whole units.</div>`;

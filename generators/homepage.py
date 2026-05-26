@@ -4,14 +4,14 @@ from components.publishing import get_all_calculator_entries, render_ad_slot, re
 from data.catalog import get_all_calculators
 from data.locations import get_all_locations
 from data.publisher import PROJECT_HUBS_LABEL, SITE
-from data.search_opportunities import PRIORITY_SLUGS
+from data.gsc_priority import GSC_PRIORITY_SLUGS, gsc_priority_rank
 from data.workflows import get_all_workflows
 from generators.calculators_index import calculator_directory_categories, calculator_directory_stats, render_directory_section, render_search_opportunity_section
 
 
 def build_homepage(cards_html: str = ""):
     calculators = get_all_calculator_entries()
-    priority_set = set(PRIORITY_SLUGS)
+    priority_set = set(GSC_PRIORITY_SLUGS)
     stats = calculator_directory_stats()
     location_count = len(get_all_locations())
     featured_slugs = {
@@ -31,12 +31,12 @@ def build_homepage(cards_html: str = ""):
     )
     popular_cards = "".join(
         f'<article class="tool-card"><h3><a href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a></h3><p>{escape(item["intro"])}</p><a class="text-link" href="/guides/{escape((item["intent_pages"] + item["guide_pages"])[0]["slug"] if (item["intent_pages"] + item["guide_pages"]) else item["slug"] )}/">Sense-check the estimate</a></article>'
-        for item in calculators
+        for item in sorted(calculators, key=lambda item: gsc_priority_rank(item["slug"]))
         if item["slug"] in priority_set
     )
     quick_links = "".join(
         f'<a class="hero-quick-link" href="/calculators/{escape(item["slug"])}/">{escape(item["name"])}</a>'
-        for item in calculators
+        for item in sorted(calculators, key=lambda item: gsc_priority_rank(item["slug"]))
         if item["slug"] in {"skirting-board-calculator", "hardcore-calculator", "tile-backer-board-calculator", "roof-felt-calculator", "paving-jointing-compound-calculator", "paving-calculator"}
     )
     workflow_cards = "".join(

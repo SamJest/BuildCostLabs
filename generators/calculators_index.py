@@ -3,8 +3,8 @@ from html import escape
 
 from components.publishing import get_all_calculator_entries, render_ad_slot, render_breadcrumb_schema, render_breadcrumbs, render_layout
 from data.catalog import get_all_calculators
+from data.gsc_priority import GSC_PRIORITY_SLUGS, gsc_priority_rank
 from data.publisher import PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE
-from data.search_opportunities import PRIORITY_SLUGS
 from data.workflows import get_all_workflows, workflows_for_calculator
 
 
@@ -30,7 +30,7 @@ DEFAULT_FEATURED_SLUGS = {
     "gutter-calculator",
 }
 
-SEARCH_OPPORTUNITY_SLUGS = [*PRIORITY_SLUGS]
+SEARCH_OPPORTUNITY_SLUGS = [*GSC_PRIORITY_SLUGS]
 
 
 def calculator_directory_categories(limit: int = 8) -> list[str]:
@@ -83,7 +83,7 @@ def _card_search_text(item: dict) -> str:
 def build_calculator_cards(featured_slugs: set[str] | None = None) -> str:
     featured_slugs = set(featured_slugs or DEFAULT_FEATURED_SLUGS)
     parts = []
-    for item in get_all_calculator_entries():
+    for item in sorted(get_all_calculator_entries(), key=lambda item: (gsc_priority_rank(item["slug"]), item["name"])):
         guide_count = len(item["intent_pages"]) + len(item["guide_pages"])
         workflow_label = "Cost planning" if item.get("formula") == "project_cost" else "Materials"
         linked_workflows = workflows_for_calculator(item["slug"])

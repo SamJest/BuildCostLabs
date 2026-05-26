@@ -13,6 +13,7 @@ from components.publishing import (
     render_software_application_schema,
 )
 from data.catalog import get_all_calculators, get_cluster_hub_content, get_cluster_intro
+from data.gsc_priority import GSC_PRIORITY_BY_SLUG
 from data.publisher import PROJECT_HUB_LABEL, PROJECT_HUBS_LABEL, SITE, TRUST_PAGES
 from data.workflows import workflows_for_calculator, workflows_for_cluster
 
@@ -159,6 +160,37 @@ def _calculator_summary_cards(family: dict) -> list[tuple[str, str]]:
     ]
 
 
+def _gsc_quick_answer_panel(family: dict) -> str:
+    gsc = GSC_PRIORITY_BY_SLUG.get(family["slug"])
+    if not gsc:
+        return ""
+    query_chips = "".join(
+        f'<span class="card-chip card-chip-soft">{escape(query)}</span>'
+        for query in gsc.get("query_targets", [])[:3]
+    )
+    intent_label = {
+        "low_ctr_near_page_one": "Fast answer for a visible calculator search",
+        "low_ctr_page_one": "Fast answer for a page-one calculator search",
+        "zero_click_near_page_one": "Direct answer for an under-served search",
+        "protect_and_expand_page_one": "Direct answer for a proven calculator search",
+        "zero_click_high_impression": "Direct answer for a high-demand calculator search",
+    }.get(gsc.get("opportunity_type"), "Direct answer for this calculator search")
+    return (
+        '<section class="content-card gsc-answer-card">'
+        '<div class="section-head">'
+        f'<div class="eyebrow">Quick buying answer</div>'
+        f'<h2>{escape(family.get("quick_answer", "Start with the calculator, then check the buying assumptions."))}</h2>'
+        f'<p>{escape(_calculator_worked_example_text(family))}</p>'
+        '</div>'
+        '<div class="global-term-grid">'
+        f'<article><div class="quality-kicker">Best for</div><p>{escape(intent_label)}</p></article>'
+        f'<article><div class="quality-kicker">Also searched as</div><div class="card-chip-row">{query_chips}</div></article>'
+        f'<article><div class="quality-kicker">Next step</div><p>Use the calculator below, then check the buying notes and linked tools before ordering or requesting prices.</p></article>'
+        '</div>'
+        '</section>'
+    )
+
+
 def _global_terms_panel(family: dict) -> str:
     terms = family.get("regional_terms") or {}
     if not terms:
@@ -255,6 +287,16 @@ def _calculator_worked_example_text(family: dict) -> str:
         return "Example: a room with 15.2m of wall run after doorway deductions becomes 16.72m once 10 percent waste is added. If the skirting is sold in 4.2m boards, the safer buying total is 4 boards rather than 3.98 on paper."
     if slug == "pipe-bedding-calculator":
         return "Example: a 15m drainage run with a 300mm bedding width and 100mm bedding depth gives 0.45m3 before waste. Add 10 percent and the planning quantity becomes 0.495m3. At roughly 1.6 tonnes per m3, that is about 0.79 tonnes, which is close to one 0.85-tonne bulk bag."
+    if slug == "ballast-calculator":
+        return "Example: a 4m by 3m area at 100mm depth gives 1.2m3 before waste. Add 10 percent and the planning quantity becomes 1.32m3. At roughly 1.75 tonnes per m3, that is about 2.31 tonnes, so three 0.85-tonne bulk bags is the safer planning order."
+    if slug == "dpm-calculator":
+        return "Example: a 5m by 4m floor gives 20m2 before laps and waste. Add 12 percent for laps, upstands, and trimming and the planning coverage becomes 22.4m2. If a roll effectively covers 25m2, one roll is enough on paper, but awkward edges may justify checking the next roll size."
+    if slug == "edging-calculator":
+        return "Example: an 18m border run with four corners and 8 percent waste becomes just over 19.6m of planned edging. If edging is sold in 2.4m lengths, the safer buying total is 9 lengths rather than 8.2 on paper."
+    if slug == "roof-felt-calculator":
+        return "Example: a 5m by 4m roof gives 20m2 before laps and edge waste. Add 12 percent and the planning coverage becomes 22.4m2. If each roll effectively covers 10m2 after overlap, the safer buying total is 3 rolls."
+    if slug == "paving-jointing-compound-calculator":
+        return "Example: a 4m by 3m patio gives 12m2 before waste. Add 10 percent and the planning coverage becomes 13.2m2. If the jointing product covers 12m2 per tub for the chosen joint width, the safer order is 2 tubs."
     if "paint" in slug and "cost" not in slug:
         return "Example: 12m2 of wall area with a paint coverage rate of 10m2 per tin and 10 percent waste becomes 13.2m2 of planned coverage. That is 1.32 tins on paper, so the safer buying decision is 2 tins."
     if "concrete" in slug and formula != "project_cost":
@@ -365,6 +407,30 @@ def _calculator_driver_cards(family: dict) -> list[tuple[str, str]]:
             ("What changes the result most", "Doorway deductions, alcoves, long visible walls, board length, and the number of scribes or mitres usually move the skirting order fastest."),
             ("Where people under-order", "Straight perimeter maths often ignores return pieces, damaged ends, awkward joints on visible walls, and the spare board many buyers wish they had kept."),
             ("Practical buying checks", "Compare 3m and 4.2m boards, decide whether MDF, pine, or finished boards suit the room best, and check whether adhesive, pins, caulk, and filler are being priced separately."),
+        ]
+    if family["slug"] == "ballast-calculator":
+        return [
+            ("What changes the result most", "Depth, density, buying route, and whether ballast is being used for concrete mixing or base fill usually move the order fastest."),
+            ("Where people under-order", "The neat area often misses level corrections, uneven formation, and the separate cement or concrete mix materials that sit around the ballast order."),
+            ("Practical buying checks", "Compare bags, bulk bags, and loose tonnes, then check whether cement, reinforcement, formwork, or delivery minimums need their own allowance."),
+        ]
+    if family["slug"] == "dpm-calculator":
+        return [
+            ("What changes the result most", "Roll coverage after laps, upstands, room shape, and pipe penetrations usually move DPM orders fastest."),
+            ("Where people under-order", "Label coverage often ignores side laps, wall upstands, trimming around obstacles, and tape or join details."),
+            ("Practical buying checks", "Check roll width, lap rules, tape, edge detailing, and whether floor prep or underlay needs a separate quantity check."),
+        ]
+    if family["slug"] == "edging-calculator":
+        return [
+            ("What changes the result most", "Run length, curve complexity, corner count, stock length, and whether stakes are included usually move edging orders fastest."),
+            ("Where people under-order", "Curves, short returns, damaged ends, and awkward joins can use more edging than a clean perimeter suggests."),
+            ("Practical buying checks", "Confirm edging lengths, stakes, connectors, screws, and whether one spare length is cheaper than delaying the garden job."),
+        ]
+    if family["slug"] == "paving-jointing-compound-calculator":
+        return [
+            ("What changes the result most", "Joint width, joint depth, slab size, product coverage, and how cleanly the paving is laid usually move jointing compound totals fastest."),
+            ("Where people under-order", "Wide or deep joints, uneven paving, and partially filled old joints can use more compound than headline coverage suggests."),
+            ("Practical buying checks", "Check the product coverage for your joint width, then calculate bedding sand, sub-base, edging, and slab quantities separately."),
         ]
     formula = family.get("formula")
     cards = {
@@ -1636,13 +1702,14 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
         f'<div class="eyebrow">{escape(family["hero_eyebrow"])}</div><h1>{escape(title)}</h1>'
         f'<p class="hero-copy">{escape(intro)}</p>'
         f'{render_calculator_hero_badges(family.get("formula", ""))}</section>'
-        f'{render_ad_slot(f"{key}-top")}'
-        f'{render_quality_strip("calculator")}'
         f'<section class="quality-strip" aria-label="Calculator summary">{summary_cards_html}</section>'
-        f'{_calculator_workflow_section(family)}'
-        f'{render_calculator_jump_nav(has_workflows=has_workflows)}'
+        f'{_gsc_quick_answer_panel(family)}'
         f'<section class="calculator-layout" id="calculator"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_cost_intelligence_shell()}</aside></section>'
         f'{render_recent_tools_panel("Recently used calculators")}'
+        f'{render_ad_slot(f"{key}-top")}'
+        f'{render_quality_strip("calculator")}'
+        f'{_calculator_workflow_section(family)}'
+        f'{render_calculator_jump_nav(has_workflows=has_workflows)}'
         f'{render_quote_brief_shell(family)}'
         f'{build_calculator_support(slug)}'
         f'{render_quote_prep_panel(family, "calculator")}'

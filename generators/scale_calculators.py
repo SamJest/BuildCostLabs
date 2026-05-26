@@ -82,11 +82,22 @@ def _volume_form(cfg) -> str:
 
 def _linear_form(cfg) -> str:
     note_html = f'<p class="form-note">{escape(cfg["calculator_note"])}</p>' if cfg.get("calculator_note") else ""
+    deduction_html = ""
+    if cfg.get("deduction_count_label"):
+        deduction_html = (
+            f'{_field(cfg, cfg["deduction_count_label"], "opening-count", "1", "1")}'
+            f'{_field(cfg, cfg.get("deduction_width_label", "Opening width"), "opening-width", "0.8", "0.01")}'
+        )
+    feature_html = ""
+    if cfg.get("feature_count_label"):
+        feature_html = f'{_field(cfg, cfg["feature_count_label"], "feature-count", "4", "1")}'
     return (
         '<div class="toggle-row units-row" role="tablist" aria-label="Units"><button class="unit-toggle is-active" data-unit="metric" type="button">Metric</button><button class="unit-toggle" data-unit="imperial" type="button">Imperial</button></div>'
         '<form class="calculator-form generic-calculator-form" data-formula="linear"><div class="field-grid">'
         f'{_field(cfg, cfg["length_label"], "length", "12", "0.01")}'
+        f'{deduction_html}'
         f'{_field(cfg, cfg["piece_length_label"], "piece-length", "2.4", "0.01")}'
+        f'{feature_html}'
         f'{_field(cfg, "Waste allowance (%)", "waste", "8", "1")}'
         f'{_field(cfg, cfg["price_label"], "price-per-unit", "15", "0.01")}'
         f'</div>{note_html}<button class="btn btn-primary btn-block" type="submit">Calculate quantity</button></form>'
@@ -149,6 +160,9 @@ def build_additional_calculator_pages():
             "costModel": cfg.get("cost_model", None),
             "regionProfiles": UK_REGION_PROFILES if formula == "project_cost" else [],
             "defaultRegion": cfg.get("defaults", {}).get("region", "national-average"),
+            "deductionLabel": cfg.get("deduction_label", "Opening deductions"),
+            "featureLabel": cfg.get("feature_label", "Corner allowance"),
+            "featureLengthAllowance": cfg.get("feature_length_allowance", 0),
         }
         html = render_calculator_page(
             slug=item["slug"],
