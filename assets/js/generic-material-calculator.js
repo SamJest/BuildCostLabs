@@ -19,6 +19,11 @@
   const resultBreakdown = document.getElementById("result-breakdown");
   const resultContext = document.getElementById("result-context");
   const intelligence = window.BuildCostLabCostIntel;
+  const estimateStatus = document.getElementById("generic-estimate-status");
+  const formulaSteps = document.getElementById("formula-steps");
+  const presetButtons = Array.from(document.querySelectorAll("[data-calculator-preset]"));
+  const estimateActionButtons = Array.from(document.querySelectorAll("[data-generic-estimate-action]"));
+  const savedEstimateKey = "bcl_generic_estimate_" + (window.location.pathname || "/");
 
   function unitLabel(count) {
     return count === 1 ? (config.unitNameSingular || "unit") : (config.unitNamePlural || "units");
@@ -92,6 +97,129 @@
   function setContext(text) {
     if (!resultContext) return;
     resultContext.textContent = text || "";
+  }
+
+  function setEstimateStatus(text) {
+    if (!estimateStatus) return;
+    estimateStatus.textContent = text || "";
+  }
+
+  function defaultFormulaSteps() {
+    if (config.formula === "volume") {
+      return [
+        "Volume = length x width x depth",
+        "Waste is added to the measured volume",
+        "Tonnes = adjusted volume x density",
+        "Buying units = tonnes / unit size, rounded up"
+      ];
+    }
+    if (config.formula === "linear") {
+      return [
+        "Measured run starts with the total length",
+        "Opening deductions and feature allowances are applied where available",
+        "Waste is added for cuts, joins, and spare length",
+        "Buying units = adjusted run / stock length, rounded up"
+      ];
+    }
+    if (config.formula === "project_cost") {
+      return [
+        "Scope = length x width",
+        "Complexity is added to the measured area",
+        "Materials, labour, and extras are weighted by the selected region",
+        "Contingency is added to create the planning total"
+      ];
+    }
+    return [
+      "Area = length x width",
+      "Waste is added to the measured area",
+      "Buying units = adjusted area / product coverage",
+      "The result rounds up to full packs, rolls, sheets, tubs, or tins"
+    ];
+  }
+
+  function renderFormulaSteps() {
+    if (!formulaSteps) return;
+    const steps = Array.isArray(config.formulaSteps) && config.formulaSteps.length
+      ? config.formulaSteps
+      : defaultFormulaSteps();
+    formulaSteps.innerHTML = steps.map(function (step) {
+      return `<li>${step}</li>`;
+    }).join("");
+  }
+
+  function currentSummaryText() {
+    const title = document.querySelector("h1") ? document.querySelector("h1").textContent.trim() : (config.name || "BuildCostLab estimate");
+    const rows = Array.from(document.querySelectorAll("#result-breakdown .break-row")).map(function (row) {
+      const parts = Array.from(row.children).map(function (node) {
+        return node.textContent.trim();
+      }).filter(Boolean);
+      return "- " + parts.join(": ");
+    });
+    const lines = [
+      title,
+      window.location.href,
+      "",
+      "Result: " + (resultMain ? resultMain.textContent.trim() : ""),
+      resultSub ? resultSub.textContent.trim() : "",
+      ""
+    ];
+    if (rows.length) {
+      lines.push("Breakdown:");
+      rows.forEach(function (row) { lines.push(row); });
+      lines.push("");
+    }
+    if (resultContext && resultContext.textContent.trim()) {
+      lines.push("Context:");
+      lines.push(resultContext.textContent.trim());
+    }
+    return lines.filter(function (line, index) {
+      return line || index < 2;
+    }).join("\n");
+  }
+
+  function saveSnapshot() {
+    const payload = {
+      savedAt: new Date().toISOString(),
+      title: config.name || "BuildCostLab estimate",
+      result: resultMain ? resultMain.textContent.trim() : "",
+      summary: resultSub ? resultSub.textContent.trim() : "",
+      url: window.location.href,
+      text: currentSummaryText()
+    };
+    try {
+      window.localStorage.setItem(savedEstimateKey, JSON.stringify(payload));
+      setEstimateStatus("Estimate snapshot saved on this device.");
+    } catch (error) {
+      setEstimateStatus("This browser could not save the snapshot. Copy or print the result instead.");
+    }
+  }
+
+  function restoreSnapshotNotice() {
+    try {
+      const raw = window.localStorage.getItem(savedEstimateKey);
+      if (!raw) return;
+      const payload = JSON.parse(raw);
+      if (payload && payload.result) {
+        setEstimateStatus("Saved snapshot on this device: " + payload.result + ".");
+      }
+    } catch (error) {
+      // Ignore stale localStorage payloads.
+    }
+  }
+
+  function applyPreset(index) {
+    const presets = Array.isArray(config.presets) ? config.presets : [];
+    const preset = presets[index];
+    if (!preset || !preset.values) return;
+    Object.keys(preset.values).forEach(function (id) {
+      const field = document.getElementById(id);
+      if (field) field.value = preset.values[id];
+    });
+    presetButtons.forEach(function (button) {
+      button.classList.toggle("is-active", Number(button.getAttribute("data-calculator-preset")) === index);
+    });
+    calculate();
+    setEstimateStatus("Preset loaded: " + (preset.label || "scenario") + ".");
   }
 
   function starterBreakdown() {
@@ -435,5 +563,35 @@
     });
   });
 
+  presetButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      applyPreset(Number(button.getAttribute("data-calculator-preset")));
+    });
+  });
+
+  estimateActionButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const action = button.getAttribute("data-generic-estimate-action");
+      if (action === "copy") {
+        navigator.clipboard.writeText(currentSummaryText()).then(function () {
+          setEstimateStatus("Estimate copied. Paste it into a quote request or notes.");
+        }).catch(function () {
+          setEstimateStatus("Copy failed in this browser. Try save or print instead.");
+        });
+        return;
+      }
+      if (action === "save") {
+        saveSnapshot();
+        return;
+      }
+      if (action === "print") {
+        window.print();
+        setEstimateStatus("Use the browser print dialog to save a PDF if needed.");
+      }
+    });
+  });
+
+  renderFormulaSteps();
   calculate();
+  restoreSnapshotNotice();
 })();

@@ -81,6 +81,29 @@ def render_calculator_hero_badges(formula: str) -> str:
     ) + '</div>'
 
 
+def render_custom_calculator_result_upgrade(family: dict, result_html: str) -> str:
+    if "data-generic-estimate-action" in result_html or "data-calculator-actions" in result_html:
+        return ""
+    formula = family.get("formula", "coverage")
+    return (
+        f'<div class="estimate-action-row" data-calculator-actions data-calculator-formula="{escape(formula or "coverage")}" data-calculator-name="{escape(family["name"])}">'
+        '<button class="btn btn-secondary" type="button" data-calculator-action="copy">Copy result</button>'
+        '<button class="btn btn-secondary" type="button" data-calculator-action="save">Save snapshot</button>'
+        '<button class="btn btn-secondary" type="button" data-calculator-action="print">Print / PDF</button>'
+        '</div>'
+        '<p class="estimate-action-status" id="calculator-action-status"></p>'
+        '<section class="formula-panel" data-calculator-formula-panel>'
+        '<div class="result-kicker">Formula check</div><h3>How this calculator works</h3><ol data-calculator-formula-steps></ol>'
+        '</section>'
+        '<section class="formula-panel shopping-list-panel" data-shopping-list-panel>'
+        '<div class="result-kicker">Shopping list</div><h3>Materials to check before ordering</h3><div class="detail-list" data-shopping-list></div>'
+        '</section>'
+        '<section class="formula-panel vat-panel" data-vat-panel>'
+        '<div class="result-kicker">VAT check</div><h3>UK VAT view</h3><p class="intelligence-copy">Material totals below show an indicative 20% VAT view when the result includes a material-cost row.</p><div class="detail-list" data-vat-breakdown></div>'
+        '</section>'
+    )
+
+
 def render_quality_strip(page_type: str) -> str:
     page_name = page_type if page_type not in {"project hub", "guide", "calculator"} else page_type
     use_copy = (
@@ -174,7 +197,9 @@ def _gsc_quick_answer_panel(family: dict) -> str:
         "zero_click_near_page_one": "Direct answer for an under-served search",
         "protect_and_expand_page_one": "Direct answer for a proven calculator search",
         "zero_click_high_impression": "Direct answer for a high-demand calculator search",
+        "pillar_rebuild_high_impression": "Full calculator answer for a high-demand search",
     }.get(gsc.get("opportunity_type"), "Direct answer for this calculator search")
+    strategy_note = family.get("gsc_strategy") or gsc.get("opportunity_type", "").replace("_", " ")
     return (
         '<section class="content-card gsc-answer-card">'
         '<div class="section-head">'
@@ -185,7 +210,7 @@ def _gsc_quick_answer_panel(family: dict) -> str:
         '<div class="global-term-grid">'
         f'<article><div class="quality-kicker">Best for</div><p>{escape(intent_label)}</p></article>'
         f'<article><div class="quality-kicker">Also searched as</div><div class="card-chip-row">{query_chips}</div></article>'
-        f'<article><div class="quality-kicker">Next step</div><p>Use the calculator below, then check the buying notes and linked tools before ordering or requesting prices.</p></article>'
+        f'<article><div class="quality-kicker">Search upgrade focus</div><p>{escape(strategy_note)}</p></article>'
         '</div>'
         '</section>'
     )
@@ -1704,7 +1729,7 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
         f'{render_calculator_hero_badges(family.get("formula", ""))}</section>'
         f'<section class="quality-strip" aria-label="Calculator summary">{summary_cards_html}</section>'
         f'{_gsc_quick_answer_panel(family)}'
-        f'<section class="calculator-layout" id="calculator"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_cost_intelligence_shell()}</aside></section>'
+        f'<section class="calculator-layout" id="calculator"><div class="content-card calculator-card">{form_html}</div><aside class="content-card result-card">{result_html}{render_custom_calculator_result_upgrade(family, result_html)}{render_cost_intelligence_shell()}</aside></section>'
         f'{render_recent_tools_panel("Recently used calculators")}'
         f'{render_ad_slot(f"{key}-top")}'
         f'{render_quality_strip("calculator")}'
@@ -1717,6 +1742,7 @@ def render_calculator_page(*, slug: str, title: str, description: str, intro: st
         '<script src="/assets/js/global-calculator.js"></script>'
         '<script src="/assets/js/cost-intelligence.js"></script>'
         '<script src="/assets/js/quote-brief.js"></script>'
+        '<script src="/assets/js/calculator-actions.js"></script>'
         f'<script src="/assets/js/{escape(script_name)}"></script>'
     )
     return render_layout(

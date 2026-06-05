@@ -50,10 +50,22 @@ def _select_field(label: str, field_id: str, options: list[tuple[str, str]], def
     return f'<label><span>{escape(label)}</span><select id="{escape(field_id)}">{options_html}</select></label>'
 
 
+def _preset_row(cfg) -> str:
+    presets = cfg.get("presets", [])
+    if not presets:
+        return ""
+    buttons = "".join(
+        f'<button class="preset-chip" type="button" data-calculator-preset="{index}">{escape(item["label"])}</button>'
+        for index, item in enumerate(presets)
+    )
+    return f'<div class="preset-row" aria-label="Scenario presets"><span>Start with</span>{buttons}</div>'
+
+
 def _coverage_form(cfg) -> str:
     note_html = f'<p class="form-note">{escape(cfg["calculator_note"])}</p>' if cfg.get("calculator_note") else ""
     return (
         '<div class="toggle-row units-row" role="tablist" aria-label="Units"><button class="unit-toggle is-active" data-unit="metric" type="button">Metric</button><button class="unit-toggle" data-unit="imperial" type="button">Imperial</button></div>'
+        f'{_preset_row(cfg)}'
         '<form class="calculator-form generic-calculator-form" data-formula="coverage"><div class="field-grid">'
         f'{_field(cfg, cfg["length_label"], "length", "4", "0.01")}'
         f'{_field(cfg, cfg["width_label"], "width", "3", "0.01")}'
@@ -68,6 +80,7 @@ def _volume_form(cfg) -> str:
     note_html = f'<p class="form-note">{escape(cfg["calculator_note"])}</p>' if cfg.get("calculator_note") else ""
     return (
         '<div class="toggle-row units-row" role="tablist" aria-label="Units"><button class="unit-toggle is-active" data-unit="metric" type="button">Metric</button><button class="unit-toggle" data-unit="imperial" type="button">Imperial</button></div>'
+        f'{_preset_row(cfg)}'
         '<form class="calculator-form generic-calculator-form" data-formula="volume"><div class="field-grid">'
         f'{_field(cfg, cfg["length_label"], "length", "4", "0.01")}'
         f'{_field(cfg, cfg["width_label"], "width", "3", "0.01")}'
@@ -93,6 +106,7 @@ def _linear_form(cfg) -> str:
         feature_html = f'{_field(cfg, cfg["feature_count_label"], "feature-count", "4", "1")}'
     return (
         '<div class="toggle-row units-row" role="tablist" aria-label="Units"><button class="unit-toggle is-active" data-unit="metric" type="button">Metric</button><button class="unit-toggle" data-unit="imperial" type="button">Imperial</button></div>'
+        f'{_preset_row(cfg)}'
         '<form class="calculator-form generic-calculator-form" data-formula="linear"><div class="field-grid">'
         f'{_field(cfg, cfg["length_label"], "length", "12", "0.01")}'
         f'{deduction_html}'
@@ -110,6 +124,7 @@ def _project_cost_form(cfg) -> str:
     default_region = cfg.get("defaults", {}).get("region", "national-average")
     return (
         '<div class="toggle-row units-row" role="tablist" aria-label="Units"><button class="unit-toggle is-active" data-unit="metric" type="button">Metric</button><button class="unit-toggle" data-unit="imperial" type="button">Imperial</button></div>'
+        f'{_preset_row(cfg)}'
         '<form class="calculator-form generic-calculator-form" data-formula="project_cost"><div class="field-grid">'
         f'{_field(cfg, cfg["length_label"], "length", "5", "0.01")}'
         f'{_field(cfg, cfg["width_label"], "width", "4", "0.01")}'
@@ -124,7 +139,7 @@ def _project_cost_form(cfg) -> str:
 
 
 def _result_panel(cfg) -> str:
-    return f"""<div class="result-kicker">Estimated result</div><h2 class="result-main">Enter your measurements</h2><p class="result-sub">{escape(cfg["result_intro"])}</p><div class="currency-pills" role="tablist" aria-label="Currency"><button class="currency-pill is-active" data-currency="GBP" type="button">GBP</button><button class="currency-pill" data-currency="USD" type="button">USD</button><button class="currency-pill" data-currency="EUR" type="button">EUR</button></div><div class="result-breakdown" id="result-breakdown"></div><p class="result-context" id="result-context"></p>"""
+    return f"""<div class="result-kicker">Estimated result</div><h2 class="result-main">Enter your measurements</h2><p class="result-sub">{escape(cfg["result_intro"])}</p><div class="currency-pills" role="tablist" aria-label="Currency"><button class="currency-pill is-active" data-currency="GBP" type="button">GBP</button><button class="currency-pill" data-currency="USD" type="button">USD</button><button class="currency-pill" data-currency="EUR" type="button">EUR</button></div><div class="result-breakdown" id="result-breakdown"></div><p class="result-context" id="result-context"></p><div class="estimate-action-row"><button class="btn btn-secondary" type="button" data-generic-estimate-action="copy">Copy result</button><button class="btn btn-secondary" type="button" data-generic-estimate-action="save">Save snapshot</button><button class="btn btn-secondary" type="button" data-generic-estimate-action="print">Print / PDF</button></div><p class="estimate-action-status" id="generic-estimate-status"></p><section class="formula-panel" id="formula-panel"><div class="result-kicker">Formula check</div><h3>How the estimate is worked out</h3><ol id="formula-steps"></ol></section>"""
 
 
 def build_additional_calculator_pages():
@@ -160,6 +175,9 @@ def build_additional_calculator_pages():
             "costModel": cfg.get("cost_model", None),
             "regionProfiles": UK_REGION_PROFILES if formula == "project_cost" else [],
             "defaultRegion": cfg.get("defaults", {}).get("region", "national-average"),
+            "presets": cfg.get("presets", []),
+            "formulaSteps": cfg.get("formula_steps", []),
+            "quoteBriefDefaults": cfg.get("quote_brief_defaults", {}),
             "deductionLabel": cfg.get("deduction_label", "Opening deductions"),
             "featureLabel": cfg.get("feature_label", "Corner allowance"),
             "featureLengthAllowance": cfg.get("feature_length_allowance", 0),

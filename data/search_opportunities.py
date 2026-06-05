@@ -356,3 +356,194 @@ PRIORITY_SLUGS = [
     slug
     for slug, item in sorted(SEARCH_OPPORTUNITIES.items(), key=lambda pair: pair[1]["priority"])
 ]
+
+
+JUNE_2026_GSC_STRATEGY = {
+    "paving-calculator": {
+        "priority": 1,
+        "meta_title": "Paving Calculator UK: Slabs, Pavers, Waste and Packs | BuildCostLab",
+        "meta_description": "Estimate paving slabs, pavers, pack coverage, waste, joint allowance, and rough material cost for patios, paths, and block paving planning.",
+        "quick_answer": "Measure the finished paved area, choose slab or paver coverage, add cut waste, then round up to whole slabs, packs, or the supplier's installed coverage.",
+        "gsc_strategy": "Pillar rebuild: high impressions, buried ranking, and zero clicks.",
+        "faqs": [
+            {"q": "How many paving slabs do I need?", "a": "Measure the finished area, divide by slab or pack coverage, add cut waste, then round up to whole slabs or the nearest supplier pack."},
+            {"q": "Should I calculate slabs, pavers, or pack coverage?", "a": "Use individual slab size for single-size layouts and supplier pack coverage for mixed packs, block paving, or pavers sold by installed area."},
+            {"q": "What else should I calculate with paving?", "a": "Check MOT Type 1 or sub-base, bedding sand, jointing compound, edge restraints, and patio cost separately so the slab total is not mistaken for the whole job."},
+        ],
+    },
+    "flooring-calculator": {
+        "priority": 2,
+        "meta_title": "Flooring Calculator UK: Room Area, Packs, Boxes and Waste | BuildCostLab",
+        "meta_description": "Estimate flooring packs, boxes, room area, board waste, spare allowance, and rough material cost for laminate, vinyl, wood, or similar floors.",
+        "quick_answer": "Measure each room, add layout waste, divide by the pack or box coverage, then round up to full packs before checking underlay and trims.",
+        "gsc_strategy": "Pillar rebuild: high impressions, buried ranking, and almost no CTR.",
+    },
+    "mot-type-1-calculator": {
+        "priority": 3,
+        "meta_title": "MOT Type 1 Calculator UK: Tonnes, Bulk Bags and Depth | BuildCostLab",
+        "meta_description": "Estimate MOT Type 1 volume, tonnes, bulk bags, compacted depth, waste, and rough cost for patios, paths, and driveway sub-bases.",
+        "quick_answer": "Multiply the base area by compacted depth, add waste, convert to tonnes, then round up to bulk bags or loose supply.",
+        "gsc_strategy": "Pillar rebuild: strong UK demand with buried average ranking.",
+    },
+    "hardcore-calculator": {
+        "priority": 4,
+        "meta_title": "Hardcore Calculator UK: Tonnes, Bulk Bags and Base Depth | BuildCostLab",
+        "gsc_strategy": "CTR and ranking lift: near page one with strong impressions.",
+    },
+    "laminate-flooring-calculator": {
+        "priority": 5,
+        "meta_title": "Laminate Flooring Calculator UK: Packs, Boxes, Waste | BuildCostLab",
+        "meta_description": "Estimate laminate flooring packs or boxes from room area, pack coverage, layout waste, spare stock, and rough material cost.",
+        "gsc_strategy": "Pillar rebuild: high impressions for flooring boxes intent.",
+    },
+    "skirting-board-calculator": {
+        "priority": 6,
+        "meta_title": "Skirting Board Calculator UK: Lengths, Boards, Mitres and Waste | BuildCostLab",
+        "gsc_strategy": "CTR and ranking lift: near page one with low CTR.",
+    },
+    "plasterboard-calculator": {
+        "priority": 7,
+        "meta_title": "Plasterboard Calculator UK: Sheets, Walls, Ceilings and Waste | BuildCostLab",
+        "meta_description": "Estimate plasterboard sheets for walls or ceilings from area, board size, openings, waste, and rough material cost.",
+        "quick_answer": "Measure wall or ceiling area, subtract useful openings, add board waste, then round up to full plasterboard sheets.",
+        "gsc_strategy": "Pillar rebuild: high impressions but buried ranking.",
+        "retention_next_steps": ["ceiling-plasterboard-calculator", "plasterboard-adhesive-calculator", "drywall-screws-calculator", "skim-plaster-calculator"],
+    },
+    "pea-gravel-calculator": {
+        "priority": 8,
+        "meta_title": "Pea Gravel Calculator UK: Bags, Tonnes, Depth and Area | BuildCostLab",
+        "gsc_strategy": "Pillar rebuild: high impressions and zero clicks.",
+    },
+    "loft-insulation-calculator": {
+        "priority": 9,
+        "meta_title": "Loft Insulation Calculator UK: Rolls, Area and Coverage | BuildCostLab",
+        "gsc_strategy": "Pillar rebuild: UK modifier demand with buried ranking.",
+    },
+    "tile-backer-board-calculator": {
+        "priority": 10,
+        "meta_title": "Tile Backer Board Calculator UK: Sheets, Area and Waste | BuildCostLab",
+        "gsc_strategy": "Page-one CTR lift: visible but under-clicked.",
+    },
+    "roof-felt-calculator": {
+        "priority": 11,
+        "meta_title": "Roof Felt Calculator UK: Rolls, Overlap, Waste and Coverage | BuildCostLab",
+        "gsc_strategy": "CTR and ranking lift: near page one with weak CTR.",
+    },
+    "tile-adhesive-calculator": {
+        "priority": 12,
+        "meta_title": "Tile Adhesive Calculator UK: Bags, Area and Trowel Coverage | BuildCostLab",
+        "gsc_strategy": "Pillar rebuild: high impressions and zero clicks.",
+    },
+    "decking-calculator": {
+        "priority": 13,
+        "target_queries": ["decking calculator", "deck board calculator", "decking boards calculator"],
+        "meta_title": "Decking Calculator UK: Boards, Area, Screws and Waste | BuildCostLab",
+        "meta_description": "Estimate decking boards, area, waste, fixings, and rough material cost before checking joists, screws, and a fuller deck cost plan.",
+        "quick_answer": "Measure the deck footprint, choose board or pack coverage, add cut waste, then check boards, fixings, joists, trims, and cost as separate buying lines.",
+        "regional_terms": {
+            "also_known_as": ["deck board calculator", "decking boards calculator", "deck material calculator"],
+            "buying_notes": "UK searches usually say decking; other markets may say deck boards. Board size, joist layout, fixing rate, and spare stock decide the real order.",
+            "unit_examples": "Use m2 or sq ft for area, then compare board lengths, packs, screws, and framing pieces separately.",
+        },
+        "retention_next_steps": ["decking-cost-calculator", "deck-joist-calculator", "deck-screws-calculator", "patio-cost-calculator"],
+        "gsc_strategy": "Pillar rebuild: high impressions and zero clicks.",
+    },
+    "coving-calculator": {
+        "priority": 14,
+        "meta_title": "Coving Calculator UK: Lengths, Corners, Mitres and Waste | BuildCostLab",
+        "gsc_strategy": "CTR and ranking lift: near page one with weak CTR.",
+    },
+    "pipe-bedding-calculator": {
+        "priority": 15,
+        "meta_title": "Pipe Bedding Calculator UK: Trench Volume, Tonnes and Bags | BuildCostLab",
+        "gsc_strategy": "Protect and expand: best current calculator performer.",
+    },
+    "gutter-calculator": {
+        "priority": 16,
+        "target_queries": ["gutter calculator", "gutter length calculator", "rain gutter calculator"],
+        "meta_title": "Gutter Calculator UK: Lengths, Runs, Downpipes and Waste | BuildCostLab",
+        "meta_description": "Estimate gutter lengths, roof-edge runs, downpipe checks, waste, and rough material cost for roofline planning.",
+        "quick_answer": "Measure each roof-edge run, add joins and waste, then round up to full gutter lengths before checking outlets, brackets, corners, and downpipes.",
+        "regional_terms": {
+            "also_known_as": ["rain gutter calculator", "gutter length calculator", "roof gutter calculator"],
+            "buying_notes": "Gutter systems vary by profile, colour, outlet type, and bracket spacing. The useful estimate starts with run length, then checks fittings.",
+            "unit_examples": "Use metres or feet, then compare 2m, 3m, 4m, 10 ft, or 12 ft stock lengths plus fittings.",
+        },
+        "retention_next_steps": ["downpipe-calculator", "fascia-calculator", "soffit-calculator", "gutter-guard-calculator"],
+        "gsc_strategy": "Pillar rebuild: high impressions and zero clicks.",
+    },
+    "cladding-calculator": {
+        "priority": 17,
+        "meta_title": "Cladding Calculator UK: Boards, Wall Area, Overlap and Waste | BuildCostLab",
+        "meta_description": "Estimate cladding boards or packs from wall area, installed board coverage, overlap, openings, waste, and rough material cost.",
+        "quick_answer": "Measure the cladded wall area, use installed board coverage after overlap, add waste, then round up to full boards or packs.",
+        "gsc_strategy": "Pillar rebuild: ranking already improving but CTR is weak.",
+    },
+    "turf-calculator": {
+        "priority": 18,
+        "meta_title": "Turf Calculator UK: Lawn Rolls, Area and Waste | BuildCostLab",
+        "meta_description": "Estimate turf rolls from lawn area, roll coverage, edge trimming, waste, delivery timing, and rough material cost.",
+        "quick_answer": "Measure the lawn area, divide by turf roll coverage, add edge-trimming waste, then round up to full rolls.",
+        "gsc_strategy": "Pillar rebuild: high impressions and buried ranking.",
+    },
+    "render-calculator": {
+        "priority": 19,
+        "meta_title": "Render Calculator UK: Bags, Wall Area, Coverage and Waste | BuildCostLab",
+        "meta_description": "Estimate render bags or units from wall area, product coverage, substrate allowance, waste, and rough material cost.",
+        "quick_answer": "Measure wall area, choose realistic bag coverage for the render system, add waste, then round up to full bags or tubs.",
+        "gsc_strategy": "Pillar rebuild: mid-volume demand with weak ranking.",
+    },
+    "shed-felt-calculator": {
+        "priority": 20,
+        "meta_title": "Shed Felt Calculator UK: Rolls, Roof Area, Overlap and Waste | BuildCostLab",
+        "gsc_strategy": "CTR and ranking lift: near page one but still under-clicked.",
+    },
+    "geotextile-membrane-calculator": {
+        "priority": 21,
+        "meta_title": "Geotextile Membrane Calculator UK: Rolls, Area and Overlap | BuildCostLab",
+        "gsc_strategy": "Page-one CTR lift: protect ranking and improve snippet relevance.",
+    },
+    "paving-jointing-compound-calculator": {
+        "priority": 22,
+        "meta_title": "Paving Jointing Compound Calculator UK: Tubs, Area and Joints | BuildCostLab",
+        "gsc_strategy": "Zero-click near-page-one rescue.",
+    },
+    "weed-membrane-calculator": {
+        "priority": 23,
+        "target_queries": ["weed membrane calculator", "landscape fabric calculator", "geotextile membrane calculator"],
+        "meta_title": "Weed Membrane Calculator UK: Rolls, Area, Overlap and Waste | BuildCostLab",
+        "meta_description": "Estimate weed membrane or landscape fabric rolls from covered area, overlap, edge turn-ups, waste, and rough material cost.",
+        "quick_answer": "Measure the covered area, add overlap and trimming allowance, divide by effective roll coverage, then round up to full rolls.",
+        "regional_terms": {
+            "also_known_as": ["landscape fabric calculator", "geotextile membrane calculator", "weed control fabric calculator"],
+            "buying_notes": "UK searches often say weed membrane; other markets may say landscape fabric. Effective coverage after overlap matters more than nominal roll size.",
+            "unit_examples": "Use m2 or sq ft and compare full rolls after overlaps, edge turn-ups, and cuts are included.",
+        },
+        "retention_next_steps": ["geotextile-membrane-calculator", "gravel-calculator", "pea-gravel-calculator", "mulch-calculator"],
+        "gsc_strategy": "CTR and ranking lift: near page one with low CTR.",
+    },
+    "sleepers-calculator": {
+        "priority": 24,
+        "target_queries": ["sleepers calculator", "garden sleeper calculator", "how to measure sleeper size"],
+        "meta_title": "Garden Sleepers Calculator UK: Lengths, Courses, Waste | BuildCostLab",
+        "meta_description": "Estimate garden sleeper lengths, courses, pieces, cut waste, and rough material cost for beds, edging, and retaining features.",
+        "quick_answer": "Measure the run and course height, choose sleeper length, add cut waste, then round up to whole sleepers before checking fixings and posts.",
+        "regional_terms": {
+            "also_known_as": ["garden sleeper calculator", "railway sleeper calculator", "landscape timber calculator"],
+            "buying_notes": "Sleeper, railway sleeper, and landscape timber wording varies, but the order still depends on run length, courses, corners, and stock length.",
+            "unit_examples": "Use metres or feet, then compare 1.8m, 2.4m, 3m, 8 ft, or 10 ft sleeper lengths.",
+        },
+        "retention_next_steps": ["edging-calculator", "gravel-board-calculator", "topsoil-calculator", "mulch-calculator"],
+        "gsc_strategy": "Protect and expand: page-one performer with room for support intent.",
+    },
+}
+
+
+for slug, updates in JUNE_2026_GSC_STRATEGY.items():
+    current = SEARCH_OPPORTUNITIES.setdefault(slug, {})
+    current.update(updates)
+
+PRIORITY_SLUGS = [
+    slug
+    for slug, item in sorted(SEARCH_OPPORTUNITIES.items(), key=lambda pair: pair[1]["priority"])
+]

@@ -30,6 +30,7 @@ from generators.location_pages import build_location_pages, build_locations_inde
 from data.publisher import SITE, TRUST_PAGES
 from data.locations import get_all_locations
 from data.workflows import get_all_workflows
+from data.gsc_priority import GSC_BASELINE
 
 CALCULATOR_TARGETS = [
     ("paint_calculator", "paint-calculator", "paint"),
@@ -330,6 +331,7 @@ def build_launch_readiness_report() -> str:
                 "duplicate_titles": len(seo.get("duplicate_titles", {})),
                 "duplicate_descriptions": len(seo.get("duplicate_descriptions", {})),
             },
+            "gsc_baseline": GSC_BASELINE,
         },
         indent=2,
     )

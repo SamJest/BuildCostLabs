@@ -79,7 +79,7 @@
     {
       "path": "/calculators/cladding-calculator/",
       "type": "calculator",
-      "title": "Cladding Calculator | BuildCostLab",
+      "title": "Cladding Calculator UK: Boards, Wall Area, Overlap and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -103,7 +103,7 @@
     {
       "path": "/calculators/coving-calculator/",
       "type": "calculator",
-      "title": "Coving &amp; Cornice Calculator: Lengths, Corners, Waste | BuildCostLab",
+      "title": "Coving Calculator UK: Lengths, Corners, Mitres and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -127,7 +127,7 @@
     {
       "path": "/calculators/decking-calculator/",
       "type": "calculator",
-      "title": "Decking Calculator | BuildCostLab",
+      "title": "Decking Calculator UK: Boards, Area, Screws and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -229,7 +229,7 @@
     {
       "path": "/calculators/flooring-calculator/",
       "type": "calculator",
-      "title": "Flooring Calculator for Packs, Room Area, and Waste | BuildCostLab",
+      "title": "Flooring Calculator UK: Room Area, Packs, Boxes and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -265,7 +265,7 @@
     {
       "path": "/calculators/geotextile-membrane-calculator/",
       "type": "calculator",
-      "title": "Geotextile Membrane Calculator: Rolls, Overlap, Waste | BuildCostLab",
+      "title": "Geotextile Membrane Calculator UK: Rolls, Area and Overlap | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -289,7 +289,7 @@
     {
       "path": "/calculators/gutter-calculator/",
       "type": "calculator",
-      "title": "Gutter Calculator for Roof Runs, Lengths, and Joints | BuildCostLab",
+      "title": "Gutter Calculator UK: Lengths, Runs, Downpipes and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -301,7 +301,7 @@
     {
       "path": "/calculators/hardcore-calculator/",
       "type": "calculator",
-      "title": "Hardcore &amp; Crushed Stone Calculator: Tonnes, Bulk Bags, Depth | BuildCostLab",
+      "title": "Hardcore Calculator UK: Tonnes, Bulk Bags and Base Depth | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -336,13 +336,13 @@
     {
       "path": "/calculators/laminate-flooring-calculator/",
       "type": "calculator",
-      "title": "Laminate Flooring Calculator: Packs, Boxes, Waste | BuildCostLab",
+      "title": "Laminate Flooring Calculator UK: Packs, Boxes, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/loft-insulation-calculator/",
       "type": "calculator",
-      "title": "Loft and Attic Insulation Calculator for Rolls and Area | BuildCostLab",
+      "title": "Loft Insulation Calculator UK: Rolls, Area and Coverage | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -366,7 +366,7 @@
     {
       "path": "/calculators/mot-type-1-calculator/",
       "type": "calculator",
-      "title": "MOT Type 1 Calculator: Sub-Base Tonnes, Bulk Bags, Depth | BuildCostLab",
+      "title": "MOT Type 1 Calculator UK: Tonnes, Bulk Bags and Depth | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -396,13 +396,13 @@
     {
       "path": "/calculators/paving-calculator/",
       "type": "calculator",
-      "title": "Paving &amp; Paver Calculator: Slabs, Area, Waste | BuildCostLab",
+      "title": "Paving Calculator UK: Slabs, Pavers, Waste and Packs | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/paving-jointing-compound-calculator/",
       "type": "calculator",
-      "title": "Paving Jointing Compound Calculator: Patio Joints &amp; Paver Sand | BuildCostLab",
+      "title": "Paving Jointing Compound Calculator UK: Tubs, Area and Joints | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -414,13 +414,13 @@
     {
       "path": "/calculators/pea-gravel-calculator/",
       "type": "calculator",
-      "title": "Pea Gravel Calculator for Bags, Tons, and Cubic Yards | BuildCostLab",
+      "title": "Pea Gravel Calculator UK: Bags, Tonnes, Depth and Area | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/pipe-bedding-calculator/",
       "type": "calculator",
-      "title": "Pipe Bedding Calculator for Drainage Trenches | BuildCostLab",
+      "title": "Pipe Bedding Calculator UK: Trench Volume, Tonnes and Bags | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -438,7 +438,7 @@
     {
       "path": "/calculators/plasterboard-calculator/",
       "type": "calculator",
-      "title": "Plasterboard and Drywall Calculator for Sheets and Waste | BuildCostLab",
+      "title": "Plasterboard Calculator UK: Sheets, Walls, Ceilings and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -462,7 +462,7 @@
     {
       "path": "/calculators/render-calculator/",
       "type": "calculator",
-      "title": "Render Calculator | BuildCostLab",
+      "title": "Render Calculator UK: Bags, Wall Area, Coverage and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -480,7 +480,7 @@
     {
       "path": "/calculators/roof-felt-calculator/",
       "type": "calculator",
-      "title": "Roof Felt Calculator: Rolls, Overlap, Waste | BuildCostLab",
+      "title": "Roof Felt Calculator UK: Rolls, Overlap, Waste and Coverage | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -528,7 +528,7 @@
     {
       "path": "/calculators/shed-felt-calculator/",
       "type": "calculator",
-      "title": "Shed Felt Calculator: Roof Rolls, Overlap, Waste | BuildCostLab",
+      "title": "Shed Felt Calculator UK: Rolls, Roof Area, Overlap and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -546,7 +546,7 @@
     {
       "path": "/calculators/skirting-board-calculator/",
       "type": "calculator",
-      "title": "Skirting Board &amp; Baseboard Calculator: Boards, Corners, Waste | BuildCostLab",
+      "title": "Skirting Board Calculator UK: Lengths, Boards, Mitres and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -558,7 +558,7 @@
     {
       "path": "/calculators/sleepers-calculator/",
       "type": "calculator",
-      "title": "Sleepers Calculator | BuildCostLab",
+      "title": "Garden Sleepers Calculator UK: Lengths, Courses, Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -576,13 +576,13 @@
     {
       "path": "/calculators/tile-adhesive-calculator/",
       "type": "calculator",
-      "title": "Tile Adhesive Calculator: Bags, Area, Trowel Coverage | BuildCostLab",
+      "title": "Tile Adhesive Calculator UK: Bags, Area and Trowel Coverage | BuildCostLab",
       "section": "calculators"
     },
     {
       "path": "/calculators/tile-backer-board-calculator/",
       "type": "calculator",
-      "title": "Tile Backer Board Calculator: Sheets, Area, Waste | BuildCostLab",
+      "title": "Tile Backer Board Calculator UK: Sheets, Area and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -612,7 +612,7 @@
     {
       "path": "/calculators/turf-calculator/",
       "type": "calculator",
-      "title": "Turf Calculator for Lawn Rolls, Area, and Waste | BuildCostLab",
+      "title": "Turf Calculator UK: Lawn Rolls, Area and Waste | BuildCostLab",
       "section": "calculators"
     },
     {
@@ -636,7 +636,7 @@
     {
       "path": "/calculators/weed-membrane-calculator/",
       "type": "calculator",
-      "title": "Weed Membrane Calculator | BuildCostLab",
+      "title": "Weed Membrane Calculator UK: Rolls, Area, Overlap and Waste | BuildCostLab",
       "section": "calculators"
     },
     {

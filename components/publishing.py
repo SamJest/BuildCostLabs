@@ -226,9 +226,28 @@ def render_software_application_schema(*, name: str, description: str, path: str
             "@type": "SoftwareApplication",
             "name": name,
             "applicationCategory": category,
+            "applicationSubCategory": "Construction estimating calculator",
             "operatingSystem": "Web",
+            "browserRequirements": "Requires JavaScript in a modern web browser",
+            "isAccessibleForFree": True,
+            "featureList": [
+                "Metric and imperial inputs",
+                "Waste-aware quantity estimate",
+                "Whole-unit buying rounding",
+                "Rough material cost output",
+                "Copy, save, print, and quote-prep support",
+            ],
             "description": description,
             "url": absolute_url(path),
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "GBP",
+            },
+            "potentialAction": {
+                "@type": "UseAction",
+                "target": absolute_url(path),
+            },
         }
     )
 

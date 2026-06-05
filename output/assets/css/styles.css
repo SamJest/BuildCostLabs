@@ -137,6 +137,31 @@ a{color:inherit}
 .calculator-form label{display:grid;gap:.38rem}
 .calculator-form span{font-size:.92rem;font-weight:700}
 .form-note{margin:.2rem 0 0;color:var(--muted);line-height:1.6}
+.preset-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.5rem;
+  margin:.2rem 0 .9rem;
+  color:var(--muted);
+  font-weight:700;
+}
+.preset-row>span{font-size:.86rem;text-transform:uppercase;letter-spacing:.04em;color:#4b78bc}
+.preset-chip{
+  border:1px solid var(--line-2);
+  background:#fff;
+  color:#214777;
+  border-radius:999px;
+  padding:.55rem .75rem;
+  font:inherit;
+  font-weight:800;
+  cursor:pointer;
+}
+.preset-chip.is-active{
+  background:linear-gradient(135deg, rgba(79,143,255,.14), rgba(125,109,255,.14));
+  border-color:#7aa8ff;
+  color:#18375f;
+}
 .calculator-form input{
   width:100%;
   min-height:3rem;
@@ -163,6 +188,27 @@ a{color:inherit}
 .result-context{margin:.85rem 0 0;color:var(--muted);line-height:1.55}
 .currency-pills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem;margin-top:.9rem}
 .result-breakdown{margin-top:1rem}
+.estimate-action-row{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.55rem;
+  margin-top:1rem;
+}
+.estimate-action-status{
+  min-height:1.35rem;
+  margin:.7rem 0 0;
+  color:#315cae;
+  font-weight:700;
+  line-height:1.45;
+}
+.formula-panel{
+  margin-top:1rem;
+  padding-top:1rem;
+  border-top:1px solid var(--line);
+}
+.formula-panel h3{margin:.35rem 0 .55rem;font-size:1rem;line-height:1.2}
+.formula-panel ol{margin:.2rem 0 0;padding-left:1.25rem;color:var(--muted);line-height:1.6}
+.formula-panel li+li{margin-top:.35rem}
 .break-row{display:flex;justify-content:space-between;gap:1rem;padding:.68rem 0;border-top:1px solid var(--line)}
 .break-row span{color:var(--muted)}
 .break-row strong{color:var(--text)}
@@ -215,6 +261,7 @@ a{color:inherit}
   .toggle-row{grid-template-columns:repeat(3,minmax(0,1fr))}
   .units-row{grid-template-columns:repeat(2,minmax(0,1fr))}
   .calculator-form .field-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .estimate-action-row{grid-template-columns:repeat(3,minmax(0,1fr))}
   .mini-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .scenario-grid,.compare-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }

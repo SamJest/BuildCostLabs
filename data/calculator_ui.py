@@ -1065,3 +1065,113 @@ CALCULATOR_UI = {
         "confidence_text": "Use the higher estimate when the room connects to a hall, has angled walls, or needs same-batch spare stock."
     }
 }
+
+
+JUNE_2026_UX_UPGRADES = {
+    "hardcore-calculator": {
+        "presets": [
+            {"label": "Patio base", "values": {"length": "5", "width": "3", "depth": "0.1", "density": "1.7", "unit-size": "0.85", "waste": "10", "price-per-unit": "72"}},
+            {"label": "Shed base", "values": {"length": "3", "width": "2.4", "depth": "0.075", "density": "1.7", "unit-size": "0.85", "waste": "12", "price-per-unit": "72"}},
+            {"label": "Loose tonnes", "values": {"length": "8", "width": "3", "depth": "0.12", "density": "1.7", "unit-size": "1", "waste": "10", "price-per-unit": "58"}},
+        ],
+        "formula_steps": ["Area = length x width", "Volume = area x installed depth", "Buying tonnes = volume x density x waste allowance", "Bulk bags = tonnes / bag size, rounded up"],
+    },
+    "mot-type-1-calculator": {
+        "presets": [
+            {"label": "Patio sub-base", "values": {"length": "6", "width": "3", "depth": "0.1", "density": "1.8", "unit-size": "0.85", "waste": "10", "price-per-unit": "76"}},
+            {"label": "Driveway base", "values": {"length": "8", "width": "3", "depth": "0.15", "density": "1.8", "unit-size": "1", "waste": "12", "price-per-unit": "58"}},
+            {"label": "Path base", "values": {"length": "10", "width": "1.2", "depth": "0.075", "density": "1.8", "unit-size": "0.85", "waste": "10", "price-per-unit": "76"}},
+        ],
+        "formula_steps": ["Area = length x width", "Compacted volume = area x Type 1 depth", "Tonnes = compacted volume x density x waste", "Order units = tonnes / bulk bag or loose tonne size, rounded up"],
+    },
+    "pipe-bedding-calculator": {
+        "presets": [
+            {"label": "Short drain run", "values": {"length": "15", "width": "0.3", "depth": "0.1", "density": "1.6", "unit-size": "0.85", "waste": "10", "price-per-unit": "74"}},
+            {"label": "Longer trench", "values": {"length": "30", "width": "0.35", "depth": "0.1", "density": "1.6", "unit-size": "1", "waste": "12", "price-per-unit": "55"}},
+        ],
+        "formula_steps": ["Bedding volume = trench run x bedding width x bedding depth", "Waste is added for trench variation and fittings", "Tonnes = adjusted volume x bedding density", "Order quantity rounds up to full bags or tonnes"],
+    },
+    "skirting-board-calculator": {
+        "presets": [
+            {"label": "Single room", "values": {"length": "15.2", "opening-count": "1", "opening-width": "0.8", "piece-length": "4.2", "waste": "10", "price-per-unit": "18"}},
+            {"label": "Hallway", "values": {"length": "22", "opening-count": "4", "opening-width": "0.85", "piece-length": "4.2", "waste": "12", "price-per-unit": "18"}},
+            {"label": "Baseboard", "values": {"length": "48", "opening-count": "2", "opening-width": "3", "piece-length": "12", "waste": "10", "price-per-unit": "14"}},
+        ],
+        "formula_steps": ["Measured run = wall run minus doorway deductions", "Waste is added for mitres, corners, and short returns", "Board count = adjusted run / stock length", "Buying count rounds up to full boards"],
+    },
+    "coving-calculator": {
+        "presets": [
+            {"label": "Bedroom", "values": {"length": "14", "piece-length": "2", "waste": "12", "price-per-unit": "9"}},
+            {"label": "Lounge", "values": {"length": "19", "piece-length": "3", "waste": "12", "price-per-unit": "13"}},
+        ],
+        "formula_steps": ["Run length starts with the ceiling perimeter", "Waste covers mitres, damaged cuts, and short returns", "Lengths = adjusted run / stock length", "The result rounds up to full coving lengths"],
+    },
+    "roof-felt-calculator": {
+        "presets": [
+            {"label": "Small roof", "values": {"length": "5", "width": "4", "coverage-per-unit": "10", "waste": "12", "price-per-unit": "34"}},
+            {"label": "Outbuilding", "values": {"length": "6", "width": "4.5", "coverage-per-unit": "10", "waste": "15", "price-per-unit": "34"}},
+        ],
+        "formula_steps": ["Roof area = length x width", "Waste covers laps, edges, and roll breaks", "Roll count = adjusted area / effective roll coverage", "Buying count rounds up to full rolls"],
+    },
+    "tile-backer-board-calculator": {
+        "presets": [
+            {"label": "Bathroom walls", "values": {"length": "3.2", "width": "2.4", "coverage-per-unit": "1.44", "waste": "10", "price-per-unit": "18"}},
+            {"label": "Shower area", "values": {"length": "2.4", "width": "2.1", "coverage-per-unit": "1.44", "waste": "12", "price-per-unit": "18"}},
+        ],
+        "formula_steps": ["Board area = length x width", "Waste covers cuts around corners, pipes, and fixtures", "Sheet count = adjusted area / board coverage", "The result rounds up to whole boards or packs"],
+    },
+    "geotextile-membrane-calculator": {
+        "presets": [
+            {"label": "Driveway layer", "values": {"length": "8", "width": "3", "coverage-per-unit": "45", "waste": "12", "price-per-unit": "42"}},
+            {"label": "Garden path", "values": {"length": "12", "width": "1.2", "coverage-per-unit": "25", "waste": "12", "price-per-unit": "24"}},
+        ],
+        "formula_steps": ["Covered area = length x width", "Overlap and edge trimming are handled as waste", "Roll count = adjusted area / effective roll coverage", "Buying count rounds up to full rolls"],
+    },
+    "paving-jointing-compound-calculator": {
+        "presets": [
+            {"label": "Patio", "values": {"length": "4", "width": "3", "coverage-per-unit": "12", "waste": "10", "price-per-unit": "38"}},
+            {"label": "Large patio", "values": {"length": "6", "width": "4", "coverage-per-unit": "12", "waste": "12", "price-per-unit": "38"}},
+        ],
+        "formula_steps": ["Paved area = length x width", "Waste covers joint variation and product loss", "Tubs or bags = adjusted area / product coverage", "The result rounds up to whole tubs or bags"],
+    },
+    "laminate-flooring-calculator": {
+        "presets": [
+            {"label": "Bedroom", "values": {"length": "4.4", "width": "3.6", "coverage-per-unit": "2.22", "waste": "10", "price-per-unit": "34"}},
+            {"label": "Hall link", "values": {"length": "6", "width": "1.4", "coverage-per-unit": "2.22", "waste": "14", "price-per-unit": "34"}},
+            {"label": "Lounge", "values": {"length": "5.2", "width": "4.1", "coverage-per-unit": "2.22", "waste": "10", "price-per-unit": "34"}},
+        ],
+        "formula_steps": ["Room area = length x width", "Waste covers board direction, edge cuts, and spare-stock policy", "Packs = adjusted area / pack coverage", "Buying count rounds up to whole packs"],
+    },
+    "plasterboard-calculator": {
+        "presets": [
+            {"label": "Wall sheets", "values": {"length": "5", "width": "2.4", "coverage-per-unit": "2.88", "waste": "10", "price-per-unit": "13"}},
+            {"label": "Ceiling sheets", "values": {"length": "4", "width": "3.5", "coverage-per-unit": "2.88", "waste": "12", "price-per-unit": "13"}},
+        ],
+        "formula_steps": ["Boarded area = length x width", "Waste covers openings, offcuts, and handling loss", "Sheets = adjusted area / board coverage", "Buying count rounds up to full sheets"],
+    },
+    "loft-insulation-calculator": {
+        "presets": [
+            {"label": "Top-up rolls", "values": {"length": "7", "width": "5", "coverage-per-unit": "8.3", "waste": "8", "price-per-unit": "32"}},
+            {"label": "Full loft", "values": {"length": "9", "width": "6", "coverage-per-unit": "8.3", "waste": "10", "price-per-unit": "32"}},
+        ],
+        "formula_steps": ["Loft area = length x width", "Waste covers cuts around hatch, tanks, and eaves", "Rolls = adjusted area / roll coverage", "The result rounds up to full rolls"],
+    },
+    "pea-gravel-calculator": {
+        "presets": [
+            {"label": "Garden path", "values": {"length": "8", "width": "1.2", "depth": "0.04", "density": "1.6", "unit-size": "0.85", "waste": "10", "price-per-unit": "78"}},
+            {"label": "Border mulch", "values": {"length": "6", "width": "2", "depth": "0.05", "density": "1.6", "unit-size": "0.85", "waste": "10", "price-per-unit": "78"}},
+        ],
+        "formula_steps": ["Area = length x width", "Volume = area x depth", "Tonnes = adjusted volume x density", "Order units round up to full bags or tonnes"],
+    },
+    "shed-felt-calculator": {
+        "presets": [
+            {"label": "Apex shed", "values": {"length": "3", "width": "2.4", "coverage-per-unit": "8", "waste": "15", "price-per-unit": "32"}},
+            {"label": "Small pent", "values": {"length": "2.4", "width": "1.8", "coverage-per-unit": "8", "waste": "12", "price-per-unit": "32"}},
+        ],
+        "formula_steps": ["Roof area starts with each felted slope", "Overlap, ridge, drips, and edge waste are added", "Rolls = adjusted area / installed roll coverage", "Buying count rounds up to full rolls"],
+    },
+}
+
+
+for slug, updates in JUNE_2026_UX_UPGRADES.items():
+    CALCULATOR_UI.setdefault(slug, {}).update(updates)

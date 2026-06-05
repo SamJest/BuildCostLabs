@@ -1,6 +1,6 @@
 {
   "site": "BuildCostLab",
-  "generated_on": "2026-05-22",
+  "generated_on": "2026-06-04",
   "counts": {
     "pages": 478,
     "calculators": 103,
@@ -35,5 +35,19 @@
     "issues": 0,
     "duplicate_titles": 0,
     "duplicate_descriptions": 0
+  },
+  "gsc_baseline": {
+    "export_date": "2026-06-04",
+    "date_range": "Last 3 months",
+    "clicks": 107,
+    "impressions": 19071,
+    "ctr": 0.0056,
+    "indexed_pages": 408,
+    "not_indexed_pages": 72,
+    "coverage_issues": {
+      "page_with_redirect": 1,
+      "crawled_currently_not_indexed": 13,
+      "discovered_currently_not_indexed": 58
+    }
   }
 }
